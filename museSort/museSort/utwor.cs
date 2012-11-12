@@ -8,14 +8,14 @@ namespace museSort
 {
     class utwor
     {
-        String sciezka;
-        String nazwa;
-        String rozszerzenie;
-        String wykonawca;
-        String tytul;
-        String album;
-        int numer;
-        TagLib.File tagi;
+        public String sciezka;
+        public String nazwa;
+        public String rozszerzenie;
+        public String wykonawca;
+        public String tytul;
+        public String album;
+        public int numer;
+        public TagLib.File tagi;
 
         public utwor(String path)
         {
