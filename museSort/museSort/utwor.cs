@@ -22,10 +22,15 @@ namespace museSort
             sciezka = path;
             String[] droga = sciezka.Split('/');
             String[] temp = droga[droga.Length - 1].Split('.');
-            nazwa = temp[temp.Length - 2];
+            nazwa = "";
+            for (int i = 0; i < temp.Length-2; i++)
+            {
+                nazwa += temp[i] + ".";
+            }
+            nazwa += temp[temp.Length - 2];
             rozszerzenie = temp[temp.Length - 1];
             
-            if (!rozszerzenie.Equals("mp3") && !!rozszerzenie.Equals("flac"))
+            if (!rozszerzenie.Equals("mp3") && !rozszerzenie.Equals("flac"))
             {
                 nazwa = "Błędne rozszerzenie pliku!!!";
             }
