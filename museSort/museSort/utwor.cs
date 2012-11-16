@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TagLib;
-using System.Text.RegularExpressions; //regex
+using System.Text.RegularExpressions;
 
 namespace museSort
 {
@@ -46,7 +46,7 @@ namespace museSort
         }
 
         //pobieranie danych z tagu i nazwy pliku
-        private void pobranie_danych()
+        private void pobranie_danych()                      //wpisanie danych do obiektów w klasie
         {
             nazwa = usun_zanki_spec(nazwa);                 //zamiana na duże litery, bez znaków specjalnych
 
@@ -56,7 +56,7 @@ namespace museSort
             gatunek = tagi.Tag.Genres;                      //pobranie gatunku
             numer = int.Parse(tagi.Tag.Track.ToString());   //pobranie numeru piosenki
 
-            if (wykonawca.Length == 0) wykonawca = null;    //sprawdzenie tagu
+            if (wykonawca.Length == 0) wykonawca[0] = "";    //sprawdzenie tagu
             else 
             {                                               //jeżeli są to:
                 for (int i = 0; i < wykonawca.Length; i++ ) //zamiana na duże litery, bez znaków specjalnych
@@ -65,7 +65,7 @@ namespace museSort
                 }
             }
 
-            if (gatunek.Length == 0) gatunek = null;        //j.w.
+            if (gatunek.Length == 0) gatunek[0] = "";        //j.w.
             else 
             {
                 for (int i = 0; i < gatunek.Length; i++)
@@ -118,13 +118,13 @@ namespace museSort
               //else  { wykonawca i tytuł zawierają null }
             }
 
-            //-----------------------TEST------------------------------
+            /*//-----------------------TEST------------------------------
             if (tytul != null) System.Console.WriteLine("\ntytuł: " + tytul);
             System.Console.WriteLine("album : " + album);
             if (wykonawca != null) System.Console.WriteLine("wykonawca: " + wykonawca[0]);
             if (gatunek != null) System.Console.WriteLine("gatunek: " + gatunek[0]);
             System.Console.WriteLine("nazwa: " + nazwa + "\n");
-            //----------------------------------------------------------
+            //----------------------------------------------------------*/
         }
 
         private String usun_z_nazwy(String[] text, String nazwa)        //usuwanie słów z "text" występujących w "nazwa"

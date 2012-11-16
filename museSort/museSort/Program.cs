@@ -19,7 +19,7 @@ namespace museSort
             Application.Run(new Form1());
 
             //-----------------------TEST------------------------------
-            utwor a = new utwor("D:\\Ściągnięte\\muzyka\\Back To The Stax - Back To The Stax.mp3");
+            //utwor a = new utwor("D:\\Ściągnięte\\muzyka\\Back To The Stax - Back To The Stax.mp3");
             //----------------------------------------------------------
         }
     }
