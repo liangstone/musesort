@@ -8,3 +8,11 @@ C:\Users\Ariel\musesort\museSort\museSort\obj\x86\Debug\GenerateResource.write.1
 C:\Users\Ariel\musesort\museSort\museSort\obj\x86\Debug\museSort.exe
 C:\Users\Ariel\musesort\museSort\museSort\obj\x86\Debug\museSort.pdb
 C:\Users\Ariel\musesort\museSort\museSort\obj\x86\Debug\museSort.Form1.resources
+C:\Users\user\musesort\museSort\museSort\obj\x86\Debug\museSort.exe
+C:\Users\user\musesort\museSort\museSort\obj\x86\Debug\museSort.pdb
+C:\Users\user\musesort\museSort\museSort\bin\Debug\museSort.exe
+C:\Users\user\musesort\museSort\museSort\bin\Debug\museSort.pdb
+C:\Users\user\musesort\museSort\museSort\obj\x86\Debug\museSort.csprojResolveAssemblyReference.cache
+C:\Users\user\musesort\museSort\museSort\obj\x86\Debug\museSort.Form1.resources
+C:\Users\user\musesort\museSort\museSort\obj\x86\Debug\museSort.Properties.Resources.resources
+C:\Users\user\musesort\museSort\museSort\obj\x86\Debug\museSort.csproj.GenerateResource.Cache
