@@ -118,29 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="3-2-blue-gradient" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\3-2-blue-gradient.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="100_53642" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\100_53642.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="effectful,effects,fractal,graphic,illustration,ps-54e5af2005186fc9cf7bdea1d771cc17_h" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\effectful,effects,fractal,graphic,illustration,ps-54e5af2005186fc9cf7bdea1d771cc17_h.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="effectful,effects,fractal,graphic,illustration,ps-54e5af2005186fc9cf7bdea1d771cc17_h2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\effectful,effects,fractal,graphic,illustration,ps-54e5af2005186fc9cf7bdea1d771cc17_h2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="logo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="effectful,effects,fractal,graphic,illustration,ps-54e5af2005186fc9cf7bdea1d771cc17_h1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\effectful,effects,fractal,graphic,illustration,ps-54e5af2005186fc9cf7bdea1d771cc17_h1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="blue_fractal_wallpaper_by_darkdissolution-d4a8qov" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\blue_fractal_wallpaper_by_darkdissolution-d4a8qov.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Blue_fractal_rework_by_elfy001" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Blue_fractal_rework_by_elfy001.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
