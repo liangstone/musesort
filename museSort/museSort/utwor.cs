@@ -42,6 +42,7 @@ namespace museSort
             }
 
             pobranie_danych();
+            zapisz_tagi();
 
         }
 
@@ -164,6 +165,52 @@ namespace museSort
             Regex reg = new Regex("^(\\-*_*)*|$(\\-*_*)*");
             text = reg.Replace(text, String.Empty);
             return text;
+        }
+
+
+        //zapisywanie tagów i zmiana nazwy pliku
+        private void zapisz_tagi()
+        {
+            tagi.Save(); //zapisz tagi
+
+            
+
+            //------------------------------- budowanie nowej nazwy z uwzględnieniem niekompletnych danych
+            String nowanazwa = "";
+            if (numer != null)
+                nowanazwa = numer.ToString();
+            if (wykonawca != null && wykonawca[0] != null)
+                if (nowanazwa != "")
+                    nowanazwa += ". ";
+                nowanazwa += wykonawca[0];
+                if (tytul != null)
+                    if (nowanazwa != "")
+                        nowanazwa += " - ";
+                nowanazwa += tytul;
+            if (nowanazwa == "") //nie ma sensu zmieniać nazwy jeśli nie ma informacji w tagach
+                return;
+            //-------------------------------
+
+            String katalog = new System.IO.DirectoryInfo(sciezka).Parent.FullName; //znajdź katalog pliku
+            nowanazwa += "." + rozszerzenie;
+            String nowasciezka = katalog + "\\" + nowanazwa;
+
+            if (nowasciezka != sciezka)
+            {
+                tagi = null;
+                try
+                {
+                    System.IO.File.Move(@sciezka, @nowasciezka); // spróbuj zmienić nazwę
+                    sciezka = nowasciezka;                       // jeśli w move będzie błąd, sciezka zostanie taka sama
+                    nazwa = nowanazwa;
+                }
+                catch (System.IO.IOException ex)
+                {
+                    Console.WriteLine(ex); // Write error
+                }
+
+                tagi = TagLib.File.Create(sciezka);
+            }
         }
     }
 }

@@ -19,7 +19,8 @@ namespace museSort
             Application.Run(new Form1());
 
             //-----------------------TEST------------------------------
-            //utwor a = new utwor("D:\\Ściągnięte\\muzyka\\Back To The Stax - Back To The Stax.mp3");
+            //utwor a = new utwor("C:\\Users\\Krzysztof\\Music\\test\\1335292026.foxamoore_epicats.mp3");
+            // zapisz wykonuje się teraz po pierwszym wczytaniu pliku
             //----------------------------------------------------------
         }
     }
