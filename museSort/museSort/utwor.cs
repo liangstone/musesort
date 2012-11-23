@@ -57,7 +57,7 @@ namespace museSort
         //        return;
         //    }
 
-        //    rozszerzenie = System.IO.Path.GetExtension(path);
+        //    rozszerzenie = System.IO.Path.GetExtension(path).Substring(1);
         //    nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
 
         //    if (!wspierane_rozszerzenia.Contains(rozszerzenie))
