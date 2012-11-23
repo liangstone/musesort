@@ -19,7 +19,7 @@ namespace museSort
             Application.Run(new Form1());
 
             //-----------------------TEST------------------------------
-            //utwor a = new utwor("C:\\Users\\Krzysztof\\Music\\test\\1335292026.foxamoore_epicats.mp3");
+            //utwor a = new utwor(@"C:\Users\Krzysztof\Music\test\1. FOX_AMOORE - 01 Prelude to Bitter Lake.mp3");
             // zapisz wykonuje się teraz po pierwszym wczytaniu pliku
             //----------------------------------------------------------
         }
