@@ -256,7 +256,7 @@ namespace museSort
             string nazwa="";
 			try
 			{
-				rozszerzenie = System.IO.Path.GetExtension(filepath);
+				rozszerzenie = System.IO.Path.GetExtension(filepath).Substring(1);
 				nazwa = System.IO.Path.GetFileNameWithoutExtension(filepath);
 			}
 			catch(System.ArgumentException e)
