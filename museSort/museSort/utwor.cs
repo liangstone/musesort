@@ -20,66 +20,67 @@ namespace museSort
         public TagLib.File tagi;
         public static string[] wspierane_rozszerzenia = { "mp3", "flac" };
 
-        public utwor(String path)
-        {
-            sciezka = path;
-            String[] droga = sciezka.Split('\\');               //brawo, było Split('/')... //komnetarz do usuniecia
-            String[] temp = droga[droga.Length - 1].Split('.');
-            nazwa = "";
-            for (int i = 0; i < temp.Length - 2; i++)
-            {
-                nazwa += temp[i] + ".";
-            }
-            nazwa += temp[temp.Length - 2];
-            rozszerzenie = temp[temp.Length - 1];
-
-            if (!rozszerzenie.Equals("mp3") && !rozszerzenie.Equals("flac"))
-            {
-                nazwa = "Błędne rozszerzenie pliku!!!";
-            }
-            else
-            {
-                tagi = TagLib.File.Create(path);
-            }
-
-            pobranie_danych();
-            zapisz_tagi();
-
-        }
-
         //public utwor(String path)
         //{
         //    sciezka = path;
-
-        //    if (!System.IO.File.Exists(path))
+        //    String[] droga = sciezka.Split('\\');               //brawo, było Split('/')... //komnetarz do usuniecia
+        //    String[] temp = droga[droga.Length - 1].Split('.');
+        //    nazwa = "";
+        //    for (int i = 0; i < temp.Length - 2; i++)
         //    {
-        //        nazwa = "Błąd: Plik nie istnieje.";
-        //        return;
+        //        nazwa += temp[i] + ".";
         //    }
+        //    nazwa += temp[temp.Length - 2];
+        //    rozszerzenie = temp[temp.Length - 1];
 
-        //    rozszerzenie = System.IO.Path.GetExtension(path).Substring(1);
-        //    nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
-
-        //    if (!wspierane_rozszerzenia.Contains(rozszerzenie))
+        //    if (!rozszerzenie.Equals("mp3") && !rozszerzenie.Equals("flac"))
         //    {
-        //        nazwa = "Błąd: Nie wspierane rozszerzenie: " + rozszerzenie;
+        //        nazwa = "Błędne rozszerzenie pliku!!!";
         //    }
         //    else
         //    {
         //        tagi = TagLib.File.Create(path);
-        //        pobranie_danych();
-        //        zapisz_tagi();
         //    }
 
+        //    pobranie_danych();
+        //    zapisz_tagi();
+
         //}
+
+        public utwor(String path)
+        {
+            sciezka = path;
+
+            if (!System.IO.File.Exists(path))
+            {
+                nazwa = "Błąd: Plik nie istnieje.";
+                return;
+            }
+
+            rozszerzenie = System.IO.Path.GetExtension(path).Substring(1);
+            nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
+
+
+            if (!wspierane_rozszerzenia.Contains(rozszerzenie))
+            {
+                nazwa = "Błąd: Nie wspierane rozszerzenie: " + rozszerzenie;
+            }
+            else
+            {
+                tagi = TagLib.File.Create(path);
+                pobranie_danych();
+                zapisz_tagi();
+            }
+
+        }
 
         //pobieranie danych z tagu i nazwy pliku
         private void pobranie_danych()                      //wpisanie danych do obiektów w klasie
         {
-            nazwa = usun_znaki_spec(nazwa);                 //zamiana na duże litery, bez znaków specjalnych
+            nazwa = usun_zanki_spec(nazwa);                 //zamiana na duże litery, bez znaków specjalnych
 
             tytul = tagi.Tag.Title;                         //pobranie tytułu
-            album = usun_znaki_spec(tagi.Tag.Album);        //pobranie albumu
+            album = usun_zanki_spec(tagi.Tag.Album);        //pobranie albumu
             wykonawca = tagi.Tag.Artists;                   //pobranie wykonawców
             gatunek = tagi.Tag.Genres;                      //pobranie gatunku
             numer = int.Parse(tagi.Tag.Track.ToString());   //pobranie numeru piosenki
@@ -89,7 +90,7 @@ namespace museSort
             {                                               //jeżeli są to:
                 for (int i = 0; i < wykonawca.Length; i++ ) //zamiana na duże litery, bez znaków specjalnych
                 {
-                    wykonawca[i] = usun_znaki_spec(wykonawca[i]);
+                    wykonawca[i] = usun_zanki_spec(wykonawca[i]);
                 }
             }
 
@@ -98,7 +99,7 @@ namespace museSort
             {
                 for (int i = 0; i < gatunek.Length; i++)
                 {
-                    gatunek[i] = usun_znaki_spec(gatunek[i]);
+                    gatunek[i] = usun_zanki_spec(gatunek[i]);
                 }
             }
 
@@ -179,11 +180,12 @@ namespace museSort
             return nazwa;
         }
 
-        private String usun_znaki_spec(String text)                     //usuwanie znaków specjalnych
+        private String usun_zanki_spec(String text)                     //usuwanie znaków specjalnych
         {
             String wynik = text;
             Regex regex = new Regex("[\\. \\$ \\^ \\{ \\[ \\( \\| \\) \\* \\+ \\? \\\\]+");
             wynik = regex.Replace(wynik, "_");
+            wynik = wynik.Trim('_');
             return wynik.ToUpper();
         }
 
@@ -195,8 +197,13 @@ namespace museSort
         }
 
 
-        //zapisywanie tagów i zmiana nazwy pliku
         public void zapisz_tagi()
+        {
+            przepisz_pola_do_tagow();
+            tagi.Save();
+        }
+
+        public void zapisz_tagi_standaryzuj_nazwe()
         {
             przepisz_pola_do_tagow();
             tagi.Save(); //zapisz tagi
@@ -206,7 +213,7 @@ namespace museSort
             nowanazwa = numer.ToString(); //numer to uint który nie może być null
 
             if (wykonawca[0] != "")
-                nowanazwa += ". "+ wykonawca[0];
+                nowanazwa += ". " + wykonawca[0];
             if (tytul != "")
             {
                 if (nowanazwa != "")
@@ -221,26 +228,31 @@ namespace museSort
             nowanazwa += "." + rozszerzenie;
             String nowasciezka = katalog + "\\" + nowanazwa;
             zmien_nazwe_pliku(nowasciezka);
-            
+
         } // end zapisz tagi
 
-        private void zmien_nazwe_pliku(string nowasciezka)
+        public void zmien_nazwe_pliku(string nowasciezka)
         {
             //sprawdzanie nazwy pliku
-			if(walidacja_sciezki_pliku(nowasciezka)!="OK")
-				return;
-			
+            string error=walidacja_sciezki_pliku(nowasciezka);
+            if (error != "OK")
+            {
+                Console.WriteLine(error);
+                return;
+            }
+
             if (nowasciezka != sciezka)
             {
                 tagi = null;
                 try
                 {
-                    System.IO.File.Move(@sciezka, @nowasciezka); // spróbuj zmienić nazwę
+                    System.IO.File.Move(sciezka, nowasciezka); // spróbuj zmienić nazwę
                     sciezka = nowasciezka;                       // jeśli w move będzie błąd, sciezka zostanie taka sama
                     this.nazwa = System.IO.Path.GetFileNameWithoutExtension(sciezka);
                 }
                 catch (System.IO.IOException ex)
                 {
+                    Console.WriteLine(nowasciezka);
                     Console.WriteLine(ex); // Write error
                 }
                 finally
@@ -248,22 +260,22 @@ namespace museSort
                     tagi = TagLib.File.Create(sciezka);
                 }
             } // end if
-        }
-		
-		public static string walidacja_sciezki_pliku(string filepath)
-		{
-            string rozszerzenie="";
-            string nazwa="";
-			try
-			{
-				rozszerzenie = System.IO.Path.GetExtension(filepath).Substring(1);
-				nazwa = System.IO.Path.GetFileNameWithoutExtension(filepath);
-			}
-			catch(System.ArgumentException e)
-			{
-				return "Błąd: Nieprawidłowa ścieżka: "+filepath;
-			}
-			
+        }// end zmien_nazwe_pliku
+
+        public static string walidacja_sciezki_pliku(string filepath)
+        {
+            string rozszerzenie = "";
+            string nazwa = "";
+            try
+            {
+                rozszerzenie = System.IO.Path.GetExtension(filepath).Substring(1);
+                nazwa = System.IO.Path.GetFileNameWithoutExtension(filepath);
+            }
+            catch (System.ArgumentException e)
+            {
+                return "Błąd: Nieprawidłowa ścieżka: " + filepath;
+            }
+
             if (!wspierane_rozszerzenia.Contains(rozszerzenie))
             {
                 return "Błąd: Nie wspierane rozszerzenie: " + rozszerzenie;
@@ -272,18 +284,20 @@ namespace museSort
             {
                 return "Błąd: Brak nazwy";
             }
-			
-			return "OK";
-		}
+
+            return "OK";
+        }// end walidacja_sciezki_pliku
 
         // przepisuje pola klasy utwor do tagów w utwor.tagi.Tag
         public void przepisz_pola_do_tagow()
         {
+            if (tagi == null)
+                return;
             tagi.Tag.Title = tytul;
             tagi.Tag.Artists = wykonawca;
             tagi.Tag.Album = album;
             tagi.Tag.Genres = gatunek;
             tagi.Tag.Track = uint.Parse(numer.ToString());
         }
-    }
-}
+    }// end class utwor
+}// end namespace musesort

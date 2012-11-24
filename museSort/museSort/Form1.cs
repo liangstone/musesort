@@ -18,7 +18,7 @@ namespace museSort
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            new OknoEdytujDane().ShowDialog();
         }
     }
 }

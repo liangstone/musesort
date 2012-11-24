@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -94,9 +92,9 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(473, 378);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(220, 24);
+            this.label3.Size = new System.Drawing.Size(234, 24);
             this.label3.TabIndex = 6;
-            this.label3.Text = "wświetl pliki muzyczne";
+            this.label3.Text = "Wyświetl pliki muzyczne";
             // 
             // label4
             // 
