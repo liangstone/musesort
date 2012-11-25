@@ -18,11 +18,6 @@ namespace museSort
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 
-            
-            //-----------------------TEST------------------------------
-            //utwor a = new utwor("C:\\Users\\Krzysztof\\Music\\test\\1335292026.foxamoore_epicats.mp3");
-            // zapisz wykonuje się teraz po pierwszym wczytaniu pliku
-            //----------------------------------------------------------
         }
     }
 }

@@ -20,5 +20,10 @@ namespace museSort
         {
             new OknoEdytujDane().ShowDialog();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            new WyborFolderu().ShowDialog();
+        }
     }
 }

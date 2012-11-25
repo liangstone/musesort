@@ -23,7 +23,7 @@ namespace museSort
         //public utwor(String path)
         //{
         //    sciezka = path;
-        //    String[] droga = sciezka.Split('\\');               //brawo, było Split('/')... //komnetarz do usuniecia
+        //    String[] droga = sciezka.Split('\\');              
         //    String[] temp = droga[droga.Length - 1].Split('.');
         //    nazwa = "";
         //    for (int i = 0; i < temp.Length - 2; i++)
@@ -85,16 +85,24 @@ namespace museSort
             gatunek = tagi.Tag.Genres;                      //pobranie gatunku
             numer = int.Parse(tagi.Tag.Track.ToString());   //pobranie numeru piosenki
 
-            if (wykonawca.Length == 0) wykonawca[0] = "";    //sprawdzenie tagu
-            else 
+            if (wykonawca.Length == 0)                      //sprawdzenie tagu
+            {
+                wykonawca = new String [1];
+                wykonawca[0] = "";
+            }
+            else
             {                                               //jeżeli są to:
-                for (int i = 0; i < wykonawca.Length; i++ ) //zamiana na duże litery, bez znaków specjalnych
+                for (int i = 0; i < wykonawca.Length; i++) //zamiana na duże litery, bez znaków specjalnych
                 {
                     wykonawca[i] = usun_zanki_spec(wykonawca[i]);
                 }
             }
 
-            if (gatunek.Length == 0) gatunek[0] = "";        //j.w.
+            if (gatunek.Length == 0)                      //sprawdzenie tagu
+            {
+                gatunek = new String[1];
+                gatunek[0] = "";
+            }
             else 
             {
                 for (int i = 0; i < gatunek.Length; i++)
@@ -182,6 +190,7 @@ namespace museSort
 
         private String usun_zanki_spec(String text)                     //usuwanie znaków specjalnych
         {
+            if (text == null) text = "";
             String wynik = text;
             Regex regex = new Regex("[\\. \\$ \\^ \\{ \\[ \\( \\| \\) \\* \\+ \\? \\\\]+");
             wynik = regex.Replace(wynik, "_");
