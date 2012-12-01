@@ -193,20 +193,11 @@ namespace museSort
             tagi.Save(); //zapisz tagi
 
             //------------------------------- budowanie nowej nazwy z uwzględnieniem niekompletnych danych
-            String nowanazwa = "";
-            nowanazwa = numer.ToString(); //numer to uint który nie może być null
 
-            if (wykonawca[0] != "")
-                nowanazwa += ". " + wykonawca[0];
-            if (tytul != "")
-            {
-                if (nowanazwa != "")
-                    nowanazwa += " - ";
-                nowanazwa += tytul;
-            }
-            if (nowanazwa == "") //nie ma sensu zmieniać nazwy jeśli nie ma informacji w tagach
-                return;
-            //-------------------------------
+            string numer = Convert.ToString(this.numer);
+            string wykonawca = (this.wykonawca[0] == "" ? "bezwykonawcy" : this.wykonawca[0]);
+            string tytul = (this.tytul == "" ? "beztytulu" : this.tytul);
+            string nowanazwa = numer + ". " + wykonawca + " - " + tytul;
 
             String katalog = new System.IO.DirectoryInfo(sciezka).Parent.FullName; //znajdź katalog pliku
             nowanazwa += "." + rozszerzenie;
