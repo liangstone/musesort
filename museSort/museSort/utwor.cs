@@ -45,6 +45,8 @@ namespace museSort
                 pobranie_danych();
                 analizuj_sciezke();
                 zapisz_tagi();
+                zapisz_tagi_standaryzuj_nazwe();
+                PrzyjmijNazwe();
             }
 
         }
@@ -594,6 +596,102 @@ namespace museSort
                 przepisz_pola_do_tagow();
                 tagi.Save();
             }
-        }
+        }//end analizuj_sciezke()
+
+        public void PrzyjmijNazwe()
+        {
+            
+            tagi.Tag.Title = ZamienNaWlasciwe(tagi.Tag.Title);
+            tagi.Tag.Album = ZamienNaWlasciwe(tagi.Tag.Album);
+            int i = 0;
+            String [] a;
+            String [] b;
+            a = new String[tagi.Tag.Genres.Length];
+            for (i = 0; i < tagi.Tag.Genres.Length; i++)
+            {
+                a[i] = ZamienNaWlasciwe(tagi.Tag.Genres[i]);
+            }
+            tagi.Tag.Genres = a;
+            b = new String[tagi.Tag.Artists.Length];
+            for (i = 0; i < tagi.Tag.Artists.Length; i++)
+            {
+                b[i] = ZamienNaWlasciwe(tagi.Tag.Artists[i]);
+            }
+            tagi.Tag.Artists = b;
+            tagi.Save();
+           
+            nazwa = ZamienNaWlasciwaNazwe(System.IO.Path.GetFileNameWithoutExtension(sciezka));
+            nazwa = ZamienNaWlasciwe(nazwa);
+            nazwa = ZamienNaWlasciwaNazwe(nazwa);
+            //sic!
+            String katalog = new System.IO.DirectoryInfo(sciezka).Parent.FullName; //znajdź katalog pliku
+            nazwa += "." + rozszerzenie;
+            String nowasciezka = katalog + "\\" + nazwa;
+            zmien_nazwe_pliku(nowasciezka);
+        }//end PrzyjmijNazwe()
+
+
+        public String ZamienNaWlasciwe(String x)
+        {
+            /*Nazwę pliku oraz tagi należy zmienić w taki sposób, że będą one zapisane 
+             * ze spacjami zamiast podkreśleń oraz dużymi i małymi literami. Każdy wyraz
+             * ma się zaczynać od dużej litery, a cała reszta liter jest mała*/
+                    String[] wyrazy = x.Split('_');
+                    String nowe = "";
+                    String a = "";
+                    String b = "";
+                    for (int i = 0; i < wyrazy.Length; i++)
+                    {
+                        //System.Console.WriteLine(wyrazy[i]);
+                        a = wyrazy[i].Substring(0, 1);
+                        a = a.ToUpper();
+                        b = wyrazy[i].Substring(1, wyrazy[i].Length-1);
+                        b = b.ToLower();
+                        //System.Console.WriteLine(wyrazy[i]);
+                        nowe += a + b;
+                        //System.Console.WriteLine(nowe);
+                        nowe += ' ';
+                       // System.Console.WriteLine(nowe);
+                    }
+                    System.Console.WriteLine(nowe);
+                    for (int k = 0; k < wyrazy.Length; k++)
+                    {
+                        System.Console.WriteLine(wyrazy[k]);
+                    }
+                    nowe = nowe.Trim();
+                    return nowe;
+        }//end ZamienNaWlasciwe(String x)
+
+        public String ZamienNaWlasciwaNazwe(String x)
+        {
+            /*Nazwę pliku oraz tagi należy zmienić w taki sposób, że będą one zapisane 
+             * ze spacjami zamiast podkreśleń oraz dużymi i małymi literami. Każdy wyraz
+             * ma się zaczynać od dużej litery, a cała reszta liter jest mała*/
+            String[] wyrazy = x.Split(' ');
+            String nowe = "";
+            String a = "";
+            String b = "";
+            for (int i = 0; i < wyrazy.Length; i++)
+            {
+                //System.Console.WriteLine(wyrazy[i]);
+                a = wyrazy[i].Substring(0, 1);
+                a = a.ToUpper();
+                b = wyrazy[i].Substring(1, wyrazy[i].Length - 1);
+                b = b.ToLower();
+                //System.Console.WriteLine(wyrazy[i]);
+                nowe += a + b;
+                //System.Console.WriteLine(nowe);
+                nowe += ' ';
+                // System.Console.WriteLine(nowe);
+            }
+            System.Console.WriteLine(nowe);
+            for (int k = 0; k < wyrazy.Length; k++)
+            {
+                System.Console.WriteLine(wyrazy[k]);
+            }
+            nowe = nowe.Trim();
+            return nowe;
+        }//end ZamienNaWlasciwe(String x)
+
     }// end class utwor
 }// end namespace musesort
