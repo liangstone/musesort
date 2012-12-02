@@ -23,27 +23,35 @@ namespace museSort
 
         public utwor(String path)
         {
+            //Console.WriteLine("sciezka = path;");
             sciezka = path;
 
+            //Console.WriteLine("if (!System.IO.File.Exists(path))");
             if (!System.IO.File.Exists(path))
             {
                 nazwa = "Błąd: Plik nie istnieje.";
                 return;
             }
 
+            //Console.WriteLine("rozszerzenie = System.IO.Path.GetExtension(path).Substring(1);");
             rozszerzenie = System.IO.Path.GetExtension(path).Substring(1);
             nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
 
 
+            //Console.WriteLine("");
             if (!wspierane_rozszerzenia.Contains(rozszerzenie))
             {
                 nazwa = "Błąd: Nie wspierane rozszerzenie: " + rozszerzenie;
             }
             else
             {
+                //Console.WriteLine("tagi = TagLib.File.Create(path);");
                 tagi = TagLib.File.Create(path);
+                //Console.WriteLine("pobranie_danych();");
                 pobranie_danych();
+                //Console.WriteLine("analizuj_sciezke();");
                 analizuj_sciezke();
+               // Console.WriteLine("zapisz_tagi_standaryzuj_nazwe();");
                 zapisz_tagi();
             }
 
@@ -99,13 +107,20 @@ namespace museSort
                 else 
                     snumer = numer.ToString();
 
-                if (szukane.Substring(0, 2).Equals(snumer)) //czy szukany tytul/wykonawca zaczyna się od numeru piosenki
-                {                                           //najpierw dla podwójnej cyfry np. "01","21"...
-                    szukane = szukane.Substring(0, 2);
+                try
+                {
+                    if (szukane.Substring(0, 2).Equals(snumer)) //czy szukany tytul/wykonawca zaczyna się od numeru piosenki
+                    {                                           //najpierw dla podwójnej cyfry np. "01","21"...
+                        szukane = szukane.Substring(0, 2);
+                    }
+                    else if (szukane.Substring(0, 1).Equals(numer.ToString()))
+                    {                                           //dla wystąpienia pojedynczej numeracji np. 1.tytul.flac
+                        szukane = szukane.Substring(0, 1);
+                    }
                 }
-                else if (szukane.Substring(0, 1).Equals(numer.ToString()))
-                {                                           //dla wystąpienia pojedynczej numeracji np. 1.tytul.flac
-                    szukane = szukane.Substring(0, 1);
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
                 }
 
                 /* Jeżeli zakładamy, że album/tytuł/wykonawca nie zaczynają się od cyfry
@@ -184,13 +199,29 @@ namespace museSort
         public void zapisz_tagi()
         {
             przepisz_pola_do_tagow();
-            tagi.Save();
+            try
+            {
+                tagi.Save();
+            }
+            catch (System.UnauthorizedAccessException e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
         public void zapisz_tagi_standaryzuj_nazwe()
         {
+            //Console.WriteLine("Początak zapisu " + sciezka);
             przepisz_pola_do_tagow();
-            tagi.Save(); //zapisz tagi
+            try
+            {
+                tagi.Save();
+            }
+            catch (System.UnauthorizedAccessException e)
+            {
+                Console.WriteLine(e);
+                return;
+            }
 
             //------------------------------- budowanie nowej nazwy z uwzględnieniem niekompletnych danych
 
@@ -203,7 +234,7 @@ namespace museSort
             nowanazwa += "." + rozszerzenie;
             String nowasciezka = katalog + "\\" + nowanazwa;
             zmien_nazwe_pliku(nowasciezka);
-
+            //Console.WriteLine("Zapisano " + nowasciezka);
         } // end zapisz tagi
 
         public void zmien_nazwe_pliku(string nowasciezka)
@@ -226,6 +257,16 @@ namespace museSort
                     this.nazwa = System.IO.Path.GetFileNameWithoutExtension(sciezka);
                 }
                 catch (System.IO.IOException ex)
+                {
+                    Console.WriteLine(nowasciezka);
+                    Console.WriteLine(ex); // Write error
+                }
+                catch (System.NotSupportedException ex)
+                {
+                    Console.WriteLine(nowasciezka);
+                    Console.WriteLine(ex); // Write error
+                }
+                catch (System.UnauthorizedAccessException ex)
                 {
                     Console.WriteLine(nowasciezka);
                     Console.WriteLine(ex); // Write error
@@ -281,100 +322,199 @@ namespace museSort
             //Przygotowanie listy folderów
             String[] foldery = sciezka.Split('\\');
             String aktualnyFolder = foldery[foldery.Length - 2];
-            int odkonca = 2;
-            if(foldery.Length == 1)
+            try
             {
-                aktualnyFolder = "";
-            } else {
-                aktualnyFolder = foldery[foldery.Length - odkonca];
-                if (Regex.Match(aktualnyFolder, @"cd|CD|Cd|disc|disk|Disc|Disk|DISC|DISK|płyta|Płyta|PŁYTA|plyta|Plyta|PLYTA").Success)
+                int odkonca = 2;
+                if (foldery.Length == 1)
                 {
-                    odkonca++;
-                    aktualnyFolder = foldery[foldery.Length - odkonca];
+                    aktualnyFolder = "";
                 }
-            }
-            //Lista folderów przygotowana
-
-            if (album == "" && wykonawca.Length == 1 && wykonawca[0] == "")
-            {
-                if (!Regex.Match(aktualnyFolder, @"\w*-\w*").Success)
+                else
                 {
-                    //Przygotowujemy album, jeśli się da
-                    Regex reg = new Regex(@"(\(\w*\))|(\[\w*\])|(\(\w*-\w*\))|(\[\w*-\w*\])|#|0\d\.|\d\d\.");
-                    album = reg.Replace(aktualnyFolder, "");
-                    reg = new Regex(@"_");
-                    album = reg.Replace(album, " ");
-                    album = album.Trim();
-
-                    //Wybieramy folder wyżej w poszukiwaniu wykonawcy
-                    odkonca++;
                     aktualnyFolder = foldery[foldery.Length - odkonca];
+                    if (Regex.Match(aktualnyFolder, @"cd|CD|Cd|disc|disk|Disc|Disk|DISC|DISK|płyta|Płyta|PŁYTA|plyta|Plyta|PLYTA").Success)
+                    {
+                        odkonca++;
+                        aktualnyFolder = foldery[foldery.Length - odkonca];
+                    }
+                }
+                //Lista folderów przygotowana
 
+                if (album == "" && wykonawca.Length == 1 && wykonawca[0] == "")
+                {
                     if (!Regex.Match(aktualnyFolder, @"\w*-\w*").Success)
                     {
-                        reg = new Regex(@"(\(\w*\))|(\[\w*\])|\d\d\d\d|(\(\w* \w*\))|(\[\w* \w*\])|(\(\w*-\w*\))|(\[\w*-\w*\])|#|DISCOGRAFIA|Discografia|discografia|DISCOGRAPHY|DYSKOGRAFIA|STUDIO ALBUMS|ALBUMS|ALBUMY|Discography|Dyskografia|Studio albums|Studio Albums|Albums|Albumy|discography|dyskografia|studio albums|albums|albumy");
-                        wykonawca[0] = reg.Replace(aktualnyFolder, "");
+                        //Przygotowujemy album, jeśli się da
+                        Regex reg = new Regex(@"(\(\w*\))|(\[\w*\])|(\(\w*-\w*\))|(\[\w*-\w*\])|#|0\d\.|\d\d\.");
+                        album = reg.Replace(aktualnyFolder, "");
                         reg = new Regex(@"_");
-                        wykonawca[0] = reg.Replace(wykonawca[0], " ");
-                        wykonawca[0] = wykonawca[0].Trim();
-                        if (wykonawca[0] == album) //Jeśli folder został zduplikowany, idziemy wyżej
+                        album = reg.Replace(album, " ");
+                        album = album.Trim();
+
+                        //Wybieramy folder wyżej w poszukiwaniu wykonawcy
+                        odkonca++;
+                        aktualnyFolder = foldery[foldery.Length - odkonca];
+
+                        if (!Regex.Match(aktualnyFolder, @"\w*-\w*").Success)
                         {
-                            String temp = wykonawca[0];
-                            odkonca++;
-                            aktualnyFolder = foldery[foldery.Length - odkonca];
-                            if (!Regex.Match(aktualnyFolder, @"\w*-\w*").Success)
+                            reg = new Regex(@"(\(\w*\))|(\[\w*\])|\d\d\d\d|(\(\w* \w*\))|(\[\w* \w*\])|(\(\w*-\w*\))|(\[\w*-\w*\])|#|DISCOGRAFIA|Discografia|discografia|DISCOGRAPHY|DYSKOGRAFIA|STUDIO ALBUMS|ALBUMS|ALBUMY|Discography|Dyskografia|Studio albums|Studio Albums|Albums|Albumy|discography|dyskografia|studio albums|albums|albumy");
+                            wykonawca[0] = reg.Replace(aktualnyFolder, "");
+                            reg = new Regex(@"_");
+                            wykonawca[0] = reg.Replace(wykonawca[0], " ");
+                            wykonawca[0] = wykonawca[0].Trim();
+                            if (wykonawca[0] == album) //Jeśli folder został zduplikowany, idziemy wyżej
                             {
-                                reg = new Regex(@"(\(\w*\))|(\[\w*\])|\d\d\d\d|(\(\w* \w*\))|(\[\w* \w*\])|(\(\w*-\w*\))|(\[\w*-\w*\])|#|DISCOGRAFIA|Discografia|discografia|DISCOGRAPHY|DYSKOGRAFIA|STUDIO ALBUMS|ALBUMS|ALBUMY|Discography|Dyskografia|Studio albums|Studio Albums|Albums|Albumy|discography|dyskografia|studio albums|albums|albumy");
-                                wykonawca[0] = reg.Replace(aktualnyFolder, "");
-                                reg = new Regex(@"_");
-                                wykonawca[0] = reg.Replace(wykonawca[0], " ");
-                                wykonawca[0] = wykonawca[0].Trim();
-                                if (wykonawca[0] == "")
+                                String temp = wykonawca[0];
+                                odkonca++;
+                                aktualnyFolder = foldery[foldery.Length - odkonca];
+                                if (!Regex.Match(aktualnyFolder, @"\w*-\w*").Success)
                                 {
-                                    wykonawca[0] = temp;
-                                }
-                            }
-                            else if (Regex.Match(aktualnyFolder, @"\w*-\w*").Success)
-                            {
-                                reg = new Regex(@"(\(\w*\))|(\[\w*\])|(\(\w*-\w*\))|(\(\w* \w*\))|(\[\w* \w*\])|(\[\w*-\w*\])|#|\.|\d\d\d\d");
-                                String nazwa_folderu = reg.Replace(aktualnyFolder, "");
-                                reg = new Regex(@"_");
-                                nazwa_folderu = reg.Replace(nazwa_folderu, " ");
-                                nazwa_folderu = nazwa_folderu.Trim();
-
-                                String[] albumIAutor = nazwa_folderu.Split('-');
-
-                                if (albumIAutor.Length >= 2)
-                                {
-                                    if (albumIAutor[0] == album)
-                                    {
-                                        wykonawca[0] = albumIAutor[1];
-                                        if (albumIAutor.Length > 2)
-                                        {
-                                            for (int i = 2; i < albumIAutor.Length; i++)
-                                            {
-                                                wykonawca[0] += albumIAutor[i];
-                                            }
-                                            reg = new Regex(@" by \w*");
-                                            wykonawca[0] = reg.Replace(wykonawca[0], "");
-                                        }
-                                    }
-                                    else
-                                    {
-                                        wykonawca[0] = albumIAutor[0];
-                                    }
+                                    reg = new Regex(@"(\(\w*\))|(\[\w*\])|\d\d\d\d|(\(\w* \w*\))|(\[\w* \w*\])|(\(\w*-\w*\))|(\[\w*-\w*\])|#|DISCOGRAFIA|Discografia|discografia|DISCOGRAPHY|DYSKOGRAFIA|STUDIO ALBUMS|ALBUMS|ALBUMY|Discography|Dyskografia|Studio albums|Studio Albums|Albums|Albumy|discography|dyskografia|studio albums|albums|albumy");
+                                    wykonawca[0] = reg.Replace(aktualnyFolder, "");
+                                    reg = new Regex(@"_");
+                                    wykonawca[0] = reg.Replace(wykonawca[0], " ");
                                     wykonawca[0] = wykonawca[0].Trim();
-                                    reg = new Regex(@" by \w*");
-                                    wykonawca[0] = reg.Replace(wykonawca[0], "");
+                                    if (wykonawca[0] == "")
+                                    {
+                                        wykonawca[0] = temp;
+                                    }
                                 }
+                                else if (Regex.Match(aktualnyFolder, @"\w*-\w*").Success)
+                                {
+                                    reg = new Regex(@"(\(\w*\))|(\[\w*\])|(\(\w*-\w*\))|(\(\w* \w*\))|(\[\w* \w*\])|(\[\w*-\w*\])|#|\.|\d\d\d\d");
+                                    String nazwa_folderu = reg.Replace(aktualnyFolder, "");
+                                    reg = new Regex(@"_");
+                                    nazwa_folderu = reg.Replace(nazwa_folderu, " ");
+                                    nazwa_folderu = nazwa_folderu.Trim();
+
+                                    String[] albumIAutor = nazwa_folderu.Split('-');
+
+                                    if (albumIAutor.Length >= 2)
+                                    {
+                                        if (albumIAutor[0] == album)
+                                        {
+                                            wykonawca[0] = albumIAutor[1];
+                                            if (albumIAutor.Length > 2)
+                                            {
+                                                for (int i = 2; i < albumIAutor.Length; i++)
+                                                {
+                                                    wykonawca[0] += albumIAutor[i];
+                                                }
+                                                reg = new Regex(@" by \w*");
+                                                wykonawca[0] = reg.Replace(wykonawca[0], "");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            wykonawca[0] = albumIAutor[0];
+                                        }
+                                        wykonawca[0] = wykonawca[0].Trim();
+                                        reg = new Regex(@" by \w*");
+                                        wykonawca[0] = reg.Replace(wykonawca[0], "");
+                                    }
+                                }
+
                             }
-                           
+
                         }
+                        else if (Regex.Match(aktualnyFolder, @"\w*-\w*").Success)
+                        {
+                            reg = new Regex(@"(\(\w*\))|(\[\w*\])|(\(\w*-\w*\))|(\[\w*-\w*\])|(\(\w* \w*\))|(\[\w* \w*\])|#|\.|\d\d\d\d");
+                            String nazwa_folderu = reg.Replace(aktualnyFolder, "");
+                            reg = new Regex(@"_");
+                            nazwa_folderu = reg.Replace(nazwa_folderu, " ");
+                            nazwa_folderu = nazwa_folderu.Trim();
+
+                            String[] albumIAutor = nazwa_folderu.Split('-');
+
+                            if (albumIAutor.Length >= 2)
+                            {
+                                if (albumIAutor[0] == album)
+                                {
+                                    wykonawca[0] = albumIAutor[1];
+                                    if (albumIAutor.Length > 2)
+                                    {
+                                        for (int i = 2; i < albumIAutor.Length; i++)
+                                        {
+                                            wykonawca[0] += albumIAutor[i];
+                                        }
+                                        reg = new Regex(@" by \w*");
+                                        wykonawca[0] = reg.Replace(wykonawca[0], "");
+                                    }
+                                }
+                                else
+                                {
+                                    wykonawca[0] = albumIAutor[0];
+                                }
+                                wykonawca[0] = wykonawca[0].Trim();
+                                reg = new Regex(@" by \w*");
+                                wykonawca[0] = reg.Replace(wykonawca[0], "");
+                            }
+                        }
+
 
                     }
                     else if (Regex.Match(aktualnyFolder, @"\w*-\w*").Success)
                     {
-                        reg = new Regex(@"(\(\w*\))|(\[\w*\])|(\(\w*-\w*\))|(\[\w*-\w*\])|(\(\w* \w*\))|(\[\w* \w*\])|#|\.|\d\d\d\d");
+                        Regex reg = new Regex(@"(\(\w*\))|(\[\w*\])|(\(\w*-\w*\))|(\[\w*-\w*\])|(\(\w* \w*\))|(\[\w* \w*\])|#|\d\d\d\d|0\d\.|\d\d\.");
+                        String nazwa_folderu = reg.Replace(aktualnyFolder, "");
+                        reg = new Regex(@"_");
+                        nazwa_folderu = reg.Replace(nazwa_folderu, " ");
+                        nazwa_folderu = nazwa_folderu.Trim();
+
+                        String[] albumIAutor = nazwa_folderu.Split('-');
+                        if (albumIAutor.Length >= 2 && ((albumIAutor[0] == "AC" && albumIAutor[1] == "DC") || (albumIAutor[0] == "A" && albumIAutor[1] == "Ha")))
+                        {
+                            albumIAutor[0] = albumIAutor[0] + albumIAutor[1];
+                            for (int i = 1; i < albumIAutor.Length - 1; i++)
+                            {
+                                albumIAutor[i] = albumIAutor[i + 1];
+                            }
+                            albumIAutor[albumIAutor.Length - 1] = "";
+                        }
+
+                        if (albumIAutor.Length >= 2)
+                        {
+                            wykonawca[0] = albumIAutor[0];
+                            wykonawca[0] = wykonawca[0].Trim();
+                            album = albumIAutor[1];
+                            album = album.Trim();
+                            reg = new Regex(@" by \w*");
+                            album = reg.Replace(album, "");
+
+                            reg = new Regex(@"\d+\.");
+                            wykonawca[0] = reg.Replace(wykonawca[0], "");
+                            if (albumIAutor.Length > 2)
+                            {
+                                for (int i = 2; i < albumIAutor.Length; i++)
+                                {
+                                    album += albumIAutor[i];
+                                }
+                                reg = new Regex(@" by \w*");
+                                album = reg.Replace(album, "");
+                            }
+                        }
+                    }
+
+                    przepisz_pola_do_tagow();
+                    tagi.Save();
+                }
+                else if (album == "" && wykonawca.Length >= 1 && wykonawca[0] != "")
+                {
+                    if (!Regex.Match(aktualnyFolder, @"\w*-\w*").Success)
+                    {
+                        Regex reg = new Regex(@"(\(\w*\))|(\[\w*\])|(\(\w*-\w*\))|(\[\w*-\w*\])|(\(\w* \w*\))|(\[\w* \w*\])|#|\d\d\d\d|0\d\.|\d\d\.");
+                        album = reg.Replace(aktualnyFolder, "");
+                        reg = new Regex(@"_");
+                        album = reg.Replace(album, " ");
+                        album = album.Trim();
+
+                        przepisz_pola_do_tagow();
+                        tagi.Save();
+                    }
+                    else if (Regex.Match(aktualnyFolder, @"\w*-\w*").Success)
+                    {
+                        Regex reg = new Regex(@"(\(\w*\))|(\[\w*\])|(\(\w*-\w*\))|(\[\w*-\w*\])|(\(\w* \w*\))|(\[\w* \w*\])|#|\d\d\d\d|0\d\.|\d\d\.");
                         String nazwa_folderu = reg.Replace(aktualnyFolder, "");
                         reg = new Regex(@"_");
                         nazwa_folderu = reg.Replace(nazwa_folderu, " ");
@@ -384,7 +524,87 @@ namespace museSort
 
                         if (albumIAutor.Length >= 2)
                         {
-                            if (albumIAutor[0] == album)
+                            if (albumIAutor[0].Trim() == wykonawca[0])
+                            {
+
+                                if (albumIAutor.Length > 2)
+                                {
+                                    for (int i = 2; i < albumIAutor.Length; i++)
+                                    {
+                                        album += albumIAutor[i];
+                                    }
+                                    reg = new Regex(@" by \w*");
+                                    album = reg.Replace(album, "");
+                                }
+                            }
+                            else
+                            {
+                                album = albumIAutor[0];
+                            }
+                            album = album.Trim();
+                            reg = new Regex(@" by \w*");
+                            album = reg.Replace(album, "");
+                        }
+                        else
+                        {
+                            album = albumIAutor[0];
+                            album = album.Trim();
+                            reg = new Regex(@" by \w*");
+                            album = reg.Replace(album, "");
+                        }
+                    }
+
+                    przepisz_pola_do_tagow();
+                    tagi.Save();
+                }
+                else if (album != "" && wykonawca.Length == 1 && wykonawca[0] == "")
+                {
+                    if (!Regex.Match(aktualnyFolder, @"\w*-\w*").Success)
+                    {
+                        Regex reg = new Regex(@"(\(\w*\))|(\[\w*\])|(\(\w*-\w*\))|(\[\w*-\w*\])|(\(\w* \w*\))|(\[\w* \w*\])|#|\d\d\d\d|0\d\.|\d\d\.");
+                        wykonawca[0] = reg.Replace(aktualnyFolder, "");
+                        reg = new Regex(@"_");
+                        wykonawca[0] = reg.Replace(wykonawca[0], " ");
+                        wykonawca[0] = wykonawca[0].Trim();
+                        if (wykonawca[0] == album)
+                        {
+                            odkonca++;
+                            if (foldery.Length > odkonca)
+                            {
+                                aktualnyFolder = foldery[foldery.Length - odkonca];
+                                reg = new Regex(@"(\(\w*\))|(\[\w*\])|(\(\w*-\w*\))|(\[\w*-\w*\])|(\(\w* \w*\))|(\[\w* \w*\])|#|\d\d\d\d|0\d\.|\d\d\.");
+                                wykonawca[0] = reg.Replace(aktualnyFolder, "");
+                                reg = new Regex(@"_");
+                                wykonawca[0] = reg.Replace(wykonawca[0], " ");
+                                wykonawca[0] = wykonawca[0].Trim();
+                                String[] nieakceptowalne = { "new", "Downloads", "mp3", "Muzyka", "Pobrane", "Muza", "muza" };
+                                if (nieakceptowalne.Contains<String>(wykonawca[0]))
+                                {
+                                    wykonawca[0] = album;
+                                }
+                            }
+                            else
+                            {
+                                wykonawca[0] = album;
+                            }
+
+                        }
+                        przepisz_pola_do_tagow();
+                        tagi.Save();
+                    }
+                    else if (Regex.Match(aktualnyFolder, @"\w*-\w*").Success)
+                    {
+                        Regex reg = new Regex(@"(\(\w*\))|(\[\w*\])|(\(\w*-\w*\))|(\[\w*-\w*\])|(\(\w* \w*\))|(\[\w* \w*\])|#|\d\d\d\d|0\d\.|\d\d\.");
+                        String nazwa_folderu = reg.Replace(aktualnyFolder, "");
+                        reg = new Regex(@"_");
+                        nazwa_folderu = reg.Replace(nazwa_folderu, " ");
+                        nazwa_folderu = nazwa_folderu.Trim();
+
+                        String[] albumIAutor = nazwa_folderu.Split('-');
+
+                        if (albumIAutor.Length >= 2)
+                        {
+                            if (albumIAutor[0].Trim() == album)
                             {
                                 wykonawca[0] = albumIAutor[1];
                                 if (albumIAutor.Length > 2)
@@ -407,184 +627,15 @@ namespace museSort
                         }
                     }
 
-                    
-                }
-                else if (Regex.Match(aktualnyFolder, @"\w*-\w*").Success)
-                {
-                    Regex reg = new Regex(@"(\(\w*\))|(\[\w*\])|(\(\w*-\w*\))|(\[\w*-\w*\])|(\(\w* \w*\))|(\[\w* \w*\])|#|\d\d\d\d|0\d\.|\d\d\.");
-                    String nazwa_folderu = reg.Replace(aktualnyFolder, "");
-                    reg = new Regex(@"_");
-                    nazwa_folderu = reg.Replace(nazwa_folderu, " ");
-                    nazwa_folderu = nazwa_folderu.Trim();
-
-                    String[] albumIAutor = nazwa_folderu.Split('-');
-                    if (albumIAutor.Length >= 2 && ((albumIAutor[0] == "AC" && albumIAutor[1] == "DC") || (albumIAutor[0] == "A" && albumIAutor[1] == "Ha")))
-                    {
-                        albumIAutor[0] = albumIAutor[0] + albumIAutor[1];
-                        for (int i = 1; i < albumIAutor.Length - 1; i++)
-                        {
-                            albumIAutor[i] = albumIAutor[i + 1];
-                        }
-                        albumIAutor[albumIAutor.Length - 1] = "";
-                    }
-
-                    if (albumIAutor.Length >= 2)
-                    {
-                        wykonawca[0] = albumIAutor[0];
-                        wykonawca[0] = wykonawca[0].Trim();
-                        album = albumIAutor[1];
-                        album = album.Trim();
-                        reg = new Regex(@" by \w*");
-                        album = reg.Replace(album, "");
-
-                        reg = new Regex(@"\d+\.");
-                        wykonawca[0] = reg.Replace(wykonawca[0], "");
-                        if (albumIAutor.Length > 2)
-                        {
-                            for (int i = 2; i < albumIAutor.Length; i++)
-                            {
-                                album += albumIAutor[i];
-                            }
-                            reg = new Regex(@" by \w*");
-                            album = reg.Replace(album, "");
-                        }
-                    }
-                }
-
-                przepisz_pola_do_tagow();
-                tagi.Save();
-            }
-            else if (album == "" && wykonawca.Length >= 1 && wykonawca[0] != "")
-            {
-                if (!Regex.Match(aktualnyFolder, @"\w*-\w*").Success)
-                {
-                    Regex reg = new Regex(@"(\(\w*\))|(\[\w*\])|(\(\w*-\w*\))|(\[\w*-\w*\])|(\(\w* \w*\))|(\[\w* \w*\])|#|\d\d\d\d|0\d\.|\d\d\.");
-                    album = reg.Replace(aktualnyFolder, "");
-                    reg = new Regex(@"_");
-                    album = reg.Replace(album, " ");
-                    album = album.Trim();
-
                     przepisz_pola_do_tagow();
                     tagi.Save();
                 }
-                else if (Regex.Match(aktualnyFolder, @"\w*-\w*").Success)
-                {
-                    Regex reg = new Regex(@"(\(\w*\))|(\[\w*\])|(\(\w*-\w*\))|(\[\w*-\w*\])|(\(\w* \w*\))|(\[\w* \w*\])|#|\d\d\d\d|0\d\.|\d\d\.");
-                    String nazwa_folderu = reg.Replace(aktualnyFolder, "");
-                    reg = new Regex(@"_");
-                    nazwa_folderu = reg.Replace(nazwa_folderu, " ");
-                    nazwa_folderu = nazwa_folderu.Trim();
-
-                    String[] albumIAutor = nazwa_folderu.Split('-');
-
-                    if (albumIAutor.Length >= 2)
-                    {
-                        if (albumIAutor[0].Trim() == wykonawca[0])
-                        {
-
-                            if (albumIAutor.Length > 2)
-                            {
-                                for (int i = 2; i < albumIAutor.Length; i++)
-                                {
-                                    album += albumIAutor[i];
-                                }
-                                reg = new Regex(@" by \w*");
-                                album = reg.Replace(album, "");
-                            }
-                        }
-                        else
-                        {
-                            album = albumIAutor[0];
-                        }
-                        album = album.Trim();
-                        reg = new Regex(@" by \w*");
-                        album = reg.Replace(album, "");
-                    }
-                    else
-                    {
-                        album = albumIAutor[0];
-                        album = album.Trim();
-                        reg = new Regex(@" by \w*");
-                        album = reg.Replace(album, "");
-                    }
-                }
-
-                przepisz_pola_do_tagow();
-                tagi.Save();
             }
-            else if (album != "" && wykonawca.Length == 1 && wykonawca[0] == "")
+            catch (System.IndexOutOfRangeException e)
             {
-                if (!Regex.Match(aktualnyFolder, @"\w*-\w*").Success)
-                {
-                    Regex reg = new Regex(@"(\(\w*\))|(\[\w*\])|(\(\w*-\w*\))|(\[\w*-\w*\])|(\(\w* \w*\))|(\[\w* \w*\])|#|\d\d\d\d|0\d\.|\d\d\.");
-                    wykonawca[0] = reg.Replace(aktualnyFolder, "");
-                    reg = new Regex(@"_");
-                    wykonawca[0] = reg.Replace(wykonawca[0], " ");
-                    wykonawca[0] = wykonawca[0].Trim();
-                    if (wykonawca[0] == album)
-                    {
-                        odkonca++;
-                        if (foldery.Length > odkonca)
-                        {
-                            aktualnyFolder = foldery[foldery.Length - odkonca];
-                            reg = new Regex(@"(\(\w*\))|(\[\w*\])|(\(\w*-\w*\))|(\[\w*-\w*\])|(\(\w* \w*\))|(\[\w* \w*\])|#|\d\d\d\d|0\d\.|\d\d\.");
-                            wykonawca[0] = reg.Replace(aktualnyFolder, "");
-                            reg = new Regex(@"_");
-                            wykonawca[0] = reg.Replace(wykonawca[0], " ");
-                            wykonawca[0] = wykonawca[0].Trim();
-                            String[] nieakceptowalne = {"new", "Downloads", "mp3", "Muzyka", "Pobrane", "Muza", "muza"};
-                            if (nieakceptowalne.Contains<String>(wykonawca[0]))
-                            {
-                                wykonawca[0] = album;
-                            }
-                        }
-                        else
-                        {
-                            wykonawca[0] = album;
-                        }
-                        
-                    }
-                    przepisz_pola_do_tagow();
-                    tagi.Save();
-                }
-                else if (Regex.Match(aktualnyFolder, @"\w*-\w*").Success)
-                {
-                    Regex reg = new Regex(@"(\(\w*\))|(\[\w*\])|(\(\w*-\w*\))|(\[\w*-\w*\])|(\(\w* \w*\))|(\[\w* \w*\])|#|\d\d\d\d|0\d\.|\d\d\.");
-                    String nazwa_folderu = reg.Replace(aktualnyFolder, "");
-                    reg = new Regex(@"_");
-                    nazwa_folderu = reg.Replace(nazwa_folderu, " ");
-                    nazwa_folderu = nazwa_folderu.Trim();
-
-                    String[] albumIAutor = nazwa_folderu.Split('-');
-
-                    if (albumIAutor.Length >= 2)
-                    {
-                        if (albumIAutor[0].Trim() == album)
-                        {
-                            wykonawca[0] = albumIAutor[1];
-                            if (albumIAutor.Length > 2)
-                            {
-                                for (int i = 2; i < albumIAutor.Length; i++)
-                                {
-                                    wykonawca[0] += albumIAutor[i];
-                                }
-                                reg = new Regex(@" by \w*");
-                                wykonawca[0] = reg.Replace(wykonawca[0], "");
-                            }
-                        }
-                        else
-                        {
-                            wykonawca[0] = albumIAutor[0];
-                        }
-                        wykonawca[0] = wykonawca[0].Trim();
-                        reg = new Regex(@" by \w*");
-                        wykonawca[0] = reg.Replace(wykonawca[0], "");
-                    }
-                }
-
-                przepisz_pola_do_tagow();
-                tagi.Save();
+                Console.WriteLine(e);
             }
         }
+        //end analizuj_sciezke
     }// end class utwor
 }// end namespace musesort
