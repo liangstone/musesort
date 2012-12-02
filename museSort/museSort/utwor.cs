@@ -52,7 +52,7 @@ namespace museSort
                 //Console.WriteLine("analizuj_sciezke();");
                 analizuj_sciezke();
                // Console.WriteLine("zapisz_tagi_standaryzuj_nazwe();");
-                zapisz_tagi();
+                zapisz_tagi_standaryzuj_nazwe();
             }
 
         }
@@ -224,15 +224,19 @@ namespace museSort
             }
 
             //------------------------------- budowanie nowej nazwy z uwzględnieniem niekompletnych danych
-
-            string numer = Convert.ToString(this.numer);
-            string wykonawca = (this.wykonawca[0] == "" ? "bezwykonawcy" : this.wykonawca[0]);
-            string tytul = (this.tytul == "" ? "beztytulu" : this.tytul);
-            string nowanazwa = numer + ". " + wykonawca + " - " + tytul;
+            string nowanazwa;
+            if (numer == 0 || wykonawca[0] == "" || tytul == "")
+                nowanazwa = "Brak nazwy";
+            else
+                nowanazwa = Convert.ToString(numer) + ". " + wykonawca[0] + " - " + tytul;
+            
 
             String katalog = new System.IO.DirectoryInfo(sciezka).Parent.FullName; //znajdź katalog pliku
-            nowanazwa += "." + rozszerzenie;
-            String nowasciezka = katalog + "\\" + nowanazwa;
+            String nowasciezka = katalog + "\\" + nowanazwa+"." + rozszerzenie;
+
+            if(System.IO.File.Exists(nowasciezka)) //w przypadku kolizji dodawaj rosnący numer
+                for (int i = 0; System.IO.File.Exists(nowasciezka = katalog + "\\" + nowanazwa + Convert.ToString(i) + "." + rozszerzenie); i++) ;
+            
             zmien_nazwe_pliku(nowasciezka);
             //Console.WriteLine("Zapisano " + nowasciezka);
         } // end zapisz tagi
