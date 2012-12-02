@@ -89,8 +89,8 @@
             // 
             // WykonawcaBox
             // 
-            this.WykonawcaBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.WykonawcaBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.WykonawcaBox.Location = new System.Drawing.Point(213, 145);
             this.WykonawcaBox.Name = "WykonawcaBox";
             this.WykonawcaBox.Size = new System.Drawing.Size(398, 20);
@@ -99,8 +99,8 @@
             // 
             // AlbumBox
             // 
-            this.AlbumBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AlbumBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.AlbumBox.Location = new System.Drawing.Point(213, 200);
             this.AlbumBox.Name = "AlbumBox";
             this.AlbumBox.Size = new System.Drawing.Size(398, 20);
@@ -109,8 +109,8 @@
             // 
             // RokWydaniaBox
             // 
-            this.RokWydaniaBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.RokWydaniaBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.RokWydaniaBox.Location = new System.Drawing.Point(213, 255);
             this.RokWydaniaBox.Name = "RokWydaniaBox";
             this.RokWydaniaBox.Size = new System.Drawing.Size(398, 20);
@@ -118,8 +118,8 @@
             // 
             // TytulBox
             // 
-            this.TytulBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TytulBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.TytulBox.Location = new System.Drawing.Point(213, 86);
             this.TytulBox.Name = "TytulBox";
             this.TytulBox.Size = new System.Drawing.Size(398, 20);
@@ -137,8 +137,8 @@
             // 
             // NazwaPlikuBox
             // 
-            this.NazwaPlikuBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NazwaPlikuBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.NazwaPlikuBox.Location = new System.Drawing.Point(213, 35);
             this.NazwaPlikuBox.Name = "NazwaPlikuBox";
             this.NazwaPlikuBox.Size = new System.Drawing.Size(398, 20);
@@ -183,8 +183,8 @@
             // 
             // GatunkiBox
             // 
-            this.GatunkiBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.GatunkiBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.GatunkiBox.Location = new System.Drawing.Point(213, 309);
             this.GatunkiBox.Name = "GatunkiBox";
             this.GatunkiBox.Size = new System.Drawing.Size(398, 20);
@@ -202,8 +202,8 @@
             // 
             // NrSciezkiBox
             // 
-            this.NrSciezkiBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NrSciezkiBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.NrSciezkiBox.Location = new System.Drawing.Point(213, 367);
             this.NrSciezkiBox.Name = "NrSciezkiBox";
             this.NrSciezkiBox.Size = new System.Drawing.Size(398, 20);
@@ -234,7 +234,7 @@
             this.PrzywrocDomyslneButton.Name = "PrzywrocDomyslneButton";
             this.PrzywrocDomyslneButton.Size = new System.Drawing.Size(105, 35);
             this.PrzywrocDomyslneButton.TabIndex = 28;
-            this.PrzywrocDomyslneButton.Text = "Przywróć domyślne";
+            this.PrzywrocDomyslneButton.Text = "Przywróć";
             this.PrzywrocDomyslneButton.UseVisualStyleBackColor = false;
             this.PrzywrocDomyslneButton.Click += new System.EventHandler(this.PrzywrocDomyslneButton_Click);
             // 

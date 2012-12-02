@@ -108,6 +108,7 @@ namespace museSort
 
         private void PrzywrocDomyslneButton_Click(object sender, EventArgs e)
         {
+            plik.przywroc_stare();
             wczytaj_plik_do_boxow();
         }
 

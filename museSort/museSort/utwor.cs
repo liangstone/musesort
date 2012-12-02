@@ -11,6 +11,7 @@ namespace museSort
     {
         public String sciezka;
         public String nazwa;
+        private string staraNazwa;
         public String rozszerzenie;
         public String[] wykonawca;
         public String tytul;
@@ -18,6 +19,7 @@ namespace museSort
         public String[] gatunek;
         public int numer;
         public TagLib.File tagi;
+        private TagLib.File stareTagi;
         public static string[] wspierane_rozszerzenia = { "mp3", "flac" };
 
 
@@ -36,6 +38,7 @@ namespace museSort
             //Console.WriteLine("rozszerzenie = System.IO.Path.GetExtension(path).Substring(1);");
             rozszerzenie = System.IO.Path.GetExtension(path).Substring(1);
             nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
+            staraNazwa = System.IO.Path.GetFileNameWithoutExtension(path);
 
 
             //Console.WriteLine("");
@@ -47,6 +50,7 @@ namespace museSort
             {
                 //Console.WriteLine("tagi = TagLib.File.Create(path);");
                 tagi = TagLib.File.Create(path);
+                stareTagi = TagLib.File.Create(path);
                 //Console.WriteLine("pobranie_danych();");
                 pobranie_danych();
                 //Console.WriteLine("analizuj_sciezke();");
@@ -196,7 +200,7 @@ namespace museSort
         }
 
 
-        public void zapisz_tagi()
+        public bool zapisz_tagi()
         {
             przepisz_pola_do_tagow();
             try
@@ -206,10 +210,13 @@ namespace museSort
             catch (System.UnauthorizedAccessException e)
             {
                 Console.WriteLine(e);
+                System.Windows.Forms.MessageBox.Show("Brak uprawnień do zmiany pliku:\n" + sciezka);
+                return false;
             }
+            return true;
         }
 
-        public void zapisz_tagi_standaryzuj_nazwe()
+        public bool zapisz_tagi_standaryzuj_nazwe()
         {
             //Console.WriteLine("Początak zapisu " + sciezka);
             przepisz_pola_do_tagow();
@@ -220,7 +227,8 @@ namespace museSort
             catch (System.UnauthorizedAccessException e)
             {
                 Console.WriteLine(e);
-                return;
+                System.Windows.Forms.MessageBox.Show("Brak uprawnień do zmiany pliku:\n" + sciezka);
+                return false;
             }
 
             //------------------------------- budowanie nowej nazwy z uwzględnieniem niekompletnych danych
@@ -239,13 +247,17 @@ namespace museSort
             
             zmien_nazwe_pliku(nowasciezka);
             //Console.WriteLine("Zapisano " + nowasciezka);
+            return true;
         } // end zapisz tagi
 
         public void zmien_nazwe_pliku(string nowasciezka)
         {
             //sprawdzanie nazwy pliku
-            string error=walidacja_sciezki_pliku(nowasciezka);
-            if (error != "OK")
+            try
+            {
+                walidacja_sciezki_pliku(nowasciezka);
+            }
+            catch(Exception error)
             {
                 Console.WriteLine(error);
                 return;
@@ -257,7 +269,7 @@ namespace museSort
                 try
                 {
                     System.IO.File.Move(sciezka, nowasciezka); // spróbuj zmienić nazwę
-                    sciezka = nowasciezka;                       // jeśli w move będzie błąd, sciezka zostanie taka sama
+                    sciezka = nowasciezka;                     // jeśli w move będzie błąd, sciezka zostanie taka sama
                     this.nazwa = System.IO.Path.GetFileNameWithoutExtension(sciezka);
                 }
                 catch (System.IO.IOException ex)
@@ -274,6 +286,8 @@ namespace museSort
                 {
                     Console.WriteLine(nowasciezka);
                     Console.WriteLine(ex); // Write error
+                    System.Windows.Forms.MessageBox.Show("Błąd: Brak uprawnień.\n"
+                        + "Przenoszenie pliku z: "+ sciezka + "\ndo: " + nowasciezka);
                 }
                 finally
                 {
@@ -282,7 +296,57 @@ namespace museSort
             } // end if
         }// end zmien_nazwe_pliku
 
-        public static string walidacja_sciezki_pliku(string filepath)
+        //kopiuje plik do podanej ścieżki (można przy okazji zmienić nazwę)
+        public void kopiuj(string nowasciezka)
+        {
+            //sprawdzanie nazwy pliku
+            try
+            {
+                walidacja_sciezki_pliku(nowasciezka);
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+                return;
+            }
+
+            if (nowasciezka != sciezka)
+            {
+                try
+                {
+                    System.IO.File.Copy(sciezka, nowasciezka); // spróbuj kopiować 
+                }
+                catch (System.IO.IOException ex)
+                {
+                    Console.WriteLine(nowasciezka);
+                    Console.WriteLine(ex); // Write error
+                }
+                catch (System.NotSupportedException ex)
+                {
+                    Console.WriteLine(nowasciezka);
+                    Console.WriteLine(ex); // Write error
+                }
+                catch (System.UnauthorizedAccessException ex)
+                {
+                    Console.WriteLine(nowasciezka);
+                    Console.WriteLine(ex); // Write error
+                    System.Windows.Forms.MessageBox.Show("Błąd: Brak uprawnień.\n"
+                        + "Kopiowanie pliku z: " + sciezka + "\ndo: " + nowasciezka);
+                }
+            } // end if
+        }// end kopiuj
+
+        //przywraca dane z czasu otworzenia pliku i zapisuje je
+        public void przywroc_stare()
+        {
+            nazwa = (String) staraNazwa.Clone();
+            tagi = stareTagi;
+            zapisz_tagi();
+            tagi = TagLib.File.Create(sciezka);
+            pobranie_danych();
+        }//end przywroc_stare
+
+        public static void walidacja_sciezki_pliku(string filepath)
         {
             string rozszerzenie = "";
             string nazwa = "";
@@ -293,19 +357,19 @@ namespace museSort
             }
             catch (System.ArgumentException e)
             {
-                return "Błąd: Nieprawidłowa ścieżka: " + filepath;
+                Console.WriteLine(e);
+                throw new Exception("Błąd: Nieprawidłowa ścieżka: " + filepath);
             }
 
             if (!wspierane_rozszerzenia.Contains(rozszerzenie))
             {
-                return "Błąd: Nie wspierane rozszerzenie: " + rozszerzenie;
+                throw new Exception( "Błąd: Nie wspierane rozszerzenie: " + rozszerzenie);
             }
             if (nazwa == "")
             {
-                return "Błąd: Brak nazwy";
+                throw new Exception( "Błąd: Brak nazwy");
             }
 
-            return "OK";
         }// end walidacja_sciezki_pliku
 
         // przepisuje pola klasy utwor do tagów w utwor.tagi.Tag
@@ -500,8 +564,8 @@ namespace museSort
                         }
                     }
 
-                    przepisz_pola_do_tagow();
-                    tagi.Save();
+                    if (!zapisz_tagi())
+                        return;
                 }
                 else if (album == "" && wykonawca.Length >= 1 && wykonawca[0] != "")
                 {
@@ -513,8 +577,8 @@ namespace museSort
                         album = reg.Replace(album, " ");
                         album = album.Trim();
 
-                        przepisz_pola_do_tagow();
-                        tagi.Save();
+                        if (!zapisz_tagi())
+                            return;
                     }
                     else if (Regex.Match(aktualnyFolder, @"\w*-\w*").Success)
                     {
@@ -558,8 +622,8 @@ namespace museSort
                         }
                     }
 
-                    przepisz_pola_do_tagow();
-                    tagi.Save();
+                    if (!zapisz_tagi())
+                        return;
                 }
                 else if (album != "" && wykonawca.Length == 1 && wykonawca[0] == "")
                 {
@@ -593,8 +657,8 @@ namespace museSort
                             }
 
                         }
-                        przepisz_pola_do_tagow();
-                        tagi.Save();
+                        if (!zapisz_tagi())
+                            return;
                     }
                     else if (Regex.Match(aktualnyFolder, @"\w*-\w*").Success)
                     {
@@ -631,8 +695,8 @@ namespace museSort
                         }
                     }
 
-                    przepisz_pola_do_tagow();
-                    tagi.Save();
+                    if (!zapisz_tagi())
+                        return;
                 }
             }
             catch (System.IndexOutOfRangeException e)
