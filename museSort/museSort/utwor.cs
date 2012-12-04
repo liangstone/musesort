@@ -341,6 +341,7 @@ namespace museSort
         {
             nazwa = (String) staraNazwa.Clone();
             tagi = stareTagi;
+            zmien_nazwe_pliku(stareTagi.Name);
             zapisz_tagi();
             tagi = TagLib.File.Create(sciezka);
             pobranie_danych();
