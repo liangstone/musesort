@@ -143,7 +143,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::museSort.Properties.Resources.Blue_fractal_rework_by_elfy001;
+            this.BackgroundImage = global::museSort.Properties.Resources.tlo;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(486, 379);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox1);

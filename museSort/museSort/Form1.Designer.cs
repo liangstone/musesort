@@ -113,14 +113,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::museSort.Properties.Resources.Blue_fractal_rework_by_elfy001;
-            this.ClientSize = new System.Drawing.Size(744, 551);
+            this.BackgroundImage = global::museSort.Properties.Resources.tlo;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(744, 462);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.pictureBox1);
+            this.MinimumSize = new System.Drawing.Size(500, 500);
             this.Name = "Form1";
             this.Text = "MUSESORT";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
