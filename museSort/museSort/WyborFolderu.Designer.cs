@@ -48,9 +48,9 @@
             // 
             this.sciezka_box.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.sciezka_box.Location = new System.Drawing.Point(69, 293);
+            this.sciezka_box.Location = new System.Drawing.Point(69, 284);
             this.sciezka_box.Name = "sciezka_box";
-            this.sciezka_box.Size = new System.Drawing.Size(311, 20);
+            this.sciezka_box.Size = new System.Drawing.Size(334, 20);
             this.sciezka_box.TabIndex = 0;
             // 
             // pictureBox1
@@ -67,7 +67,7 @@
             this.wybor_folderu_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.wybor_folderu_button.Font = new System.Drawing.Font("Book Antiqua", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.wybor_folderu_button.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.wybor_folderu_button.Location = new System.Drawing.Point(391, 289);
+            this.wybor_folderu_button.Location = new System.Drawing.Point(414, 280);
             this.wybor_folderu_button.Name = "wybor_folderu_button";
             this.wybor_folderu_button.Size = new System.Drawing.Size(83, 24);
             this.wybor_folderu_button.TabIndex = 2;
@@ -80,7 +80,7 @@
             this.zamknij_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.zamknij_button.Font = new System.Drawing.Font("Book Antiqua", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.zamknij_button.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.zamknij_button.Location = new System.Drawing.Point(12, 372);
+            this.zamknij_button.Location = new System.Drawing.Point(12, 363);
             this.zamknij_button.Name = "zamknij_button";
             this.zamknij_button.Size = new System.Drawing.Size(123, 30);
             this.zamknij_button.TabIndex = 4;
@@ -93,7 +93,7 @@
             this.wykonaj_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.wykonaj_button.Font = new System.Drawing.Font("Book Antiqua", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.wykonaj_button.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.wykonaj_button.Location = new System.Drawing.Point(348, 372);
+            this.wykonaj_button.Location = new System.Drawing.Point(371, 363);
             this.wykonaj_button.Name = "wykonaj_button";
             this.wykonaj_button.Size = new System.Drawing.Size(128, 30);
             this.wykonaj_button.TabIndex = 5;
@@ -106,7 +106,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(7, 298);
+            this.label1.Location = new System.Drawing.Point(7, 289);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 15);
             this.label1.TabIndex = 7;
@@ -120,7 +120,7 @@
             this.lista_plikow_box.FormattingEnabled = true;
             this.lista_plikow_box.Location = new System.Drawing.Point(216, 12);
             this.lista_plikow_box.Name = "lista_plikow_box";
-            this.lista_plikow_box.Size = new System.Drawing.Size(260, 264);
+            this.lista_plikow_box.Size = new System.Drawing.Size(283, 264);
             this.lista_plikow_box.TabIndex = 8;
             // 
             // schemat_box
@@ -136,9 +136,9 @@
             "Rok\\Wykonawca\\Album\\Piosenki",
             "Piosenki\\Alfabetycznie",
             "Piosenki\\Wykonawca"});
-            this.schemat_box.Location = new System.Drawing.Point(111, 329);
+            this.schemat_box.Location = new System.Drawing.Point(111, 320);
             this.schemat_box.Name = "schemat_box";
-            this.schemat_box.Size = new System.Drawing.Size(155, 21);
+            this.schemat_box.Size = new System.Drawing.Size(235, 21);
             this.schemat_box.TabIndex = 9;
             // 
             // label2
@@ -146,7 +146,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label2.Location = new System.Drawing.Point(7, 335);
+            this.label2.Location = new System.Drawing.Point(7, 326);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 15);
             this.label2.TabIndex = 10;
@@ -160,7 +160,7 @@
             "Najlepszy",
             "MP3",
             "FLAC"});
-            this.format_box.Location = new System.Drawing.Point(329, 329);
+            this.format_box.Location = new System.Drawing.Point(407, 320);
             this.format_box.Name = "format_box";
             this.format_box.Size = new System.Drawing.Size(89, 21);
             this.format_box.TabIndex = 11;
@@ -170,7 +170,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label3.Location = new System.Drawing.Point(274, 335);
+            this.label3.Location = new System.Drawing.Point(352, 326);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 15);
             this.label3.TabIndex = 12;
@@ -190,7 +190,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::museSort.Properties.Resources.tlo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(486, 412);
+            this.ClientSize = new System.Drawing.Size(509, 403);
             this.Controls.Add(this.progress);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.format_box);
@@ -203,7 +203,7 @@
             this.Controls.Add(this.wybor_folderu_button);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.sciezka_box);
-            this.MinimumSize = new System.Drawing.Size(450, 450);
+            this.MinimumSize = new System.Drawing.Size(525, 441);
             this.Name = "WyborFolderu";
             this.Text = "WyborFolderuPoczatkowego";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
