@@ -57,11 +57,15 @@ namespace museSort
             Queue<String> tmp_sciezka = new Queue<string>();if(!Directory.Exists(sciezka_box.Text))                            //sprawdz czy podana sciezka jest poprawna
             {
                 MessageBox.Show("Podano nieprawidlowa sciezke folderu", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                zamknij_button.Enabled = true;
+                wykonaj_button.Enabled = true;
+                return;
             }
             else if(Directory.GetLogicalDrives().Contains(sciezka_box.Text))
             {
-                MessageBox.Show("Czy jestes pewien przeszukiwania zawartosci calego dysku?\n"
+                DialogResult dr = MessageBox.Show("Czy jestes pewien przeszukiwania zawartosci calego dysku?\n"
                 + "Moze to potrwac bardzo dlugo, a nawet zawiesic program.\n", "", MessageBoxButtons.YesNo);
+                if (dr == DialogResult.No) return;
             }
             else
             {
@@ -128,6 +132,7 @@ namespace museSort
                     }
                 }
             }
+            progress.Value = progress.Maximum;
             MessageBox.Show("Pomyślnie posortowano pliki.", "", MessageBoxButtons.OK);
             zamknij_button.Enabled = true;
             wykonaj_button.Enabled = true;

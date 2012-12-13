@@ -17,6 +17,7 @@ namespace museSort
         public String tytul;
         public String album;
         public String[] gatunek;
+        public String rok;
         public int numer;
         public TagLib.File tagi;
         private TagLib.File stareTagi;
@@ -65,15 +66,16 @@ namespace museSort
         //pobieranie danych z tagu i nazwy pliku
         private void pobranie_danych()                      //wpisanie danych do obiektów w klasie
         {
-            nazwa = usun_zanki_spec(nazwa);                 //zamiana na duże litery, bez znaków specjalnych
+            nazwa = usun_znaki_spec(nazwa);                 //zamiana na duże litery, bez znaków specjalnych
 
             tytul = tagi.Tag.Title;                         //pobranie tytułu
-            album = usun_zanki_spec(tagi.Tag.Album);        //pobranie albumu
+            album = usun_znaki_spec(tagi.Tag.Album);        //pobranie albumu
             wykonawca = tagi.Tag.Artists;                   //pobranie wykonawców
             gatunek = tagi.Tag.Genres;                      //pobranie gatunku
+            rok = tagi.Tag.Year.ToString();
             numer = int.Parse(tagi.Tag.Track.ToString());   //pobranie numeru piosenki
 
-            if (wykonawca.Length == 0)                      //sprawdzenie tagu
+            if (wykonawca.Length == 0)                      //jesli nie ma wykonawcy
             {
                 wykonawca = new String [1];
                 wykonawca[0] = "";
@@ -82,11 +84,11 @@ namespace museSort
             {                                               //jeżeli są to:
                 for (int i = 0; i < wykonawca.Length; i++) //zamiana na duże litery, bez znaków specjalnych
                 {
-                    wykonawca[i] = usun_zanki_spec(wykonawca[i]);
+                    wykonawca[i] = usun_znaki_spec(wykonawca[i]);
                 }
             }
 
-            if (gatunek.Length == 0)                      //sprawdzenie tagu
+            if (gatunek.Length == 0)                      //jesli nie ma gatunku
             {
                 gatunek = new String[1];
                 gatunek[0] = "";
@@ -95,68 +97,58 @@ namespace museSort
             {
                 for (int i = 0; i < gatunek.Length; i++)
                 {
-                    gatunek[i] = usun_zanki_spec(gatunek[i]);
+                    gatunek[i] = usun_znaki_spec(gatunek[i]);
                 }
             }
 
-            if (tytul == null || wykonawca == null)         //jeśli w nazwie nie ma wykonawcy lub tytułu pobrac tytuł
+            Regex reg_nr = new Regex("^\\d*");             //pobranie numeru
+            String tmp_nr = reg_nr.Match(nazwa).Value;
+            if (numer == 0)                             
+            {
+                if (tmp_nr != null && tmp_nr.Length < 4)    //dodaj numer jesli jest w nazwie
+                {
+                    numer = int.Parse(tmp_nr);
+                }
+            }
+            String tmp_rok = "";
+            int index_rok = 0;
+            Regex reg_rok = new Regex("\\D(1|2)\\d{3}\\D");             //pobranie roku
+            foreach (Match match_rok in reg_rok.Matches(nazwa.Replace("_","__")+"_"))            
+            {                                                                  
+                tmp_rok = match_rok.Value.Substring(1,4);
+                index_rok = match_rok.Index;
+            }
+
+            if (tmp_rok != "")
+            {
+                rok = tmp_rok;
+            }
+
+            if (tytul == null || wykonawca[0].Equals(""))         //jeśli w nazwie nie ma wykonawcy lub tytułu pobrac tytuł
             {
                 String[] temp = { album };                  //zamiana string na string[]
                 String szukane = nazwa;
+                szukane = szukane.Substring(0, index_rok - 3) + szukane.Substring(index_rok + 1, szukane.Length - index_rok - 1);   //usuniecie daty
                 szukane = usun_z_nazwy(temp, szukane);      //usuwanie zbędnych informacji z nazwy
                 szukane = usun_z_nazwy(gatunek, szukane);   //aby otrzymać brakującą informację
+                //if(numer != 0 && tmp_nr == numer.ToString())
+                //{
+                    szukane = reg_nr.Replace(szukane, "");  //usuwanie numeru
+                //}
 
-                String snumer;                              //aby usunąć numer piosenki, przerabiamy go na string
-                if (numer % 10 == 0)                        //dodajemy "0" na początek, wrazie wystapienia np. 02.tytul.mp3
-                    snumer = String.Concat("0", numer.ToString()); 
-                else 
-                    snumer = numer.ToString();
-
-                try
-                {
-                    if (szukane.Substring(0, 2).Equals(snumer)) //czy szukany tytul/wykonawca zaczyna się od numeru piosenki
-                    {                                           //najpierw dla podwójnej cyfry np. "01","21"...
-                        szukane = szukane.Substring(0, 2);
-                    }
-                    else if (szukane.Substring(0, 1).Equals(numer.ToString()))
-                    {                                           //dla wystąpienia pojedynczej numeracji np. 1.tytul.flac
-                        szukane = szukane.Substring(0, 1);
-                    }
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                }
-
-                /* Jeżeli zakładamy, że album/tytuł/wykonawca nie zaczynają się od cyfry
-                 * czego i tak nie mamy zapewnionego w wypadku powyższego wystąpienia oraz jemu równemu numerowi piosenki
-                Regex reg = new Regex("^\\d*");
-                szukane = reg.Replace(szukane, String.Empty);
-                */
-
-                if (wykonawca != null)                      //pobranie tytułu z nazwy, bo wykonawce mamy
+                if (!wykonawca[0].Equals(""))                      //pobranie tytułu z nazwy, bo wykonawce mamy
                 {
                     szukane = usun_z_nazwy(wykonawca, szukane);
                     tytul = oczysc_konce(szukane);
                 }
                 else if (tytul != null)                     //pobranie wykonawcy z nazwy
                 {
-                    temp[0] = tytul;
+                    temp[0] = tytul.ToUpper();
                     szukane = usun_z_nazwy(temp, szukane);
-                    Regex reg = new Regex("^\\d*");         //Jeśli znajduje się numer piosenki w nazwie to usun
-                    szukane = reg.Replace(szukane, String.Empty);
                     wykonawca[0] = oczysc_konce(szukane);
                 }
               //else  { wykonawca i tytuł zawierają null }
             }
-
-            /*//-----------------------TEST------------------------------
-            if (tytul != null) System.Console.WriteLine("\ntytuł: " + tytul);
-            System.Console.WriteLine("album : " + album);
-            if (wykonawca != null) System.Console.WriteLine("wykonawca: " + wykonawca[0]);
-            if (gatunek != null) System.Console.WriteLine("gatunek: " + gatunek[0]);
-            System.Console.WriteLine("nazwa: " + nazwa + "\n");
-            //----------------------------------------------------------*/
         }
 
         private String usun_z_nazwy(String[] text, String nazwa)        //usuwanie słów z "text" występujących w "nazwa"
@@ -183,7 +175,7 @@ namespace museSort
             return nazwa;
         }
 
-        private String usun_zanki_spec(String text)                     //usuwanie znaków specjalnych
+        private String usun_znaki_spec(String text)                     //usuwanie znaków specjalnych
         {
             if (text == null) text = "";
             String wynik = text;
@@ -195,7 +187,7 @@ namespace museSort
 
         private String oczysc_konce(String text)                        //usuwa znaki specjalne z początku i końca tekstu
         {
-            Regex reg = new Regex("^(\\-*_*)*|$(\\-*_*)*");
+            Regex reg = new Regex("^[\\-* _*]*|[\\-* _*]*$");
             text = reg.Replace(text, String.Empty);
             return text;
         }
