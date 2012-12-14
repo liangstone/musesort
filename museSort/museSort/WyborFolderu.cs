@@ -1,12 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Xml;
 using System.Windows.Forms;
 
 namespace museSort
@@ -15,19 +10,19 @@ namespace museSort
     {
         private FolderBrowserDialog explorer;
         public static string[] wspierane_rozszerzenia = { "mp3", "flac" };
-        //private bool stop = false;
+        private string[] kategorie;
 
         public WyborFolderu()
         {
             explorer = new FolderBrowserDialog();
 
             InitializeComponent();
-
             format_box.SelectedIndex = 0;
             format_box.DropDownStyle = ComboBoxStyle.DropDownList;
             schemat_box.SelectedIndex = 0;
             schemat_box.DropDownStyle = ComboBoxStyle.DropDownList;
             schemat_box.DropDownWidth = DropDownWidth(schemat_box);
+            przetwarzaj_kategorie();
         }
 
         private void wyszukaj_Click(object sender, EventArgs e)                 //wlacza explorera
@@ -52,9 +47,6 @@ namespace museSort
             zamknij_button.Enabled = false;
             wykonaj_button.Enabled = false;
             lista_plikow_box.Items.Clear();
-            //utwor tmp_utwor;
-            //String sciezka;
-            //Queue<String> tmp_sciezka = new Queue<string>();
             if(!Directory.Exists(sciezka_box.Text))                            //sprawdz czy podana sciezka jest poprawna
             {
                 MessageBox.Show("Podano nieprawidlowa sciezke folderu", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -83,13 +75,13 @@ namespace museSort
 
                 try
                 {
-                    sortuj(sciezka_box.Text, przetwarzaj_kategorie());
-                    lista_plikow_box.Refresh();
+                    sortuj();
                     MessageBox.Show("Pomyślnie posortowano pliki.", "", MessageBoxButtons.OK);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(this,ex.Message,"Przerwanie sortowania.");
+                    Console.WriteLine(ex);
                 }
             }
             zamknij_button.Enabled = true;
@@ -97,11 +89,11 @@ namespace museSort
             progress_bar.Value = 0;
         }
 
-        private void /*List<string>*/ sortuj(string root, string[] kategorie)
+        private void sortuj()
         {
             if (kategorie[0] == "")
                 return;
-            if (!Directory.Exists(root))        //czy katalog który mamy sortować istnieje
+            if (!Directory.Exists(sciezka_box.Text))        //czy katalog który mamy sortować istnieje
             {
                 MessageBox.Show("Podany katalog nie istnieje.");
                 return;
@@ -116,7 +108,7 @@ namespace museSort
             progress_bar.Step = 1;
             lista_plikow_box.Items.Add("Znajdowanie plików...");
             lista_plikow_box.Refresh();
-            Dictionary<string, List<string>> sciezki_plikow = znajdz_wspierane_pliki(root);
+            Dictionary<string, List<string>> sciezki_plikow = znajdz_wspierane_pliki(sciezka_box.Text);
 
                 
             
@@ -126,7 +118,7 @@ namespace museSort
 
 
             //tworzymy katalogi - punkt 4
-            Directory.SetCurrentDirectory(root);
+            Directory.SetCurrentDirectory(sciezka_box.Text);
             Directory.CreateDirectory(@"Musesort\Temp");
             Directory.CreateDirectory(@"Musesort\Posegregowane\Nieprzydzielone");
             Directory.CreateDirectory(@"Musesort\Zduplikowane\Posegregowane\Nieprzydzielone");
@@ -137,6 +129,8 @@ namespace museSort
                 foreach (string sciezka in sciezki_plikow[rozszerzenie]) //iterujemy po plikach
                 {
                     utwor plik = new utwor(sciezka);
+                    if (plik.tagi == null)
+                        continue;
                     string nazwa_pliku = Path.GetFileName(plik.sciezka);
                     plik.kopiuj(@"Musesort\Temp\" + nazwa_pliku);
                     plik.przywroc_stare();
@@ -145,11 +139,11 @@ namespace museSort
                     string sciezka_katalogu;
                     if (schemat_box.Text == @"Piosenki\Wykonawca" && plik.wykonawca[0] != "" && plik.tytul != "")
                     {
-                        sciezka_katalogu = @"Musesort\Posortowane";
+                        sciezka_katalogu = @"Musesort\Posegregowane";
                         nazwa_pliku = plik.wykonawca[0] + '_' + plik.tytul + '.' + plik.rozszerzenie;
                     }
                     else
-                        sciezka_katalogu = sciezka_katalogu_z_pol(plik, kategorie);
+                        sciezka_katalogu = sciezka_katalogu_z_pol(plik);
 
 
                     if (!Directory.Exists(sciezka_katalogu))
@@ -164,8 +158,11 @@ namespace museSort
                     }
                     catch (System.IO.IOException ex) //rzucane w przypadku kolizji nazw plików
                     {
-                        Console.WriteLine(ex);       //w tym momencie duplikaty na zasadzie kto pierwszy
-                        plik.zmien_nazwe_pliku(Path.Combine(sciezka_katalogu_z_pol(plik, kategorie, true), nazwa_pliku));
+                        Console.WriteLine(ex);       //w tym momencie duplikaty na zasadzie kto pierwszy, jako test
+                        sciezka_katalogu = sciezka_katalogu_z_pol(plik, true);
+                        if (!System.IO.Directory.Exists(sciezka_katalogu))
+                            System.IO.Directory.CreateDirectory(sciezka_katalogu);
+                        plik.zmien_nazwe_pliku(Path.Combine(sciezka_katalogu, nazwa_pliku));
                     }
                     lista_plikow_box.Items.Add(plik.nazwa.Clone());
                     lista_plikow_box.Refresh();
@@ -178,7 +175,7 @@ namespace museSort
         private string[] przetwarzaj_kategorie()
         {
             //zamienić na tablicę
-            string[] kategorie;
+            //string[] kategorie;
             {
                 List<string> temp = new List<string>(schemat_box.Text.Split('\\'));//zamienianie w tę i z powrotem jest nieefektywne, 
                 temp.Remove("Piosenki");
@@ -241,7 +238,7 @@ namespace museSort
 
 
         //generuje ścieżkę dla katalogu na podstawie pól w sortowaniu
-        private string sciezka_katalogu_z_pol(utwor plik, string[] kategorie, bool duplikat = false)
+        private string sciezka_katalogu_z_pol(utwor plik, bool duplikat = false)
         {
             Type typ_utwor = typeof(utwor);
             string sciezka_katalogu;
@@ -275,24 +272,24 @@ namespace museSort
                 if (kat == "")                                          //jeśli nie udało się pobrać
                 {
                     if (duplikat)
-                        sciezka_katalogu = @"Musesort\Zduplikowane\Posortowane\Nieprzydzielone";
+                        sciezka_katalogu = @"Musesort\Zduplikowane\Posegregowane\Nieprzydzielone";
                     else
-                        sciezka_katalogu = @"Musesort\Posortowane\Nieprzydzielone";//przenieś do "Nieprzydzielone
+                        sciezka_katalogu = @"Musesort\Posegregowane\Nieprzydzielone";//przenieś do "Nieprzydzielone
                     break;
                 }
                 sciezka_katalogu = Path.Combine(sciezka_katalogu, kat);
             }
-            if (duplikat)
+            if (duplikat && File.Exists(Path.Combine(sciezka_katalogu, plik.nazwa + '.' + plik.rozszerzenie)))
             {
-                
-                string nazwa = plik.nazwa + '.' + plik.rozszerzenie;
-                string fullpath = Path.Combine(sciezka_katalogu, nazwa);
-                int i;
-                for(i = 1;File.Exists(fullpath);i++)
-                    fullpath = Path.Combine(sciezka_katalogu + Convert.ToString(i), nazwa);
-                sciezka_katalogu += Convert.ToString(i);
-                if (!System.IO.Directory.Exists(sciezka_katalogu))
-                    System.IO.Directory.CreateDirectory(sciezka_katalogu);
+                    string nazwa = plik.nazwa + '.' + plik.rozszerzenie;
+                    string fullpath = Path.Combine(sciezka_katalogu, nazwa);
+                    int i;
+                    for (i = 1; File.Exists(fullpath);)
+                    {
+                        i++;
+                        fullpath = Path.Combine(sciezka_katalogu + Convert.ToString(i), nazwa);
+                    }
+                    sciezka_katalogu += Convert.ToString(i);            
             }
             return sciezka_katalogu;
         }
@@ -311,7 +308,7 @@ namespace museSort
                     tmp.Add(s);
                 }
             }
-            catch (Exception exc) { };
+            catch (Exception) { };
             return tmp.ToArray();
         }
 
@@ -327,6 +324,11 @@ namespace museSort
                 }
             }
             return maxWidth;
+        }
+
+        private void schemat_box_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            przetwarzaj_kategorie();
         }
 
     }

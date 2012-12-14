@@ -347,7 +347,9 @@ namespace museSort
         //przywraca dane z czasu otworzenia pliku i zapisuje je
         public void przywroc_stare()
         {
-            nazwa = (String) staraNazwa.Clone();
+            if (staraNazwa == null)
+                return;
+            nazwa = staraNazwa.Clone().ToString();
             tagi = stareTagi;
             zmien_nazwe_pliku(stareTagi.Name);
             zapisz_tagi();
@@ -783,6 +785,9 @@ namespace museSort
             /*Nazwę pliku oraz tagi należy zmienić w taki sposób, że będą one zapisane 
              * ze spacjami zamiast podkreśleń oraz dużymi i małymi literami. Każdy wyraz
              * ma się zaczynać od dużej litery, a cała reszta liter jest mała*/
+            x.Trim();
+            if (x.Length == 0) 
+                return x;
             String[] wyrazy = x.Split(' ');
             String nowe = "";
             String a = "";
@@ -790,6 +795,8 @@ namespace museSort
             for (int i = 0; i < wyrazy.Length; i++)
             {
                 //System.Console.WriteLine(wyrazy[i]);
+                if (wyrazy[i].Length == 0)
+                    continue;
                 a = wyrazy[i].Substring(0, 1);
                 a = a.ToUpper();
                 b = wyrazy[i].Substring(1, wyrazy[i].Length - 1);

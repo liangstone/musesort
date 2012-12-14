@@ -140,6 +140,7 @@
             this.schemat_box.Name = "schemat_box";
             this.schemat_box.Size = new System.Drawing.Size(235, 21);
             this.schemat_box.TabIndex = 9;
+            this.schemat_box.SelectedIndexChanged += new System.EventHandler(this.schemat_box_SelectedIndexChanged);
             // 
             // label2
             // 
