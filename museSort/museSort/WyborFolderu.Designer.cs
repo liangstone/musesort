@@ -40,14 +40,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.format_box = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.progress = new System.Windows.Forms.ProgressBar();
+            this.progress_bar = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // sciezka_box
             // 
-            this.sciezka_box.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.sciezka_box.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.sciezka_box.Location = new System.Drawing.Point(69, 284);
             this.sciezka_box.Name = "sciezka_box";
             this.sciezka_box.Size = new System.Drawing.Size(334, 20);
@@ -114,9 +114,9 @@
             // 
             // lista_plikow_box
             // 
-            this.lista_plikow_box.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lista_plikow_box.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lista_plikow_box.FormattingEnabled = true;
             this.lista_plikow_box.Location = new System.Drawing.Point(216, 12);
             this.lista_plikow_box.Name = "lista_plikow_box";
@@ -176,13 +176,13 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "Format:";
             // 
-            // progress
+            // progress_bar
             // 
-            this.progress.Enabled = false;
-            this.progress.Location = new System.Drawing.Point(13, 252);
-            this.progress.Name = "progress";
-            this.progress.Size = new System.Drawing.Size(197, 23);
-            this.progress.TabIndex = 13;
+            this.progress_bar.Enabled = false;
+            this.progress_bar.Location = new System.Drawing.Point(13, 252);
+            this.progress_bar.Name = "progress_bar";
+            this.progress_bar.Size = new System.Drawing.Size(197, 23);
+            this.progress_bar.TabIndex = 13;
             // 
             // WyborFolderu
             // 
@@ -191,7 +191,7 @@
             this.BackgroundImage = global::museSort.Properties.Resources.tlo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(509, 403);
-            this.Controls.Add(this.progress);
+            this.Controls.Add(this.progress_bar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.format_box);
             this.Controls.Add(this.label2);
@@ -226,6 +226,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox format_box;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ProgressBar progress;
+        private System.Windows.Forms.ProgressBar progress_bar;
     }
 }

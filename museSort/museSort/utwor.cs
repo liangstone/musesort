@@ -55,9 +55,9 @@ namespace museSort
                 pobranie_danych();
                 //Console.WriteLine("analizuj_sciezke();");
                 analizuj_sciezke();
+                PrzyjmijNazwe();
                 zapisz_tagi();
                 zapisz_tagi_standaryzuj_nazwe();
-                PrzyjmijNazwe();
             }
 
         }
@@ -234,8 +234,12 @@ namespace museSort
 
             //------------------------------- budowanie nowej nazwy z uwzględnieniem niekompletnych danych
             string nowanazwa;
-            if (numer == 0 || wykonawca[0] == "" || tytul == "")
+            if (/*numer == 0 || */wykonawca[0] == "" || tytul == "")
+            {
+                Console.WriteLine("W pliku " + sciezka + "\nNumer: " + Convert.ToString(numer) + " Wykonawca: " + wykonawca[0]
+                    + " Tytul: " + tytul);
                 nowanazwa = "Brak nazwy";
+            }
             else
                 nowanazwa = Convert.ToString(numer) + ". " + wykonawca[0] + " - " + tytul;
             
@@ -253,6 +257,8 @@ namespace museSort
 
         public void zmien_nazwe_pliku(string nowasciezka)
         {
+            if (!System.IO.Path.IsPathRooted(nowasciezka))
+                nowasciezka = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), nowasciezka);
             //sprawdzanie nazwy pliku
             try
             {
@@ -273,10 +279,9 @@ namespace museSort
                     sciezka = nowasciezka;                     // jeśli w move będzie błąd, sciezka zostanie taka sama
                     this.nazwa = System.IO.Path.GetFileNameWithoutExtension(sciezka);
                 }
-                catch (System.IO.IOException ex)
+                catch (System.IO.IOException ex) //Jeśli jest kolizja 
                 {
-                    Console.WriteLine(nowasciezka);
-                    Console.WriteLine(ex); // Write error
+                    throw new System.IO.IOException(nowasciezka+"\n" + ex.Message);
                 }
                 catch (System.NotSupportedException ex)
                 {
@@ -300,6 +305,8 @@ namespace museSort
         //kopiuje plik do podanej ścieżki (można przy okazji zmienić nazwę)
         public void kopiuj(string nowasciezka)
         {
+            if (!System.IO.Path.IsPathRooted(nowasciezka))
+                nowasciezka = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), nowasciezka);
             //sprawdzanie nazwy pliku
             try
             {
@@ -762,11 +769,11 @@ namespace museSort
                         nowe += ' ';
                        // System.Console.WriteLine(nowe);
                     }
-                    System.Console.WriteLine(nowe);
-                    for (int k = 0; k < wyrazy.Length; k++)
-                    {
-                        System.Console.WriteLine(wyrazy[k]);
-                    }
+                    //System.Console.WriteLine(nowe);
+                    //for (int k = 0; k < wyrazy.Length; k++)
+                    //{
+                    //    System.Console.WriteLine(wyrazy[k]);
+                    //}
                     nowe = nowe.Trim();
                     return nowe;
         }//end ZamienNaWlasciwe(String x)
@@ -793,11 +800,11 @@ namespace museSort
                 nowe += ' ';
                 // System.Console.WriteLine(nowe);
             }
-            System.Console.WriteLine(nowe);
-            for (int k = 0; k < wyrazy.Length; k++)
-            {
-                System.Console.WriteLine(wyrazy[k]);
-            }
+            //System.Console.WriteLine(nowe);
+            //for (int k = 0; k < wyrazy.Length; k++)
+            //{
+            //    System.Console.WriteLine(wyrazy[k]);
+            //}
             nowe = nowe.Trim();
             return nowe;
         }//end ZamienNaWlasciwe(String x)
