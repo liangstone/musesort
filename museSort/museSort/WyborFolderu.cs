@@ -166,11 +166,7 @@ namespace museSort
                     }
                     catch (System.IO.IOException ex) //rzucane w przypadku kolizji nazw plików
                     {
-                        Console.WriteLine(ex);       //w tym momencie duplikaty na zasadzie kto pierwszy, jako test
-                        sciezka_katalogu = sciezka_katalogu_z_pol(plik, true);
-                        if (!System.IO.Directory.Exists(sciezka_katalogu))
-                            System.IO.Directory.CreateDirectory(sciezka_katalogu);
-                        plik.zmien_nazwe_pliku(Path.Combine(sciezka_katalogu, nazwa_pliku));
+                        duplikat(Path.Combine(sciezka_katalogu, nazwa_pliku), plik.sciezka);
                     }
                     lista_plikow_box.Items.Add(plik.nazwa.Clone());
                     lista_plikow_box.Refresh();
@@ -338,6 +334,28 @@ namespace museSort
         {
             przetwarzaj_kategorie();
         }
+        private void duplikat(String x, String y)
+        {
+            utwor plik1 = new utwor(x);
+            utwor plik2 = new utwor(y);
 
+            // do decydowania który jest lepszy będziemy używali ifów, chyba prościej będzie najpierw ustalić wartość boola
+            bool pierwszy_jest_lepszy = plik1.tagi.Properties.AudioBitrate >= plik2.tagi.Properties.AudioBitrate;
+
+            if (pierwszy_jest_lepszy) //pierwszy plik zostaje gdzie jest, drugi idzie do zduplikowanych
+            {
+                string nowykatalog = sciezka_katalogu_z_pol(plik2, true);
+                Directory.CreateDirectory(nowykatalog);
+                plik2.zmien_nazwe_pliku(Path.Combine(nowykatalog, plik2.nazwa + '.' + plik2.rozszerzenie));
+            }
+            else //drugi plik zajmuje miejsce pierwszego, pierwszy idzie do zduplikowanych
+            {
+                plik1.zmien_nazwe_pliku(@"Musesort\Zduplikowane\Temp\" + plik1.nazwa + '.' + plik1.rozszerzenie);
+                plik2.zmien_nazwe_pliku(x);
+                string nowykatalog = sciezka_katalogu_z_pol(plik1, true);
+                Directory.CreateDirectory(nowykatalog);
+                plik1.zmien_nazwe_pliku(Path.Combine(nowykatalog, plik1.nazwa + '.' + plik1.rozszerzenie));
+            }
+        }//end  private void duplikat(String x, String y)
     }
 }
