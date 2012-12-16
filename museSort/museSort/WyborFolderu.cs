@@ -11,6 +11,7 @@ namespace museSort
         private FolderBrowserDialog explorer;
         public static string[] wspierane_rozszerzenia = { "mp3", "flac" };
         private string[] kategorie;
+        private string preferowane;
 
         public WyborFolderu()
         {
@@ -23,6 +24,9 @@ namespace museSort
             schemat_box.DropDownStyle = ComboBoxStyle.DropDownList;
             schemat_box.DropDownWidth = DropDownWidth(schemat_box);
             przetwarzaj_kategorie();
+            preferowane = format_box.Text;
+            preferowane = preferowane.ToLower();
+            System.Console.WriteLine(preferowane);
         }
 
         private void wyszukaj_Click(object sender, EventArgs e)                 //wlacza explorera
@@ -341,20 +345,42 @@ namespace museSort
 
             // do decydowania który jest lepszy będziemy używali ifów, chyba prościej będzie najpierw ustalić wartość boola
             bool pierwszy_jest_lepszy = plik1.tagi.Properties.AudioBitrate >= plik2.tagi.Properties.AudioBitrate;
-
-            if (pierwszy_jest_lepszy) //pierwszy plik zostaje gdzie jest, drugi idzie do zduplikowanych
+            if ((preferowane == "najlepszy") || (preferowane == plik1.rozszerzenie && preferowane == plik2.rozszerzenie) || (preferowane != plik1.rozszerzenie && preferowane != plik2.rozszerzenie))
             {
+                if (pierwszy_jest_lepszy) //pierwszy plik zostaje gdzie jest, drugi idzie do zduplikowanych
+                {
+                    string nowykatalog = sciezka_katalogu_z_pol(plik2, true);
+                    Directory.CreateDirectory(nowykatalog);
+                    plik2.zmien_nazwe_pliku(Path.Combine(nowykatalog, plik2.nazwa + '.' + plik2.rozszerzenie));
+                }
+                else //drugi plik zajmuje miejsce pierwszego, pierwszy idzie do zduplikowanych
+                {
+                    plik1.zmien_nazwe_pliku(@"Musesort\Zduplikowane\Temp\" + plik1.nazwa + '.' + plik1.rozszerzenie);
+                    plik2.zmien_nazwe_pliku(x);
+                    string nowykatalog = sciezka_katalogu_z_pol(plik1, true);
+                    Directory.CreateDirectory(nowykatalog);
+                    plik1.zmien_nazwe_pliku(Path.Combine(nowykatalog, plik1.nazwa + '.' + plik1.rozszerzenie));
+                }
+            }
+            else if (preferowane == plik1.rozszerzenie && preferowane != plik2.rozszerzenie)
+            {
+                //pierwszy plik zostaje gdzie jest, drugi idzie do zduplikowanych
                 string nowykatalog = sciezka_katalogu_z_pol(plik2, true);
                 Directory.CreateDirectory(nowykatalog);
                 plik2.zmien_nazwe_pliku(Path.Combine(nowykatalog, plik2.nazwa + '.' + plik2.rozszerzenie));
             }
-            else //drugi plik zajmuje miejsce pierwszego, pierwszy idzie do zduplikowanych
+            else if (preferowane != plik1.rozszerzenie && preferowane == plik2.rozszerzenie)
             {
+                //drugi plik zajmuje miejsce pierwszego, pierwszy idzie do zduplikowanych
                 plik1.zmien_nazwe_pliku(@"Musesort\Zduplikowane\Temp\" + plik1.nazwa + '.' + plik1.rozszerzenie);
                 plik2.zmien_nazwe_pliku(x);
                 string nowykatalog = sciezka_katalogu_z_pol(plik1, true);
                 Directory.CreateDirectory(nowykatalog);
                 plik1.zmien_nazwe_pliku(Path.Combine(nowykatalog, plik1.nazwa + '.' + plik1.rozszerzenie));
+            }
+            else 
+            {
+                MessageBox.Show("Cos sie syplo!", "", MessageBoxButtons.OK);
             }
         }//end  private void duplikat(String x, String y)
     }
