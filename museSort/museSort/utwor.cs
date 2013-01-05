@@ -18,6 +18,16 @@ namespace museSort
         public String album;
         public String[] gatunek;
         public String rok;
+        public String komentarz;
+        public uint liczba_piosenek;
+        public uint numer_cd;
+        public uint liczba_cd;
+        public String tekst_piosenki;
+        public uint bity_na_minute;
+        public String dyrygent;
+        public String prawa_autorskie;
+        public String puid;                     //określa "brzmienie" piosenki
+        public IPicture[] zdjecia;
         public int numer;
         public TagLib.File tagi;
         private TagLib.File stareTagi;
@@ -74,6 +84,17 @@ namespace museSort
             gatunek = tagi.Tag.Genres;                      //pobranie gatunku
             rok = tagi.Tag.Year.ToString();
             numer = int.Parse(tagi.Tag.Track.ToString());   //pobranie numeru piosenki
+
+            komentarz = usun_znaki_spec(tagi.Tag.Comment);
+            liczba_piosenek = tagi.Tag.TrackCount;
+            numer_cd = tagi.Tag.Disc;
+            liczba_cd = tagi.Tag.DiscCount;
+            tekst_piosenki = usun_znaki_spec(tagi.Tag.Lyrics);
+            bity_na_minute = tagi.Tag.BeatsPerMinute;
+            dyrygent = usun_znaki_spec(tagi.Tag.Conductor);
+            prawa_autorskie = usun_znaki_spec(tagi.Tag.Copyright);
+            puid = usun_znaki_spec(tagi.Tag.MusicIpId);                     //MusicIp Id
+            zdjecia = tagi.Tag.Pictures;
 
             if (wykonawca.Length == 0)                      //jesli nie ma wykonawcy
             {
@@ -385,6 +406,16 @@ namespace museSort
             tagi.Tag.Album = album;
             tagi.Tag.Genres = gatunek;
             tagi.Tag.Track = uint.Parse(numer.ToString());
+            tagi.Tag.Comment = komentarz;
+            tagi.Tag.TrackCount = liczba_piosenek;
+            tagi.Tag.Disc = numer_cd;
+            tagi.Tag.DiscCount = liczba_cd;
+            tagi.Tag.Lyrics = tekst_piosenki;
+            tagi.Tag.BeatsPerMinute = bity_na_minute;
+            tagi.Tag.Conductor = dyrygent;
+            tagi.Tag.Copyright = prawa_autorskie;
+            tagi.Tag.MusicIpId = puid;                     //MusicIp Id
+            tagi.Tag.Pictures = zdjecia;
         }
 
         public void analizuj_sciezke()
