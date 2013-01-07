@@ -7,15 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Xml;
 
 namespace museSort
 {
     public partial class MainGUI : Form
     {
-
+        String folderGlowny;
        
         public MainGUI()
         {
+            loadConfiguration();
             InitializeComponent();
             ListDirectory(directoryTreeView, @"C:\");
             flowLayoutPanel1.Hide();
@@ -57,5 +59,85 @@ namespace museSort
             flowLayoutPanel1.Show();
         }
 
+        public void utworzFolderGlowny(String path, String nazwa)
+        {
+            String sciezka = path + @"\" + nazwa;
+            if (Directory.Exists(sciezka))
+            {
+                MessageBox.Show("Nie można utworzyć podanego katalogu, gdyż w podanej lokalizacji już taki istnieje");
+                return;
+            }
+            else
+            {
+                Directory.CreateDirectory(sciezka);
+                folderGlowny = sciezka;
+                saveConfiguration();
+            }
+        }
+
+        public void loadConfiguration()
+        {
+            XmlDocument plikXML;
+            plikXML = new XmlDocument();
+            if (Directory.Exists(@"C:\museSortConf"))
+            {
+                if (File.Exists(@"C:\museSortConf\conf.xml"))
+                {
+                    plikXML.Load(@"C:\museSortConf\conf.xml");
+                    if (plikXML.GetElementsByTagName("glowny").Count > 0)
+                    {
+                        folderGlowny = plikXML.GetElementsByTagName("glowny").Item(0).InnerText;
+                    }
+                    else
+                    {
+                        folderGlowny = null;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Brak pliku konfiguracyjengo, dane zostały utracone, zostanie utworzony nowy plik!!!");
+                    XmlDeclaration dec = plikXML.CreateXmlDeclaration("1.0", "UTF-8", null);
+                    plikXML.AppendChild(dec);
+                    XmlElement main = plikXML.CreateElement("body");
+                    plikXML.AppendChild(main);
+                    plikXML.Save(@"C:\museSortConf\conf.xml");
+                }
+            }
+            else
+            {
+                Directory.CreateDirectory(@"C:\museSortConf");
+                XmlDeclaration dec = plikXML.CreateXmlDeclaration("1.0", "UTF-8", null);
+                plikXML.AppendChild(dec);
+                XmlElement main = plikXML.CreateElement("body");
+                plikXML.AppendChild(main);
+                plikXML.Save(@"C:\museSortConf\conf.xml");
+            }
+        }
+
+        public void saveConfiguration()
+        {
+            XmlDocument plikXML;
+            plikXML = new XmlDocument();
+            if (!Directory.Exists(@"C:\museSortConf"))
+            {
+                Directory.CreateDirectory(@"C:\museSortConf");
+            }
+            if (File.Exists(@"C:\museSortConf\conf.xml"))
+            {
+                File.Delete(@"C:\museSortConf\conf.xml");
+            }
+            XmlDeclaration dec = plikXML.CreateXmlDeclaration("1.0", "UTF-8", null);
+            plikXML.AppendChild(dec);
+            XmlElement main = plikXML.CreateElement("body");
+            XmlElement glowny = plikXML.CreateElement("glowny");
+            XmlText wartosc = plikXML.CreateTextNode(folderGlowny);
+            glowny.AppendChild(wartosc);
+            main.AppendChild(glowny);
+            plikXML.AppendChild(main);
+            plikXML.Save(@"C:\museSortConf\conf.xml");
+
+        }
+
+        
     }
 }

@@ -99,6 +99,10 @@ namespace museSort
             XmlDeclaration dec = tempXML.CreateXmlDeclaration("1.0", "UTF-8", null);
             tempXML.AppendChild(dec);
             XmlElement main = tempXML.CreateElement("lista_folderow");
+            XmlElement sc = tempXML.CreateElement("schemat");
+            XmlText wartosc = tempXML.CreateTextNode(schemat);
+            sc.AppendChild(wartosc);
+            main.AppendChild(sc);
             generuj_elementy(sciezka, main, tempXML);
             tempXML.AppendChild(main);
             String p = sciezka + "\\" + "temp.xml";
