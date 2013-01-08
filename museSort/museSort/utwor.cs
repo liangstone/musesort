@@ -14,6 +14,7 @@ namespace museSort
         private string staraNazwa;
         public String rozszerzenie;
         public String[] wykonawca;
+        public String[] wykonawca_albumu;
         public String tytul;
         public String album;
         public String[] gatunek;
@@ -87,6 +88,12 @@ namespace museSort
             rok = tagi.Tag.Year.ToString();
             numer = int.Parse(tagi.Tag.Track.ToString());   //pobranie numeru piosenki
 
+            wykonawca_albumu = tagi.Tag.AlbumArtists;
+            for (int i = 0; i < wykonawca_albumu.Length; i++) 
+            {
+                wykonawca_albumu[i] = usun_znaki_spec(wykonawca_albumu[i]);
+                wykonawca_albumu[i] = ZamienNaWlasciwaNazwe(wykonawca_albumu[i]);
+            }
             komentarz = usun_znaki_spec(tagi.Tag.Comment);
             liczba_piosenek = tagi.Tag.TrackCount;
             numer_cd = tagi.Tag.Disc;
@@ -206,7 +213,7 @@ namespace museSort
         {
             if (text == null) text = "";
             String wynik = text;
-            Regex regex = new Regex("[\\. \\$ \\^ \\{ \\[ \\( \\| \\) \\* \\+ \\? \\\\]+");
+            Regex regex = new Regex("[\\. \\$ \\^ \\{ \\} \\] \\[ \\( \\| \\) \\; \\* \\+ _ \\? \\: / \\\" \\' \\> \\< \\\\]+");
             wynik = regex.Replace(wynik, "_");
             wynik = wynik.Trim('_');
             return wynik.ToUpper();
@@ -218,7 +225,6 @@ namespace museSort
             text = reg.Replace(text, String.Empty);
             return text;
         }
-
 
         public bool zapisz_tagi()
         {
@@ -414,16 +420,17 @@ namespace museSort
             tagi.Tag.Album = album;
             tagi.Tag.Genres = gatunek;
             tagi.Tag.Track = uint.Parse(numer.ToString());
-            tagi.Tag.Comment = komentarz;
+            tagi.Tag.Comment = ZamienNaWlasciwaNazwe(komentarz);
             tagi.Tag.TrackCount = liczba_piosenek;
             tagi.Tag.Disc = numer_cd;
             tagi.Tag.DiscCount = liczba_cd;
-            tagi.Tag.Lyrics = tekst_piosenki;
+            tagi.Tag.Lyrics = ZamienNaWlasciwaNazwe(tekst_piosenki);
             tagi.Tag.BeatsPerMinute = bity_na_minute;
-            tagi.Tag.Conductor = dyrygent;
-            tagi.Tag.Copyright = prawa_autorskie;
-            tagi.Tag.MusicIpId = puid;                     //MusicIp Id
+            tagi.Tag.Conductor = ZamienNaWlasciwaNazwe(dyrygent);
+            tagi.Tag.Copyright = ZamienNaWlasciwaNazwe(prawa_autorskie);
+            tagi.Tag.MusicIpId = ZamienNaWlasciwaNazwe(puid);                     //MusicIp Id
             tagi.Tag.Pictures = zdjecia;
+            tagi.Tag.AlbumArtists = wykonawca_albumu;
         }
 
         public void analizuj_sciezke()
@@ -779,7 +786,6 @@ namespace museSort
             String nowasciezka = katalog + "\\" + nazwa;
             zmien_nazwe_pliku(nowasciezka);
         }//end PrzyjmijNazwe()
-
 
         public String ZamienNaWlasciwe(String x)
         {
