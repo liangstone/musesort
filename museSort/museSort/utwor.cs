@@ -62,7 +62,15 @@ namespace museSort
                 //Console.WriteLine("tagi = TagLib.File.Create(path);");
                 tagi = TagLib.File.Create(path);
                 stareTagi = TagLib.File.Create(path);
+
+                //Console.WriteLine("pobranie_danych();");
+                pobranie_danych();
+                //Console.WriteLine("analizuj_sciezke();");
+                analizuj_sciezke();
+                //PrzyjmijNazwe();
                 zapisz_tagi();
+                zapisz_tagi_standaryzuj_nazwe();
+                PrzyjmijNazwe();
             }
 
         }
