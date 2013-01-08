@@ -62,17 +62,16 @@ namespace museSort
                 //Console.WriteLine("tagi = TagLib.File.Create(path);");
                 tagi = TagLib.File.Create(path);
                 stareTagi = TagLib.File.Create(path);
-                zapisz_tagi();
             }
 
         }
 
 
         //pobiera i przetwarza tagi
-        public void pobierz_tagi()
+        public void pobierz_tagi(string sciezka = "")
         {
             pobranie_danych();
-            analizuj_sciezke();
+            analizuj_sciezke(sciezka);
             PrzyjmijNazwe();
         }
 
@@ -129,7 +128,7 @@ namespace museSort
             String tmp_nr = reg_nr.Match(nazwa).Value;
             if (numer == 0)                             
             {
-                if (tmp_nr != null && tmp_nr.Length < 4)    //dodaj numer jesli jest w nazwie
+                if (tmp_nr != null && tmp_nr!="" && tmp_nr.Length < 4)    //dodaj numer jesli jest w nazwie
                 {
                     numer = int.Parse(tmp_nr);
                 }
@@ -425,9 +424,10 @@ namespace museSort
             tagi.Tag.Pictures = zdjecia;
         }
 
-        public void analizuj_sciezke()
+        public void analizuj_sciezke(string sciezka = "")
         {
-
+            if (sciezka == "")
+                sciezka = this.sciezka;
             //Przygotowanie listy folderów
             String[] foldery = sciezka.Split('\\');
             String aktualnyFolder = foldery[foldery.Length - 2];
