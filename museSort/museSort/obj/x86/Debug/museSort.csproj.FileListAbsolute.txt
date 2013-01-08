@@ -1,0 +1,12 @@
+C:\Users\user\musesort\museSort\museSort\obj\x86\Debug\museSort.csprojResolveAssemblyReference.cache
+C:\Users\user\musesort\museSort\museSort\obj\x86\Debug\museSort.Form1.resources
+C:\Users\user\musesort\museSort\museSort\obj\x86\Debug\museSort.MainGUI.resources
+C:\Users\user\musesort\museSort\museSort\obj\x86\Debug\museSort.OknoEdytujDane.resources
+C:\Users\user\musesort\museSort\museSort\obj\x86\Debug\museSort.Properties.Resources.resources
+C:\Users\user\musesort\museSort\museSort\obj\x86\Debug\museSort.WyborFolderu.resources
+C:\Users\user\musesort\museSort\museSort\obj\x86\Debug\museSort.csproj.GenerateResource.Cache
+C:\Users\user\musesort\museSort\museSort\bin\Debug\museSort.exe
+C:\Users\user\musesort\museSort\museSort\bin\Debug\museSort.pdb
+C:\Users\user\musesort\museSort\museSort\bin\Debug\taglib-sharp.dll
+C:\Users\user\musesort\museSort\museSort\obj\x86\Debug\museSort.exe
+C:\Users\user\musesort\museSort\museSort\obj\x86\Debug\museSort.pdb
