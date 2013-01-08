@@ -87,6 +87,22 @@ namespace museSort
                     if (plikXML.GetElementsByTagName("glowny").Count > 0)
                     {
                         folderGlowny = plikXML.GetElementsByTagName("glowny").Item(0).InnerText;
+                        if (!File.Exists(folderGlowny + "\\struktura_folderow.xml"))
+                        {
+                            mainFolderXML mainXML = new mainFolderXML();
+                            mainXML.ustalFolder(folderGlowny + "\\struktura_folderow.xml");
+                            mainXML.generujElementy();
+                        }
+                        else
+                        {
+                            mainFolderXML mainXML = new mainFolderXML(folderGlowny + "\\struktura_folderow.xml");
+                            Boolean stan = mainXML.analizuj();
+                            if (!stan)
+                            {
+                                MessageBox.Show("Zmieniono strukturę folderów");
+                                mainXML.generujElementy();
+                            }
+                        }
                     }
                     else
                     {
