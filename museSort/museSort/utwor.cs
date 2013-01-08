@@ -66,9 +66,10 @@ namespace museSort
                 pobranie_danych();
                 //Console.WriteLine("analizuj_sciezke();");
                 analizuj_sciezke();
-                PrzyjmijNazwe();
+                //PrzyjmijNazwe();
                 zapisz_tagi();
                 zapisz_tagi_standaryzuj_nazwe();
+                PrzyjmijNazwe();
             }
 
         }
