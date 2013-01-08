@@ -62,6 +62,7 @@ namespace museSort
                 //Console.WriteLine("tagi = TagLib.File.Create(path);");
                 tagi = TagLib.File.Create(path);
                 stareTagi = TagLib.File.Create(path);
+
             }
 
         }
