@@ -146,7 +146,7 @@ namespace museSort
                     string nazwa_pliku = Path.GetFileName(plik.sciezka);
                     plik.kopiuj(@"Musesort\Temp\" + nazwa_pliku);
                     plik = new utwor(@"Musesort\Temp\" + nazwa_pliku);
-                    plik.pobierz_tagi(sciezka);
+                    plik.pobierz_tagi();
                     plik.zapisz_tagi_standaryzuj_nazwe();
 
                     string sciezka_katalogu;
