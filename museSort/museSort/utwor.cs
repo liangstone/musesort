@@ -220,7 +220,6 @@ namespace museSort
             return text;
         }
 
-
         public bool zapisz_tagi()
         {
             przepisz_pola_do_tagow();
@@ -778,7 +777,6 @@ namespace museSort
             String nowasciezka = katalog + "\\" + nazwa;
             zmien_nazwe_pliku(nowasciezka);
         }//end PrzyjmijNazwe()
-
 
         public String ZamienNaWlasciwe(String x)
         {
