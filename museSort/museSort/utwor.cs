@@ -62,17 +62,16 @@ namespace museSort
                 //Console.WriteLine("tagi = TagLib.File.Create(path);");
                 tagi = TagLib.File.Create(path);
                 stareTagi = TagLib.File.Create(path);
-
             }
 
         }
 
 
         //pobiera i przetwarza tagi
-        public void pobierz_tagi(string sciezka = "")
+        public void pobierz_tagi()
         {
             pobranie_danych();
-            analizuj_sciezke(sciezka);
+            analizuj_sciezke();
             PrzyjmijNazwe();
         }
 
@@ -129,7 +128,7 @@ namespace museSort
             String tmp_nr = reg_nr.Match(nazwa).Value;
             if (numer == 0)                             
             {
-                if (tmp_nr != null && tmp_nr!="" && tmp_nr.Length < 4)    //dodaj numer jesli jest w nazwie
+                if (tmp_nr != null && tmp_nr.Length < 4)    //dodaj numer jesli jest w nazwie
                 {
                     numer = int.Parse(tmp_nr);
                 }
@@ -224,6 +223,7 @@ namespace museSort
         public bool zapisz_tagi()
         {
             przepisz_pola_do_tagow();
+            PrzyjmijNazwe();
             try
             {
                 tagi.Save();
@@ -243,6 +243,7 @@ namespace museSort
             przepisz_pola_do_tagow();
             try
             {
+                PrzyjmijNazwe();
                 tagi.Save();
             }
             catch (System.UnauthorizedAccessException e)
@@ -425,10 +426,9 @@ namespace museSort
             tagi.Tag.Pictures = zdjecia;
         }
 
-        public void analizuj_sciezke(string sciezka = "")
+        public void analizuj_sciezke()
         {
-            if (sciezka == "")
-                sciezka = this.sciezka;
+
             //Przygotowanie listy folderów
             String[] foldery = sciezka.Split('\\');
             String aktualnyFolder = foldery[foldery.Length - 2];
@@ -751,7 +751,6 @@ namespace museSort
         {
             
             tagi.Tag.Title = ZamienNaWlasciwe(tagi.Tag.Title);
-            tagi.Tag.Album = ZamienNaWlasciwe(tagi.Tag.Album);
             int i = 0;
             String [] a;
             String [] b;
@@ -767,6 +766,8 @@ namespace museSort
                 b[i] = ZamienNaWlasciwe(tagi.Tag.Artists[i]);
             }
             tagi.Tag.Artists = b;
+            System.Console.Write(b);
+            tagi.Tag.Album = ZamienNaWlasciwe(tagi.Tag.Album);
             tagi.Save();
            
             nazwa = ZamienNaWlasciwaNazwe(System.IO.Path.GetFileNameWithoutExtension(sciezka));
