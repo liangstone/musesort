@@ -67,7 +67,6 @@ namespace museSort
                 pobranie_danych();
                 //Console.WriteLine("analizuj_sciezke();");
                 analizuj_sciezke();
-                //PrzyjmijNazwe();
                 zapisz_tagi();
                 zapisz_tagi_standaryzuj_nazwe();
                 PrzyjmijNazwe();
@@ -232,6 +231,7 @@ namespace museSort
         public bool zapisz_tagi()
         {
             przepisz_pola_do_tagow();
+            PrzyjmijNazwe();
             try
             {
                 tagi.Save();
@@ -251,6 +251,7 @@ namespace museSort
             przepisz_pola_do_tagow();
             try
             {
+                PrzyjmijNazwe();
                 tagi.Save();
             }
             catch (System.UnauthorizedAccessException e)
@@ -758,7 +759,6 @@ namespace museSort
         {
             
             tagi.Tag.Title = ZamienNaWlasciwe(tagi.Tag.Title);
-            tagi.Tag.Album = ZamienNaWlasciwe(tagi.Tag.Album);
             int i = 0;
             String [] a;
             String [] b;
@@ -774,6 +774,8 @@ namespace museSort
                 b[i] = ZamienNaWlasciwe(tagi.Tag.Artists[i]);
             }
             tagi.Tag.Artists = b;
+            System.Console.Write(b);
+            tagi.Tag.Album = ZamienNaWlasciwe(tagi.Tag.Album);
             tagi.Save();
            
             nazwa = ZamienNaWlasciwaNazwe(System.IO.Path.GetFileNameWithoutExtension(sciezka));
