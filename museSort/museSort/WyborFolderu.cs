@@ -147,6 +147,8 @@ namespace museSort
                     plik.kopiuj(@"Musesort\Temp\" + nazwa_pliku);
                     plik.przywroc_stare();
                     plik = new utwor(@"Musesort\Temp\" + nazwa_pliku);
+                    plik.pobierz_tagi();
+                    plik.zapisz_tagi_standaryzuj_nazwe();
 
                     string sciezka_katalogu;
                     if (schemat_box.Text == @"Piosenki\Wykonawca" && plik.wykonawca[0] != "" && plik.tytul != "")

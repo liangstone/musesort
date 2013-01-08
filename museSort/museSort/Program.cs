@@ -15,7 +15,8 @@ namespace museSort
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainGUI());
+            //Application.Run(new MainGUI());
+            Application.Run(new Form1());
         }
     }
 }

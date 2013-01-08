@@ -36,6 +36,7 @@ namespace museSort
             {
                 //filepath = openFileDialog1.FileName;
                 plik = new utwor(openFileDialog1.FileName);
+                plik.pobierz_tagi();
                 wczytaj_plik_do_boxow();
             }
                 
