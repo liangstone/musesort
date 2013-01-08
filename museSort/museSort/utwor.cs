@@ -152,7 +152,11 @@ namespace museSort
             {
                 String[] temp = { album };                  //zamiana string na string[]
                 String szukane = nazwa;
-                szukane = szukane.Substring(0, index_rok - 3) + szukane.Substring(index_rok + 1, szukane.Length - index_rok - 1);   //usuniecie daty
+                try
+                {
+                    szukane = szukane.Substring(0, index_rok - 3) + szukane.Substring(index_rok + 1, szukane.Length - index_rok - 1);   //usuniecie daty
+                }
+                catch { } //ignoruje wyjątki rzucane z powodu pustej nazwy
                 szukane = usun_z_nazwy(temp, szukane);      //usuwanie zbędnych informacji z nazwy
                 szukane = usun_z_nazwy(gatunek, szukane);   //aby otrzymać brakującą informację
                 //if(numer != 0 && tmp_nr == numer.ToString())
@@ -780,6 +784,8 @@ namespace museSort
             /*Nazwę pliku oraz tagi należy zmienić w taki sposób, że będą one zapisane 
              * ze spacjami zamiast podkreśleń oraz dużymi i małymi literami. Każdy wyraz
              * ma się zaczynać od dużej litery, a cała reszta liter jest mała*/
+            if (x == null)
+                return x;
                     String[] wyrazy = x.Split('_');
                     String nowe = "";
                     String a = "";
