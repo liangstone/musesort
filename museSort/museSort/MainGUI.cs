@@ -579,10 +579,14 @@ namespace museSort
             FileStream plik;
             StreamWriter zapisuj;
             String gdzie;
+            String data;
+            data = DateTime.Today.ToString();
             gdzie = directoryTreeView.SelectedNode.Name;
             gdzie = @"C:\museSortConf\nowy.txt";
             plik = new FileStream(gdzie, FileMode.Append);
             zapisuj = new StreamWriter(plik);
+            zapisuj.WriteLine(data);
+
             zapisuj.Write(tekst);
             zapisuj.Close();
             plik.Close();
