@@ -302,7 +302,7 @@ namespace museSort
                     plik.zapisz_tagi_standaryzuj_nazwe();
 
                     string sciezka_katalogu;
-                    if (directoryTreeView.SelectedNode.Name == @"Piosenki\Wykonawca" && plik.wykonawca[0] != "" && plik.tytul != "")
+                    if (schematy.Text == @"Piosenki\Wykonawca" && plik.wykonawca[0] != "" && plik.tytul != "")
                     {
                         sciezka_katalogu = @"Musesort\Posegregowane";
                         nazwa_pliku = plik.wykonawca[0] + '_' + plik.tytul + '.' + plik.rozszerzenie;
