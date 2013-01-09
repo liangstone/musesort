@@ -609,5 +609,10 @@ namespace museSort
 
         }
 
+        private void schematy_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            przetwarzaj_kategorie();
+        }
+
     }
 }

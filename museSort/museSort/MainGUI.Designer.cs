@@ -191,6 +191,7 @@
             this.schematy.Name = "schematy";
             this.schematy.Size = new System.Drawing.Size(335, 21);
             this.schematy.TabIndex = 1;
+            this.schematy.SelectedIndexChanged += new System.EventHandler(this.schematy_SelectedIndexChanged_1);
             // 
             // label2
             // 
