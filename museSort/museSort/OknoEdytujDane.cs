@@ -36,6 +36,7 @@ namespace museSort
             {
                 //filepath = openFileDialog1.FileName;
                 plik = new utwor(openFileDialog1.FileName);
+                plik.pobierz_tagi();
                 wczytaj_plik_do_boxow();
             }
                 
@@ -47,21 +48,22 @@ namespace museSort
 
             string temp = "";
             NazwaPlikuBox.Text = System.IO.Path.GetFileNameWithoutExtension(plik.sciezka);//System.IO.Path.GetFileName(current.sciezka)
-            TytulBox.Text = plik.tytul;
-            temp = plik.wykonawca[0];
+            TytulBox.Text = ZamienNaWlasciwe(plik.tytul);
+
+            temp = ZamienNaWlasciwe(plik.wykonawca[0]);
             for(int i=1;i<plik.wykonawca.Length;i++)
             {
                 temp += ", "+plik.wykonawca[i];
             }
-            WykonawcaBox.Text = temp; 
-            AlbumBox.Text = plik.album;
-            RokWydaniaBox.Text = plik.tagi.Tag.Year.ToString();
-            temp = plik.gatunek[0];
+            WykonawcaBox.Text = ZamienNaWlasciwe(temp); 
+            AlbumBox.Text = ZamienNaWlasciwe(plik.album);
+            RokWydaniaBox.Text = ZamienNaWlasciwe(plik.tagi.Tag.Year.ToString());
+            temp = ZamienNaWlasciwe(plik.gatunek[0]);
             for (int i = 1; i < plik.gatunek.Length; i++)
             {
                 temp += ", " + plik.gatunek[i];
             }
-            GatunkiBox.Text = temp;
+            GatunkiBox.Text = ZamienNaWlasciwe(temp);
             NrSciezkiBox.Text = plik.numer.ToString();
 
 
@@ -128,7 +130,36 @@ namespace museSort
             }
         }
 
-
+        public String ZamienNaWlasciwe(String x)
+        {
+            /*Nazwę pliku oraz tagi należy zmienić w taki sposób, że będą one zapisane 
+             * ze spacjami zamiast podkreśleń oraz dużymi i małymi literami. Każdy wyraz
+             * ma się zaczynać od dużej litery, a cała reszta liter jest mała*/
+            String[] wyrazy = x.Split('_');
+            String nowe = "";
+            String a = "";
+            String b = "";
+            for (int i = 0; i < wyrazy.Length; i++)
+            {
+                //System.Console.WriteLine(wyrazy[i]);
+                a = wyrazy[i].Substring(0, 1);
+                a = a.ToUpper();
+                b = wyrazy[i].Substring(1, wyrazy[i].Length - 1);
+                b = b.ToLower();
+                //System.Console.WriteLine(wyrazy[i]);
+                nowe += a + b;
+                //System.Console.WriteLine(nowe);
+                nowe += ' ';
+                // System.Console.WriteLine(nowe);
+            }
+            //System.Console.WriteLine(nowe);
+            //for (int k = 0; k < wyrazy.Length; k++)
+            //{
+            //    System.Console.WriteLine(wyrazy[k]);
+            //}
+            nowe = nowe.Trim();
+            return nowe;
+        }//end ZamienNaWlasciwe(String x)
 
 
     }

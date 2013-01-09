@@ -145,8 +145,9 @@ namespace museSort
                         continue;
                     string nazwa_pliku = Path.GetFileName(plik.sciezka);
                     plik.kopiuj(@"Musesort\Temp\" + nazwa_pliku);
-                    plik.przywroc_stare();
                     plik = new utwor(@"Musesort\Temp\" + nazwa_pliku);
+                    plik.pobierz_tagi();
+                    plik.zapisz_tagi_standaryzuj_nazwe();
 
                     string sciezka_katalogu;
                     if (schemat_box.Text == @"Piosenki\Wykonawca" && plik.wykonawca[0] != "" && plik.tytul != "")
@@ -285,7 +286,10 @@ namespace museSort
                         sciezka_katalogu = @"Musesort\Posegregowane\Nieprzydzielone";//przenieś do "Nieprzydzielone
                     break;
                 }
+                kat = ZamienNaWlasciwe(kat);
+                System.Console.WriteLine(kat);
                 sciezka_katalogu = Path.Combine(sciezka_katalogu, kat);
+                System.Console.WriteLine(sciezka_katalogu);
             }
             if (duplikat && File.Exists(Path.Combine(sciezka_katalogu, plik.nazwa + '.' + plik.rozszerzenie)))
             {
@@ -383,5 +387,37 @@ namespace museSort
                 MessageBox.Show("Cos sie syplo!", "", MessageBoxButtons.OK);
             }
         }//end  private void duplikat(String x, String y)
+
+        public String ZamienNaWlasciwe(String x)
+        {
+            /*Nazwę pliku oraz tagi należy zmienić w taki sposób, że będą one zapisane 
+             * ze spacjami zamiast podkreśleń oraz dużymi i małymi literami. Każdy wyraz
+             * ma się zaczynać od dużej litery, a cała reszta liter jest mała*/
+            String[] wyrazy = x.Split('_');
+            String nowe = "";
+            String a = "";
+            String b = "";
+            for (int i = 0; i < wyrazy.Length; i++)
+            {
+                //System.Console.WriteLine(wyrazy[i]);
+                a = wyrazy[i].Substring(0, 1);
+                a = a.ToUpper();
+                b = wyrazy[i].Substring(1, wyrazy[i].Length - 1);
+                b = b.ToLower();
+                //System.Console.WriteLine(wyrazy[i]);
+                nowe += a + b;
+                //System.Console.WriteLine(nowe);
+                nowe += ' ';
+                // System.Console.WriteLine(nowe);
+            }
+            //System.Console.WriteLine(nowe);
+            //for (int k = 0; k < wyrazy.Length; k++)
+            //{
+            //    System.Console.WriteLine(wyrazy[k]);
+            //}
+            nowe = nowe.Trim();
+            return nowe;
+        }//end ZamienNaWlasciwe(String x)
+
     }
 }
