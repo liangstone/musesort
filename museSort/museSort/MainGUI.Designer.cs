@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.Modyfikuj = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
@@ -48,9 +44,17 @@
             this.Logi = new System.Windows.Forms.TextBox();
             this.Dodaj_Do_Głównego = new System.Windows.Forms.Button();
             this.Ustal_glowny = new System.Windows.Forms.Button();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.nowaNazwa = new System.Windows.Forms.TextBox();
+            this.generuj = new System.Windows.Forms.Button();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -61,36 +65,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(196, 233);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(785, 24);
-            this.menuStrip1.TabIndex = 3;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(38, 20);
-            this.toolStripMenuItem1.Text = "Plik";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(52, 20);
-            this.toolStripMenuItem2.Text = "Edytuj";
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(86, 20);
-            this.toolStripMenuItem3.Text = "O programie";
             // 
             // Modyfikuj
             // 
@@ -158,7 +132,7 @@
             this.flowLayoutPanel1.Controls.Add(this.label2);
             this.flowLayoutPanel1.Controls.Add(this.format);
             this.flowLayoutPanel1.Controls.Add(this.button1);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(29, 504);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(29, 507);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(729, 83);
             this.flowLayoutPanel1.TabIndex = 10;
@@ -260,6 +234,82 @@
             this.Ustal_glowny.UseVisualStyleBackColor = false;
             this.Ustal_glowny.Click += new System.EventHandler(this.Ustal_glowny_Click);
             // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPanel2.Controls.Add(this.label3);
+            this.flowLayoutPanel2.Controls.Add(this.nowaNazwa);
+            this.flowLayoutPanel2.Controls.Add(this.generuj);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(29, 507);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(729, 83);
+            this.flowLayoutPanel2.TabIndex = 12;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(114, 20);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Nazwa folderu:";
+            // 
+            // nowaNazwa
+            // 
+            this.nowaNazwa.Location = new System.Drawing.Point(123, 3);
+            this.nowaNazwa.Name = "nowaNazwa";
+            this.nowaNazwa.Size = new System.Drawing.Size(208, 20);
+            this.nowaNazwa.TabIndex = 1;
+            // 
+            // generuj
+            // 
+            this.generuj.BackColor = System.Drawing.Color.SkyBlue;
+            this.generuj.Font = new System.Drawing.Font("Tempus Sans ITC", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.generuj.Location = new System.Drawing.Point(337, 3);
+            this.generuj.Name = "generuj";
+            this.generuj.Size = new System.Drawing.Size(161, 37);
+            this.generuj.TabIndex = 2;
+            this.generuj.Text = "Generuj";
+            this.generuj.UseVisualStyleBackColor = false;
+            this.generuj.Click += new System.EventHandler(this.generuj_Click);
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPanel3.Controls.Add(this.label4);
+            this.flowLayoutPanel3.Controls.Add(this.button3);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(29, 507);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(729, 83);
+            this.flowLayoutPanel3.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.ForeColor = System.Drawing.Color.Coral;
+            this.label4.Location = new System.Drawing.Point(3, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(694, 18);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Folder główny programu już istnieje, jeśli jednak chcesz utworzyć nowy folder, na" +
+    "ciśnij OK.";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.SkyBlue;
+            this.button3.Font = new System.Drawing.Font("Tempus Sans ITC", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(3, 21);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(207, 43);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "OK";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // MainGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,7 +320,7 @@
             this.Controls.Add(this.Ustal_glowny);
             this.Controls.Add(this.Dodaj_Do_Głównego);
             this.Controls.Add(this.Logi);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.otwartyFolder);
             this.Controls.Add(this.directoryTreeView);
             this.Controls.Add(this.Eksport);
@@ -278,15 +328,17 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.Modyfikuj);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.flowLayoutPanel2);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "MainGUI";
             this.Text = "MuseSort";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,10 +347,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.Button Modyfikuj;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ProgressBar progressBar2;
@@ -314,5 +362,12 @@
         private System.Windows.Forms.TextBox Logi;
         private System.Windows.Forms.Button Dodaj_Do_Głównego;
         private System.Windows.Forms.Button Ustal_glowny;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox nowaNazwa;
+        private System.Windows.Forms.Button generuj;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button3;
     }
 }

@@ -25,6 +25,8 @@ namespace museSort
             directoryTreeView.NodeMouseClick += wyswietl;
             ListDirectory(directoryTreeView, @"C:\");
             flowLayoutPanel1.Hide();
+            flowLayoutPanel2.Hide();
+            flowLayoutPanel3.Hide();
         }
 
 
@@ -103,6 +105,7 @@ namespace museSort
             przetwarzaj_kategorie();
             preferowane = format.Text;
             preferowane = preferowane.ToLower();
+            flowLayoutPanel2.Hide();
             flowLayoutPanel1.Show();
         }
 
@@ -126,11 +129,11 @@ namespace museSort
         {
             XmlDocument plikXML;
             plikXML = new XmlDocument();
-            if (Directory.Exists(@"C:\museSortConf"))
+            if (Directory.Exists(@"C:\museSort"))
             {
-                if (File.Exists(@"C:\museSortConf\conf.xml"))
+                if (File.Exists(@"C:\museSort\conf.xml"))
                 {
-                    plikXML.Load(@"C:\museSortConf\conf.xml");
+                    plikXML.Load(@"C:\museSort\conf.xml");
                     if (plikXML.GetElementsByTagName("glowny").Count > 0)
                     {
                         folderGlowny = plikXML.GetElementsByTagName("glowny").Item(0).InnerText;
@@ -163,17 +166,17 @@ namespace museSort
                     plikXML.AppendChild(dec);
                     XmlElement main = plikXML.CreateElement("body");
                     plikXML.AppendChild(main);
-                    plikXML.Save(@"C:\museSortConf\conf.xml");
+                    plikXML.Save(@"C:\museSort\conf.xml");
                 }
             }
             else
             {
-                Directory.CreateDirectory(@"C:\museSortConf");
+                Directory.CreateDirectory(@"C:\museSort");
                 XmlDeclaration dec = plikXML.CreateXmlDeclaration("1.0", "UTF-8", null);
                 plikXML.AppendChild(dec);
                 XmlElement main = plikXML.CreateElement("body");
                 plikXML.AppendChild(main);
-                plikXML.Save(@"C:\museSortConf\conf.xml");
+                plikXML.Save(@"C:\museSort\conf.xml");
             }
         }
 
@@ -181,23 +184,26 @@ namespace museSort
         {
             XmlDocument plikXML;
             plikXML = new XmlDocument();
-            if (!Directory.Exists(@"C:\museSortConf"))
+            if (!Directory.Exists(@"C:\museSort"))
             {
-                Directory.CreateDirectory(@"C:\museSortConf");
+                Directory.CreateDirectory(@"C:\museSort");
             }
-            if (File.Exists(@"C:\museSortConf\conf.xml"))
+            if (File.Exists(@"C:\museSort\conf.xml"))
             {
-                File.Delete(@"C:\museSortConf\conf.xml");
+                File.Delete(@"C:\museSort\conf.xml");
             }
             XmlDeclaration dec = plikXML.CreateXmlDeclaration("1.0", "UTF-8", null);
             plikXML.AppendChild(dec);
             XmlElement main = plikXML.CreateElement("body");
-            XmlElement glowny = plikXML.CreateElement("glowny");
-            XmlText wartosc = plikXML.CreateTextNode(folderGlowny);
-            glowny.AppendChild(wartosc);
-            main.AppendChild(glowny);
+            if (folderGlowny != null && folderGlowny != "")
+            {
+                XmlElement glowny = plikXML.CreateElement("glowny");
+                XmlText wartosc = plikXML.CreateTextNode(folderGlowny);
+                glowny.AppendChild(wartosc);
+                main.AppendChild(glowny);
+            }
             plikXML.AppendChild(main);
-            plikXML.Save(@"C:\museSortConf\conf.xml");
+            plikXML.Save(@"C:\museSort\conf.xml");
 
         }
 
@@ -366,7 +372,6 @@ namespace museSort
             }
             return kategorie;
         }//end przetwarzaj_kategorie()
-
         //Zwraca listę ścieżek plików .mp3 i .flac
         Dictionary<string, List<string>> znajdz_wspierane_pliki(string katalog)
         {
@@ -395,8 +400,6 @@ namespace museSort
 
             return wynik;
         }//end znajdz_wspierane_pliki(string katalog)
-
-
         //generuje ścieżkę dla katalogu na podstawie pól w sortowaniu
         private string sciezka_katalogu_z_pol(utwor plik, bool duplikat = false)
         {
@@ -456,7 +459,6 @@ namespace museSort
             }
             return sciezka_katalogu;
         }//end sciezka_z_pol()
-
 
         private String[] pobierz_foldery(String sciezka)    //zwraca foldery, do ktorych uzytkownik ma prawo dostepu
         {
@@ -601,7 +603,19 @@ namespace museSort
 
         private void Ustal_glowny_Click(object sender, EventArgs e)
         {
-
+            if (folderGlowny != null && folderGlowny != "")
+            {
+                flowLayoutPanel2.Hide();
+                flowLayoutPanel1.Hide();
+                flowLayoutPanel3.Show();
+            }
+            else
+            {
+                flowLayoutPanel3.Hide();
+                flowLayoutPanel1.Hide();
+                flowLayoutPanel2.Show();
+            }
+            
         }
 
         private void Dodaj_Do_Głównego_Click(object sender, EventArgs e)
@@ -612,6 +626,45 @@ namespace museSort
         private void schematy_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             przetwarzaj_kategorie();
+        }
+
+        private void generuj_Click(object sender, EventArgs e)
+        {
+            String tekst = nowaNazwa.Text;
+            if (tekst == null || tekst == "")
+            {
+                MessageBox.Show("Podaj nazwę folderu!");
+                return;
+            }
+            if (folderGlowny == null || folderGlowny == "")
+            {
+                utworzFolderGlowny(@"C:\museSort", tekst);
+                folderGlowny = @"C:\museSort\" + tekst;
+                mainFolderXML mainXML = new mainFolderXML();
+                mainXML.ustalFolder(folderGlowny + "\\struktura_folderow.xml");
+                mainXML.generujElementy();
+                saveConfiguration();
+                MessageBox.Show("Utworzono nowy folder z muzyką o nazwie \"" + tekst + "\". Pełna ścieżka do folderu ma postać: " + folderGlowny);
+            }
+            else if (folderGlowny != "")
+            {
+                String[] temp = folderGlowny.Split('\\');
+                String staryfolder = temp[temp.Length-1];
+                utworzFolderGlowny(@"C:\museSort", tekst);
+                folderGlowny = @"C:\museSort\" + tekst;
+                mainFolderXML mainXML = new mainFolderXML();
+                mainXML.ustalFolder(folderGlowny + "\\struktura_folderow.xml");
+                mainXML.generujElementy();
+                saveConfiguration();
+                MessageBox.Show("Zastąpiono folder z muzyką o nazwie \"" + staryfolder + "\" nowym folderem o nazwie \"" + tekst + "\". Pełna ścieżka do folderu głównego ma postać: " + folderGlowny);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Hide();
+            flowLayoutPanel3.Hide();
+            flowLayoutPanel2.Show();
         }
 
     }
