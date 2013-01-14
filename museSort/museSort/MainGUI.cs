@@ -355,7 +355,7 @@ namespace museSort
                     {
                         duplikat(Path.Combine(sciezka_katalogu, nazwa_pliku), plik.sciezka);
                     }
-                    Logi.AppendText(plik.nazwa + Environment.NewLine);
+                    Logi.AppendText(ZamienNaWlasciwe(plik.nazwa) + Environment.NewLine);
                     Logi.Refresh();
                     progressBar2.PerformStep();
                 }
