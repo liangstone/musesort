@@ -48,13 +48,33 @@ namespace museSort
             foreach (String d in dirs)
             {
                 string[] folders = d.Split('\\');
-                otwartyFolder.Items.Add(folders[folders.Length-1] + "  folder");
+                System.Security.AccessControl.DirectorySecurity sec = System.IO.Directory.GetAccessControl(d);
+                if (!sec.AreAccessRulesProtected)
+                {
+                    otwartyFolder.Items.Add(folders[folders.Length - 1] + "  folder");
+                }
             }
             dirs = System.IO.Directory.GetFiles(e.Node.Name);
             foreach (String d in dirs)
             {
                 string[] files = d.Split('\\');
-                otwartyFolder.Items.Add(files[files.Length-1] + "  plik");
+                Boolean dostep = true;
+                System.Security.AccessControl.FileSecurity sec;
+                try
+                {
+                    sec = System.IO.File.GetAccessControl(d);
+                    dostep = sec.AreAccessRulesProtected;
+                }
+                catch
+                {
+                    dostep = true;
+                }
+                
+                if (!dostep)
+                {
+                    otwartyFolder.Items.Add(files[files.Length - 1] + "  plik");
+                }
+                
             }
         }
 
@@ -77,10 +97,14 @@ namespace museSort
                 string[] dirs = System.IO.Directory.GetDirectories(path);
                 foreach (string directory in dirs)
                 {
-                    string[] folders = directory.Split('\\');
-                    TreeNode temp = new TreeNode(folders[folders.Length - 1]);
-                    temp.Name = directory.ToString();
-                    directoryNode.Nodes.Add(temp);
+                    System.Security.AccessControl.DirectorySecurity sec = System.IO.Directory.GetAccessControl(directory);
+                    if (!sec.AreAccessRulesProtected)
+                    {
+                        string[] folders = directory.Split('\\');
+                        TreeNode temp = new TreeNode(folders[folders.Length - 1]);
+                        temp.Name = directory.ToString();
+                        directoryNode.Nodes.Add(temp);
+                    }
                 }
             }
         }
