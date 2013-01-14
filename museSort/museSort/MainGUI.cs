@@ -691,5 +691,75 @@ namespace museSort
             flowLayoutPanel2.Show();
         }
 
+
+        //dodaje pojedynczy plik znajdujący się w sciezka_zrodolowa, do katalogu uporządkowanego katalog_docelowy
+        //NIE TESTOWANE!
+        public void dodaj_plik(string sciezka_zrodolwa, string katalog_docelowy)
+        {
+            //---------------------------------------------------------------------kopiuje plik do folderu;
+            // założyłem, że powinien to zrobić; jeśli nie, powinno wystarczyć usunąć tę sekcję i zamienić
+            // w późniejszych użyciach nowasciezka na sciezka_zrodlowa
+            utwor plik = new utwor(sciezka_zrodolwa);
+            string nowasciezka = Path.Combine(katalog_docelowy, plik.nazwa + '.' + plik.rozszerzenie);
+            try
+            {
+                plik.kopiuj(nowasciezka);
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("Błąd przy przenoszeniu pliku\n" + sciezka_zrodolwa + "\nPlik o takiej nazwie już istnieje w katalogu docelowym\n" + katalog_docelowy);
+                return;
+            }
+            //-------------------------------------------------------------------------------------------
+            sortuj_plik(nowasciezka);
+
+            //-----------------------------------------tymczasowe żeby kompilator nie krzyczał
+            string schemat = schematy.Text;
+            obiektXML plikXML = new obiektXML(katalog_docelowy + "\\struktura_logiczna.xml", schemat);
+            //zastąpić normalną obsługą pliku XML, ja tego nie miałem jak pisałem
+            plikXML.aktualizuj();
+        }
+
+        //sortuje pojedynczy plik (wyodrębnione wnętrze pętli z sortowania)
+        private void sortuj_plik(string sciezka)
+        {
+            //------------------------------------------------------ kopiowanie pliku do Temp
+            utwor plik = new utwor(sciezka);
+            if (plik.tagi == null)
+                return;
+            string nazwa_pliku = Path.GetFileName(plik.sciezka);
+            plik.kopiuj(@"Musesort\Temp\" + nazwa_pliku);
+            plik.przywroc_stare();
+            //------------------------------------------------------- teraz zmienna plik to ten w Temp
+            plik = new utwor(@"Musesort\Temp\" + nazwa_pliku);
+
+            string sciezka_katalogu;
+            if (schematy.Text == @"Piosenki\Wykonawca" && plik.wykonawca[0] != "" && plik.tytul != "")
+            {
+                sciezka_katalogu = @"Musesort\Posegregowane";
+                nazwa_pliku = plik.wykonawca[0] + '_' + plik.tytul + '.' + plik.rozszerzenie;
+            }
+            else
+                sciezka_katalogu = sciezka_katalogu_z_pol(plik);
+
+
+            if (!Directory.Exists(sciezka_katalogu))
+                Directory.CreateDirectory(sciezka_katalogu); // to tworzy też wszystkie katalogi które są "po drodze"
+            // tzn. wyższego rzędu które też nie istnieją
+
+            //przenosimy pliki
+            //Console.WriteLine("Przenoszenie " + sciezka_katalogu + @"\" + nazwa_pliku);
+            try
+            {
+                plik.zmien_nazwe_pliku(Path.Combine(sciezka_katalogu, nazwa_pliku));
+            }
+            catch (System.IO.IOException) //rzucane w przypadku kolizji nazw plików
+            {
+                duplikat(Path.Combine(sciezka_katalogu, nazwa_pliku), plik.sciezka);
+            }
+        }
+
+
+
     }
 }
