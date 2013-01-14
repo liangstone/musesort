@@ -45,11 +45,20 @@ namespace museSort
                 }
             }
             String[] dirs = System.IO.Directory.GetDirectories(e.Node.Name);
+            String[] dirstemp = System.IO.Directory.GetDirectories(e.Node.Name);
             foreach (String d in dirs)
             {
                 string[] folders = d.Split('\\');
-                System.Security.AccessControl.DirectorySecurity sec = System.IO.Directory.GetAccessControl(d);
-                if (!sec.AreAccessRulesProtected)
+                Boolean flaga = true;
+                try
+                {
+                    dirstemp = System.IO.Directory.GetDirectories(d);
+                }
+                catch
+                {
+                    flaga = false;
+                }
+                if (flaga)
                 {
                     otwartyFolder.Items.Add(folders[folders.Length - 1] + "  folder");
                 }
@@ -95,12 +104,21 @@ namespace museSort
             else
             {
                 string[] dirs = System.IO.Directory.GetDirectories(path);
+                string[] dirstemp = System.IO.Directory.GetDirectories(path);
                 foreach (string directory in dirs)
                 {
-                    System.Security.AccessControl.DirectorySecurity sec = System.IO.Directory.GetAccessControl(directory);
-                    if (!sec.AreAccessRulesProtected)
+                    string[] folders = directory.Split('\\');
+                    Boolean flaga = true;
+                    try
                     {
-                        string[] folders = directory.Split('\\');
+                        dirstemp = System.IO.Directory.GetDirectories(directory);
+                    }
+                    catch
+                    {
+                        flaga = false;
+                    }
+                    if (flaga)
+                    {
                         TreeNode temp = new TreeNode(folders[folders.Length - 1]);
                         temp.Name = directory.ToString();
                         directoryNode.Nodes.Add(temp);
@@ -130,6 +148,7 @@ namespace museSort
             preferowane = format.Text;
             preferowane = preferowane.ToLower();
             flowLayoutPanel2.Hide();
+            flowLayoutPanel3.Hide();
             flowLayoutPanel1.Show();
         }
 
