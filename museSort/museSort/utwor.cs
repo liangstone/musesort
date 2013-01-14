@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using TagLib;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace museSort
 {
@@ -33,6 +34,8 @@ namespace museSort
         public TagLib.File tagi;
         private TagLib.File stareTagi;
         public static string[] wspierane_rozszerzenia = { "mp3", "flac" };
+        public Boolean pobierane_z_nazwy = false;
+        public Boolean pobierane_ze_sciezki = false;
 
 
         public utwor(String path)
@@ -71,9 +74,55 @@ namespace museSort
         //pobiera i przetwarza tagi
         public void pobierz_tagi()
         {
-            pobranie_danych();
-            analizuj_sciezke();
+            przepisz_tagi();
+            if (!czy_mamy_tagi())
+            {
+                pobranie_danych();
+                pobierane_z_nazwy = true;
+            }
+            if (!czy_mamy_tagi())
+            {
+                analizuj_sciezke();
+                pobierane_ze_sciezki = true;
+            }
             PrzyjmijNazwe();
+        }
+
+        public void przepisz_tagi()
+        {
+            if (tagi != null)
+            {
+                wykonawca = tagi.Tag.Artists;
+                wykonawca_albumu = tagi.Tag.AlbumArtists;
+                tytul = tagi.Tag.Title;
+                album = tagi.Tag.Album;
+                gatunek = tagi.Tag.Genres;
+                rok = tagi.Tag.Year.ToString();
+                komentarz = tagi.Tag.Comment;
+                liczba_piosenek = tagi.Tag.TrackCount;
+                numer_cd = tagi.Tag.Disc;
+                liczba_cd = tagi.Tag.DiscCount;
+                tekst_piosenki = usun_znaki_spec(tagi.Tag.Lyrics);
+                bity_na_minute = tagi.Tag.BeatsPerMinute;
+                dyrygent = usun_znaki_spec(tagi.Tag.Conductor);
+                prawa_autorskie = usun_znaki_spec(tagi.Tag.Copyright);
+                puid = usun_znaki_spec(tagi.Tag.MusicIpId);                     //MusicIp Id
+                zdjecia = tagi.Tag.Pictures;
+                numer = int.Parse(tagi.Tag.Track.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Nie wygenerowałem tagów");
+            }
+        }
+
+        public Boolean czy_mamy_tagi()
+        {
+            if (wykonawca[0] == null || wykonawca[0] == "" || tytul == null || tytul == "" || album == null || album == "")
+            {
+                return false;
+            }
+            return true;
         }
 
         //pobieranie danych z tagu i nazwy pliku
@@ -246,7 +295,9 @@ namespace museSort
         public bool zapisz_tagi_standaryzuj_nazwe()
         {
             //Console.WriteLine("Początak zapisu " + sciezka);
+            
             przepisz_pola_do_tagow();
+            
             try
             {
                 PrzyjmijNazwe();
@@ -413,22 +464,59 @@ namespace museSort
         // przepisuje pola klasy utwor do tagów w utwor.tagi.Tag
         public void przepisz_pola_do_tagow()
         {
+            
             if (tagi == null)
                 return;
+            
             tagi.Tag.Title = tytul;
             tagi.Tag.Artists = wykonawca;
             tagi.Tag.Album = album;
             tagi.Tag.Genres = gatunek;
             tagi.Tag.Track = uint.Parse(numer.ToString());
-            tagi.Tag.Comment = ZamienNaWlasciwaNazwe(komentarz);
+            if (komentarz == null || komentarz == "")
+            {
+                tagi.Tag.Comment = "";
+            }
+            else
+            {
+                tagi.Tag.Comment = ZamienNaWlasciwaNazwe(komentarz);
+            }
             tagi.Tag.TrackCount = liczba_piosenek;
             tagi.Tag.Disc = numer_cd;
             tagi.Tag.DiscCount = liczba_cd;
-            tagi.Tag.Lyrics = ZamienNaWlasciwaNazwe(tekst_piosenki);
+            if (tekst_piosenki == null || tekst_piosenki == "")
+            {
+                tagi.Tag.Lyrics = "";
+            }
+            else
+            {
+                tagi.Tag.Lyrics = ZamienNaWlasciwaNazwe(tekst_piosenki);
+            }
             tagi.Tag.BeatsPerMinute = bity_na_minute;
-            tagi.Tag.Conductor = ZamienNaWlasciwaNazwe(dyrygent);
-            tagi.Tag.Copyright = ZamienNaWlasciwaNazwe(prawa_autorskie);
-            tagi.Tag.MusicIpId = ZamienNaWlasciwaNazwe(puid);                     //MusicIp Id
+            if (dyrygent == null || dyrygent == "")
+            {
+                tagi.Tag.Conductor = "";
+            }
+            else
+            {
+                tagi.Tag.Conductor = ZamienNaWlasciwaNazwe(dyrygent);
+            }
+            if (prawa_autorskie == null || prawa_autorskie == "")
+            {
+                tagi.Tag.Copyright = "";
+            }
+            else
+            {
+                tagi.Tag.Copyright = ZamienNaWlasciwaNazwe(prawa_autorskie);
+            }
+            if (puid == null || puid == "")
+            {
+                tagi.Tag.MusicIpId = "";
+            }
+            else
+            {
+                tagi.Tag.MusicIpId = ZamienNaWlasciwaNazwe(puid); //MusicIp Id
+            }           
             tagi.Tag.Pictures = zdjecia;
             tagi.Tag.AlbumArtists = wykonawca_albumu;
         }
@@ -825,6 +913,7 @@ namespace museSort
             /*Nazwę pliku oraz tagi należy zmienić w taki sposób, że będą one zapisane 
              * ze spacjami zamiast podkreśleń oraz dużymi i małymi literami. Każdy wyraz
              * ma się zaczynać od dużej litery, a cała reszta liter jest mała*/
+            
             x.Trim();
             if (x.Length == 0) 
                 return x;

@@ -337,15 +337,15 @@
             this.Controls.Add(this.Ustal_glowny);
             this.Controls.Add(this.Dodaj_Do_Głównego);
             this.Controls.Add(this.Logi);
-            this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.directoryTreeView);
             this.Controls.Add(this.Eksport);
             this.Controls.Add(this.progressBar2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.Modyfikuj);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.flowLayoutPanel3);
+            this.Controls.Add(this.flowLayoutPanel2);
             this.Name = "MainGUI";
             this.Text = "MuseSort";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -349,11 +349,12 @@ namespace museSort
             Directory.CreateDirectory(@"Musesort\Zduplikowane\Posegregowane\Nieprzydzielone");
             Directory.CreateDirectory(@"Musesort\Zduplikowane\Temp");
 
-
+            
             foreach (string rozszerzenie in utwor.wspierane_rozszerzenia) //iterujemy po rozszerzeniach
                 foreach (string sciezka in sciezki_plikow[rozszerzenie]) //iterujemy po plikach
                 {
                     utwor plik = new utwor(sciezka);
+                    
                     if (plik.tagi == null)
                         continue;
                     string nazwa_pliku = Path.GetFileName(plik.sciezka);
@@ -361,7 +362,7 @@ namespace museSort
                     plik = new utwor(@"Musesort\Temp\" + nazwa_pliku);
                     plik.pobierz_tagi();
                     plik.zapisz_tagi_standaryzuj_nazwe();
-
+                    
                     string sciezka_katalogu;
                     if (schematy.Text == @"Piosenki\Wykonawca" && plik.wykonawca[0] != "" && plik.tytul != "")
                     {
