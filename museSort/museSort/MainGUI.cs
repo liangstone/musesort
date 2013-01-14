@@ -42,11 +42,14 @@ namespace museSort
             {
                 foreach (TreeNode n in e.Node.Nodes)
                 {
-                    CreateDirectoryNode(n, n.Name);
+                    if (n.Nodes.Count == 0)
+                    {
+                        CreateDirectoryNode(n, n.Name);
+                    }
                 }
             }
             String[] dirs = System.IO.Directory.GetDirectories(e.Node.Name);
-            String[] dirstemp = System.IO.Directory.GetDirectories(e.Node.Name);
+            String[] dirstemp;
             int i = 0;
             foreach (String d in dirs)
             {
@@ -113,7 +116,7 @@ namespace museSort
             else
             {
                 string[] dirs = System.IO.Directory.GetDirectories(path);
-                string[] dirstemp = System.IO.Directory.GetDirectories(path);
+                string[] dirstemp;
                 foreach (string directory in dirs)
                 {
                     string[] folders = directory.Split('\\');
