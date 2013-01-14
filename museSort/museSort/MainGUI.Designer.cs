@@ -34,7 +34,6 @@
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.Eksport = new System.Windows.Forms.Button();
             this.directoryTreeView = new System.Windows.Forms.TreeView();
-            this.otwartyFolder = new System.Windows.Forms.ListBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.schematy = new System.Windows.Forms.ComboBox();
@@ -51,6 +50,9 @@
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.OtwartyFolderView = new System.Windows.Forms.ListView();
+            this.Nazwa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Typ = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -115,14 +117,6 @@
             this.directoryTreeView.Name = "directoryTreeView";
             this.directoryTreeView.Size = new System.Drawing.Size(217, 342);
             this.directoryTreeView.TabIndex = 8;
-            // 
-            // otwartyFolder
-            // 
-            this.otwartyFolder.FormattingEnabled = true;
-            this.otwartyFolder.Location = new System.Drawing.Point(253, 136);
-            this.otwartyFolder.Name = "otwartyFolder";
-            this.otwartyFolder.Size = new System.Drawing.Size(316, 342);
-            this.otwartyFolder.TabIndex = 9;
             // 
             // flowLayoutPanel1
             // 
@@ -310,6 +304,28 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // OtwartyFolderView
+            // 
+            this.OtwartyFolderView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Nazwa,
+            this.Typ});
+            this.OtwartyFolderView.Location = new System.Drawing.Point(253, 136);
+            this.OtwartyFolderView.Name = "OtwartyFolderView";
+            this.OtwartyFolderView.Size = new System.Drawing.Size(316, 342);
+            this.OtwartyFolderView.TabIndex = 14;
+            this.OtwartyFolderView.UseCompatibleStateImageBehavior = false;
+            this.OtwartyFolderView.View = System.Windows.Forms.View.Details;
+            // 
+            // Nazwa
+            // 
+            this.Nazwa.Text = "Nazwa";
+            this.Nazwa.Width = 196;
+            // 
+            // Typ
+            // 
+            this.Typ.Text = "Typ";
+            this.Typ.Width = 120;
+            // 
             // MainGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -317,11 +333,11 @@
             this.BackgroundImage = global::museSort.Properties.Resources.tlo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(785, 639);
+            this.Controls.Add(this.OtwartyFolderView);
             this.Controls.Add(this.Ustal_glowny);
             this.Controls.Add(this.Dodaj_Do_Głównego);
             this.Controls.Add(this.Logi);
             this.Controls.Add(this.flowLayoutPanel3);
-            this.Controls.Add(this.otwartyFolder);
             this.Controls.Add(this.directoryTreeView);
             this.Controls.Add(this.Eksport);
             this.Controls.Add(this.progressBar2);
@@ -352,7 +368,6 @@
         private System.Windows.Forms.ProgressBar progressBar2;
         private System.Windows.Forms.Button Eksport;
         private System.Windows.Forms.TreeView directoryTreeView;
-        private System.Windows.Forms.ListBox otwartyFolder;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox schematy;
@@ -369,5 +384,8 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ListView OtwartyFolderView;
+        private System.Windows.Forms.ColumnHeader Typ;
+        public System.Windows.Forms.ColumnHeader Nazwa;
     }
 }

@@ -32,7 +32,8 @@ namespace museSort
 
         void wyswietl(object sender, TreeNodeMouseClickEventArgs e)
         {
-            otwartyFolder.Items.Clear();
+            OtwartyFolderView.View = View.Details;
+            OtwartyFolderView.Items.Clear();
             if (e.Node.Nodes.Count == 0)
             {
                 CreateDirectoryNode(e.Node, e.Node.Name);
@@ -46,6 +47,7 @@ namespace museSort
             }
             String[] dirs = System.IO.Directory.GetDirectories(e.Node.Name);
             String[] dirstemp = System.IO.Directory.GetDirectories(e.Node.Name);
+            int i = 0;
             foreach (String d in dirs)
             {
                 string[] folders = d.Split('\\');
@@ -60,7 +62,10 @@ namespace museSort
                 }
                 if (flaga)
                 {
-                    otwartyFolder.Items.Add(folders[folders.Length - 1] + "  folder");
+                    OtwartyFolderView.Items.Add(folders[folders.Length - 1]);
+                    OtwartyFolderView.Items[i].SubItems.Add("folder");
+                    i++;
+
                 }
             }
             dirs = System.IO.Directory.GetFiles(e.Node.Name);
@@ -81,7 +86,11 @@ namespace museSort
                 
                 if (!dostep)
                 {
-                    otwartyFolder.Items.Add(files[files.Length - 1] + "  plik");
+                    OtwartyFolderView.Items.Add(files[files.Length - 1]);
+                    string[] roz = files[files.Length - 1].Split('.');
+
+                    OtwartyFolderView.Items[i].SubItems.Add(roz[roz.Length-1]);
+                    i++;
                 }
                 
             }
