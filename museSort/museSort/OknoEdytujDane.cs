@@ -19,6 +19,13 @@ namespace museSort
             InitializeComponent();
         }
 
+        public OknoEdytujDane(String sciezka)
+        {
+            InitializeComponent();
+            plik = new utwor(sciezka);
+            plik.pobierz_tagi();
+            wczytaj_plik_do_boxow();
+        }
 
         //Otwórz plik
         private void otwoz_plik_button_Click(object sender, EventArgs e)

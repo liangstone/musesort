@@ -38,7 +38,6 @@
             this.TytulBox = new System.Windows.Forms.TextBox();
             this.NazwaPlikuLabel = new System.Windows.Forms.Label();
             this.NazwaPlikuBox = new System.Windows.Forms.TextBox();
-            this.otwoz_plik_button = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.GatunkiLabel = new System.Windows.Forms.Label();
@@ -89,8 +88,8 @@
             // 
             // WykonawcaBox
             // 
-            this.WykonawcaBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.WykonawcaBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.WykonawcaBox.Location = new System.Drawing.Point(213, 145);
             this.WykonawcaBox.Name = "WykonawcaBox";
             this.WykonawcaBox.Size = new System.Drawing.Size(398, 20);
@@ -99,8 +98,8 @@
             // 
             // AlbumBox
             // 
-            this.AlbumBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.AlbumBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.AlbumBox.Location = new System.Drawing.Point(213, 200);
             this.AlbumBox.Name = "AlbumBox";
             this.AlbumBox.Size = new System.Drawing.Size(398, 20);
@@ -109,8 +108,8 @@
             // 
             // RokWydaniaBox
             // 
-            this.RokWydaniaBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.RokWydaniaBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RokWydaniaBox.Location = new System.Drawing.Point(213, 255);
             this.RokWydaniaBox.Name = "RokWydaniaBox";
             this.RokWydaniaBox.Size = new System.Drawing.Size(398, 20);
@@ -118,8 +117,8 @@
             // 
             // TytulBox
             // 
-            this.TytulBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.TytulBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TytulBox.Location = new System.Drawing.Point(213, 86);
             this.TytulBox.Name = "TytulBox";
             this.TytulBox.Size = new System.Drawing.Size(398, 20);
@@ -137,26 +136,13 @@
             // 
             // NazwaPlikuBox
             // 
-            this.NazwaPlikuBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.NazwaPlikuBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.NazwaPlikuBox.Location = new System.Drawing.Point(213, 35);
             this.NazwaPlikuBox.Name = "NazwaPlikuBox";
             this.NazwaPlikuBox.Size = new System.Drawing.Size(398, 20);
             this.NazwaPlikuBox.TabIndex = 12;
             this.NazwaPlikuBox.TextChanged += new System.EventHandler(this.Box_TextChanged);
-            // 
-            // otwoz_plik_button
-            // 
-            this.otwoz_plik_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.otwoz_plik_button.Font = new System.Drawing.Font("Book Antiqua", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.otwoz_plik_button.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.otwoz_plik_button.Location = new System.Drawing.Point(506, 456);
-            this.otwoz_plik_button.Name = "otwoz_plik_button";
-            this.otwoz_plik_button.Size = new System.Drawing.Size(105, 35);
-            this.otwoz_plik_button.TabIndex = 11;
-            this.otwoz_plik_button.Text = "Otwórz plik";
-            this.otwoz_plik_button.UseVisualStyleBackColor = false;
-            this.otwoz_plik_button.Click += new System.EventHandler(this.otwoz_plik_button_Click);
             // 
             // pictureBox1
             // 
@@ -183,8 +169,8 @@
             // 
             // GatunkiBox
             // 
-            this.GatunkiBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.GatunkiBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.GatunkiBox.Location = new System.Drawing.Point(213, 309);
             this.GatunkiBox.Name = "GatunkiBox";
             this.GatunkiBox.Size = new System.Drawing.Size(398, 20);
@@ -202,8 +188,8 @@
             // 
             // NrSciezkiBox
             // 
-            this.NrSciezkiBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.NrSciezkiBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.NrSciezkiBox.Location = new System.Drawing.Point(213, 367);
             this.NrSciezkiBox.Name = "NrSciezkiBox";
             this.NrSciezkiBox.Size = new System.Drawing.Size(398, 20);
@@ -276,7 +262,6 @@
             this.Controls.Add(this.TytulBox);
             this.Controls.Add(this.NazwaPlikuLabel);
             this.Controls.Add(this.NazwaPlikuBox);
-            this.Controls.Add(this.otwoz_plik_button);
             this.MinimumSize = new System.Drawing.Size(500, 500);
             this.Name = "OknoEdytujDane";
             this.Text = "Edytuj Dane";
@@ -299,7 +284,6 @@
         private System.Windows.Forms.TextBox TytulBox;
         private System.Windows.Forms.Label NazwaPlikuLabel;
         private System.Windows.Forms.TextBox NazwaPlikuBox;
-        private System.Windows.Forms.Button otwoz_plik_button;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label GatunkiLabel;
