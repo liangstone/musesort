@@ -146,7 +146,15 @@ namespace museSort
 
         private void Modyfikuj_Click(object sender, EventArgs e)
         {
-            new OknoEdytujDane().ShowDialog();
+            String sciezka = directoryTreeView.SelectedNode.Name + "\\" + OtwartyFolderView.SelectedItems[0].Text;
+            if (File.Exists(sciezka))
+            {
+                new OknoEdytujDane(sciezka).ShowDialog();
+            }
+            else
+            {
+                new OknoEdytujDane().ShowDialog();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
