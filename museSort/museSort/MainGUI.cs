@@ -109,12 +109,7 @@ namespace museSort
 
         private static void CreateDirectoryNode(TreeNode directoryNode, String path)
         {
-            if (path == "C:\\ProgramData\\Application Data" || path == "C:\\Documents and Settings" || path == "C:\\System Volume Information" || path == "C:\\BOOT\\System Volume Information")
-            {
-                return;
-            }
-            else
-            {
+            
                 string[] dirs = System.IO.Directory.GetDirectories(path);
                 string[] dirstemp;
                 foreach (string directory in dirs)
@@ -135,7 +130,7 @@ namespace museSort
                         temp.Name = directory.ToString();
                         directoryNode.Nodes.Add(temp);
                     }
-                }
+                
             }
         }
         
@@ -299,7 +294,9 @@ namespace museSort
                 try
                 {
                     sortuj();
-
+                    String folder = directoryTreeView.SelectedNode.Name + "\\Musesort";
+                    obiektXML xml = new obiektXML(schematy.Text);
+                    xml.generujXML(folder);
                     MessageBox.Show("Pomyślnie posortowano pliki.", "", MessageBoxButtons.OK);
                     button1.Enabled = true;
                     //MessageBox.Show("Pomyślnie posortowano pliki.", "", MessageBoxButtons.OK);
@@ -639,8 +636,11 @@ namespace museSort
             String gdzie;
             String data;
             data = DateTime.Today.ToString();
-            gdzie = directoryTreeView.SelectedNode.Name;
-            gdzie = @"C:\museSortConf\nowy.txt";
+            gdzie = @"C:\museSort\logi.txt";
+            if (!File.Exists(gdzie))
+            {
+                File.Create(gdzie).Close();
+            }
             plik = new FileStream(gdzie, FileMode.Append);
             zapisuj = new StreamWriter(plik);
             zapisuj.WriteLine(data);
@@ -676,7 +676,73 @@ namespace museSort
 
         private void Dodaj_Do_Głównego_Click(object sender, EventArgs e)
         {
+            String source = directoryTreeView.SelectedNode.Name;
+            if (!File.Exists(source + @"\struktura_logiczna.xml"))
+            {
+                MessageBox.Show("Folder nie został posortowany");
+                return;
+            }
+            else
+            {
 
+                obiektXML xml = new obiektXML(source, 1);
+                if (!xml.analizuj())
+                {
+                    MessageBox.Show("Błąd w systemie plików folderu!");
+                    return;
+                }
+                String[] temp = source.Split('\\');
+                String nazwa_parenta;
+                if (temp.Length > 2)
+                {
+                    nazwa_parenta = temp[temp.Length - 2];
+                }
+                else
+                {
+                    nazwa_parenta = "Bez nazwy";
+                }
+                CopyFolder(source, folderGlowny + "\\" + nazwa_parenta);
+                xml = new obiektXML(folderGlowny + "\\" + nazwa_parenta, 1);
+                
+                xml.generujXML(folderGlowny + "\\" + nazwa_parenta);
+
+                mainFolderXML mainXML = new mainFolderXML(folderGlowny + "\\struktura_folderow.xml");
+                
+                mainXML.generujElementy();
+                MessageBox.Show("Dodano folder o nazwie " + nazwa_parenta + " do folderu głównego programu!");
+            }
+        }
+
+        public void CopyFolder(string sourceFolder, string destFolder)
+        {
+            if (!Directory.Exists(destFolder))
+                Directory.CreateDirectory(destFolder);
+            Logi.AppendText("Dodawanie folderu: " + sourceFolder + Environment.NewLine);
+            Logi.Refresh();
+            progressBar2.Value = 0;
+            progressBar2.Step = 1;
+            string[] files = Directory.GetFiles(sourceFolder);
+            progressBar2.Maximum = files.Length;
+            foreach (string file in files)
+            {
+                Logi.AppendText("Dodawanie pliku: " + file + Environment.NewLine);
+                Logi.Refresh();
+                string name = Path.GetFileName(file);
+                string dest = Path.Combine(destFolder, name);
+                File.Copy(file, dest);
+                progressBar2.PerformStep();
+            }
+            string[] folders = Directory.GetDirectories(sourceFolder);
+            foreach (string folder in folders)
+            {
+                string name = Path.GetFileName(folder);
+                string dest = Path.Combine(destFolder, name);
+                CopyFolder(folder, dest);
+            }
+            progressBar2.Value = 0;
+            progressBar2.Maximum = 0;
+            Logi.AppendText("Zakończone dodawanie folderu: " + sourceFolder + Environment.NewLine);
+            Logi.Refresh();
         }
 
         private void schematy_SelectedIndexChanged_1(object sender, EventArgs e)
