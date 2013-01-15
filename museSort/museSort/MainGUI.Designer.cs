@@ -53,10 +53,18 @@
             this.OtwartyFolderView = new System.Windows.Forms.ListView();
             this.Nazwa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Typ = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LayoutDodawanie = new System.Windows.Forms.FlowLayoutPanel();
+            this.DodawaniePliku = new System.Windows.Forms.Button();
+            this.source = new System.Windows.Forms.TextBox();
+            this.destination = new System.Windows.Forms.TextBox();
+            this.DodajPiosenki = new System.Windows.Forms.Button();
+            this.ustalaniesource = new System.Windows.Forms.Button();
+            this.ustalaniedestination = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
+            this.LayoutDodawanie.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -72,7 +80,7 @@
             // 
             this.Modyfikuj.BackColor = System.Drawing.Color.SkyBlue;
             this.Modyfikuj.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Modyfikuj.Location = new System.Drawing.Point(12, 37);
+            this.Modyfikuj.Location = new System.Drawing.Point(13, 12);
             this.Modyfikuj.Name = "Modyfikuj";
             this.Modyfikuj.Size = new System.Drawing.Size(243, 37);
             this.Modyfikuj.TabIndex = 4;
@@ -84,7 +92,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.SkyBlue;
             this.button2.Font = new System.Drawing.Font("Tempus Sans ITC", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(12, 80);
+            this.button2.Location = new System.Drawing.Point(152, 98);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(243, 38);
             this.button2.TabIndex = 5;
@@ -113,9 +121,9 @@
             // 
             // directoryTreeView
             // 
-            this.directoryTreeView.Location = new System.Drawing.Point(12, 136);
+            this.directoryTreeView.Location = new System.Drawing.Point(12, 150);
             this.directoryTreeView.Name = "directoryTreeView";
-            this.directoryTreeView.Size = new System.Drawing.Size(217, 342);
+            this.directoryTreeView.Size = new System.Drawing.Size(227, 351);
             this.directoryTreeView.TabIndex = 8;
             // 
             // flowLayoutPanel1
@@ -208,7 +216,7 @@
             // 
             this.Dodaj_Do_Głównego.BackColor = System.Drawing.Color.SkyBlue;
             this.Dodaj_Do_Głównego.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Dodaj_Do_Głównego.Location = new System.Drawing.Point(295, 37);
+            this.Dodaj_Do_Głównego.Location = new System.Drawing.Point(295, 12);
             this.Dodaj_Do_Głównego.Name = "Dodaj_Do_Głównego";
             this.Dodaj_Do_Głównego.Size = new System.Drawing.Size(274, 37);
             this.Dodaj_Do_Głównego.TabIndex = 12;
@@ -220,7 +228,7 @@
             // 
             this.Ustal_glowny.BackColor = System.Drawing.Color.SkyBlue;
             this.Ustal_glowny.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ustal_glowny.Location = new System.Drawing.Point(295, 80);
+            this.Ustal_glowny.Location = new System.Drawing.Point(295, 55);
             this.Ustal_glowny.Name = "Ustal_glowny";
             this.Ustal_glowny.Size = new System.Drawing.Size(274, 37);
             this.Ustal_glowny.TabIndex = 13;
@@ -309,9 +317,9 @@
             this.OtwartyFolderView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Nazwa,
             this.Typ});
-            this.OtwartyFolderView.Location = new System.Drawing.Point(253, 136);
+            this.OtwartyFolderView.Location = new System.Drawing.Point(253, 150);
             this.OtwartyFolderView.Name = "OtwartyFolderView";
-            this.OtwartyFolderView.Size = new System.Drawing.Size(316, 342);
+            this.OtwartyFolderView.Size = new System.Drawing.Size(329, 351);
             this.OtwartyFolderView.TabIndex = 14;
             this.OtwartyFolderView.UseCompatibleStateImageBehavior = false;
             this.OtwartyFolderView.View = System.Windows.Forms.View.Details;
@@ -326,6 +334,80 @@
             this.Typ.Text = "Typ";
             this.Typ.Width = 120;
             // 
+            // LayoutDodawanie
+            // 
+            this.LayoutDodawanie.BackColor = System.Drawing.Color.Transparent;
+            this.LayoutDodawanie.Controls.Add(this.source);
+            this.LayoutDodawanie.Controls.Add(this.destination);
+            this.LayoutDodawanie.Controls.Add(this.ustalaniesource);
+            this.LayoutDodawanie.Controls.Add(this.ustalaniedestination);
+            this.LayoutDodawanie.Controls.Add(this.DodajPiosenki);
+            this.LayoutDodawanie.Location = new System.Drawing.Point(13, 507);
+            this.LayoutDodawanie.Name = "LayoutDodawanie";
+            this.LayoutDodawanie.Size = new System.Drawing.Size(760, 78);
+            this.LayoutDodawanie.TabIndex = 15;
+            // 
+            // DodawaniePliku
+            // 
+            this.DodawaniePliku.BackColor = System.Drawing.Color.SkyBlue;
+            this.DodawaniePliku.Font = new System.Drawing.Font("Tempus Sans ITC", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DodawaniePliku.Location = new System.Drawing.Point(12, 57);
+            this.DodawaniePliku.Name = "DodawaniePliku";
+            this.DodawaniePliku.Size = new System.Drawing.Size(243, 36);
+            this.DodawaniePliku.TabIndex = 16;
+            this.DodawaniePliku.Text = "Dodaj piosenki";
+            this.DodawaniePliku.UseVisualStyleBackColor = false;
+            this.DodawaniePliku.Click += new System.EventHandler(this.DodawaniePliku_Click);
+            // 
+            // source
+            // 
+            this.source.Location = new System.Drawing.Point(3, 3);
+            this.source.Name = "source";
+            this.source.Size = new System.Drawing.Size(262, 20);
+            this.source.TabIndex = 0;
+            // 
+            // destination
+            // 
+            this.destination.Location = new System.Drawing.Point(271, 3);
+            this.destination.Name = "destination";
+            this.destination.Size = new System.Drawing.Size(266, 20);
+            this.destination.TabIndex = 1;
+            // 
+            // DodajPiosenki
+            // 
+            this.DodajPiosenki.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.DodajPiosenki.Font = new System.Drawing.Font("Tempus Sans ITC", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DodajPiosenki.Location = new System.Drawing.Point(543, 29);
+            this.DodajPiosenki.Name = "DodajPiosenki";
+            this.DodajPiosenki.Size = new System.Drawing.Size(205, 49);
+            this.DodajPiosenki.TabIndex = 2;
+            this.DodajPiosenki.Text = "Dodaj";
+            this.DodajPiosenki.UseVisualStyleBackColor = false;
+            // 
+            // ustalaniesource
+            // 
+            this.ustalaniesource.BackColor = System.Drawing.Color.SkyBlue;
+            this.ustalaniesource.Font = new System.Drawing.Font("Tempus Sans ITC", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ustalaniesource.Location = new System.Drawing.Point(3, 29);
+            this.ustalaniesource.Name = "ustalaniesource";
+            this.ustalaniesource.Size = new System.Drawing.Size(262, 23);
+            this.ustalaniesource.TabIndex = 3;
+            this.ustalaniesource.Text = "Ustal folder źródłowy";
+            this.ustalaniesource.UseVisualStyleBackColor = false;
+            this.ustalaniesource.Click += new System.EventHandler(this.ustalaniesource_Click);
+            // 
+            // ustalaniedestination
+            // 
+            this.ustalaniedestination.BackColor = System.Drawing.Color.SkyBlue;
+            this.ustalaniedestination.Font = new System.Drawing.Font("Tempus Sans ITC", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ustalaniedestination.Location = new System.Drawing.Point(271, 29);
+            this.ustalaniedestination.Name = "ustalaniedestination";
+            this.ustalaniedestination.Size = new System.Drawing.Size(266, 23);
+            this.ustalaniedestination.TabIndex = 4;
+            this.ustalaniedestination.Text = "Ustal folder docelowy";
+            this.ustalaniedestination.UseVisualStyleBackColor = false;
+            this.ustalaniedestination.Click += new System.EventHandler(this.ustalaniedestination_Click);
+            // 
             // MainGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,6 +415,8 @@
             this.BackgroundImage = global::museSort.Properties.Resources.tlo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(785, 639);
+            this.Controls.Add(this.DodawaniePliku);
+            this.Controls.Add(this.LayoutDodawanie);
             this.Controls.Add(this.OtwartyFolderView);
             this.Controls.Add(this.Ustal_glowny);
             this.Controls.Add(this.Dodaj_Do_Głównego);
@@ -355,6 +439,8 @@
             this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
+            this.LayoutDodawanie.ResumeLayout(false);
+            this.LayoutDodawanie.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -387,5 +473,12 @@
         private System.Windows.Forms.ListView OtwartyFolderView;
         private System.Windows.Forms.ColumnHeader Typ;
         public System.Windows.Forms.ColumnHeader Nazwa;
+        private System.Windows.Forms.FlowLayoutPanel LayoutDodawanie;
+        private System.Windows.Forms.Button DodawaniePliku;
+        private System.Windows.Forms.TextBox source;
+        private System.Windows.Forms.TextBox destination;
+        private System.Windows.Forms.Button ustalaniesource;
+        private System.Windows.Forms.Button ustalaniedestination;
+        private System.Windows.Forms.Button DodajPiosenki;
     }
 }

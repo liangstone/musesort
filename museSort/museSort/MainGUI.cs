@@ -27,6 +27,7 @@ namespace museSort
             flowLayoutPanel1.Hide();
             flowLayoutPanel2.Hide();
             flowLayoutPanel3.Hide();
+            LayoutDodawanie.Hide();
         }
 
 
@@ -164,6 +165,7 @@ namespace museSort
             preferowane = preferowane.ToLower();
             flowLayoutPanel2.Hide();
             flowLayoutPanel3.Hide();
+            LayoutDodawanie.Hide();
             flowLayoutPanel1.Show();
         }
 
@@ -671,12 +673,14 @@ namespace museSort
             {
                 flowLayoutPanel2.Hide();
                 flowLayoutPanel1.Hide();
+                LayoutDodawanie.Hide();
                 flowLayoutPanel3.Show();
             }
             else
             {
                 flowLayoutPanel3.Hide();
                 flowLayoutPanel1.Hide();
+                LayoutDodawanie.Hide();
                 flowLayoutPanel2.Show();
             }
             
@@ -792,9 +796,28 @@ namespace museSort
 
         private void button3_Click(object sender, EventArgs e)
         {
+            LayoutDodawanie.Hide();
             flowLayoutPanel1.Hide();
             flowLayoutPanel3.Hide();
             flowLayoutPanel2.Show();
+        }
+
+        private void ustalaniesource_Click(object sender, EventArgs e)
+        {
+            source.Text = directoryTreeView.SelectedNode.Name;
+        }
+
+        private void ustalaniedestination_Click(object sender, EventArgs e)
+        {
+            destination.Text = directoryTreeView.SelectedNode.Name;
+        }
+
+        private void DodawaniePliku_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Hide();
+            flowLayoutPanel3.Hide();
+            flowLayoutPanel2.Hide();
+            LayoutDodawanie.Show();
         }
 
     }
