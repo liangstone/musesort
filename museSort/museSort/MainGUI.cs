@@ -365,6 +365,8 @@ namespace museSort
             foreach (string rozszerzenie in utwor.wspierane_rozszerzenia) //iterujemy po rozszerzeniach
                 foreach (string sciezka in sciezki_plikow[rozszerzenie]) //iterujemy po plikach
                 {
+                    Logi.AppendText("Sortuje plik: " + sciezka + Environment.NewLine);
+                    Logi.Refresh();
                     utwor plik = new utwor(sciezka);
                     
                     if (plik.tagi == null)
@@ -400,6 +402,44 @@ namespace museSort
                         duplikat(Path.Combine(sciezka_katalogu, nazwa_pliku), plik.sciezka);
                     }
                     Logi.AppendText(ZamienNaWlasciwe(plik.nazwa) + Environment.NewLine);
+                    Logi.AppendText("Posortowano plik : " + sciezka + Environment.NewLine);
+                    if (plik.pobierane_z_nazwy || plik.pobierane_ze_sciezki)
+                    {
+                        if (plik.pobierane_ze_sciezki)
+                        {
+                            Logi.AppendText("Wygenerowano tagi ze sciezki" + Environment.NewLine);
+                        }
+                        else
+                        {
+                            Logi.AppendText("Wygenerowano tagi z nazwy" + Environment.NewLine);
+                        }
+                    }
+                    else 
+                    {
+                        Logi.AppendText("Wczytano tagi" + Environment.NewLine);
+                        Logi.Refresh();
+                    }
+                    Logi.AppendText("Nazwa pliku: " + ZamienNaWlasciwe(plik.nazwa) + Environment.NewLine);
+                    if (plik.wykonawca.Length > 0)
+                    {
+                        Logi.AppendText("Wykonawca: " + ZamienNaWlasciwe(plik.wykonawca[0]) + Environment.NewLine);
+                    }
+                    else
+                    {
+                        Logi.AppendText("Nie wygenerowano wykonawcy" + Environment.NewLine);
+                    }
+
+                    Logi.AppendText("Tytul: " + ZamienNaWlasciwe(plik.tytul) + Environment.NewLine);
+                    Logi.AppendText("Album: " + ZamienNaWlasciwe(plik.album) + Environment.NewLine);
+                    if (plik.gatunek.Length > 0)
+                    {
+                        Logi.AppendText("Gatunek: " + ZamienNaWlasciwe(plik.gatunek[0]) + Environment.NewLine);
+                    }
+                    else
+                    {
+                        Logi.AppendText("Nie wygenerowano gatunku" + Environment.NewLine);
+                    }
+                    Logi.AppendText("Rok: " + plik.rok + Environment.NewLine);
                     Logi.Refresh();
                     progressBar2.PerformStep();
                 }
@@ -650,7 +690,7 @@ namespace museSort
             StreamWriter zapisuj;
             String gdzie;
             String data;
-            data = DateTime.Today.ToString();
+            data = DateTime.Now.ToString();
             gdzie = @"C:\museSort\logi.txt";
             if (!File.Exists(gdzie))
             {
@@ -663,8 +703,8 @@ namespace museSort
             zapisuj.Write(tekst);
             zapisuj.Close();
             plik.Close();
-            String qq = "Utworzono plik " + gdzie;
-            MessageBox.Show(qq, "Nowy plik", MessageBoxButtons.OK);
+            String qq = "Dodano logi do pliku " + gdzie;
+            MessageBox.Show(qq, "Logi w pliku", MessageBoxButtons.OK);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
