@@ -142,6 +142,11 @@ namespace museSort
 
         private void Modyfikuj_Click(object sender, EventArgs e)
         {
+            if (directoryTreeView.SelectedNode == null || OtwartyFolderView.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Nie został wybrany plik do otwarcia!");
+                return;
+            }
             String sciezka = directoryTreeView.SelectedNode.Name + "\\" + OtwartyFolderView.SelectedItems[0].Text;
             if (File.Exists(sciezka))
             {
@@ -804,11 +809,21 @@ namespace museSort
 
         private void ustalaniesource_Click(object sender, EventArgs e)
         {
+            if (directoryTreeView.SelectedNode == null)
+            {
+                MessageBox.Show("Nie wybrano folderu!");
+                return;
+            }
             source.Text = directoryTreeView.SelectedNode.Name;
         }
 
         private void ustalaniedestination_Click(object sender, EventArgs e)
         {
+            if (directoryTreeView.SelectedNode == null)
+            {
+                MessageBox.Show("Nie wybrano folderu!");
+                return;
+            }
             destination.Text = directoryTreeView.SelectedNode.Name;
         }
 
