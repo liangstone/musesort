@@ -309,7 +309,7 @@ namespace museSort
             przepisz_pola_do_tagow();
             try
             {
-                PrzyjmijNazwe();
+                //PrzyjmijNazwe();
                 tagi.Save();
             }
             catch (System.UnauthorizedAccessException e)
@@ -335,7 +335,7 @@ namespace museSort
 
             try
             {
-                PrzyjmijNazwe();
+                //PrzyjmijNazwe();
                 tagi.Save();
             }
             catch (System.UnauthorizedAccessException e)

@@ -149,6 +149,8 @@ namespace museSort
             /*Nazwę pliku oraz tagi należy zmienić w taki sposób, że będą one zapisane 
              * ze spacjami zamiast podkreśleń oraz dużymi i małymi literami. Każdy wyraz
              * ma się zaczynać od dużej litery, a cała reszta liter jest mała*/
+            if (x == null || x == "")
+                return x;
             String[] wyrazy = x.Split('_');
             String nowe = "";
             String a = "";
