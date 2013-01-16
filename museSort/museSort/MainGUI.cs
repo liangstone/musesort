@@ -325,6 +325,7 @@ namespace museSort
             button1.Enabled = true;
             progressBar2.Value = 0;
         }
+
         private void sortuj()
         {
             if (kategorie[0] == "")
@@ -374,7 +375,7 @@ namespace museSort
                     string nazwa_pliku = Path.GetFileName(plik.sciezka);
                     plik.kopiuj(@"Musesort\Temp\" + nazwa_pliku);
                     plik = new utwor(@"Musesort\Temp\" + nazwa_pliku);
-                    plik.pobierz_tagi();
+                    plik.pobierz_tagi(sciezka);
                     plik.zapisz_tagi_standaryzuj_nazwe();
                     
                     string sciezka_katalogu;
@@ -397,10 +398,13 @@ namespace museSort
                     {
                         plik.zmien_nazwe_pliku(Path.Combine(sciezka_katalogu, nazwa_pliku));
                     }
-                    catch (System.IO.IOException ex) //rzucane w przypadku kolizji nazw plików
+                    catch (System.IO.IOException) //rzucane w przypadku kolizji nazw plików
                     {
                         duplikat(Path.Combine(sciezka_katalogu, nazwa_pliku), plik.sciezka);
                     }
+
+                    //obsługa logów
+                    //---------------------------------------------------------------------------------
                     Logi.AppendText(ZamienNaWlasciwe(plik.nazwa) + Environment.NewLine);
                     Logi.AppendText("Posortowano plik : " + sciezka + Environment.NewLine);
                     if (plik.pobierane_z_nazwy || plik.pobierane_ze_sciezki)
@@ -445,6 +449,7 @@ namespace museSort
                 }
             return;
         }//end sortuj()
+
         //zamienia tekst z comboBoxa na tablicę kategorii do organizowania folderów
         private string[] przetwarzaj_kategorie()
         {
@@ -458,13 +463,13 @@ namespace museSort
             }
 
             //sporządź listę kategorii, po których można sortować
+            Type[] poprawne_typy = { typeof(string), typeof(int), typeof(uint), typeof(string[]) }; //typy pól, po których można sortować
             List<string> poprawne_kategorie = new List<string>();
             foreach (System.Reflection.FieldInfo pole in typeof(utwor).GetFields())
-                poprawne_kategorie.Add(pole.Name);
+                if(poprawne_typy.Contains(pole.FieldType))
+                    poprawne_kategorie.Add(pole.Name);
 
-            poprawne_kategorie.Remove("tagi");
             poprawne_kategorie.Remove("staraNazwa");
-            poprawne_kategorie.Remove("stareTagi");
             poprawne_kategorie.Add("alfabetycznie");
 
 
@@ -480,6 +485,7 @@ namespace museSort
             }
             return kategorie;
         }//end przetwarzaj_kategorie()
+
         //Zwraca listę ścieżek plików .mp3 i .flac
         Dictionary<string, List<string>> znajdz_wspierane_pliki(string katalog)
         {
@@ -508,6 +514,7 @@ namespace museSort
 
             return wynik;
         }//end znajdz_wspierane_pliki(string katalog)
+
         //generuje ścieżkę dla katalogu na podstawie pól w sortowaniu
         private string sciezka_katalogu_z_pol(utwor plik, bool duplikat = false)
         {
@@ -535,7 +542,7 @@ namespace museSort
 
                     if (pole.FieldType.Equals(typeof(String)))				//jeśli pole to String
                         kat = (string)pole.GetValue(plik);
-                    else if (pole.FieldType.Equals(typeof(int)))			//jeśli pole to int
+                    else if (pole.FieldType.Equals(typeof(int)) || pole.FieldType.Equals(typeof(uint)))//jeśli pole to int lub uint
                         kat = Convert.ToString(pole.GetValue(plik));
                     else if (pole.FieldType.Equals(typeof(string[])))		//jeśli pole to tablica
                         kat = ((string[])pole.GetValue(plik))[0];
@@ -609,6 +616,8 @@ namespace museSort
         {
             utwor plik1 = new utwor(x);
             utwor plik2 = new utwor(y);
+            if (!plik1.przepisz_tagi() || !plik2.przepisz_tagi())
+                throw new NullReferenceException("Nie wygenerowałem tagów dla plików \n" + x + "\n" + y);
 
             // do decydowania który jest lepszy będziemy używali ifów, chyba prościej będzie najpierw ustalić wartość boola
             bool pierwszy_jest_lepszy = plik1.tagi.Properties.AudioBitrate >= plik2.tagi.Properties.AudioBitrate;
@@ -656,6 +665,10 @@ namespace museSort
             /*Nazwę pliku oraz tagi należy zmienić w taki sposób, że będą one zapisane 
              * ze spacjami zamiast podkreśleń oraz dużymi i małymi literami. Każdy wyraz
              * ma się zaczynać od dużej litery, a cała reszta liter jest mała*/
+
+            if (x == null || x.Length == 0)
+                return x;
+
             String[] wyrazy = x.Split('_');
             String nowe = "";
             String a = "";
@@ -873,6 +886,122 @@ namespace museSort
             flowLayoutPanel3.Hide();
             flowLayoutPanel2.Hide();
             LayoutDodawanie.Show();
+        }
+
+        private void DodajPiosenki_Click(object sender, EventArgs e)
+        {
+            if (source.Text == "" || destination.Text == "")
+            {
+                MessageBox.Show("Nie wybrano wymaganych folderów!");
+            }
+            String zrodlo = source.Text;
+            String docelowy = destination.Text;
+            progressBar2.Maximum = 0;
+            progressBar2.Value = 0;
+            progressBar2.Step = 1;
+            Dictionary<string, List<string>> sciezki_plikow = znajdz_wspierane_pliki(zrodlo);
+            foreach (string rozszerzenie in utwor.wspierane_rozszerzenia) //iterujemy po rozszerzeniach
+            {
+                foreach (string sciezka in sciezki_plikow[rozszerzenie])
+                {
+                    dodaj_plik(sciezka, docelowy);
+                    progressBar2.PerformStep();
+                }
+            }
+            progressBar2.Value = 0;
+            progressBar2.Maximum = 0;
+        }
+
+        public void dodaj_plik(string sciezka_zrodolwa, string katalog_docelowy)
+        {
+            Console.WriteLine("Dodaję " + sciezka_zrodolwa + " do katalogu " + katalog_docelowy);
+            obiektXML plikXML=null;
+            try
+            {
+                plikXML = new obiektXML(katalog_docelowy, 1);
+                schematy.Text = plikXML.schemat;//Wpisane na sztywno, do obróbki
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return;
+            }
+            Directory.SetCurrentDirectory(katalog_docelowy);
+            sortuj_plik(sciezka_zrodolwa, plikXML.schemat);
+
+            //-----------------------------------------tymczasowe żeby kompilator nie krzyczał
+            
+            //zastąpić normalną obsługą pliku XML, ja tego nie miałem jak pisałem
+            if(plikXML!=null)
+                plikXML.aktualizuj();
+        }
+
+        private void sortuj_plik(string sciezka, string schemat)
+        {
+            //------------------------------------------------------ kopiowanie pliku do Temp
+            Console.WriteLine("Sortuję " + sciezka);
+            utwor plik;
+            try
+            {
+                plik = new utwor(sciezka);
+            }
+            catch
+            {
+                Console.WriteLine("Nie powidło się sortowanie pliku " + sciezka);
+                return;
+            }
+            
+            if (plik.tagi == null)
+                return;
+            plik.przepisz_tagi();
+            string nazwa_pliku = Path.GetFileName(plik.sciezka);
+            plik.kopiuj(@"Temp\" + nazwa_pliku);
+            //String[] temp1 = sciezka.Split('\\');
+            //String temporary = "";
+            //for (int i = 0; i < temp1.Length - 2; i++)
+            //{
+            //    temporary += temp1[i] + "\\";
+            //}
+            //temporary += temp1[temp1.Length - 2];
+            //String direction = temporary + "\\Temp";
+            //plik.przywroc_stare();
+            ////------------------------------------------------------- teraz zmienna plik to ten w Temp
+            //nazwa_pliku = temp1[temp1.Length-1];
+            plik = new utwor(@"Temp\" + nazwa_pliku);
+            plik.pobierz_tagi();
+            string sciezka_katalogu;
+            if (schemat == @"Piosenki\Wykonawca" && plik.wykonawca[0] != "" && plik.tytul != "")
+            {
+                sciezka_katalogu = @"Musesort\Posegregowane";
+                nazwa_pliku = plik.wykonawca[0] + '_' + plik.tytul + '.' + plik.rozszerzenie;
+            }
+            else
+            {
+                sciezka_katalogu = sciezka_katalogu_z_pol(plik);
+                //usuwamy jeden nadmiarowy "Musesort" z początku
+                sciezka_katalogu = sciezka_katalogu.Substring(sciezka_katalogu.IndexOf("\\")+1);
+            }
+               
+                
+
+
+            if (!Directory.Exists(sciezka_katalogu))
+                Directory.CreateDirectory(sciezka_katalogu); // to tworzy też wszystkie katalogi które są "po drodze"
+            // tzn. wyższego rzędu które też nie istnieją
+
+            //przenosimy pliki
+            //Console.WriteLine("Przenoszenie " + sciezka_katalogu + @"\" + nazwa_pliku);
+            try
+            {
+                String kombinacja = sciezka_katalogu + "\\" + nazwa_pliku;
+                plik.zmien_nazwe_pliku(kombinacja);
+                Console.WriteLine("Dodano plik do katalogu " + kombinacja);
+            }
+            catch (System.IO.IOException) //rzucane w przypadku kolizji nazw plików
+            {
+                duplikat(Path.Combine(sciezka_katalogu, nazwa_pliku), plik.sciezka);
+            }
+            Console.WriteLine("Plik " + sciezka + " przeniesiony.");
         }
 
     }

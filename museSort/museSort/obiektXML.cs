@@ -12,7 +12,7 @@ namespace museSort
     {
         String sciezka;//przechowuje scieżkę do pliku XML
         XmlDocument plikXML;
-        String schemat;
+        public String schemat;
 
         public obiektXML(String sc)//otwieramy folder do tworzenia pliku XML
         {

@@ -54,12 +54,12 @@
             this.Nazwa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Typ = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LayoutDodawanie = new System.Windows.Forms.FlowLayoutPanel();
-            this.DodawaniePliku = new System.Windows.Forms.Button();
             this.source = new System.Windows.Forms.TextBox();
             this.destination = new System.Windows.Forms.TextBox();
-            this.DodajPiosenki = new System.Windows.Forms.Button();
             this.ustalaniesource = new System.Windows.Forms.Button();
             this.ustalaniedestination = new System.Windows.Forms.Button();
+            this.DodajPiosenki = new System.Windows.Forms.Button();
+            this.DodawaniePliku = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -347,18 +347,6 @@
             this.LayoutDodawanie.Size = new System.Drawing.Size(760, 78);
             this.LayoutDodawanie.TabIndex = 15;
             // 
-            // DodawaniePliku
-            // 
-            this.DodawaniePliku.BackColor = System.Drawing.Color.SkyBlue;
-            this.DodawaniePliku.Font = new System.Drawing.Font("Tempus Sans ITC", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DodawaniePliku.Location = new System.Drawing.Point(12, 57);
-            this.DodawaniePliku.Name = "DodawaniePliku";
-            this.DodawaniePliku.Size = new System.Drawing.Size(243, 36);
-            this.DodawaniePliku.TabIndex = 16;
-            this.DodawaniePliku.Text = "Dodaj piosenki";
-            this.DodawaniePliku.UseVisualStyleBackColor = false;
-            this.DodawaniePliku.Click += new System.EventHandler(this.DodawaniePliku_Click);
-            // 
             // source
             // 
             this.source.Location = new System.Drawing.Point(3, 3);
@@ -372,17 +360,6 @@
             this.destination.Name = "destination";
             this.destination.Size = new System.Drawing.Size(266, 20);
             this.destination.TabIndex = 1;
-            // 
-            // DodajPiosenki
-            // 
-            this.DodajPiosenki.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.DodajPiosenki.Font = new System.Drawing.Font("Tempus Sans ITC", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DodajPiosenki.Location = new System.Drawing.Point(543, 29);
-            this.DodajPiosenki.Name = "DodajPiosenki";
-            this.DodajPiosenki.Size = new System.Drawing.Size(205, 49);
-            this.DodajPiosenki.TabIndex = 2;
-            this.DodajPiosenki.Text = "Dodaj";
-            this.DodajPiosenki.UseVisualStyleBackColor = false;
             // 
             // ustalaniesource
             // 
@@ -407,6 +384,30 @@
             this.ustalaniedestination.Text = "Ustal folder docelowy";
             this.ustalaniedestination.UseVisualStyleBackColor = false;
             this.ustalaniedestination.Click += new System.EventHandler(this.ustalaniedestination_Click);
+            // 
+            // DodajPiosenki
+            // 
+            this.DodajPiosenki.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.DodajPiosenki.Font = new System.Drawing.Font("Tempus Sans ITC", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DodajPiosenki.Location = new System.Drawing.Point(543, 29);
+            this.DodajPiosenki.Name = "DodajPiosenki";
+            this.DodajPiosenki.Size = new System.Drawing.Size(205, 49);
+            this.DodajPiosenki.TabIndex = 2;
+            this.DodajPiosenki.Text = "Dodaj";
+            this.DodajPiosenki.UseVisualStyleBackColor = false;
+            this.DodajPiosenki.Click += new System.EventHandler(this.DodajPiosenki_Click);
+            // 
+            // DodawaniePliku
+            // 
+            this.DodawaniePliku.BackColor = System.Drawing.Color.SkyBlue;
+            this.DodawaniePliku.Font = new System.Drawing.Font("Tempus Sans ITC", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DodawaniePliku.Location = new System.Drawing.Point(12, 57);
+            this.DodawaniePliku.Name = "DodawaniePliku";
+            this.DodawaniePliku.Size = new System.Drawing.Size(243, 36);
+            this.DodawaniePliku.TabIndex = 16;
+            this.DodawaniePliku.Text = "Dodaj piosenki";
+            this.DodawaniePliku.UseVisualStyleBackColor = false;
+            this.DodawaniePliku.Click += new System.EventHandler(this.DodawaniePliku_Click);
             // 
             // MainGUI
             // 
