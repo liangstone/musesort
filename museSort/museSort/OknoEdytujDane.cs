@@ -19,6 +19,13 @@ namespace museSort
             InitializeComponent();
         }
 
+        public OknoEdytujDane(String sciezka)
+        {
+            InitializeComponent();
+            plik = new utwor(sciezka);
+            plik.pobierz_tagi();
+            wczytaj_plik_do_boxow();
+        }
 
         //Otwórz plik
         private void otwoz_plik_button_Click(object sender, EventArgs e)
@@ -58,7 +65,14 @@ namespace museSort
             WykonawcaBox.Text = ZamienNaWlasciwe(temp); 
             AlbumBox.Text = ZamienNaWlasciwe(plik.album);
             RokWydaniaBox.Text = ZamienNaWlasciwe(plik.tagi.Tag.Year.ToString());
-            temp = ZamienNaWlasciwe(plik.gatunek[0]);
+            if (plik.gatunek.Length > 0)
+            {
+                temp = ZamienNaWlasciwe(plik.gatunek[0]);
+            }
+            else
+            {
+                temp = "";
+            }
             for (int i = 1; i < plik.gatunek.Length; i++)
             {
                 temp += ", " + plik.gatunek[i];
@@ -142,9 +156,23 @@ namespace museSort
             for (int i = 0; i < wyrazy.Length; i++)
             {
                 //System.Console.WriteLine(wyrazy[i]);
-                a = wyrazy[i].Substring(0, 1);
+                if (wyrazy[i] == "")
+                {
+                    a = "";
+                }
+                else
+                {
+                    a = wyrazy[i].Substring(0, 1);
+                }
                 a = a.ToUpper();
-                b = wyrazy[i].Substring(1, wyrazy[i].Length - 1);
+                if (wyrazy[i].Length < 2)
+                {
+                    b = "";
+                }
+                else
+                {
+                    b = wyrazy[i].Substring(1, wyrazy[i].Length - 1);
+                }
                 b = b.ToLower();
                 //System.Console.WriteLine(wyrazy[i]);
                 nowe += a + b;

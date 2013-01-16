@@ -4,35 +4,38 @@ using System.Linq;
 using System.Text;
 using TagLib;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace museSort
 {
     class utwor
     {
-        public String sciezka;
-        public String nazwa;
-        private string staraNazwa;
-        public String rozszerzenie;
-        public String[] wykonawca;
-        public String[] wykonawca_albumu;
-        public String tytul;
-        public String album;
-        public String[] gatunek;
-        public String rok;
-        public String komentarz;
+        public String sciezka="";
+        public String nazwa="";
+        private string staraNazwa="";
+        public String rozszerzenie="";
+        public String[] wykonawca={""};
+        public String[] wykonawca_albumu = { "" };
+        public String tytul = "";
+        public String album = "";
+        public String[] gatunek = { "" };
+        public String rok = "";
+        public String komentarz = "";
         public uint liczba_piosenek;
         public uint numer_cd;
         public uint liczba_cd;
-        public String tekst_piosenki;
+        public String tekst_piosenki = "";
         public uint bity_na_minute;
-        public String dyrygent;
-        public String prawa_autorskie;
-        public String puid;                     //określa "brzmienie" piosenki
-        public IPicture[] zdjecia;
+        public String dyrygent = "";
+        public String prawa_autorskie = "";
+        public String puid = "";                     //określa "brzmienie" piosenki
+        public IPicture[] zdjecia={};
         public int numer;
         public TagLib.File tagi;
         private TagLib.File stareTagi;
         public static string[] wspierane_rozszerzenia = { "mp3", "flac" };
+        public Boolean pobierane_z_nazwy = false;
+        public Boolean pobierane_ze_sciezki = false;
 
 
         public utwor(String path)
@@ -56,31 +59,106 @@ namespace museSort
             //Console.WriteLine("");
             if (!wspierane_rozszerzenia.Contains(rozszerzenie))
             {
-                nazwa = "Błąd: Nie wspierane rozszerzenie: " + rozszerzenie;
+                //nazwa = "Błąd: Nie wspierane rozszerzenie: " + rozszerzenie;
+                throw new NotSupportedException("Błąd: Nie wspierane rozszerzenie: " + rozszerzenie);
             }
             else
             {
                 //Console.WriteLine("tagi = TagLib.File.Create(path);");
                 tagi = TagLib.File.Create(path);
                 stareTagi = TagLib.File.Create(path);
+                przepisz_tagi();
             }
 
         }
 
 
         //pobiera i przetwarza tagi
-        public void pobierz_tagi()
+        public void pobierz_tagi(string sciezka="")
         {
-            pobranie_danych();
-            analizuj_sciezke();
-            PrzyjmijNazwe();
+            przepisz_tagi();
+            if (!czy_mamy_tagi())
+            {
+                try
+                {
+                    pobranie_danych();
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+                pobierane_z_nazwy = true;
+            }
+            if (!czy_mamy_tagi())
+            {
+                analizuj_sciezke(sciezka);
+                pobierane_ze_sciezki = true;
+            }
+            try
+            {
+                PrzyjmijNazwe();
+            }
+            catch (NullReferenceException e)
+            {
+                Console.WriteLine(e);
+                System.Windows.Forms.MessageBox.Show("Nie zainicjalizowano poprawnie pliku:\n" + sciezka);
+            }
+        }
+
+        public bool przepisz_tagi()
+        {
+            if (tagi != null)
+            {
+                wykonawca = tagi.Tag.Artists;
+                wykonawca_albumu = tagi.Tag.AlbumArtists;
+                tytul = tagi.Tag.Title;
+                album = tagi.Tag.Album;
+                gatunek = tagi.Tag.Genres;
+                rok = tagi.Tag.Year.ToString();
+                komentarz = tagi.Tag.Comment;
+                liczba_piosenek = tagi.Tag.TrackCount;
+                numer_cd = tagi.Tag.Disc;
+                liczba_cd = tagi.Tag.DiscCount;
+                tekst_piosenki = usun_znaki_spec(tagi.Tag.Lyrics);
+                bity_na_minute = tagi.Tag.BeatsPerMinute;
+                dyrygent = usun_znaki_spec(tagi.Tag.Conductor);
+                prawa_autorskie = usun_znaki_spec(tagi.Tag.Copyright);
+                puid = usun_znaki_spec(tagi.Tag.MusicIpId);                     //MusicIp Id
+                zdjecia = tagi.Tag.Pictures;
+                numer = int.Parse(tagi.Tag.Track.ToString());
+                return true;
+            }
+            else
+            {
+                //MessageBox.Show("Nie wygenerowałem tagów");
+                Console.WriteLine("Nie zainicjalizowano tagów dla pliku " + sciezka);
+                return false;
+            }
+        }
+
+        public Boolean czy_mamy_tagi()
+        {
+            if (   wykonawca == null 
+                || wykonawca.Length==0
+                || wykonawca[0] == null 
+                || wykonawca[0] == "" 
+                || tytul == null
+                || tytul.Length == 0
+                || tytul == "" 
+                || album == null 
+                || album == "")
+            {
+                return false;
+            }
+            return true;
         }
 
         //pobieranie danych z tagu i nazwy pliku
         private void pobranie_danych()                      //wpisanie danych do obiektów w klasie
         {
             nazwa = usun_znaki_spec(nazwa);                 //zamiana na duże litery, bez znaków specjalnych
-
+            if (tagi == null)
+                throw new NullReferenceException("Błąd w pobieranych dla pliku " + sciezka + "\n" + nazwa);
             tytul = tagi.Tag.Title;                         //pobranie tytułu
             album = usun_znaki_spec(tagi.Tag.Album);        //pobranie albumu
             wykonawca = tagi.Tag.Artists;                   //pobranie wykonawców
@@ -135,7 +213,7 @@ namespace museSort
             String tmp_nr = reg_nr.Match(nazwa).Value;
             if (numer == 0)                             
             {
-                if (tmp_nr != null && tmp_nr.Length < 4)    //dodaj numer jesli jest w nazwie
+                if (tmp_nr != null && tmp_nr != "" && tmp_nr.Length < 4)    //dodaj numer jesli jest w nazwie
                 {
                     numer = int.Parse(tmp_nr);
                 }
@@ -229,24 +307,6 @@ namespace museSort
         public bool zapisz_tagi()
         {
             przepisz_pola_do_tagow();
-            PrzyjmijNazwe();
-            try
-            {
-                tagi.Save();
-            }
-            catch (System.UnauthorizedAccessException e)
-            {
-                Console.WriteLine(e);
-                System.Windows.Forms.MessageBox.Show("Brak uprawnień do zmiany pliku:\n" + sciezka);
-                return false;
-            }
-            return true;
-        }
-
-        public bool zapisz_tagi_standaryzuj_nazwe()
-        {
-            //Console.WriteLine("Początak zapisu " + sciezka);
-            przepisz_pola_do_tagow();
             try
             {
                 PrzyjmijNazwe();
@@ -258,6 +318,39 @@ namespace museSort
                 System.Windows.Forms.MessageBox.Show("Brak uprawnień do zmiany pliku:\n" + sciezka);
                 return false;
             }
+            catch (NullReferenceException e)
+            {
+                Console.WriteLine(e);
+                System.Windows.Forms.MessageBox.Show("Nie zainicjalizowano poprawnie pliku:\n" + sciezka);
+                return false;
+            }
+            return true;
+        }
+
+        public bool zapisz_tagi_standaryzuj_nazwe()
+        {
+            //Console.WriteLine("Początak zapisu " + sciezka);
+            
+            przepisz_pola_do_tagow();
+
+            try
+            {
+                PrzyjmijNazwe();
+                tagi.Save();
+            }
+            catch (System.UnauthorizedAccessException e)
+            {
+                Console.WriteLine(e);
+                System.Windows.Forms.MessageBox.Show("Brak uprawnień do zmiany pliku:\n" + sciezka);
+                return false;
+            }
+            catch (NullReferenceException e)
+            {
+                Console.WriteLine(e);
+                System.Windows.Forms.MessageBox.Show("Nie zainicjalizowano poprawnie pliku:\n" + sciezka);
+                return false;
+            }
+
 
             //------------------------------- budowanie nowej nazwy z uwzględnieniem niekompletnych danych
             string nowanazwa;
@@ -285,7 +378,11 @@ namespace museSort
         public void zmien_nazwe_pliku(string nowasciezka)
         {
             if (!System.IO.Path.IsPathRooted(nowasciezka))
+            {
+                //MessageBox.Show(sciezka + " wlazłem jednak w ifa ");
                 nowasciezka = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), nowasciezka);
+            }
+            Console.WriteLine("Przenoszę plik " + sciezka + "\ndo " + nowasciezka);
             //sprawdzanie nazwy pliku
             try
             {
@@ -313,17 +410,20 @@ namespace museSort
                 catch (System.NotSupportedException ex)
                 {
                     Console.WriteLine(nowasciezka);
+                    MessageBox.Show("Błąd not supported exeption " + ex.Message);
                     Console.WriteLine(ex); // Write error
                 }
                 catch (System.UnauthorizedAccessException ex)
                 {
                     Console.WriteLine(nowasciezka);
+                    MessageBox.Show("Błąd not unauthorized access exeption " + ex.Message);
                     Console.WriteLine(ex); // Write error
                     System.Windows.Forms.MessageBox.Show("Błąd: Brak uprawnień.\n"
                         + "Przenoszenie pliku z: "+ sciezka + "\ndo: " + nowasciezka);
                 }
                 finally
                 {
+                    //MessageBox.Show("Jednak wlazłem");
                     tagi = TagLib.File.Create(sciezka);
                 }
             } // end if
@@ -332,8 +432,20 @@ namespace museSort
         //kopiuje plik do podanej ścieżki (można przy okazji zmienić nazwę)
         public void kopiuj(string nowasciezka)
         {
+            Console.WriteLine("Kopiuję " + sciezka + " do " + nowasciezka);
             if (!System.IO.Path.IsPathRooted(nowasciezka))
+            {
+                //String[] temp1 = sciezka.Split('\\');
+                //String temporary = "";
+                //for (int i = 0; i < temp1.Length - 2; i++)
+                //{
+                //    temporary += temp1[i] + "\\";
+                //}
+                //temporary += temp1[temp1.Length-2];
+                //nowasciezka = System.IO.Path.Combine(temporary, nowasciezka);
                 nowasciezka = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), nowasciezka);
+            }
+            Console.WriteLine("Kopiuję " + sciezka + " do " + nowasciezka);
             //sprawdzanie nazwy pliku
             try
             {
@@ -381,7 +493,11 @@ namespace museSort
             zmien_nazwe_pliku(stareTagi.Name);
             zapisz_tagi();
             tagi = TagLib.File.Create(sciezka);
-            pobranie_danych();
+            try
+            {
+                pobranie_danych();
+            }
+            catch {}
         }//end przywroc_stare
 
         public static void walidacja_sciezki_pliku(string filepath)
@@ -413,29 +529,67 @@ namespace museSort
         // przepisuje pola klasy utwor do tagów w utwor.tagi.Tag
         public void przepisz_pola_do_tagow()
         {
+            
             if (tagi == null)
                 return;
+            
             tagi.Tag.Title = tytul;
             tagi.Tag.Artists = wykonawca;
             tagi.Tag.Album = album;
             tagi.Tag.Genres = gatunek;
             tagi.Tag.Track = uint.Parse(numer.ToString());
-            tagi.Tag.Comment = ZamienNaWlasciwaNazwe(komentarz);
+            if (komentarz == null || komentarz == "")
+            {
+                tagi.Tag.Comment = "";
+            }
+            else
+            {
+                tagi.Tag.Comment = ZamienNaWlasciwaNazwe(komentarz);
+            }
             tagi.Tag.TrackCount = liczba_piosenek;
             tagi.Tag.Disc = numer_cd;
             tagi.Tag.DiscCount = liczba_cd;
-            tagi.Tag.Lyrics = ZamienNaWlasciwaNazwe(tekst_piosenki);
+            if (tekst_piosenki == null || tekst_piosenki == "")
+            {
+                tagi.Tag.Lyrics = "";
+            }
+            else
+            {
+                tagi.Tag.Lyrics = ZamienNaWlasciwaNazwe(tekst_piosenki);
+            }
             tagi.Tag.BeatsPerMinute = bity_na_minute;
-            tagi.Tag.Conductor = ZamienNaWlasciwaNazwe(dyrygent);
-            tagi.Tag.Copyright = ZamienNaWlasciwaNazwe(prawa_autorskie);
-            tagi.Tag.MusicIpId = ZamienNaWlasciwaNazwe(puid);                     //MusicIp Id
+            if (dyrygent == null || dyrygent == "")
+            {
+                tagi.Tag.Conductor = "";
+            }
+            else
+            {
+                tagi.Tag.Conductor = ZamienNaWlasciwaNazwe(dyrygent);
+            }
+            if (prawa_autorskie == null || prawa_autorskie == "")
+            {
+                tagi.Tag.Copyright = "";
+            }
+            else
+            {
+                tagi.Tag.Copyright = ZamienNaWlasciwaNazwe(prawa_autorskie);
+            }
+            if (puid == null || puid == "")
+            {
+                tagi.Tag.MusicIpId = "";
+            }
+            else
+            {
+                tagi.Tag.MusicIpId = ZamienNaWlasciwaNazwe(puid); //MusicIp Id
+            }           
             tagi.Tag.Pictures = zdjecia;
             tagi.Tag.AlbumArtists = wykonawca_albumu;
         }
 
-        public void analizuj_sciezke()
+        public void analizuj_sciezke(string sciezka = "")
         {
-
+            if (sciezka == "")
+                sciezka = this.sciezka;
             //Przygotowanie listy folderów
             String[] foldery = sciezka.Split('\\');
             String aktualnyFolder = foldery[foldery.Length - 2];
@@ -825,6 +979,7 @@ namespace museSort
             /*Nazwę pliku oraz tagi należy zmienić w taki sposób, że będą one zapisane 
              * ze spacjami zamiast podkreśleń oraz dużymi i małymi literami. Każdy wyraz
              * ma się zaczynać od dużej litery, a cała reszta liter jest mała*/
+            
             x.Trim();
             if (x.Length == 0) 
                 return x;

@@ -27,12 +27,14 @@ namespace museSort
             flowLayoutPanel1.Hide();
             flowLayoutPanel2.Hide();
             flowLayoutPanel3.Hide();
+            LayoutDodawanie.Hide();
         }
 
 
         void wyswietl(object sender, TreeNodeMouseClickEventArgs e)
         {
-            otwartyFolder.Items.Clear();
+            OtwartyFolderView.View = View.Details;
+            OtwartyFolderView.Items.Clear();
             if (e.Node.Nodes.Count == 0)
             {
                 CreateDirectoryNode(e.Node, e.Node.Name);
@@ -41,17 +43,33 @@ namespace museSort
             {
                 foreach (TreeNode n in e.Node.Nodes)
                 {
-                    CreateDirectoryNode(n, n.Name);
+                    if (n.Nodes.Count == 0)
+                    {
+                        CreateDirectoryNode(n, n.Name);
+                    }
                 }
             }
             String[] dirs = System.IO.Directory.GetDirectories(e.Node.Name);
+            String[] dirstemp;
+            int i = 0;
             foreach (String d in dirs)
             {
                 string[] folders = d.Split('\\');
-                System.Security.AccessControl.DirectorySecurity sec = System.IO.Directory.GetAccessControl(d);
-                if (!sec.AreAccessRulesProtected)
+                Boolean flaga = true;
+                try
                 {
-                    otwartyFolder.Items.Add(folders[folders.Length - 1] + "  folder");
+                    dirstemp = System.IO.Directory.GetDirectories(d);
+                }
+                catch
+                {
+                    flaga = false;
+                }
+                if (flaga)
+                {
+                    OtwartyFolderView.Items.Add(folders[folders.Length - 1]);
+                    OtwartyFolderView.Items[i].SubItems.Add("folder");
+                    i++;
+
                 }
             }
             dirs = System.IO.Directory.GetFiles(e.Node.Name);
@@ -72,7 +90,11 @@ namespace museSort
                 
                 if (!dostep)
                 {
-                    otwartyFolder.Items.Add(files[files.Length - 1] + "  plik");
+                    OtwartyFolderView.Items.Add(files[files.Length - 1]);
+                    string[] roz = files[files.Length - 1].Split('.');
+
+                    OtwartyFolderView.Items[i].SubItems.Add(roz[roz.Length-1]);
+                    i++;
                 }
                 
             }
@@ -88,24 +110,28 @@ namespace museSort
 
         private static void CreateDirectoryNode(TreeNode directoryNode, String path)
         {
-            if (path == "C:\\ProgramData\\Application Data" || path == "C:\\Documents and Settings" || path == "C:\\System Volume Information" || path == "C:\\BOOT\\System Volume Information")
-            {
-                return;
-            }
-            else
-            {
+            
                 string[] dirs = System.IO.Directory.GetDirectories(path);
+                string[] dirstemp;
                 foreach (string directory in dirs)
                 {
-                    System.Security.AccessControl.DirectorySecurity sec = System.IO.Directory.GetAccessControl(directory);
-                    if (!sec.AreAccessRulesProtected)
+                    string[] folders = directory.Split('\\');
+                    Boolean flaga = true;
+                    try
                     {
-                        string[] folders = directory.Split('\\');
+                        dirstemp = System.IO.Directory.GetDirectories(directory);
+                    }
+                    catch
+                    {
+                        flaga = false;
+                    }
+                    if (flaga)
+                    {
                         TreeNode temp = new TreeNode(folders[folders.Length - 1]);
                         temp.Name = directory.ToString();
                         directoryNode.Nodes.Add(temp);
                     }
-                }
+                
             }
         }
         
@@ -116,7 +142,20 @@ namespace museSort
 
         private void Modyfikuj_Click(object sender, EventArgs e)
         {
-            new OknoEdytujDane().ShowDialog();
+            if (directoryTreeView.SelectedNode == null || OtwartyFolderView.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Nie został wybrany plik do otwarcia!");
+                return;
+            }
+            String sciezka = directoryTreeView.SelectedNode.Name + "\\" + OtwartyFolderView.SelectedItems[0].Text;
+            if (File.Exists(sciezka))
+            {
+                new OknoEdytujDane(sciezka).ShowDialog();
+            }
+            else
+            {
+                new OknoEdytujDane().ShowDialog();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -130,6 +169,8 @@ namespace museSort
             preferowane = format.Text;
             preferowane = preferowane.ToLower();
             flowLayoutPanel2.Hide();
+            flowLayoutPanel3.Hide();
+            LayoutDodawanie.Hide();
             flowLayoutPanel1.Show();
         }
 
@@ -268,7 +309,9 @@ namespace museSort
                 try
                 {
                     sortuj();
-
+                    String folder = directoryTreeView.SelectedNode.Name + "\\Musesort";
+                    obiektXML xml = new obiektXML(schematy.Text);
+                    xml.generujXML(folder);
                     MessageBox.Show("Pomyślnie posortowano pliki.", "", MessageBoxButtons.OK);
                     button1.Enabled = true;
                     //MessageBox.Show("Pomyślnie posortowano pliki.", "", MessageBoxButtons.OK);
@@ -282,6 +325,7 @@ namespace museSort
             button1.Enabled = true;
             progressBar2.Value = 0;
         }
+
         private void sortuj()
         {
             if (kategorie[0] == "")
@@ -318,19 +362,22 @@ namespace museSort
             Directory.CreateDirectory(@"Musesort\Zduplikowane\Posegregowane\Nieprzydzielone");
             Directory.CreateDirectory(@"Musesort\Zduplikowane\Temp");
 
-
+            
             foreach (string rozszerzenie in utwor.wspierane_rozszerzenia) //iterujemy po rozszerzeniach
                 foreach (string sciezka in sciezki_plikow[rozszerzenie]) //iterujemy po plikach
                 {
+                    Logi.AppendText("Sortuje plik: " + sciezka + Environment.NewLine);
+                    Logi.Refresh();
                     utwor plik = new utwor(sciezka);
+                    
                     if (plik.tagi == null)
                         continue;
                     string nazwa_pliku = Path.GetFileName(plik.sciezka);
                     plik.kopiuj(@"Musesort\Temp\" + nazwa_pliku);
                     plik = new utwor(@"Musesort\Temp\" + nazwa_pliku);
-                    plik.pobierz_tagi();
+                    plik.pobierz_tagi(sciezka);
                     plik.zapisz_tagi_standaryzuj_nazwe();
-
+                    
                     string sciezka_katalogu;
                     if (schematy.Text == @"Piosenki\Wykonawca" && plik.wykonawca[0] != "" && plik.tytul != "")
                     {
@@ -351,16 +398,58 @@ namespace museSort
                     {
                         plik.zmien_nazwe_pliku(Path.Combine(sciezka_katalogu, nazwa_pliku));
                     }
-                    catch (System.IO.IOException ex) //rzucane w przypadku kolizji nazw plików
+                    catch (System.IO.IOException) //rzucane w przypadku kolizji nazw plików
                     {
                         duplikat(Path.Combine(sciezka_katalogu, nazwa_pliku), plik.sciezka);
                     }
+
+                    //obsługa logów
+                    //---------------------------------------------------------------------------------
                     Logi.AppendText(ZamienNaWlasciwe(plik.nazwa) + Environment.NewLine);
+                    Logi.AppendText("Posortowano plik : " + sciezka + Environment.NewLine);
+                    if (plik.pobierane_z_nazwy || plik.pobierane_ze_sciezki)
+                    {
+                        if (plik.pobierane_ze_sciezki)
+                        {
+                            Logi.AppendText("Wygenerowano tagi ze sciezki" + Environment.NewLine);
+                        }
+                        else
+                        {
+                            Logi.AppendText("Wygenerowano tagi z nazwy" + Environment.NewLine);
+                        }
+                    }
+                    else 
+                    {
+                        Logi.AppendText("Wczytano tagi" + Environment.NewLine);
+                        Logi.Refresh();
+                    }
+                    Logi.AppendText("Nazwa pliku: " + ZamienNaWlasciwe(plik.nazwa) + Environment.NewLine);
+                    if (plik.wykonawca.Length > 0)
+                    {
+                        Logi.AppendText("Wykonawca: " + ZamienNaWlasciwe(plik.wykonawca[0]) + Environment.NewLine);
+                    }
+                    else
+                    {
+                        Logi.AppendText("Nie wygenerowano wykonawcy" + Environment.NewLine);
+                    }
+
+                    Logi.AppendText("Tytul: " + ZamienNaWlasciwe(plik.tytul) + Environment.NewLine);
+                    Logi.AppendText("Album: " + ZamienNaWlasciwe(plik.album) + Environment.NewLine);
+                    if (plik.gatunek.Length > 0)
+                    {
+                        Logi.AppendText("Gatunek: " + ZamienNaWlasciwe(plik.gatunek[0]) + Environment.NewLine);
+                    }
+                    else
+                    {
+                        Logi.AppendText("Nie wygenerowano gatunku" + Environment.NewLine);
+                    }
+                    Logi.AppendText("Rok: " + plik.rok + Environment.NewLine);
                     Logi.Refresh();
                     progressBar2.PerformStep();
                 }
             return;
         }//end sortuj()
+
         //zamienia tekst z comboBoxa na tablicę kategorii do organizowania folderów
         private string[] przetwarzaj_kategorie()
         {
@@ -374,13 +463,13 @@ namespace museSort
             }
 
             //sporządź listę kategorii, po których można sortować
+            Type[] poprawne_typy = { typeof(string), typeof(int), typeof(uint), typeof(string[]) }; //typy pól, po których można sortować
             List<string> poprawne_kategorie = new List<string>();
             foreach (System.Reflection.FieldInfo pole in typeof(utwor).GetFields())
-                poprawne_kategorie.Add(pole.Name);
+                if(poprawne_typy.Contains(pole.FieldType))
+                    poprawne_kategorie.Add(pole.Name);
 
-            poprawne_kategorie.Remove("tagi");
             poprawne_kategorie.Remove("staraNazwa");
-            poprawne_kategorie.Remove("stareTagi");
             poprawne_kategorie.Add("alfabetycznie");
 
 
@@ -396,6 +485,7 @@ namespace museSort
             }
             return kategorie;
         }//end przetwarzaj_kategorie()
+
         //Zwraca listę ścieżek plików .mp3 i .flac
         Dictionary<string, List<string>> znajdz_wspierane_pliki(string katalog)
         {
@@ -424,6 +514,7 @@ namespace museSort
 
             return wynik;
         }//end znajdz_wspierane_pliki(string katalog)
+
         //generuje ścieżkę dla katalogu na podstawie pól w sortowaniu
         private string sciezka_katalogu_z_pol(utwor plik, bool duplikat = false)
         {
@@ -451,7 +542,7 @@ namespace museSort
 
                     if (pole.FieldType.Equals(typeof(String)))				//jeśli pole to String
                         kat = (string)pole.GetValue(plik);
-                    else if (pole.FieldType.Equals(typeof(int)))			//jeśli pole to int
+                    else if (pole.FieldType.Equals(typeof(int)) || pole.FieldType.Equals(typeof(uint)))//jeśli pole to int lub uint
                         kat = Convert.ToString(pole.GetValue(plik));
                     else if (pole.FieldType.Equals(typeof(string[])))		//jeśli pole to tablica
                         kat = ((string[])pole.GetValue(plik))[0];
@@ -525,6 +616,8 @@ namespace museSort
         {
             utwor plik1 = new utwor(x);
             utwor plik2 = new utwor(y);
+            if (!plik1.przepisz_tagi() || !plik2.przepisz_tagi())
+                throw new NullReferenceException("Nie wygenerowałem tagów dla plików \n" + x + "\n" + y);
 
             // do decydowania który jest lepszy będziemy używali ifów, chyba prościej będzie najpierw ustalić wartość boola
             bool pierwszy_jest_lepszy = plik1.tagi.Properties.AudioBitrate >= plik2.tagi.Properties.AudioBitrate;
@@ -572,6 +665,10 @@ namespace museSort
             /*Nazwę pliku oraz tagi należy zmienić w taki sposób, że będą one zapisane 
              * ze spacjami zamiast podkreśleń oraz dużymi i małymi literami. Każdy wyraz
              * ma się zaczynać od dużej litery, a cała reszta liter jest mała*/
+
+            if (x == null || x.Length == 0)
+                return x;
+
             String[] wyrazy = x.Split('_');
             String nowe = "";
             String a = "";
@@ -606,9 +703,12 @@ namespace museSort
             StreamWriter zapisuj;
             String gdzie;
             String data;
-            data = DateTime.Today.ToString();
-            gdzie = directoryTreeView.SelectedNode.Name;
-            gdzie = @"C:\museSortConf\nowy.txt";
+            data = DateTime.Now.ToString();
+            gdzie = @"C:\museSort\logi.txt";
+            if (!File.Exists(gdzie))
+            {
+                File.Create(gdzie).Close();
+            }
             plik = new FileStream(gdzie, FileMode.Append);
             zapisuj = new StreamWriter(plik);
             zapisuj.WriteLine(data);
@@ -616,8 +716,8 @@ namespace museSort
             zapisuj.Write(tekst);
             zapisuj.Close();
             plik.Close();
-            String qq = "Utworzono plik " + gdzie;
-            MessageBox.Show(qq, "Nowy plik", MessageBoxButtons.OK);
+            String qq = "Dodano logi do pliku " + gdzie;
+            MessageBox.Show(qq, "Logi w pliku", MessageBoxButtons.OK);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -631,12 +731,14 @@ namespace museSort
             {
                 flowLayoutPanel2.Hide();
                 flowLayoutPanel1.Hide();
+                LayoutDodawanie.Hide();
                 flowLayoutPanel3.Show();
             }
             else
             {
                 flowLayoutPanel3.Hide();
                 flowLayoutPanel1.Hide();
+                LayoutDodawanie.Hide();
                 flowLayoutPanel2.Show();
             }
             
@@ -644,7 +746,73 @@ namespace museSort
 
         private void Dodaj_Do_Głównego_Click(object sender, EventArgs e)
         {
+            String source = directoryTreeView.SelectedNode.Name;
+            if (!File.Exists(source + @"\struktura_logiczna.xml"))
+            {
+                MessageBox.Show("Folder nie został posortowany");
+                return;
+            }
+            else
+            {
 
+                obiektXML xml = new obiektXML(source, 1);
+                if (!xml.analizuj())
+                {
+                    MessageBox.Show("Błąd w systemie plików folderu!");
+                    return;
+                }
+                String[] temp = source.Split('\\');
+                String nazwa_parenta;
+                if (temp.Length > 2)
+                {
+                    nazwa_parenta = temp[temp.Length - 2];
+                }
+                else
+                {
+                    nazwa_parenta = "Bez nazwy";
+                }
+                CopyFolder(source, folderGlowny + "\\" + nazwa_parenta);
+                xml = new obiektXML(folderGlowny + "\\" + nazwa_parenta, 1);
+                
+                xml.generujXML(folderGlowny + "\\" + nazwa_parenta);
+
+                mainFolderXML mainXML = new mainFolderXML(folderGlowny + "\\struktura_folderow.xml");
+                
+                mainXML.generujElementy();
+                MessageBox.Show("Dodano folder o nazwie " + nazwa_parenta + " do folderu głównego programu!");
+            }
+        }
+
+        public void CopyFolder(string sourceFolder, string destFolder)
+        {
+            if (!Directory.Exists(destFolder))
+                Directory.CreateDirectory(destFolder);
+            Logi.AppendText("Dodawanie folderu: " + sourceFolder + Environment.NewLine);
+            Logi.Refresh();
+            progressBar2.Value = 0;
+            progressBar2.Step = 1;
+            string[] files = Directory.GetFiles(sourceFolder);
+            progressBar2.Maximum = files.Length;
+            foreach (string file in files)
+            {
+                Logi.AppendText("Dodawanie pliku: " + file + Environment.NewLine);
+                Logi.Refresh();
+                string name = Path.GetFileName(file);
+                string dest = Path.Combine(destFolder, name);
+                File.Copy(file, dest);
+                progressBar2.PerformStep();
+            }
+            string[] folders = Directory.GetDirectories(sourceFolder);
+            foreach (string folder in folders)
+            {
+                string name = Path.GetFileName(folder);
+                string dest = Path.Combine(destFolder, name);
+                CopyFolder(folder, dest);
+            }
+            progressBar2.Value = 0;
+            progressBar2.Maximum = 0;
+            Logi.AppendText("Zakończone dodawanie folderu: " + sourceFolder + Environment.NewLine);
+            Logi.Refresh();
         }
 
         private void schematy_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -686,61 +854,135 @@ namespace museSort
 
         private void button3_Click(object sender, EventArgs e)
         {
+            LayoutDodawanie.Hide();
             flowLayoutPanel1.Hide();
             flowLayoutPanel3.Hide();
             flowLayoutPanel2.Show();
         }
 
-
-        //dodaje pojedynczy plik znajdujący się w sciezka_zrodolowa, do katalogu uporządkowanego katalog_docelowy
-        //NIE TESTOWANE!
-        public void dodaj_plik(string sciezka_zrodolwa, string katalog_docelowy)
+        private void ustalaniesource_Click(object sender, EventArgs e)
         {
-            //---------------------------------------------------------------------kopiuje plik do folderu;
-            // założyłem, że powinien to zrobić; jeśli nie, powinno wystarczyć usunąć tę sekcję i zamienić
-            // w późniejszych użyciach nowasciezka na sciezka_zrodlowa
-            utwor plik = new utwor(sciezka_zrodolwa);
-            string nowasciezka = Path.Combine(katalog_docelowy, plik.nazwa + '.' + plik.rozszerzenie);
-            try
+            if (directoryTreeView.SelectedNode == null)
             {
-                plik.kopiuj(nowasciezka);
-            }
-            catch (ArgumentException)
-            {
-                MessageBox.Show("Błąd przy przenoszeniu pliku\n" + sciezka_zrodolwa + "\nPlik o takiej nazwie już istnieje w katalogu docelowym\n" + katalog_docelowy);
+                MessageBox.Show("Nie wybrano folderu!");
                 return;
             }
-            //-------------------------------------------------------------------------------------------
-            sortuj_plik(nowasciezka);
-
-            //-----------------------------------------tymczasowe żeby kompilator nie krzyczał
-            string schemat = schematy.Text;
-            obiektXML plikXML = new obiektXML(katalog_docelowy + "\\struktura_logiczna.xml", schemat);
-            //zastąpić normalną obsługą pliku XML, ja tego nie miałem jak pisałem
-            plikXML.aktualizuj();
+            source.Text = directoryTreeView.SelectedNode.Name;
         }
 
-        //sortuje pojedynczy plik (wyodrębnione wnętrze pętli z sortowania)
-        private void sortuj_plik(string sciezka)
+        private void ustalaniedestination_Click(object sender, EventArgs e)
+        {
+            if (directoryTreeView.SelectedNode == null)
+            {
+                MessageBox.Show("Nie wybrano folderu!");
+                return;
+            }
+            destination.Text = directoryTreeView.SelectedNode.Name;
+        }
+
+        private void DodawaniePliku_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Hide();
+            flowLayoutPanel3.Hide();
+            flowLayoutPanel2.Hide();
+            LayoutDodawanie.Show();
+        }
+
+        private void DodajPiosenki_Click(object sender, EventArgs e)
+        {
+            if (source.Text == "" || destination.Text == "")
+            {
+                MessageBox.Show("Nie wybrano wymaganych folderów!");
+            }
+            String zrodlo = source.Text;
+            String docelowy = destination.Text;
+            progressBar2.Maximum = 0;
+            progressBar2.Value = 0;
+            progressBar2.Step = 1;
+            Dictionary<string, List<string>> sciezki_plikow = znajdz_wspierane_pliki(zrodlo);
+            foreach (string rozszerzenie in utwor.wspierane_rozszerzenia) //iterujemy po rozszerzeniach
+            {
+                foreach (string sciezka in sciezki_plikow[rozszerzenie])
+                {
+                    dodaj_plik(sciezka, docelowy);
+                    progressBar2.PerformStep();
+                }
+            }
+            progressBar2.Value = 0;
+            progressBar2.Maximum = 0;
+        }
+
+        public void dodaj_plik(string sciezka_zrodolwa, string katalog_docelowy)
+        {
+            Console.WriteLine("Dodaję " + sciezka_zrodolwa + " do katalogu " + katalog_docelowy);
+            obiektXML plikXML=null;
+            try
+            {
+                plikXML = new obiektXML(katalog_docelowy, 1);
+                schematy.Text = plikXML.schemat;//Wpisane na sztywno, do obróbki
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return;
+            }
+            Directory.SetCurrentDirectory(katalog_docelowy);
+            sortuj_plik(sciezka_zrodolwa, plikXML.schemat);
+
+            //-----------------------------------------tymczasowe żeby kompilator nie krzyczał
+            
+            //zastąpić normalną obsługą pliku XML, ja tego nie miałem jak pisałem
+            if(plikXML!=null)
+                plikXML.aktualizuj();
+        }
+
+        private void sortuj_plik(string sciezka, string schemat)
         {
             //------------------------------------------------------ kopiowanie pliku do Temp
-            utwor plik = new utwor(sciezka);
+            Console.WriteLine("Sortuję " + sciezka);
+            utwor plik;
+            try
+            {
+                plik = new utwor(sciezka);
+            }
+            catch
+            {
+                Console.WriteLine("Nie powidło się sortowanie pliku " + sciezka);
+                return;
+            }
+            
             if (plik.tagi == null)
                 return;
+            plik.przepisz_tagi();
             string nazwa_pliku = Path.GetFileName(plik.sciezka);
-            plik.kopiuj(@"Musesort\Temp\" + nazwa_pliku);
-            plik.przywroc_stare();
-            //------------------------------------------------------- teraz zmienna plik to ten w Temp
-            plik = new utwor(@"Musesort\Temp\" + nazwa_pliku);
-
+            plik.kopiuj(@"Temp\" + nazwa_pliku);
+            //String[] temp1 = sciezka.Split('\\');
+            //String temporary = "";
+            //for (int i = 0; i < temp1.Length - 2; i++)
+            //{
+            //    temporary += temp1[i] + "\\";
+            //}
+            //temporary += temp1[temp1.Length - 2];
+            //String direction = temporary + "\\Temp";
+            //plik.przywroc_stare();
+            ////------------------------------------------------------- teraz zmienna plik to ten w Temp
+            //nazwa_pliku = temp1[temp1.Length-1];
+            plik = new utwor(@"Temp\" + nazwa_pliku);
+            plik.pobierz_tagi();
             string sciezka_katalogu;
-            if (schematy.Text == @"Piosenki\Wykonawca" && plik.wykonawca[0] != "" && plik.tytul != "")
+            if (schemat == @"Piosenki\Wykonawca" && plik.wykonawca[0] != "" && plik.tytul != "")
             {
                 sciezka_katalogu = @"Musesort\Posegregowane";
                 nazwa_pliku = plik.wykonawca[0] + '_' + plik.tytul + '.' + plik.rozszerzenie;
             }
             else
+            {
                 sciezka_katalogu = sciezka_katalogu_z_pol(plik);
+                //usuwamy jeden nadmiarowy "Musesort" z początku
+                sciezka_katalogu = sciezka_katalogu.Substring(sciezka_katalogu.IndexOf("\\")+1);
+            }
+               
+                
 
 
             if (!Directory.Exists(sciezka_katalogu))
@@ -751,15 +993,16 @@ namespace museSort
             //Console.WriteLine("Przenoszenie " + sciezka_katalogu + @"\" + nazwa_pliku);
             try
             {
-                plik.zmien_nazwe_pliku(Path.Combine(sciezka_katalogu, nazwa_pliku));
+                String kombinacja = sciezka_katalogu + "\\" + nazwa_pliku;
+                plik.zmien_nazwe_pliku(kombinacja);
+                Console.WriteLine("Dodano plik do katalogu " + kombinacja);
             }
             catch (System.IO.IOException) //rzucane w przypadku kolizji nazw plików
             {
                 duplikat(Path.Combine(sciezka_katalogu, nazwa_pliku), plik.sciezka);
             }
+            Console.WriteLine("Plik " + sciezka + " przeniesiony.");
         }
-
-
 
     }
 }

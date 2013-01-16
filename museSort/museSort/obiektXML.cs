@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using System.Xml;
 using System.IO;
 
@@ -11,7 +12,7 @@ namespace museSort
     {
         String sciezka;//przechowuje scieżkę do pliku XML
         XmlDocument plikXML;
-        String schemat;
+        public String schemat;
 
         public obiektXML(String sc)//otwieramy folder do tworzenia pliku XML
         {
@@ -20,13 +21,14 @@ namespace museSort
             plikXML = new XmlDocument();
         }
 
-        public obiektXML(String path, String sc)//wiążemy istniejący plik XML w folderze ze ścieżki z argumentu z obiektem
+        public obiektXML(String path, int i)//wiążemy istniejący plik XML w folderze ze ścieżki z argumentu z obiektem
         {
             sciezka = path;
-            schemat = sc;
             plikXML = new XmlDocument();
             String p = sciezka + "\\" + "struktura_logiczna.xml";
             plikXML.Load(p);
+            schemat = plikXML.GetElementsByTagName("schemat").Item(0).InnerText;
+            
 
         }
 
@@ -98,7 +100,7 @@ namespace museSort
             XmlDocument tempXML = new XmlDocument();
             XmlDeclaration dec = tempXML.CreateXmlDeclaration("1.0", "UTF-8", null);
             tempXML.AppendChild(dec);
-            XmlElement main = tempXML.CreateElement("lista_folderow");
+            XmlElement main = tempXML.CreateElement("body");
             XmlElement sc = tempXML.CreateElement("schemat");
             XmlText wartosc = tempXML.CreateTextNode(schemat);
             sc.AppendChild(wartosc);
