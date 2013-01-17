@@ -445,9 +445,9 @@ namespace museSort
                     }
                     Logi.AppendText("Rok: " + plik.rok + Environment.NewLine);
                     Logi.Refresh();
+                    //---------------------------------------------------------------------------------------
                     progressBar2.PerformStep();
                 }
-            return;
         }//end sortuj()
 
         //zamienia tekst z comboBoxa na tablicę kategorii do organizowania folderów
@@ -528,7 +528,7 @@ namespace museSort
             foreach (string kategoria in kategorie) //tworzymy ścieżkę katalogu docelowego pliku
             {
                 string kat = "";
-                if (kategoria == "Alfabetycznie")
+                if (kategoria == "alfabetycznie")
                 {
                     try
                     {
@@ -538,6 +538,7 @@ namespace museSort
                 }
                 else
                 {
+                    Console.WriteLine(kategoria);
                     System.Reflection.FieldInfo pole = typ_utwor.GetField(kategoria);         //pobiera pole
 
                     if (pole.FieldType.Equals(typeof(String)))				//jeśli pole to String
