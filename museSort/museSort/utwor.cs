@@ -532,10 +532,37 @@ namespace museSort
             
             if (tagi == null)
                 return;
-            
-            tagi.Tag.Title = tytul;
+            if (tytul != null && tytul != "")
+            {
+                tagi.Tag.Title = ZamienNaWlasciwe(tytul);
+            }
+            else
+            {
+                tagi.Tag.Title = tytul;
+            }
+            if (wykonawca != null)
+            {
+                for (int i = 0; i < wykonawca.Length - 1; i++)
+                {
+                    wykonawca[i] = ZamienNaWlasciwe(wykonawca[i]);
+                }
+            }
             tagi.Tag.Artists = wykonawca;
-            tagi.Tag.Album = album;
+            if (album != null && album != "")
+            {
+                tagi.Tag.Album = ZamienNaWlasciwe(album);
+            }
+            else
+            {
+                tagi.Tag.Album = album;
+            }
+            if (gatunek != null)
+            {
+                for (int i = 0; i < gatunek.Length - 1; i++)
+                {
+                    gatunek[i] = ZamienNaWlasciwe(gatunek[i]);
+                }
+            }
             tagi.Tag.Genres = gatunek;
             tagi.Tag.Track = uint.Parse(numer.ToString());
             if (komentarz == null || komentarz == "")
