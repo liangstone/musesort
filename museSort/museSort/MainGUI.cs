@@ -912,6 +912,8 @@ namespace museSort
                 MessageBox.Show("Nastąpiły zmiany w drzewie folderów, przed dodawaniem wymagane jest ponowne sortowanie!");
                 return;
             }
+            Logi.AppendText("Dodawanie plików muzycznych z folderu: " + zrodlo + " do posortowanego folderu: " + docelowy + Environment.NewLine);
+            Logi.Refresh();
             progressBar2.Maximum = 0;
             progressBar2.Value = 0;
             progressBar2.Step = 1;
@@ -920,12 +922,19 @@ namespace museSort
             {
                 foreach (string sciezka in sciezki_plikow[rozszerzenie])
                 {
+                    Logi.AppendText("Dodaję plik: " + sciezka + Environment.NewLine);
+                    Logi.Refresh();
                     dodaj_plik(sciezka, docelowy);
                     progressBar2.PerformStep();
+                    Logi.AppendText("Zakończono dodawanie pliku: " + sciezka + Environment.NewLine);
+                    Logi.Refresh();
                 }
             }
             progressBar2.Value = 0;
             progressBar2.Maximum = 0;
+            Logi.AppendText("Zakończono dodawanie plików!" + Environment.NewLine);
+            Logi.Refresh();
+            MessageBox.Show("Zakończono dodawanie plików!");
         }
 
         public void dodaj_plik(string sciezka_zrodolwa, string katalog_docelowy)
@@ -988,7 +997,7 @@ namespace museSort
             string sciezka_katalogu;
             if (schemat == @"Piosenki\Wykonawca" && plik.wykonawca[0] != "" && plik.tytul != "")
             {
-                sciezka_katalogu = @"Posegregowane";
+                sciezka_katalogu = @"Musesort\Posegregowane";
                 nazwa_pliku = plik.wykonawca[0] + '_' + plik.tytul + '.' + plik.rozszerzenie;
             }
             else
