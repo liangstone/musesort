@@ -23,7 +23,7 @@ namespace museSort
         {
             InitializeComponent();
             plik = new utwor(sciezka);
-            plik.pobierz_tagi();
+            plik.przepisz_tagi();
             wczytaj_plik_do_boxow();
         }
 
@@ -57,11 +57,20 @@ namespace museSort
             NazwaPlikuBox.Text = System.IO.Path.GetFileNameWithoutExtension(plik.sciezka);//System.IO.Path.GetFileName(current.sciezka)
             TytulBox.Text = plik.tytul;
 
-            temp = plik.wykonawca[0];
-            for(int i=1;i<plik.wykonawca.Length;i++)
+            if (plik.wykonawca != null && plik.wykonawca.Length > 0)
             {
-                temp += ", "+plik.wykonawca[i];
+                temp = plik.wykonawca[0];
+                for (int i = 1; i < plik.wykonawca.Length; i++)
+                {
+                    temp += ", " + plik.wykonawca[i];
+                }
             }
+            else
+            {
+                temp = "";
+            }
+            
+            
             WykonawcaBox.Text = temp; 
             AlbumBox.Text = plik.album;
             RokWydaniaBox.Text = plik.tagi.Tag.Year.ToString();
