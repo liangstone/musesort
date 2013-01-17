@@ -43,7 +43,7 @@ namespace museSort
             {
                 //filepath = openFileDialog1.FileName;
                 plik = new utwor(openFileDialog1.FileName);
-                plik.pobierz_tagi();
+                plik.przepisz_tagi();
                 wczytaj_plik_do_boxow();
             }
                 
@@ -55,19 +55,19 @@ namespace museSort
 
             string temp = "";
             NazwaPlikuBox.Text = System.IO.Path.GetFileNameWithoutExtension(plik.sciezka);//System.IO.Path.GetFileName(current.sciezka)
-            TytulBox.Text = ZamienNaWlasciwe(plik.tytul);
+            TytulBox.Text = plik.tytul;
 
-            temp = ZamienNaWlasciwe(plik.wykonawca[0]);
+            temp = plik.wykonawca[0];
             for(int i=1;i<plik.wykonawca.Length;i++)
             {
                 temp += ", "+plik.wykonawca[i];
             }
-            WykonawcaBox.Text = ZamienNaWlasciwe(temp); 
-            AlbumBox.Text = ZamienNaWlasciwe(plik.album);
-            RokWydaniaBox.Text = ZamienNaWlasciwe(plik.tagi.Tag.Year.ToString());
+            WykonawcaBox.Text = temp; 
+            AlbumBox.Text = plik.album;
+            RokWydaniaBox.Text = plik.tagi.Tag.Year.ToString();
             if (plik.gatunek.Length > 0)
             {
-                temp = ZamienNaWlasciwe(plik.gatunek[0]);
+                temp = plik.gatunek[0];
             }
             else
             {
@@ -77,7 +77,7 @@ namespace museSort
             {
                 temp += ", " + plik.gatunek[i];
             }
-            GatunkiBox.Text = ZamienNaWlasciwe(temp);
+            GatunkiBox.Text = temp;
             NrSciezkiBox.Text = plik.numer.ToString();
 
 
