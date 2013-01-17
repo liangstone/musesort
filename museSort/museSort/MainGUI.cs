@@ -516,7 +516,7 @@ namespace museSort
         }//end znajdz_wspierane_pliki(string katalog)
 
         //generuje ścieżkę dla katalogu na podstawie pól w sortowaniu
-        private string sciezka_katalogu_z_pol(utwor plik, bool duplikat = false)
+        private string sciezka_katalogu_z_pol(utwor plik, bool duplikat = false, bool dodawanie_jednego_pliku=false)
         {
             Type typ_utwor = typeof(utwor);
             string sciezka_katalogu;
@@ -572,6 +572,10 @@ namespace museSort
                 }
                 sciezka_katalogu += Convert.ToString(i);
             }
+
+
+            if(dodawanie_jednego_pliku)
+                sciezka_katalogu = sciezka_katalogu.Substring(sciezka_katalogu.IndexOf("\\") + 1);
             return sciezka_katalogu;
         }//end sciezka_z_pol()
 
@@ -612,7 +616,7 @@ namespace museSort
             przetwarzaj_kategorie();
         }
 
-        private void duplikat(String x, String y)
+        private void duplikat(String x, String y, bool dodawanie_jednego_pliku=false)
         {
             utwor plik1 = new utwor(x);
             utwor plik2 = new utwor(y);
@@ -625,7 +629,7 @@ namespace museSort
             {
                 if (pierwszy_jest_lepszy) //pierwszy plik zostaje gdzie jest, drugi idzie do zduplikowanych
                 {
-                    string nowykatalog = sciezka_katalogu_z_pol(plik2, true);
+                    string nowykatalog = sciezka_katalogu_z_pol(plik2, true, dodawanie_jednego_pliku);
                     Directory.CreateDirectory(nowykatalog);
                     plik2.zmien_nazwe_pliku(Path.Combine(nowykatalog, plik2.nazwa + '.' + plik2.rozszerzenie));
                 }
@@ -633,7 +637,7 @@ namespace museSort
                 {
                     plik1.zmien_nazwe_pliku(@"Musesort\Zduplikowane\Temp\" + plik1.nazwa + '.' + plik1.rozszerzenie);
                     plik2.zmien_nazwe_pliku(x);
-                    string nowykatalog = sciezka_katalogu_z_pol(plik1, true);
+                    string nowykatalog = sciezka_katalogu_z_pol(plik1, true, dodawanie_jednego_pliku);
                     Directory.CreateDirectory(nowykatalog);
                     plik1.zmien_nazwe_pliku(Path.Combine(nowykatalog, plik1.nazwa + '.' + plik1.rozszerzenie));
                 }
@@ -641,7 +645,7 @@ namespace museSort
             else if (preferowane == plik1.rozszerzenie && preferowane != plik2.rozszerzenie)
             {
                 //pierwszy plik zostaje gdzie jest, drugi idzie do zduplikowanych
-                string nowykatalog = sciezka_katalogu_z_pol(plik2, true);
+                string nowykatalog = sciezka_katalogu_z_pol(plik2, true, dodawanie_jednego_pliku);
                 Directory.CreateDirectory(nowykatalog);
                 plik2.zmien_nazwe_pliku(Path.Combine(nowykatalog, plik2.nazwa + '.' + plik2.rozszerzenie));
             }
@@ -650,7 +654,7 @@ namespace museSort
                 //drugi plik zajmuje miejsce pierwszego, pierwszy idzie do zduplikowanych
                 plik1.zmien_nazwe_pliku(@"Musesort\Zduplikowane\Temp\" + plik1.nazwa + '.' + plik1.rozszerzenie);
                 plik2.zmien_nazwe_pliku(x);
-                string nowykatalog = sciezka_katalogu_z_pol(plik1, true);
+                string nowykatalog = sciezka_katalogu_z_pol(plik1, true, dodawanie_jednego_pliku);
                 Directory.CreateDirectory(nowykatalog);
                 plik1.zmien_nazwe_pliku(Path.Combine(nowykatalog, plik1.nazwa + '.' + plik1.rozszerzenie));
             }
@@ -1002,9 +1006,9 @@ namespace museSort
             }
             else
             {
-                sciezka_katalogu = sciezka_katalogu_z_pol(plik);
+                sciezka_katalogu = sciezka_katalogu_z_pol(plik, false, true);
                 //usuwamy jeden nadmiarowy "Musesort" z początku
-                sciezka_katalogu = sciezka_katalogu.Substring(sciezka_katalogu.IndexOf("\\")+1);
+                //sciezka_katalogu = sciezka_katalogu.Substring(sciezka_katalogu.IndexOf("\\")+1);
             }
                
                 
@@ -1024,7 +1028,7 @@ namespace museSort
             }
             catch (System.IO.IOException) //rzucane w przypadku kolizji nazw plików
             {
-                duplikat(Path.Combine(sciezka_katalogu, nazwa_pliku), plik.sciezka);
+                duplikat(Path.Combine(sciezka_katalogu, nazwa_pliku), plik.sciezka, true);
             }
             Console.WriteLine("Plik " + sciezka + " przeniesiony.");
         }
