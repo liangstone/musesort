@@ -746,6 +746,11 @@ namespace museSort
 
         private void Dodaj_Do_Głównego_Click(object sender, EventArgs e)
         {
+            if (directoryTreeView.SelectedNode == null)
+            {
+                MessageBox.Show("Nie wybrano folderu do dodania!");
+                return;
+            }
             String source = directoryTreeView.SelectedNode.Name;
             if (!File.Exists(source + @"\struktura_logiczna.xml"))
             {
@@ -896,6 +901,17 @@ namespace museSort
             }
             String zrodlo = source.Text;
             String docelowy = destination.Text;
+            if (!File.Exists(docelowy + "\\struktura_logiczna.xml"))
+            {
+                MessageBox.Show("Folder docelowy nigdy nie został posortowany!");
+                return;
+            }
+            obiektXML plikXML = new obiektXML(docelowy, 1);
+            if (!plikXML.analizuj())
+            {
+                MessageBox.Show("Nastąpiły zmiany w drzewie folderów, przed dodawaniem wymagane jest ponowne sortowanie!");
+                return;
+            }
             progressBar2.Maximum = 0;
             progressBar2.Value = 0;
             progressBar2.Step = 1;
@@ -972,7 +988,7 @@ namespace museSort
             string sciezka_katalogu;
             if (schemat == @"Piosenki\Wykonawca" && plik.wykonawca[0] != "" && plik.tytul != "")
             {
-                sciezka_katalogu = @"Musesort\Posegregowane";
+                sciezka_katalogu = @"Posegregowane";
                 nazwa_pliku = plik.wykonawca[0] + '_' + plik.tytul + '.' + plik.rozszerzenie;
             }
             else
