@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -21,6 +22,7 @@ namespace MuseSort
             InitializeComponent();
             drzewoFolderow.NodeMouseClick += wyswietl;
             listaSciezek(drzewoFolderow, @"C:\");
+            folderGlowny = new FolderGlowny(MuseSort.Properties.Settings.Default.folderGlowny);
         }
 
         //######################################METODY POMOCNICZE KLASY######################################
@@ -155,12 +157,23 @@ namespace MuseSort
         //Dodawanie folderu z muzyką do głównego folderu
         private void dodajDoGlownegoFolderuButton_Click(object sender, EventArgs e)
         {
+            if (folderGlowny.Sciezka == "")
+            {
+                MessageBox.Show("Nie został ustawiony folder główny!");
+                return;
+            }
+
             if (drzewoFolderow.SelectedNode == null || aktualnyFolder.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Nie został wybrany folder do dodania!");
                 return;
             }
             String sciezka = drzewoFolderow.SelectedNode.Name + "\\" + aktualnyFolder.SelectedItems[0].Text;
+            if (sciezka == MuseSort.Properties.Settings.Default.folderGlowny || (sciezka + "\\Musesort") == MuseSort.Properties.Settings.Default.folderGlowny)
+            {
+                MessageBox.Show("Próbujesz dodać folder główny do folderu głównego!");
+                return;
+            }
             if (System.IO.Directory.Exists(sciezka))
             {
                 folderGlowny.dodajFolder(sciezka);

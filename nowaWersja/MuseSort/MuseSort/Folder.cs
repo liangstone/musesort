@@ -7,11 +7,25 @@ namespace MuseSort
 {
     class Folder
     {
+
+        #region POLA KLASY
+
+        /// <summary>Ścieżka folderu.</summary>
         String sciezka;
+
+        /// <summary>Udostępnia ścieżkę do odczytu.</summary>
+        public String Sciezka
+        {
+            get { return sciezka; }
+            private set { sciezka = value; }
+        }
+
         String schemat;
         FolderXML xml;
 
-        //#############################PUBLICZNE METODY KLASY############################################
+        #endregion
+
+        #region PUBLICZNE METODY KLASY
 
         //Tworzenie powiązania folderu z obiektem
         public Folder(String path)
@@ -58,6 +72,9 @@ namespace MuseSort
             return result;
         }
 
-        //######################################METODY POMOCNICZE KLASY######################################
+        #endregion
+
+        #region METODY POMOCNICZE KLASY
+        #endregion
     }
 }
