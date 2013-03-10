@@ -66,7 +66,8 @@
             this.opcjeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(989, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1319, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -75,13 +76,13 @@
             this.programToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.zamknijToolStripMenuItem});
             this.programToolStripMenuItem.Name = "programToolStripMenuItem";
-            this.programToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.programToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
             this.programToolStripMenuItem.Text = "Program";
             // 
             // zamknijToolStripMenuItem
             // 
             this.zamknijToolStripMenuItem.Name = "zamknijToolStripMenuItem";
-            this.zamknijToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.zamknijToolStripMenuItem.Size = new System.Drawing.Size(131, 24);
             this.zamknijToolStripMenuItem.Text = "Zamknij";
             this.zamknijToolStripMenuItem.Click += new System.EventHandler(this.zamknijToolStripMenuItem_Click);
             // 
@@ -90,25 +91,27 @@
             this.opcjeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ustawieniaToolStripMenuItem});
             this.opcjeToolStripMenuItem.Name = "opcjeToolStripMenuItem";
-            this.opcjeToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.opcjeToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.opcjeToolStripMenuItem.Text = "Opcje";
             // 
             // ustawieniaToolStripMenuItem
             // 
             this.ustawieniaToolStripMenuItem.Name = "ustawieniaToolStripMenuItem";
-            this.ustawieniaToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.ustawieniaToolStripMenuItem.Size = new System.Drawing.Size(150, 24);
             this.ustawieniaToolStripMenuItem.Text = "Ustawienia";
             // 
             // drzewoFolderow
             // 
-            this.drzewoFolderow.Location = new System.Drawing.Point(12, 63);
+            this.drzewoFolderow.Location = new System.Drawing.Point(16, 78);
+            this.drzewoFolderow.Margin = new System.Windows.Forms.Padding(4);
             this.drzewoFolderow.Name = "drzewoFolderow";
-            this.drzewoFolderow.Size = new System.Drawing.Size(233, 396);
+            this.drzewoFolderow.Size = new System.Drawing.Size(309, 486);
             this.drzewoFolderow.TabIndex = 1;
             // 
             // toolStrip1
             // 
             this.toolStrip1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(25, 25);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.modyfikujButton,
             this.toolStripSeparator1,
@@ -117,18 +120,19 @@
             this.toolStripButton3,
             this.toolStripSeparator3,
             this.toolStripButton5});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(989, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1319, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // modyfikujButton
             // 
-            this.modyfikujButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.modyfikujButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.modyfikujButton.Image = ((System.Drawing.Image)(resources.GetObject("modyfikujButton.Image")));
             this.modyfikujButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.modyfikujButton.Name = "modyfikujButton";
-            this.modyfikujButton.Size = new System.Drawing.Size(88, 22);
+            this.modyfikujButton.Size = new System.Drawing.Size(23, 22);
             this.modyfikujButton.Text = "Modyfikuj tagi";
             this.modyfikujButton.Click += new System.EventHandler(this.modyfikujButton_Click);
             // 
@@ -141,11 +145,11 @@
             // 
             this.dodajDoGlownegoFolderuButton.BackColor = System.Drawing.Color.Transparent;
             this.dodajDoGlownegoFolderuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.dodajDoGlownegoFolderuButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.dodajDoGlownegoFolderuButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.dodajDoGlownegoFolderuButton.Image = ((System.Drawing.Image)(resources.GetObject("dodajDoGlownegoFolderuButton.Image")));
             this.dodajDoGlownegoFolderuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.dodajDoGlownegoFolderuButton.Name = "dodajDoGlownegoFolderuButton";
-            this.dodajDoGlownegoFolderuButton.Size = new System.Drawing.Size(156, 22);
+            this.dodajDoGlownegoFolderuButton.Size = new System.Drawing.Size(23, 22);
             this.dodajDoGlownegoFolderuButton.Text = "Dodaj do głównego folderu";
             this.dodajDoGlownegoFolderuButton.Click += new System.EventHandler(this.dodajDoGlownegoFolderuButton_Click);
             // 
@@ -156,11 +160,11 @@
             // 
             // toolStripButton3
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(89, 22);
+            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton3.Text = "Dodaj piosenki";
             // 
             // toolStripSeparator3
@@ -170,11 +174,11 @@
             // 
             // toolStripButton5
             // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(42, 22);
+            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton5.Text = "Sortuj";
             // 
             // statusStrip1
@@ -183,36 +187,38 @@
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2,
             this.toolStripProgressBar1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 540);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 666);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(989, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1319, 26);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(132, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(165, 21);
             this.toolStripStatusLabel1.Text = "Wykonywanie operacji: ";
             // 
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(13, 17);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(17, 21);
             this.toolStripStatusLabel2.Text = "  ";
             // 
             // toolStripProgressBar1
             // 
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(300, 16);
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(400, 20);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::MuseSort.Properties.Resources.logo1;
             this.pictureBox1.InitialImage = global::MuseSort.Properties.Resources.logo1;
-            this.pictureBox1.Location = new System.Drawing.Point(783, 63);
+            this.pictureBox1.Location = new System.Drawing.Point(1044, 78);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(194, 219);
+            this.pictureBox1.Size = new System.Drawing.Size(259, 270);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -223,9 +229,10 @@
             this.nazwa,
             this.rozszerzenie,
             this.rozmiar});
-            this.aktualnyFolder.Location = new System.Drawing.Point(260, 63);
+            this.aktualnyFolder.Location = new System.Drawing.Point(347, 78);
+            this.aktualnyFolder.Margin = new System.Windows.Forms.Padding(4);
             this.aktualnyFolder.Name = "aktualnyFolder";
-            this.aktualnyFolder.Size = new System.Drawing.Size(507, 396);
+            this.aktualnyFolder.Size = new System.Drawing.Size(675, 486);
             this.aktualnyFolder.TabIndex = 5;
             this.aktualnyFolder.UseCompatibleStateImageBehavior = false;
             this.aktualnyFolder.View = System.Windows.Forms.View.Details;
@@ -247,11 +254,11 @@
             // 
             // MainGUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::MuseSort.Properties.Resources.tlo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(989, 562);
+            this.ClientSize = new System.Drawing.Size(1319, 692);
             this.Controls.Add(this.aktualnyFolder);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.statusStrip1);
@@ -259,6 +266,7 @@
             this.Controls.Add(this.drzewoFolderow);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "MainGUI";
             this.Text = "MuseSort";
