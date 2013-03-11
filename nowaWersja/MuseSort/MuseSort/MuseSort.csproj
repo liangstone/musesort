@@ -49,6 +49,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BazaDanychMuzyka.cs" />
     <Compile Include="Dane.cs" />
     <Compile Include="EdycjaPliku.cs">
       <SubType>Form</SubType>
