@@ -1,0 +1,10 @@
+C:\Users\user\musesort\nowaWersja\MuseSort\MuseSort\bin\Debug\MuseSort.exe
+C:\Users\user\musesort\nowaWersja\MuseSort\MuseSort\bin\Debug\MuseSort.pdb
+C:\Users\user\musesort\nowaWersja\MuseSort\MuseSort\bin\Debug\taglib-sharp.dll
+C:\Users\user\musesort\nowaWersja\MuseSort\MuseSort\obj\x86\Debug\MuseSort.csprojResolveAssemblyReference.cache
+C:\Users\user\musesort\nowaWersja\MuseSort\MuseSort\obj\x86\Debug\MuseSort.MainGUI.resources
+C:\Users\user\musesort\nowaWersja\MuseSort\MuseSort\obj\x86\Debug\MuseSort.Properties.Resources.resources
+C:\Users\user\musesort\nowaWersja\MuseSort\MuseSort\obj\x86\Debug\MuseSort.csproj.GenerateResource.Cache
+C:\Users\user\musesort\nowaWersja\MuseSort\MuseSort\obj\x86\Debug\MuseSort.exe
+C:\Users\user\musesort\nowaWersja\MuseSort\MuseSort\obj\x86\Debug\MuseSort.pdb
+C:\Users\user\musesort\nowaWersja\MuseSort\MuseSort\obj\x86\Debug\MuseSort.OknoUstawien.resources

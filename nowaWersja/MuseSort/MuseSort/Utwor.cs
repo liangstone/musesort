@@ -89,6 +89,14 @@ namespace MuseSort
             //Generuje tagi z nazwy pliku i zapisuje w obiekcie dane
             //Zmienia wartość zmiennej pobranoZNazwy na true
             //Do wykonania tej metody wykorzystujemy listę wzorców z obiektu wzorceNazwy
+            foreach (Wzorzec wzor in wzorceNazwy)
+            {
+                if (wzor.czyPasuje(nazwa))
+                {
+                    pobranoZNazwy = true;
+                }
+            }
+            pobranoZNazwy = false;
         }
 
         public void pobierzTagiZeSciezki()

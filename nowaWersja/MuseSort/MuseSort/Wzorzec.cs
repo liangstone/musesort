@@ -29,6 +29,10 @@ namespace MuseSort
         {
             Boolean rezultat = false;
             //Sprawdzanie, czy zmienna lancuch pasuje do regexa
+            if (regex != null) 
+            {
+                rezultat = regex.IsMatch(lancuch);
+            }
             return rezultat;
         }
 
