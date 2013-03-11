@@ -66,6 +66,12 @@
     <Compile Include="MainGUI.Designer.cs">
       <DependentUpon>MainGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="OknoUstawien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OknoUstawien.Designer.cs">
+      <DependentUpon>OknoUstawien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaticUtwor.cs" />
@@ -73,6 +79,9 @@
     <Compile Include="Wzorzec.cs" />
     <EmbeddedResource Include="MainGUI.resx">
       <DependentUpon>MainGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OknoUstawien.resx">
+      <DependentUpon>OknoUstawien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
