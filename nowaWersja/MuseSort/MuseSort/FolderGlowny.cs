@@ -23,7 +23,7 @@ namespace MuseSort
         //W skrócie, sprawdzanie, czy wszystko się zgadza
         public Boolean analizuj()
         {
-            Boolean result = true;
+            Boolean result = xml.analizuj();
 
             return result;
         }
