@@ -25,6 +25,8 @@ namespace MuseSort
             wzorzec = nowyWzorzec;
         }
 
+		//należy tworzyć regexy zaczynające się od ^ i kończące na $
+		//aby brać pod uwagę cały łańcuch wejściowy
         public Boolean czyPasuje(String lancuch)
         {
             Boolean rezultat = false;
