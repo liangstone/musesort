@@ -16,6 +16,7 @@ namespace MuseSort
         Boolean pobranoZNazwy = false;
         Boolean pobranoZeSciezki = false;
         public String logi = "";
+        public static string[] wspieraneRozszerzenia = { "mp3", "flac" };
         
         //#############################PUBLICZNE METODY KLASY############################################
 
