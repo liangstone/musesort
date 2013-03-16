@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections.Generic;
+using System.Xml;
 
 namespace MuseSort
 {
@@ -52,7 +53,35 @@ namespace MuseSort
             }
 
             return true;
-        }
+        }//end  Boolean sprawdzWzorzec(String wzorzec, String rodzaj)
+
+        public void wczytajWzorceZPliku(String path)
+        {
+            //Wczytywanie listy wzorców z pliku XML do obiektów klasy
+            //W zmiennej path zawarta jest ścieżka do pliku
+            XmlDocument plikXML = new XmlDocument();
+            plikXML.Load(path);
+            XmlNodeList wzorceList = plikXML.GetElementsByTagName("wzorzec_nazwy");
+            for (int i = 0; i < wzorceList.Count; i++)
+            {
+                
+                String nazwa = wzorceList.Item(i).FirstChild.InnerText;
+                String regex = wzorceList.Item(i).LastChild.InnerText;
+                Wzorzec wz = new Wzorzec(regex, nazwa);
+                wzorceNazwy.Add(wz);
+            }
+
+            wzorceList = plikXML.GetElementsByTagName("wzorzec_sciezki");
+            for (int i = 0; i < wzorceList.Count; i++)
+            {
+
+                String nazwa = wzorceList.Item(i).FirstChild.InnerText;
+                String regex = wzorceList.Item(i).LastChild.InnerText;
+                Wzorzec wz = new Wzorzec(regex, nazwa);
+                wzorceSciezki.Add(wz);
+            }
+
+        }//end void wczytajWzorceZPliku(String path)
 
     }
 }

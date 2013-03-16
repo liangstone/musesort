@@ -38,11 +38,6 @@ namespace MuseSort
             return rezultat;
         }
 
-        public void wczytajWzorceZPliku(String path)
-        {
-            //Wczytywanie listy wzorców z pliku XML do obiektów klasy
-            //W zmiennej path zawarta jest ścieżka do pliku
-        }
 
         //######################################METODY POMOCNICZE KLASY######################################
     }
