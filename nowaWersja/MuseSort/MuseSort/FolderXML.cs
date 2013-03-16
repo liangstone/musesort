@@ -80,6 +80,9 @@ namespace MuseSort
             String p = sciezka + "\\" + "temp.xml";
             String q = sciezka + "\\" + "struktura_logiczna.xml";
             tempXML.Save(p);
+            if (!File.Exists(p) || !File.Exists(q))
+                return false;
+
             if (System.IO.File.ReadAllText(p) == System.IO.File.ReadAllText(q))
             {
                 System.IO.File.Delete(p);
