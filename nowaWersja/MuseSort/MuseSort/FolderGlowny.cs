@@ -32,7 +32,7 @@ namespace MuseSort
         /// <remarks>Jeszcze nie zaiplementowane.</remarks>
         public Boolean analizuj()
         {
-            Boolean result = true;
+            Boolean result = xml.analizuj();
 
             return result;
         }
