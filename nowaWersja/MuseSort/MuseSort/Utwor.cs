@@ -84,11 +84,58 @@ namespace MuseSort
             logi += "Anulowano modyfikowanie tagów." + Environment.NewLine;
         }
 
+        //Generuje tagi z nazwy pliku i zapisuje w obiekcie dane
         public void pobierzTagiZNazwy()
         {
-            //Generuje tagi z nazwy pliku i zapisuje w obiekcie dane
-            //Zmienia wartość zmiennej pobranoZNazwy na true
-            //Do wykonania tej metody wykorzystujemy listę wzorców z obiektu wzorceNazwy
+            //narazie wyszukuje po numer, autor, album, tytuł 
+            if(!dane.czyDaneWypelnione() && dane.numer == 0)    //tu należy umieścić wyszukiwane informacje jeśli zostaną jakieś dodane
+            {                                                   //oraz należy dodać ifa na koncu funkcji
+                Wzorzec wzr = null;
+                foreach (Wzorzec w in wzorceNazwy)
+                {
+                    if (w.czyPasuje(nazwa))     //wybranie pasującego wzorcu
+                    {
+                        pobranoZNazwy = true;
+                        wzr = w;
+                        break;
+                    }
+                }
+                if (pobranoZNazwy == true)      //jeśli mamy pasujący wzorzec
+                {
+                    char[] wzrSep = { '<', '>' };
+                    String[] wzrSp = wzr.pobierzWzorzec().Split(wzrSep);    //podział wzorcu na elementy
+                    String tmp = "";                                        //otrymamy {"dane", "separator", "dane"...}
+                    for (int i = 0; i < wzrSp.Length / 2; i++)              //zakładam że pomiędzy informacjami występują separatory
+                    {
+                        tmp += wzrSp[1 + 2 * i];                 
+                    }
+                    char[] nazwaSep = tmp.ToCharArray();
+                    String[] nazwaSp = nazwa.Split(nazwaSep);       //podział nazwy na oczekiwane informacje
+
+                    String s = "";
+                    for (int i=0; i <= (nazwaSp.Length + 1)/2; i++) //sprawdzenie pokolei zawartości wzorca
+                    {                                               //wypełnienie pustych pol
+                        s = wzrSp[i*2];
+                        if (dane.numer == 0 && s.Equals("Numer")) 
+                        {
+                            UInt32.TryParse(nazwaSp[i], out dane.numer);
+                        }
+                        else if (!(dane.wykonawca.Length > 0 && dane.wykonawca[0] != "") && s.Equals("Wykonawca")) 
+                        {
+                            dane.wykonawca = new String[1];
+                            dane.wykonawca[0] = nazwaSp[i];
+                        }
+                        else if (dane.album.Equals("") && s.Equals("Album")) 
+                        {
+                            dane.album = nazwaSp[i];
+                        }
+                        else if (dane.tytul.Equals("") && s.Equals("Tytul")) 
+                        {
+                            dane.tytul = nazwaSp[i];
+                        }
+                    }
+                }
+            }
         }
 
         public void pobierzTagiZeSciezki()
