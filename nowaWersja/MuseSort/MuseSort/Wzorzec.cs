@@ -39,5 +39,9 @@ namespace MuseSort
         }
 
         //######################################METODY POMOCNICZE KLASY######################################
+		public String wzr.pobierzWzorzec()
+		{
+			return wzorzec;
+		}
     }
 }
