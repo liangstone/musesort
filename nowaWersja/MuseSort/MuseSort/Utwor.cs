@@ -120,25 +120,25 @@ namespace MuseSort
                 if (pobranoZeSciezki == true)      //jeśli mamy pasujący wzorzec
                 {
                     char[] wzrSep = { '<', '>' };
-                    String[] wzrSp = wzr.pobierzWzorzec().Split(wzrSep);    //podział wzorcu na elementy
+                    String[] wzrSp = wzr.wzorzec.Split(wzrSep);    //podział wzorcu na elementy
                     String[] nazwaSp = nazwa.Split('\\');                   //podział nazwy na oczekiwane informacje
                                                                             //zakładam że wzorzec do scieżki wygląda <Autor><Album>
-                    int nazwaLen = nazwaSp.Length;                          //a to odpowiada scieżce ...\\Autor\\Album
+                    int nazwaLen = nazwaSp.Length;                          //a to odpowiada scieżce ...\\Autor\\Album\\plik.ext
                     int wzrLen = wzrSp.Length;
                     int nazwaIndex = nazwaLen - wzrLen - 1;                 //-1 ponieważ ścieżka zawiera nazwę pliku
                     String s = "";
                     for (int i = 0; i < wzrSp.Length; i--)              //sprawdzenie pokolei zawartości wzorca
                     {                                                   //wypełnienie pustych pól
-                        if (!(dane.wykonawca.Length > 0 && dane.wykonawca[0] != "") && s.Equals("Wykonawca"))
+                        if (!(dane.wykonawca.Length > 0 && dane.wykonawca[0] != "") && s.Equals("wykonawca"))
                         {
                             dane.wykonawca = new String[1];
                             dane.wykonawca[0] = nazwaSp[nazwaIndex + i];
-                            logi += "Dodano nazwe wykonawcy ze scieżki: " + nazwaSp[i] + Environment.NewLine;
+                            logi += "Dodano wykonawca do tagów ze ścieżki: " + nazwaSp[i] + Environment.NewLine;
                         }
-                        else if (dane.album.Equals("") && s.Equals("Album"))
+                        else if (dane.album.Equals("") && s.Equals("album"))
                         {
                             dane.album = nazwaSp[nazwaIndex + i];
-                            logi += "Dodano nazwe albumu ze scieżki: " + nazwaSp[i] + Environment.NewLine;
+                            logi += "Dodano album do tagów ze ścieżki: " + nazwaSp[i] + Environment.NewLine;
                         }
                     }
                 }
