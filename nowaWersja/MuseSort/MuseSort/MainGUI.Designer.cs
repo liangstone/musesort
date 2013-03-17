@@ -81,7 +81,7 @@
             // zamknijToolStripMenuItem
             // 
             this.zamknijToolStripMenuItem.Name = "zamknijToolStripMenuItem";
-            this.zamknijToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.zamknijToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.zamknijToolStripMenuItem.Text = "Zamknij";
             this.zamknijToolStripMenuItem.Click += new System.EventHandler(this.zamknijToolStripMenuItem_Click);
             // 
@@ -162,6 +162,7 @@
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(89, 22);
             this.toolStripButton3.Text = "Dodaj piosenki";
+            this.toolStripButton3.Click += new System.EventHandler(this.dodajPiosenkiButton_Click);
             // 
             // toolStripSeparator3
             // 

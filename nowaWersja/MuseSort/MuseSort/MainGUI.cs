@@ -189,5 +189,20 @@ namespace MuseSort
                 folder.sortuj();
             }
         }
+
+        private void dodajPiosenkiButton_Click(object sender, EventArgs e)
+        {
+            if (drzewoFolderow.SelectedNode == null || aktualnyFolder.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Nie został wybrany folder do dodania!");
+                return;
+            }
+            String sciezka = drzewoFolderow.SelectedNode.Name + "\\" + aktualnyFolder.SelectedItems[0].Text;
+
+            Folder docelowy = new Folder(@"C:\Users\KrzysztofD\Music\alchemist");
+            docelowy.ustalSchemat(@"Wykonawca\Album\Piosenki");
+            docelowy.progressBar2 = toolStripProgressBar1.ProgressBar;
+            docelowy.dodajIPosortujFolder(sciezka);
+        }
     }
 }
