@@ -9,7 +9,7 @@ namespace MuseSort
     class Wzorzec
     {
         Regex regex;
-        String wzorzec;
+        public String wzorzec;
 
         //#############################PUBLICZNE METODY KLASY############################################
 
@@ -39,9 +39,5 @@ namespace MuseSort
         }
 
         //######################################METODY POMOCNICZE KLASY######################################
-		public String wzr.pobierzWzorzec()
-		{
-			return wzorzec;
-		}
     }
 }

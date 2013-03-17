@@ -88,7 +88,7 @@ namespace MuseSort
         public void pobierzTagiZNazwy()
         {
             //narazie wyszukuje po numer, autor, album, tytuł 
-            if(!dane.czyDaneWypelnione() && dane.numer == 0)    //tu należy umieścić wyszukiwane informacje jeśli zostaną jakieś dodane
+            if(!dane.czyDaneWypelnione() || dane.numer == 0)    //tu należy umieścić wyszukiwane informacje jeśli zostaną jakieś dodane
             {                                                   //oraz należy dodać ifa na koncu funkcji
                 Wzorzec wzr = null;
                 foreach (Wzorzec w in wzorceNazwy)
@@ -103,7 +103,7 @@ namespace MuseSort
                 if (pobranoZNazwy == true)      //jeśli mamy pasujący wzorzec
                 {
                     char[] wzrSep = { '<', '>' };
-                    String[] wzrSp = wzr.pobierzWzorzec().Split(wzrSep);    //podział wzorcu na elementy
+                    String[] wzrSp = wzr.wzorzec.Split(wzrSep);    //podział wzorcu na elementy
                     String tmp = "";                                        //otrymamy {"dane", "separator", "dane"...}
                     for (int i = 0; i < wzrSp.Length / 2; i++)              //zakładam że pomiędzy informacjami występują separatory
                     {
@@ -116,22 +116,26 @@ namespace MuseSort
                     for (int i=0; i <= (nazwaSp.Length + 1)/2; i++) //sprawdzenie pokolei zawartości wzorca
                     {                                               //wypełnienie pustych pol
                         s = wzrSp[i*2];
-                        if (dane.numer == 0 && s.Equals("Numer")) 
+                        if (dane.numer == 0 && s.Equals("numer")) 
                         {
                             UInt32.TryParse(nazwaSp[i], out dane.numer);
+                            logi += "Dodano numer do tagów z nazwy: " + nazwaSp[i] + Environment.NewLine;
                         }
-                        else if (!(dane.wykonawca.Length > 0 && dane.wykonawca[0] != "") && s.Equals("Wykonawca")) 
+                        else if (!(dane.wykonawca.Length > 0 && dane.wykonawca[0] != "") && s.Equals("wykonawca")) 
                         {
                             dane.wykonawca = new String[1];
                             dane.wykonawca[0] = nazwaSp[i];
+                            logi += "Dodano wykonawcę do tagów z nazwy: " + nazwaSp[i] + Environment.NewLine;
                         }
-                        else if (dane.album.Equals("") && s.Equals("Album")) 
+                        else if (dane.album.Equals("") && s.Equals("album")) 
                         {
                             dane.album = nazwaSp[i];
+                            logi += "Dodano album do tagów z nazwy: " + nazwaSp[i] + Environment.NewLine;
                         }
-                        else if (dane.tytul.Equals("") && s.Equals("Tytul")) 
+                        else if (dane.tytul.Equals("") && s.Equals("tytul")) 
                         {
                             dane.tytul = nazwaSp[i];
+                            logi += "Dodano tytuł do tagów z nazwy: " + nazwaSp[i] + Environment.NewLine;
                         }
                     }
                 }
