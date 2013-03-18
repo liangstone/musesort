@@ -65,6 +65,7 @@ namespace MuseSort
         /// <returns>Sukces operacji.</returns>
         public bool sortuj()
         {
+            bool sukces = false;
             //System.Windows.Forms.MessageBox.Show("Rozpoczynam sortowanie.");
             //Powinno być sprawdzenie czy folder jest posortowany.
             if (schemat == null || schemat.Equals(""))
@@ -96,51 +97,38 @@ namespace MuseSort
 
             #endregion
 
-            #region Sortowanie
-            try
-            {
-                List<string> listaPlikow = znajdz_wspierane_pliki();
-                logiInitSortProgress(listaPlikow.Count);
-                foreach (string plik in listaPlikow)
-                {
-                    Utwor utwor;
-                    try
-                    {
-                        utwor = new Utwor(plik);
-                    }
-                    catch(Exception e)
-                    {
-                        Console.WriteLine("Błąd w pliku " + plik);
-                        Console.WriteLine(e);
-                        continue;
-                    }
-                    sortujPlik(utwor);
-                }
-            }
-            catch (Exception e) //Łapanie dowolnych nieprawidłowości.
-            {
-                System.Windows.Forms.MessageBox.Show(e.ToString());
-                return false;
-            }
-            finally
-            {
-                Directory.SetCurrentDirectory(workingDirectory);
-            }
-            #endregion
+            List<string> listaPlikow = znajdz_wspierane_pliki();
 
-            //Generuj plik XML
-            xml = new FolderXML(Path.Combine(sciezka, "Musesort"), schemat);
-            xml.generujXML();
+            sukces = sortujListePlikow(listaPlikow);
+
             System.Windows.Forms.MessageBox.Show("Sortowanie zakończone.");
-            return true;
+            return sukces;
         }
 
-        //Dodawanie plików z folderu ze ściezki w zmiennej Path do zbiorów w folderze powiązanym z obiektem
-        public Boolean dodajIPosortujFolder(String path)
+        
+        /// <summary>Dodawanie plików z podanego folderu do zbiorów w folderze powiązanym z obiektem</summary>
+        /// <param name="folderZrodlowy">Ścieżka folderu źródłowego</param>
+        /// <returns></returns>
+        public Boolean dodajIPosortujFolder(String folderZrodlowy)
         {
-            Boolean result = true;
+            System.Windows.Forms.MessageBox.Show("Rozpoczynam dodawanie.");
+            bool sukces = false;
+            //Wykomentowane ze względu na wadliwie działające analizuj.
+            //Jeśli folder nieposortowany:
+            //if (!analizuj())
+            //{
+            //    //Jeśli sortowanie się nie powiedzie:
+            //    if (!sortuj())
+            //        return false;
+            //}
 
-            return result;
+            List<string> listaPlikow = znajdz_wspierane_pliki(folderZrodlowy);
+            sukces = sortujListePlikow(listaPlikow);
+
+
+            System.Windows.Forms.MessageBox.Show("Dodawanie plików do posortowanego folderu zakończone.");
+            progressBar2.Value = 0;
+            return sukces;
         }
 
         #endregion
@@ -165,6 +153,53 @@ namespace MuseSort
         }
 
         #endregion
+
+        /// <summary>Sortuje pliki z listy.</summary>
+        /// <param name="listaPlikow">Ścieżki plików do posortowania.</param>
+        /// <returns>Sukces operacji.</returns>
+        private bool sortujListePlikow(List<string> listaPlikow)
+        {
+            string workingDirectory = Directory.GetCurrentDirectory();
+            Directory.SetCurrentDirectory(sciezka);
+
+            #region Sortowanie
+            //try
+            //{
+
+                logiInitSortProgress(listaPlikow.Count);
+                foreach (string plik in listaPlikow)
+                {
+                    Utwor utwor;
+                    try
+                    {
+                        utwor = new Utwor(plik);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Błąd w pliku " + plik);
+                        Console.WriteLine(e);
+                        continue;
+                    }
+                    sortujPlik(utwor);
+                }
+            //}
+            //catch (Exception e) //Łapanie dowolnych nieprawidłowości.
+            //{
+                //System.Windows.Forms.MessageBox.Show(e.ToString());
+                //return false;
+            //}
+            //finally
+            //{
+                Directory.SetCurrentDirectory(workingDirectory);
+            //}
+            #endregion
+
+            //Generuj plik XML
+            xml = new FolderXML(Path.Combine(sciezka, "Musesort"), schemat);
+            xml.generujXML();
+            
+            return true;
+        }
 
         private void sortujPlik(Utwor plik)
         {
@@ -348,7 +383,16 @@ namespace MuseSort
                     else if (pole.FieldType.Equals(typeof(int)) || pole.FieldType.Equals(typeof(uint)))//jeśli pole to int lub uint
                         kat = Convert.ToString(pole.GetValue(dane));
                     else if (pole.FieldType.Equals(typeof(string[])))		//jeśli pole to tablica
-                        kat = ((string[])pole.GetValue(dane))[0];
+                    {
+                        try
+                        {
+                            kat = ((string[])pole.GetValue(dane))[0];
+                        }
+                        catch (IndexOutOfRangeException)
+                        {
+                            kat = "";
+                        }
+                    }
                 }
                 if (kat == "")                                          //jeśli nie udało się pobrać
                 {
