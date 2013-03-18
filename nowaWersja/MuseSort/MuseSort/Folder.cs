@@ -185,7 +185,7 @@ namespace MuseSort
 
         private void sortujPlik(Utwor plik)
         {
-            string nazwaPliku = plik.NazwaPelna;
+            string nazwaPliku = Path.GetFileName(plik.Sciezka);
             //logiAddLine("Sortuję plik " + plik.Sciezka);
 
             //Kopiujemy plik do Temp i dalej działamy na kopii.
@@ -197,7 +197,7 @@ namespace MuseSort
             if (schemat == @"Piosenki\Wykonawca" && plik.Dane.wykonawca[0] != "" && plik.Dane.tytul != "")
             {
                 sciezka_katalogu = @"Musesort\Posegregowane";
-                nazwaPliku = plik.Dane.wykonawca[0] + '_' + plik.Dane.tytul + '.' + plik.Rozszerzenie;
+                nazwaPliku = plik.Dane.wykonawca[0] + '_' + plik.Dane.tytul + Path.GetExtension(plik.Sciezka);
             }
             else
                 sciezka_katalogu = sciezka_katalogu_z_pol(plik);
@@ -231,10 +231,10 @@ namespace MuseSort
             // do decydowania który jest lepszy będziemy używali ifów, chyba prościej będzie najpierw ustalić wartość boola
             bool pierwszy_jest_lepszy = plik1.Dane.bityNaMinute >= plik2.Dane.bityNaMinute;
 
-            if (plik1.Rozszerzenie == preferowaneRozszerzenie)
-                if (plik2.Rozszerzenie != preferowaneRozszerzenie)
+            if (Path.GetExtension(plik1.Sciezka).Substring(1) == preferowaneRozszerzenie)
+                if (Path.GetExtension(plik2.Sciezka).Substring(1) != preferowaneRozszerzenie)
                     pierwszy_jest_lepszy = true;
-                else if (plik2.Rozszerzenie == preferowaneRozszerzenie)
+                else if (Path.GetExtension(plik2.Sciezka).Substring(1) == preferowaneRozszerzenie)
                     pierwszy_jest_lepszy = false;
 
             if (pierwszy_jest_lepszy) //pierwszy plik zostaje gdzie jest, drugi idzie do zduplikowanych
@@ -250,7 +250,7 @@ namespace MuseSort
                 plik2.przeniesPlik(Directory.GetParent(oryginalnaSciezka).ToString());
                 string nowykatalog = sciezka_katalogu_z_pol(plik1, true);
                 Directory.CreateDirectory(nowykatalog);
-                plik1.zmienNazwePliku(Path.Combine(nowykatalog, plik1.Nazwa + '.' + plik1.Rozszerzenie));
+                plik1.zmienNazwePliku(Path.Combine(nowykatalog, Path.GetFileName(plik1.Sciezka)));
             }
 
             return pierwszy_jest_lepszy;
@@ -389,9 +389,9 @@ namespace MuseSort
                 sciezka_katalogu = Path.Combine(sciezka_katalogu, kat);
                 System.Console.WriteLine(sciezka_katalogu);
             }
-            if (duplikat && File.Exists(Path.Combine(sciezka_katalogu, plik.Nazwa + '.' + plik.Rozszerzenie)))
+            if (duplikat && File.Exists(Path.Combine(sciezka_katalogu, Path.GetFileName(plik.Sciezka))))
             {
-                string nazwa = plik.Nazwa + '.' + plik.Rozszerzenie;
+                string nazwa = Path.GetFileName(plik.Sciezka);
                 string fullpath = Path.Combine(sciezka_katalogu, nazwa);
                 int i;
                 for (i = 1; File.Exists(fullpath); )
