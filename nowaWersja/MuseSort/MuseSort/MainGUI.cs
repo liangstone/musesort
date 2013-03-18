@@ -185,5 +185,22 @@ namespace MuseSort
         {
             this.Dispose();
         }
+
+        private void sortujButton_Click(object sender, EventArgs e)
+        {
+            if (drzewoFolderow.SelectedNode == null || aktualnyFolder.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Nie został wybrany folder do dodania!");
+                return;
+            }
+            String sciezka = drzewoFolderow.SelectedNode.Name + "\\" + aktualnyFolder.SelectedItems[0].Text;
+            if (System.IO.Directory.Exists(sciezka))
+            {
+                Folder folder = new Folder(sciezka);
+                folder.ustalSchemat(@"Wykonawca\Album\Piosenki");
+                folder.progressBar2 = toolStripProgressBar1.ProgressBar;
+                folder.sortuj();
+            }
+        }
     }
 }

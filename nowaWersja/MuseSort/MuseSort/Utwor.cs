@@ -2,20 +2,62 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace MuseSort
 {
     class Utwor : StaticUtwor
     {
         Dane dane;
+
+        internal Dane Dane
+        {
+          get { return dane; }
+          private set { dane = value; }
+        }
+
         String sciezka = "";
+
+        public String Sciezka
+        {
+          get { return sciezka; }
+          private set { sciezka = value; }
+        }
         String sciezkaZrodlowa = "";
+
         String nazwa = "";
+
+        /// <summary>Nazwa pliku.</summary>
+        public String Nazwa
+        {
+          get { return nazwa; }
+          private set { nazwa = value; }
+        }
+
+        /// <summary>Nazwa z rozszerzeniem.</summary>
+        public string NazwaPelna
+        {
+            get
+            {
+                return Path.GetFileName(sciezka);
+            }
+        }
+
+        /// <summary>Zwraca rozszerzenie bez kropki.</summary>
+        public string Rozszerzenie
+        {
+            get 
+            { 
+                return Path.GetExtension(sciezka).Substring(1); 
+            }
+        }
+
         TagLib.File tagi;
         TagLib.File stareTagi;
         Boolean pobranoZNazwy = false;
         Boolean pobranoZeSciezki = false;
         public String logi = "";
+
         public static string[] wspieraneRozszerzenia = { "mp3", "flac" };
         
         //#############################PUBLICZNE METODY KLASY############################################
@@ -141,13 +183,22 @@ namespace MuseSort
         }
 
         //Kopiuje plik do lokalizacji w zmiennej path i uaktualnia zmienną sciezka
-        public void kopiujPlik(String path)
+        public void kopiujPlik(String nowyFolder)
         {
-            String nowaSciezka = path + nazwa + "." + System.IO.Path.GetExtension(sciezka);
+            String nowaSciezka = Path.Combine(nowyFolder, NazwaPelna);
             System.IO.File.Copy(sciezka, nowaSciezka);
-            logi += "Wykonano kopię pliku do folderu: " + path + Environment.NewLine;
+            logi += "Wykonano kopię pliku do folderu: " + nowyFolder + Environment.NewLine;
         }
 
+        /// <summary>Przenosi plik do podanego folderu.</summary>
+        /// <param name="nowyFolder">Folder docelowy.</param>
+        public void przeniesPlik(string nowyFolder)
+        {
+            String nowaSciezka = Path.Combine(nowyFolder, NazwaPelna);
+            System.IO.File.Move(sciezka, nowaSciezka);
+            sciezka = nowaSciezka;
+            logi += "Przeniesiono plik " + NazwaPelna + " do folderu: " + nowyFolder + Environment.NewLine;
+        }
 
         //######################################METODY POMOCNICZE KLASY######################################
 
