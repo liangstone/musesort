@@ -7,7 +7,7 @@ namespace MuseSort
 {
     class Utwor : StaticUtwor
     {
-        Dane dane;
+        public Dane dane;
         String sciezka = "";
         String sciezkaZrodlowa = "";
         String nazwa = "";

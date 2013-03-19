@@ -79,6 +79,9 @@
     <Compile Include="StaticUtwor.cs" />
     <Compile Include="Utwor.cs" />
     <Compile Include="Wzorzec.cs" />
+    <EmbeddedResource Include="EdycjaPliku.resx">
+      <DependentUpon>EdycjaPliku.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainGUI.resx">
       <DependentUpon>MainGUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,7 +98,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
