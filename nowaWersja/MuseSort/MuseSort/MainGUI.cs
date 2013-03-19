@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace MuseSort
 {
@@ -134,9 +135,46 @@ namespace MuseSort
             }
         }
 
+        //Pobieranie ustawień programu z pliku w katalogu domyślnym, tj. C:\MuseSort
         private void zaladujUstawienia()
         {
-            //Pobieranie ustawień programu z pliku w katalogu domyślnym, tj. C:\MuseSort
+            XmlDocument plikXML = new XmlDocument();
+            if (!File.Exists(@"C:\MuseSort\config.xml"))
+            {
+                MessageBox.Show("Nie instnieje plik konfiguracyjny programu!");
+                //Wywołanie okna pierwszego uruchomienia
+            }
+            else
+            {
+                try
+                {
+
+                    plikXML.Load(@"C:\MuseSort\config.xml");
+                    XmlNode node = plikXML.GetElementsByTagName("folderGlowny").Item(0);
+                    UstawieniaProgramu.folderGlowny = node.InnerText;
+                    folderGlowny = new FolderGlowny(UstawieniaProgramu.folderGlowny);
+                    node = plikXML.GetElementsByTagName("domyslneSortowanie").Item(0);
+                    UstawieniaProgramu.domyslneSortowanie = node.InnerText;
+                    node = plikXML.GetElementsByTagName("domyslnaBazaDanych").Item(0);
+                    UstawieniaProgramu.domyslnaBazaDanych = node.InnerText;
+                    XmlNodeList lista = plikXML.GetElementsByTagName("rozszerzenieAudio");
+                    foreach (XmlNode x in lista)
+                    {
+                        UstawieniaProgramu.wspieraneRozszerzeniaAudio.Add(x.InnerText);
+                    }
+                    lista = plikXML.GetElementsByTagName("rozszerzenieVideo");
+                    foreach (XmlNode x in lista)
+                    {
+                        UstawieniaProgramu.wspieraneRozszerzeniaVideo.Add(x.InnerText);
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Nastapil blad we wczytywaniu ustawien programu" + e.Message + Environment.NewLine + "Nacisnij OK, aby utworzyc nowy plik konfiguracyjny");
+                    //Wyswietlanie okna tworzenia ustawień
+                    zaladujUstawienia();
+                }
+            }
         }
 
         //Otwieranie okna do edycji tagów pliku, jeśli plik nie zostanie zaznaczony, zostanie zwrócony komunikat o błędzie

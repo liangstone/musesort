@@ -80,6 +80,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaticFilm.cs" />
     <Compile Include="StaticUtwor.cs" />
+    <Compile Include="UstawieniaProgramu.cs" />
     <Compile Include="Utwor.cs" />
     <Compile Include="Wzorzec.cs" />
     <EmbeddedResource Include="MainGUI.resx">
