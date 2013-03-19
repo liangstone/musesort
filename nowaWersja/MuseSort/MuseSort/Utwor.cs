@@ -8,13 +8,7 @@ namespace MuseSort
 {
     class Utwor : StaticUtwor
     {
-        Dane dane;
-
-        internal Dane Dane
-        {
-          get { return dane; }
-          private set { dane = value; }
-        }
+		public Dane dane;
 
         String sciezka = "";
 

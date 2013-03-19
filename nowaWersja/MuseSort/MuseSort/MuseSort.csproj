@@ -83,6 +83,9 @@
     <Compile Include="UstawieniaProgramu.cs" />
     <Compile Include="Utwor.cs" />
     <Compile Include="Wzorzec.cs" />
+    <EmbeddedResource Include="EdycjaPliku.resx">
+      <DependentUpon>EdycjaPliku.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainGUI.resx">
       <DependentUpon>MainGUI.cs</DependentUpon>
     </EmbeddedResource>
