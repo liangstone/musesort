@@ -9,7 +9,7 @@ namespace MuseSort
     class Wzorzec
     {
         Regex regex;
-        String wzorzec;
+        public String wzorzec;
 
         //#############################PUBLICZNE METODY KLASY############################################
 
