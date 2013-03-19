@@ -11,9 +11,9 @@ namespace MuseSort
     interface BazaDanychMuzyka
     {
         //Metoda sprawdzająca, czy istnieje możliwość połączenia z bazą, zwraca true w przypadku udanego połączenia
-        public Boolean sprawdzPolaczenie();
+        Boolean sprawdzPolaczenie();
         //Metoda pobierająca dane z serwera, zapisuje je do obiektu tagi i zwraca ten obiekt
-        public Dane pobierzDaneZSerwera();
+        Dane pobierzDaneZSerwera();
         //dodatkowo powinny zostać zaimplementowane prywatne metody:
         //Przetwarzanie pliku do wysłania na serwer
         //private void PrzygotujPlikDowyslania()

@@ -22,7 +22,6 @@ namespace MuseSort
             InitializeComponent();
             drzewoFolderow.NodeMouseClick += wyswietl;
             listaSciezek(drzewoFolderow, @"C:\");
-            folderGlowny = new FolderGlowny(MuseSort.Properties.Settings.Default.folderGlowny);
         }
 
         //######################################METODY POMOCNICZE KLASY######################################
@@ -157,7 +156,8 @@ namespace MuseSort
         //Dodawanie folderu z muzyką do głównego folderu
         private void dodajDoGlownegoFolderuButton_Click(object sender, EventArgs e)
         {
-            if (folderGlowny.Sciezka == "")
+            
+            if (folderGlowny == null || folderGlowny.Sciezka == "")
             {
                 MessageBox.Show("Nie został ustawiony folder główny!");
                 return;
@@ -169,14 +169,25 @@ namespace MuseSort
                 return;
             }
             String sciezka = drzewoFolderow.SelectedNode.Name + "\\" + aktualnyFolder.SelectedItems[0].Text;
-            if (sciezka == MuseSort.Properties.Settings.Default.folderGlowny || (sciezka + "\\Musesort") == MuseSort.Properties.Settings.Default.folderGlowny)
+
+            if (sciezka == folderGlowny.Sciezka)
             {
-                MessageBox.Show("Próbujesz dodać folder główny do folderu głównego!");
+                MessageBox.Show("Próba dodania folderu głównego do folderu głównego!");
                 return;
             }
+
             if (System.IO.Directory.Exists(sciezka))
             {
-                folderGlowny.dodajFolder(sciezka);
+                Folder temp = new Folder(sciezka);
+                if (temp.analizuj())
+                {
+                    folderGlowny.dodajFolder(sciezka);
+                }
+                else
+                {
+                    MessageBox.Show("Folder nie został posortowany!");
+                    return;
+                }
             }
         }
 
@@ -184,6 +195,72 @@ namespace MuseSort
         private void zamknijToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void dodajPiosenkiButton_Click(object sender, EventArgs e)
+        {
+            dodajPanel.Visible = true;
+        }
+
+        private void ustawieniaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new OknoUstawien().ShowDialog();
+        }
+
+        private void dodajButton_Click(object sender, EventArgs e)
+        {
+            String source;
+            String destination;
+            if (sourceFolderTextBox.Text == "")
+            {
+                MessageBox.Show("Nie został wybrany folder do dodania!");
+                return;
+            } else {
+                source = sourceFolderTextBox.Text;
+            }
+            if (destinationFolderTextBox.Text == "")
+            {
+                MessageBox.Show("Nie został wybrany folder docelowy!");
+                return;
+            } else {
+                destination = destinationFolderTextBox.Text;
+            }
+            if (!(Directory.Exists(source) || Directory.Exists(destination)))
+            {
+                MessageBox.Show("Błąd podanych katalogów!");
+                return;
+            }
+            Folder docelowy = new Folder(destination);
+            if (!docelowy.analizuj())
+            {
+                MessageBox.Show("Folder docelowy nie został posortowany!");
+                return;
+            }
+            docelowy.dodajIPosortujFolder(source);
+            MessageBox.Show("Pomyślnie dodano pliki.");
+            dodajPanel.Visible = false;
+        }
+
+        private void ustalSourceButton_Click(object sender, EventArgs e)
+        {
+            if (drzewoFolderow.SelectedNode == null || aktualnyFolder.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Nie wybrano folderu!");
+                return;
+            }
+            String source = drzewoFolderow.SelectedNode.Name + "\\" + aktualnyFolder.SelectedItems[0].Text;
+            sourceFolderTextBox.Text = source;
+        }
+
+        private void ustalDestinationButton_Click(object sender, EventArgs e)
+        {
+            if (drzewoFolderow.SelectedNode == null || aktualnyFolder.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Nie wybrano folderu!");
+                return;
+            }
+            String destination = drzewoFolderow.SelectedNode.Name + "\\" + aktualnyFolder.SelectedItems[0].Text;
+            destinationFolderTextBox.Text = destination;
         }
 
         private void sortujButton_Click(object sender, EventArgs e)
@@ -201,21 +278,6 @@ namespace MuseSort
                 folder.progressBar2 = toolStripProgressBar1.ProgressBar;
                 folder.sortuj();
             }
-        }
-
-        private void dodajPiosenkiButton_Click(object sender, EventArgs e)
-        {
-            if (drzewoFolderow.SelectedNode == null || aktualnyFolder.SelectedItems.Count == 0)
-            {
-                MessageBox.Show("Nie został wybrany folder do dodania!");
-                return;
-            }
-            String sciezka = drzewoFolderow.SelectedNode.Name + "\\" + aktualnyFolder.SelectedItems[0].Text;
-
-            Folder docelowy = new Folder(@"C:\Users\KrzysztofD\Music\alchemist");
-            docelowy.ustalSchemat(@"Wykonawca\Album\Piosenki");
-            docelowy.progressBar2 = toolStripProgressBar1.ProgressBar;
-            docelowy.dodajIPosortujFolder(sciezka);
         }
     }
 }
