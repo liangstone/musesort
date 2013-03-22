@@ -52,6 +52,7 @@
             this.nazwa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.rozszerzenie = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.rozmiar = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.sortujCustom = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -119,10 +120,11 @@
             this.toolStripSeparator2,
             this.toolStripButton3,
             this.toolStripSeparator3,
-            this.toolStripButton5});
+            this.toolStripButton5,
+            this.sortujCustom});
             this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1319, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1319, 32);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -132,14 +134,14 @@
             this.modyfikujButton.Image = ((System.Drawing.Image)(resources.GetObject("modyfikujButton.Image")));
             this.modyfikujButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.modyfikujButton.Name = "modyfikujButton";
-            this.modyfikujButton.Size = new System.Drawing.Size(23, 22);
+            this.modyfikujButton.Size = new System.Drawing.Size(29, 29);
             this.modyfikujButton.Text = "Modyfikuj tagi";
             this.modyfikujButton.Click += new System.EventHandler(this.modyfikujButton_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 32);
             // 
             // dodajDoGlownegoFolderuButton
             // 
@@ -149,14 +151,14 @@
             this.dodajDoGlownegoFolderuButton.Image = ((System.Drawing.Image)(resources.GetObject("dodajDoGlownegoFolderuButton.Image")));
             this.dodajDoGlownegoFolderuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.dodajDoGlownegoFolderuButton.Name = "dodajDoGlownegoFolderuButton";
-            this.dodajDoGlownegoFolderuButton.Size = new System.Drawing.Size(23, 22);
+            this.dodajDoGlownegoFolderuButton.Size = new System.Drawing.Size(29, 29);
             this.dodajDoGlownegoFolderuButton.Text = "Dodaj do głównego folderu";
             this.dodajDoGlownegoFolderuButton.Click += new System.EventHandler(this.dodajDoGlownegoFolderuButton_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 32);
             // 
             // toolStripButton3
             // 
@@ -164,14 +166,14 @@
             this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton3.Size = new System.Drawing.Size(29, 29);
             this.toolStripButton3.Text = "Dodaj piosenki";
             this.toolStripButton3.Click += new System.EventHandler(this.dodajPiosenkiButton_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 32);
             // 
             // toolStripButton5
             // 
@@ -179,7 +181,7 @@
             this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton5.Size = new System.Drawing.Size(29, 29);
             this.toolStripButton5.Text = "Sortuj";
             // 
             // statusStrip1
@@ -253,6 +255,15 @@
             this.rozmiar.Text = "Rozmiar";
             this.rozmiar.Width = 81;
             // 
+            // sortujCustom
+            // 
+            this.sortujCustom.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.sortujCustom.Image = ((System.Drawing.Image)(resources.GetObject("sortujCustom.Image")));
+            this.sortujCustom.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.sortujCustom.Name = "sortujCustom";
+            this.sortujCustom.Size = new System.Drawing.Size(29, 29);
+            this.sortujCustom.Text = "Sortowanie niestandardowe";
+            // 
             // MainGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -308,6 +319,7 @@
         public System.Windows.Forms.ColumnHeader nazwa;
         public System.Windows.Forms.ColumnHeader rozszerzenie;
         public System.Windows.Forms.ColumnHeader rozmiar;
+        private System.Windows.Forms.ToolStripButton sortujCustom;
 
     }
 }

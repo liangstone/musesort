@@ -142,6 +142,7 @@ namespace MuseSort
             if (!File.Exists(@"C:\MuseSort\config.xml"))
             {
                 MessageBox.Show("Nie instnieje plik konfiguracyjny programu!");
+                new UtworzUstawienia().Show();
                 //Wywołanie okna pierwszego uruchomienia
             }
             else
