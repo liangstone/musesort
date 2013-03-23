@@ -8,6 +8,7 @@ namespace MuseSort
 {
     class Utwor : StaticUtwor
     {
+
 		public Dane dane;
 
         String sciezka = "";
@@ -15,18 +16,10 @@ namespace MuseSort
         public String Sciezka
         {
           get { return sciezka; }
-          private set { sciezka = value; }
         }
         String sciezkaZrodlowa = "";
 
         String nazwa = "";
-
-        /// <summary>Nazwa pliku.</summary>
-        public String Nazwa
-        {
-          get { return nazwa; }
-          private set { nazwa = value; }
-        }
 
         /// <summary>Nazwa z rozszerzeniem.</summary>
         public string NazwaPelna
@@ -270,7 +263,7 @@ namespace MuseSort
         //Kopiuje plik do lokalizacji w zmiennej path i uaktualnia zmienną sciezka
         public void kopiujPlik(String nowyFolder)
         {
-            String nowaSciezka = Path.Combine(nowyFolder, NazwaPelna);
+            String nowaSciezka = Path.Combine(nowyFolder, nazwa + Path.GetExtension(sciezka));
             System.IO.File.Copy(sciezka, nowaSciezka);
             logi += "Wykonano kopię pliku do folderu: " + nowyFolder + Environment.NewLine;
         }
@@ -279,10 +272,10 @@ namespace MuseSort
         /// <param name="nowyFolder">Folder docelowy.</param>
         public void przeniesPlik(string nowyFolder)
         {
-            String nowaSciezka = Path.Combine(nowyFolder, NazwaPelna);
+            String nowaSciezka = Path.Combine(nowyFolder, nazwa + Path.GetExtension(sciezka));
             System.IO.File.Move(sciezka, nowaSciezka);
             sciezka = nowaSciezka;
-            logi += "Przeniesiono plik " + NazwaPelna + " do folderu: " + nowyFolder + Environment.NewLine;
+            logi += "Przeniesiono plik " + nazwa + Path.GetExtension(sciezka) + " do folderu: " + nowyFolder + Environment.NewLine;
         }
 
         //######################################METODY POMOCNICZE KLASY######################################
