@@ -306,7 +306,7 @@ namespace MuseSort
         {
             if (drzewoFolderow.SelectedNode == null || aktualnyFolder.SelectedItems.Count == 0)
             {
-                MessageBox.Show("Nie został wybrany folder do dodania!");
+                MessageBox.Show("Nie został wybrany folder do posortowania!");
                 return;
             }
             String sciezka = drzewoFolderow.SelectedNode.Name + "\\" + aktualnyFolder.SelectedItems[0].Text;
@@ -318,5 +318,7 @@ namespace MuseSort
                 folder.sortuj();
             }
         }
+
+        
     }
 }
