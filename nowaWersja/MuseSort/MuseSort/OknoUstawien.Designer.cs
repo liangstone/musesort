@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Folder główny");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Foldery", new System.Windows.Forms.TreeNode[] {
-            treeNode8});
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Domyślne ustawienia");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Sortowanie", new System.Windows.Forms.TreeNode[] {
-            treeNode10});
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Wspierane rozszerzenia");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Rozszerzenia", new System.Windows.Forms.TreeNode[] {
-            treeNode12});
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Zewnętrzne bazy danych");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Folder główny");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Foldery", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Domyślne ustawienia");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Sortowanie", new System.Windows.Forms.TreeNode[] {
+            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Wspierane rozszerzenia");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Rozszerzenia", new System.Windows.Forms.TreeNode[] {
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Zewnętrzne bazy danych");
             this.drzewoUstawien = new System.Windows.Forms.TreeView();
             this.przywrocDomyslneButton = new System.Windows.Forms.Button();
             this.zapiszButton = new System.Windows.Forms.Button();
@@ -66,15 +66,15 @@
             this.rozszerzeniaBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.wspieranieRozszerzeniaPanel = new System.Windows.Forms.Panel();
-            this.zewnetrzneBazyDanychPanel = new System.Windows.Forms.Panel();
-            this.wybierzBazeButton = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.dodajRozszerzenieButton = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.zewnetrzneBazyDanychPanel = new System.Windows.Forms.Panel();
+            this.wybierzBazeButton = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.folderyPanel.SuspendLayout();
             this.folderGlownyPanel.SuspendLayout();
             this.sortowaniaPanel.SuspendLayout();
@@ -90,25 +90,25 @@
             this.drzewoUstawien.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.drzewoUstawien.Location = new System.Drawing.Point(13, 13);
             this.drzewoUstawien.Name = "drzewoUstawien";
-            treeNode8.Name = "folderGlownyNode";
-            treeNode8.Text = "Folder główny";
-            treeNode9.Name = "folderyNode";
-            treeNode9.Text = "Foldery";
-            treeNode10.Name = "domyslneSortowanieNode";
-            treeNode10.Text = "Domyślne ustawienia";
-            treeNode11.Name = "sortowaniaNode";
-            treeNode11.Text = "Sortowanie";
-            treeNode12.Name = "wspieraneRozszerzeniaNode";
-            treeNode12.Text = "Wspierane rozszerzenia";
-            treeNode13.Name = "rozszerzeniaNode";
-            treeNode13.Text = "Rozszerzenia";
-            treeNode14.Name = "bazyDanychNode";
-            treeNode14.Text = "Zewnętrzne bazy danych";
+            treeNode1.Name = "folderGlownyNode";
+            treeNode1.Text = "Folder główny";
+            treeNode2.Name = "folderyNode";
+            treeNode2.Text = "Foldery";
+            treeNode3.Name = "domyslneSortowanieNode";
+            treeNode3.Text = "Domyślne ustawienia";
+            treeNode4.Name = "sortowaniaNode";
+            treeNode4.Text = "Sortowanie";
+            treeNode5.Name = "wspieraneRozszerzeniaNode";
+            treeNode5.Text = "Wspierane rozszerzenia";
+            treeNode6.Name = "rozszerzeniaNode";
+            treeNode6.Text = "Rozszerzenia";
+            treeNode7.Name = "bazyDanychNode";
+            treeNode7.Text = "Zewnętrzne bazy danych";
             this.drzewoUstawien.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode9,
-            treeNode11,
-            treeNode13,
-            treeNode14});
+            treeNode2,
+            treeNode4,
+            treeNode6,
+            treeNode7});
             this.drzewoUstawien.Size = new System.Drawing.Size(250, 382);
             this.drzewoUstawien.TabIndex = 0;
             // 
@@ -413,49 +413,6 @@
             this.wspieranieRozszerzeniaPanel.Size = new System.Drawing.Size(361, 340);
             this.wspieranieRozszerzeniaPanel.TabIndex = 8;
             // 
-            // zewnetrzneBazyDanychPanel
-            // 
-            this.zewnetrzneBazyDanychPanel.BackColor = System.Drawing.Color.Transparent;
-            this.zewnetrzneBazyDanychPanel.Controls.Add(this.wybierzBazeButton);
-            this.zewnetrzneBazyDanychPanel.Controls.Add(this.listBox1);
-            this.zewnetrzneBazyDanychPanel.Controls.Add(this.label10);
-            this.zewnetrzneBazyDanychPanel.Location = new System.Drawing.Point(269, 5);
-            this.zewnetrzneBazyDanychPanel.Name = "zewnetrzneBazyDanychPanel";
-            this.zewnetrzneBazyDanychPanel.Size = new System.Drawing.Size(364, 343);
-            this.zewnetrzneBazyDanychPanel.TabIndex = 9;
-            // 
-            // wybierzBazeButton
-            // 
-            this.wybierzBazeButton.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.wybierzBazeButton.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 9F, System.Drawing.FontStyle.Italic);
-            this.wybierzBazeButton.ForeColor = System.Drawing.Color.DarkBlue;
-            this.wybierzBazeButton.Location = new System.Drawing.Point(104, 252);
-            this.wybierzBazeButton.Name = "wybierzBazeButton";
-            this.wybierzBazeButton.Size = new System.Drawing.Size(109, 47);
-            this.wybierzBazeButton.TabIndex = 2;
-            this.wybierzBazeButton.Text = "Wybierz bazę";
-            this.wybierzBazeButton.UseVisualStyleBackColor = false;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(145, 85);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 84);
-            this.listBox1.TabIndex = 1;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 9F);
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(119, 47);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(132, 18);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Wybierz bazę danych:";
-            // 
             // dodajRozszerzenieButton
             // 
             this.dodajRozszerzenieButton.BackColor = System.Drawing.Color.LightSkyBlue;
@@ -508,23 +465,66 @@
             this.label8.TabIndex = 1;
             this.label8.Text = "Obsługiwane rozszerzenia";
             // 
+            // zewnetrzneBazyDanychPanel
+            // 
+            this.zewnetrzneBazyDanychPanel.BackColor = System.Drawing.Color.Transparent;
+            this.zewnetrzneBazyDanychPanel.Controls.Add(this.wybierzBazeButton);
+            this.zewnetrzneBazyDanychPanel.Controls.Add(this.listBox1);
+            this.zewnetrzneBazyDanychPanel.Controls.Add(this.label10);
+            this.zewnetrzneBazyDanychPanel.Location = new System.Drawing.Point(269, 5);
+            this.zewnetrzneBazyDanychPanel.Name = "zewnetrzneBazyDanychPanel";
+            this.zewnetrzneBazyDanychPanel.Size = new System.Drawing.Size(364, 343);
+            this.zewnetrzneBazyDanychPanel.TabIndex = 9;
+            // 
+            // wybierzBazeButton
+            // 
+            this.wybierzBazeButton.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.wybierzBazeButton.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 9F, System.Drawing.FontStyle.Italic);
+            this.wybierzBazeButton.ForeColor = System.Drawing.Color.DarkBlue;
+            this.wybierzBazeButton.Location = new System.Drawing.Point(104, 252);
+            this.wybierzBazeButton.Name = "wybierzBazeButton";
+            this.wybierzBazeButton.Size = new System.Drawing.Size(109, 47);
+            this.wybierzBazeButton.TabIndex = 2;
+            this.wybierzBazeButton.Text = "Wybierz bazę";
+            this.wybierzBazeButton.UseVisualStyleBackColor = false;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(145, 85);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 84);
+            this.listBox1.TabIndex = 1;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 9F);
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(119, 47);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(132, 18);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Wybierz bazę danych:";
+            // 
             // OknoUstawien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::MuseSort.Properties.Resources.tlo;
             this.ClientSize = new System.Drawing.Size(658, 423);
-            this.Controls.Add(this.sortowaniaPanel);
-            this.Controls.Add(this.zewnetrzneBazyDanychPanel);
+            this.Controls.Add(this.anulujButton);
+            this.Controls.Add(this.zapiszButton);
+            this.Controls.Add(this.przywrocDomyslneButton);
+            this.Controls.Add(this.drzewoUstawien);
             this.Controls.Add(this.wspieranieRozszerzeniaPanel);
             this.Controls.Add(this.rozszerzeniaPanel);
             this.Controls.Add(this.folderGlownyPanel);
             this.Controls.Add(this.domyslneSortowaniaPanel);
             this.Controls.Add(this.folderyPanel);
-            this.Controls.Add(this.anulujButton);
-            this.Controls.Add(this.zapiszButton);
-            this.Controls.Add(this.przywrocDomyslneButton);
-            this.Controls.Add(this.drzewoUstawien);
+            this.Controls.Add(this.sortowaniaPanel);
+            this.Controls.Add(this.zewnetrzneBazyDanychPanel);
             this.Name = "OknoUstawien";
             this.Text = "OknoUstawien";
             this.folderyPanel.ResumeLayout(false);

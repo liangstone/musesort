@@ -60,6 +60,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.sourceFolderTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.sortujCustom = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -127,10 +128,11 @@
             this.toolStripSeparator2,
             this.dodajPiosenkiButton,
             this.toolStripSeparator3,
-            this.sortujButton});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStripButton5,
+            this.sortujCustom});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(988, 32);
+            this.toolStrip1.Size = new System.Drawing.Size(1319, 32);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -175,6 +177,13 @@
             this.dodajPiosenkiButton.Size = new System.Drawing.Size(29, 29);
             this.dodajPiosenkiButton.Text = "Dodaj piosenki";
             this.dodajPiosenkiButton.Click += new System.EventHandler(this.dodajPiosenkiButton_Click);
+            //this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            //this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            //this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            //this.toolStripButton3.Name = "toolStripButton3";
+            //this.toolStripButton3.Size = new System.Drawing.Size(29, 29);
+            //this.toolStripButton3.Text = "Dodaj piosenki";
+            //this.toolStripButton3.Click += new System.EventHandler(this.dodajPiosenkiButton_Click);
             // 
             // toolStripSeparator3
             // 
@@ -190,6 +199,12 @@
             this.sortujButton.Size = new System.Drawing.Size(29, 29);
             this.sortujButton.Text = "Sortuj";
             this.sortujButton.Click += new System.EventHandler(this.sortujButton_Click);
+            //this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            //this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+            //this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            //this.toolStripButton5.Name = "toolStripButton5";
+            //this.toolStripButton5.Size = new System.Drawing.Size(29, 29);
+            //this.toolStripButton5.Text = "Sortuj";
             // 
             // statusStrip1
             // 
@@ -345,6 +360,14 @@
             this.label1.Size = new System.Drawing.Size(154, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Folder źródłowy:";
+            // sortujCustom
+            // 
+            this.sortujCustom.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.sortujCustom.Image = ((System.Drawing.Image)(resources.GetObject("sortujCustom.Image")));
+            this.sortujCustom.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.sortujCustom.Name = "sortujCustom";
+            this.sortujCustom.Size = new System.Drawing.Size(29, 29);
+            this.sortujCustom.Text = "Sortowanie niestandardowe";
             // 
             // MainGUI
             // 
@@ -411,6 +434,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox sourceFolderTextBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripButton sortujCustom;
 
     }
 }
