@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Vlc.DotNet.Core.Medias;
+using Vlc.DotNet.Core;
+using Vlc.DotNet.Forms;
 
 namespace MuseSort
 {
@@ -11,8 +14,9 @@ namespace MuseSort
         String sciezka = "";
         String sciezkaZrodlowa = "";
         String nazwa = "";
-        //<należy wybrać klasę źródłową> tagi;
-        //<należy wybrać klasę źródłową> stareTagi;
+        //Tagi to MediaBase.Metadatas, czyli np. tagi.Metadatas
+        VlcControl tagi;
+        VlcControl stareTagi;
         Boolean pobranoZNazwy = false;
         public String logi = "";
 
@@ -22,18 +26,24 @@ namespace MuseSort
         public Film()
         {
             dane = new DaneFilmu();
-            //tagi = null;
-            //stareTagi = null;
+            tagi = null;
+            stareTagi = null;
         }
 
         //Konstruktor dowolnego pliku
         public Film(String path)
         {
-            sciezka = sciezkaZrodlowa = path;
+            sciezkaZrodlowa = path;
+            sciezka = path;
             nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
             dane = new DaneFilmu();
-            //tagi = 
-            //stareTagi = 
+
+            tagi = new VlcControl();
+            stareTagi = new VlcControl();
+//---------------poniżej rzuca błędem NullReferenceException--------------
+            tagi.Media = new LocationMedia(sciezka);
+            stareTagi.Media = new LocationMedia(sciezka);
+//------------------------------------------------------------------------
             pobierzTagi();
         }
 
@@ -44,6 +54,7 @@ namespace MuseSort
             sciezka = path;
             nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
             dane = new DaneFilmu();
+
             //tagi = 
             //stareTagi = 
             pobierzTagi();
@@ -53,6 +64,19 @@ namespace MuseSort
         public void zapiszTagi()
         {
             //Zapisuje dane z obiektu dane do obiektu tagi
+            //niektóre informacje poniżej mogą być zbędne
+            tagi.Media.Metadatas.Album = dane.album;
+            tagi.Media.Metadatas.Artist = dane.artysta;
+            tagi.Media.Metadatas.Copyright = dane.prawaAutorskie;
+            tagi.Media.Metadatas.Date = dane.data;
+            tagi.Media.Metadatas.Description = dane.opis;
+            tagi.Media.Metadatas.Genre = dane.gatunek;
+            tagi.Media.Metadatas.Language = dane.jezyk;
+            tagi.Media.Metadatas.Publisher = dane.wydawca;
+            tagi.Media.Metadatas.Title = dane.tytul;
+            tagi.Media.Metadatas.TrackID = dane.id;
+            tagi.Media.Metadatas.TrackNumber = dane.numer;
+            tagi.Media.Metadatas.Save();
             //Uaktualnia dane w obiekcie stareTagi
             logi += "Zapisano nowe tagi." + Environment.NewLine;
         }
@@ -116,7 +140,21 @@ namespace MuseSort
         //Pobieranie tagów z obiektu tagi i zapisywanie w obiekcie dane
         private void pobierzTagi()
         {
-            
+            if (tagi != null && tagi.Media != null)
+            {
+                //niektóre informacje poniżej mogą być zbędne
+                dane.album = tagi.Media.Metadatas.Album;
+                dane.artysta = tagi.Media.Metadatas.Artist;
+                dane.prawaAutorskie = tagi.Media.Metadatas.Copyright;
+                dane.data = tagi.Media.Metadatas.Date;
+                dane.opis = tagi.Media.Metadatas.Description;
+                dane.gatunek = tagi.Media.Metadatas.Genre;
+                dane.jezyk = tagi.Media.Metadatas.Language;
+                dane.wydawca = tagi.Media.Metadatas.Publisher;
+                dane.tytul = tagi.Media.Metadatas.Title;
+                dane.id = tagi.Media.Metadatas.TrackID;
+                dane.numer = tagi.Media.Metadatas.TrackNumber;
+            }
         }
 
         //Usuwanie znaków \/:*?<>|" z nazwy w celu przygotowania prawidłowej nazwy pliku
