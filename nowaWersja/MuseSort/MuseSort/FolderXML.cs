@@ -63,7 +63,7 @@ namespace MuseSort
         //Sprawdzanie, czy dane w pliku powiązym z obiektem zgadzają się z rzeczywistem systemem plików na dysku
         public Boolean analizuj()
         {
-            if (sciezka == "")
+            if (sciezka == "" || !File.Exists(sciezka + "\\" + "struktura_logiczna.xml"))
             {
                 return false;
             }

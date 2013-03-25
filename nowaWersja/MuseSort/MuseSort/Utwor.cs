@@ -45,7 +45,6 @@ namespace MuseSort
         Boolean pobranoZeSciezki = false;
         public String logi = "";
 
-        public static string[] wspieraneRozszerzenia = { "mp3", "flac" };
         
         //#############################PUBLICZNE METODY KLASY############################################
 

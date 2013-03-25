@@ -91,7 +91,10 @@ namespace MuseSort
             {
                 gatunekBox.Text += s + ", ";
             }
-            gatunekBox.Text = gatunekBox.Text.Substring(0, gatunekBox.Text.Length - 2);
+            if (gatunekBox.Text.Length > 0)
+            {
+                gatunekBox.Text = gatunekBox.Text.Substring(0, gatunekBox.Text.Length - 2);
+            }
         }
 
         //Wykrywanie zmian w poalch tekstowych

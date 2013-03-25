@@ -19,10 +19,10 @@ namespace MuseSort
         //Konstruktor głównego okna
         public MainGUI()
         {
-            zaladujUstawienia();
             InitializeComponent();
             drzewoFolderow.NodeMouseClick += wyswietl;
             listaSciezek(drzewoFolderow, @"C:\");
+            zaladujUstawienia();
         }
 
         //######################################METODY POMOCNICZE KLASY######################################
@@ -138,7 +138,7 @@ namespace MuseSort
         private void zaladujUstawienia()
         {
             XmlDocument plikXML = new XmlDocument();
-            if (!File.Exists(@"C:\MuseSort\config.xml"))
+            if (!File.Exists(@"C:\museSort\config.xml"))
             {
                 MessageBox.Show("Nie instnieje plik konfiguracyjny programu!");
                 new UtworzUstawienia().Show();
@@ -148,25 +148,8 @@ namespace MuseSort
             {
                 try
                 {
-
-                    plikXML.Load(@"C:\MuseSort\config.xml");
-                    XmlNode node = plikXML.GetElementsByTagName("folderGlowny").Item(0);
-                    UstawieniaProgramu.folderGlowny = node.InnerText;
+                    UstawieniaProgramu.wczytajUstawienia();
                     folderGlowny = new FolderGlowny(UstawieniaProgramu.folderGlowny);
-                    node = plikXML.GetElementsByTagName("domyslneSortowanie").Item(0);
-                    UstawieniaProgramu.domyslneSortowanie = node.InnerText;
-                    node = plikXML.GetElementsByTagName("domyslnaBazaDanych").Item(0);
-                    UstawieniaProgramu.domyslnaBazaDanych = node.InnerText;
-                    XmlNodeList lista = plikXML.GetElementsByTagName("rozszerzenieAudio");
-                    foreach (XmlNode x in lista)
-                    {
-                        UstawieniaProgramu.wspieraneRozszerzeniaAudio.Add(x.InnerText);
-                    }
-                    lista = plikXML.GetElementsByTagName("rozszerzenieVideo");
-                    foreach (XmlNode x in lista)
-                    {
-                        UstawieniaProgramu.wspieraneRozszerzeniaVideo.Add(x.InnerText);
-                    }
                 }
                 catch (Exception e)
                 {

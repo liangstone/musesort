@@ -117,7 +117,7 @@ namespace MuseSort
             if (katalog == null)
                 katalog = this.sciezka;
             List<string> wynik = new List<string>();
-            foreach (string rozszerzenie in Utwor.wspieraneRozszerzenia)
+            foreach (string rozszerzenie in UstawieniaProgramu.wspieraneRozszerzeniaAudio)
             {
                 List<string> sciezki_plikow = new List<string>(Directory.GetFiles(katalog, "*." + rozszerzenie));
                 wynik.AddRange(sciezki_plikow);

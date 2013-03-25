@@ -61,6 +61,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.sourceFolderTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.wzorcePlikówAudioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -76,8 +77,7 @@
             this.opcjeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1317, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(988, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -86,37 +86,37 @@
             this.programToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.zamknijToolStripMenuItem});
             this.programToolStripMenuItem.Name = "programToolStripMenuItem";
-            this.programToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
+            this.programToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.programToolStripMenuItem.Text = "Program";
             // 
             // zamknijToolStripMenuItem
             // 
             this.zamknijToolStripMenuItem.Name = "zamknijToolStripMenuItem";
-            this.zamknijToolStripMenuItem.Size = new System.Drawing.Size(131, 24);
+            this.zamknijToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.zamknijToolStripMenuItem.Text = "Zamknij";
             this.zamknijToolStripMenuItem.Click += new System.EventHandler(this.zamknijToolStripMenuItem_Click);
             // 
             // opcjeToolStripMenuItem
             // 
             this.opcjeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ustawieniaToolStripMenuItem});
+            this.ustawieniaToolStripMenuItem,
+            this.wzorcePlikówAudioToolStripMenuItem});
             this.opcjeToolStripMenuItem.Name = "opcjeToolStripMenuItem";
-            this.opcjeToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
+            this.opcjeToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.opcjeToolStripMenuItem.Text = "Opcje";
             // 
             // ustawieniaToolStripMenuItem
             // 
             this.ustawieniaToolStripMenuItem.Name = "ustawieniaToolStripMenuItem";
-            this.ustawieniaToolStripMenuItem.Size = new System.Drawing.Size(150, 24);
+            this.ustawieniaToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.ustawieniaToolStripMenuItem.Text = "Ustawienia";
             this.ustawieniaToolStripMenuItem.Click += new System.EventHandler(this.ustawieniaToolStripMenuItem_Click);
             // 
             // drzewoFolderow
             // 
-            this.drzewoFolderow.Location = new System.Drawing.Point(16, 78);
-            this.drzewoFolderow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.drzewoFolderow.Location = new System.Drawing.Point(12, 63);
             this.drzewoFolderow.Name = "drzewoFolderow";
-            this.drzewoFolderow.Size = new System.Drawing.Size(309, 486);
+            this.drzewoFolderow.Size = new System.Drawing.Size(233, 396);
             this.drzewoFolderow.TabIndex = 1;
             // 
             // toolStrip1
@@ -132,9 +132,9 @@
             this.toolStripSeparator3,
             this.sortujButton,
             this.sortujCustom});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1317, 32);
+            this.toolStrip1.Size = new System.Drawing.Size(988, 32);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -210,38 +210,36 @@
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2,
             this.toolStripProgressBar1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 743);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 587);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1317, 26);
+            this.statusStrip1.Size = new System.Drawing.Size(988, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(165, 21);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(132, 17);
             this.toolStripStatusLabel1.Text = "Wykonywanie operacji: ";
             // 
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(17, 21);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(13, 17);
             this.toolStripStatusLabel2.Text = "  ";
             // 
             // toolStripProgressBar1
             // 
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(400, 20);
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(300, 16);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::MuseSort.Properties.Resources.logo1;
             this.pictureBox1.InitialImage = global::MuseSort.Properties.Resources.logo1;
-            this.pictureBox1.Location = new System.Drawing.Point(1044, 78);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(783, 63);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(259, 270);
+            this.pictureBox1.Size = new System.Drawing.Size(194, 219);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -252,10 +250,9 @@
             this.nazwa,
             this.rozszerzenie,
             this.rozmiar});
-            this.aktualnyFolder.Location = new System.Drawing.Point(347, 78);
-            this.aktualnyFolder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.aktualnyFolder.Location = new System.Drawing.Point(260, 63);
             this.aktualnyFolder.Name = "aktualnyFolder";
-            this.aktualnyFolder.Size = new System.Drawing.Size(675, 486);
+            this.aktualnyFolder.Size = new System.Drawing.Size(507, 396);
             this.aktualnyFolder.TabIndex = 5;
             this.aktualnyFolder.UseCompatibleStateImageBehavior = false;
             this.aktualnyFolder.View = System.Windows.Forms.View.Details;
@@ -285,20 +282,18 @@
             this.dodajPanel.Controls.Add(this.label2);
             this.dodajPanel.Controls.Add(this.sourceFolderTextBox);
             this.dodajPanel.Controls.Add(this.label1);
-            this.dodajPanel.Location = new System.Drawing.Point(16, 574);
-            this.dodajPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dodajPanel.Location = new System.Drawing.Point(12, 466);
             this.dodajPanel.Name = "dodajPanel";
-            this.dodajPanel.Size = new System.Drawing.Size(1007, 165);
+            this.dodajPanel.Size = new System.Drawing.Size(755, 134);
             this.dodajPanel.TabIndex = 6;
             this.dodajPanel.Visible = false;
             // 
             // dodajButton
             // 
             this.dodajButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dodajButton.Location = new System.Drawing.Point(748, 107);
-            this.dodajButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dodajButton.Location = new System.Drawing.Point(561, 87);
             this.dodajButton.Name = "dodajButton";
-            this.dodajButton.Size = new System.Drawing.Size(205, 36);
+            this.dodajButton.Size = new System.Drawing.Size(154, 29);
             this.dodajButton.TabIndex = 6;
             this.dodajButton.Text = "Dodaj";
             this.dodajButton.UseVisualStyleBackColor = true;
@@ -307,10 +302,9 @@
             // ustalDestinationButton
             // 
             this.ustalDestinationButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ustalDestinationButton.Location = new System.Drawing.Point(853, 57);
-            this.ustalDestinationButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ustalDestinationButton.Location = new System.Drawing.Point(640, 46);
             this.ustalDestinationButton.Name = "ustalDestinationButton";
-            this.ustalDestinationButton.Size = new System.Drawing.Size(149, 32);
+            this.ustalDestinationButton.Size = new System.Drawing.Size(112, 26);
             this.ustalDestinationButton.TabIndex = 5;
             this.ustalDestinationButton.Text = "Ustal";
             this.ustalDestinationButton.UseVisualStyleBackColor = true;
@@ -319,10 +313,9 @@
             // ustalSourceButton
             // 
             this.ustalSourceButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ustalSourceButton.Location = new System.Drawing.Point(853, 10);
-            this.ustalSourceButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ustalSourceButton.Location = new System.Drawing.Point(640, 8);
             this.ustalSourceButton.Name = "ustalSourceButton";
-            this.ustalSourceButton.Size = new System.Drawing.Size(149, 32);
+            this.ustalSourceButton.Size = new System.Drawing.Size(112, 26);
             this.ustalSourceButton.TabIndex = 4;
             this.ustalSourceButton.Text = "Ustal";
             this.ustalSourceButton.UseVisualStyleBackColor = true;
@@ -331,10 +324,9 @@
             // destinationFolderTextBox
             // 
             this.destinationFolderTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.destinationFolderTextBox.Location = new System.Drawing.Point(244, 57);
-            this.destinationFolderTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.destinationFolderTextBox.Location = new System.Drawing.Point(183, 46);
             this.destinationFolderTextBox.Name = "destinationFolderTextBox";
-            this.destinationFolderTextBox.Size = new System.Drawing.Size(600, 30);
+            this.destinationFolderTextBox.Size = new System.Drawing.Size(451, 26);
             this.destinationFolderTextBox.TabIndex = 3;
             // 
             // label2
@@ -342,20 +334,18 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(32, 59);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(24, 48);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(199, 29);
+            this.label2.Size = new System.Drawing.Size(156, 24);
             this.label2.TabIndex = 2;
             this.label2.Text = "Folder docelowy:";
             // 
             // sourceFolderTextBox
             // 
             this.sourceFolderTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.sourceFolderTextBox.Location = new System.Drawing.Point(244, 10);
-            this.sourceFolderTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sourceFolderTextBox.Location = new System.Drawing.Point(183, 8);
             this.sourceFolderTextBox.Name = "sourceFolderTextBox";
-            this.sourceFolderTextBox.Size = new System.Drawing.Size(600, 30);
+            this.sourceFolderTextBox.Size = new System.Drawing.Size(451, 26);
             this.sourceFolderTextBox.TabIndex = 1;
             // 
             // label1
@@ -363,20 +353,25 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(31, 12);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(23, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(195, 29);
+            this.label1.Size = new System.Drawing.Size(154, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Folder źródłowy:";
             // 
+            // wzorcePlikówAudioToolStripMenuItem
+            // 
+            this.wzorcePlikówAudioToolStripMenuItem.Name = "wzorcePlikówAudioToolStripMenuItem";
+            this.wzorcePlikówAudioToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.wzorcePlikówAudioToolStripMenuItem.Text = "Wzorce plików audio";
+            // 
             // MainGUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::MuseSort.Properties.Resources.tlo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1317, 769);
+            this.ClientSize = new System.Drawing.Size(988, 609);
             this.Controls.Add(this.aktualnyFolder);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.statusStrip1);
@@ -385,7 +380,6 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dodajPanel);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "MainGUI";
             this.Text = "MuseSort";
@@ -437,6 +431,7 @@
         private System.Windows.Forms.TextBox sourceFolderTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripButton sortujCustom;
+        private System.Windows.Forms.ToolStripMenuItem wzorcePlikówAudioToolStripMenuItem;
 
     }
 }
