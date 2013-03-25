@@ -212,10 +212,10 @@ namespace MuseSort
 
 
             string sciezka_katalogu; //Ustalamy ścieżkę katalogu.
-            if (schemat == @"Piosenki\Wykonawca" && plik.Dane.wykonawca[0] != "" && plik.Dane.tytul != "")
+            if (schemat == @"Piosenki\Wykonawca" && plik.dane.wykonawca[0] != "" && plik.dane.tytul != "")
             {
                 sciezka_katalogu = @"Musesort\Posegregowane";
-                nazwaPliku = plik.Dane.wykonawca[0] + '_' + plik.Dane.tytul + Path.GetExtension(plik.Sciezka);
+                nazwaPliku = plik.dane.wykonawca[0] + '_' + plik.dane.tytul + Path.GetExtension(plik.Sciezka);
             }
             else
                 sciezka_katalogu = sciezka_katalogu_z_pol(plik);
@@ -247,7 +247,7 @@ namespace MuseSort
         private bool duplikat(Utwor plik1, Utwor plik2, string preferowaneRozszerzenie = "")
         {
             // do decydowania który jest lepszy będziemy używali ifów, chyba prościej będzie najpierw ustalić wartość boola
-            bool pierwszy_jest_lepszy = plik1.Dane.bityNaMinute >= plik2.Dane.bityNaMinute;
+            bool pierwszy_jest_lepszy = plik1.dane.bityNaMinute >= plik2.dane.bityNaMinute;
 
             if (Path.GetExtension(plik1.Sciezka).Substring(1) == preferowaneRozszerzenie)
                 if (Path.GetExtension(plik2.Sciezka).Substring(1) != preferowaneRozszerzenie)
@@ -355,7 +355,7 @@ namespace MuseSort
         private string sciezka_katalogu_z_pol(Utwor plik, bool duplikat = false)
         {
             Type typ_utwor = typeof(Dane);
-            Dane dane = plik.Dane;
+            Dane dane = plik.dane;
             string sciezka_katalogu;
             if (duplikat)
                 sciezka_katalogu = @"Musesort\Zduplikowane\Posegregowane";
@@ -369,7 +369,7 @@ namespace MuseSort
                 {
                     try
                     {
-                        kat = plik.Dane.tytul.Substring(0, 1);
+                        kat = plik.dane.tytul.Substring(0, 1);
                     }
                     catch (ArgumentOutOfRangeException) { }
                 }

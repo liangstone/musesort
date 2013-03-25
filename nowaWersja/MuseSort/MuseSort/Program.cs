@@ -15,7 +15,8 @@ namespace MuseSort
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainGUI());
+            Film tmp = new Film("D:\\YouTube - Herbata dla Boymka.wmv");
+            //Application.Run(new MainGUI());
         }
     }
 }

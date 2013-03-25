@@ -48,6 +48,18 @@
     <Reference Include="taglib-sharp">
       <HintPath>..\..\taglib-sharp.dll</HintPath>
     </Reference>
+    <Reference Include="Vlc.DotNet.Core">
+      <HintPath>..\..\VideoLan DotNet for WinForm, WPF, SL5 - 2011.11.29\Vlc.DotNet.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Vlc.DotNet.Core.Interops">
+      <HintPath>..\..\VideoLan DotNet for WinForm, WPF, SL5 - 2011.11.29\Vlc.DotNet.Core.Interops.dll</HintPath>
+    </Reference>
+    <Reference Include="Vlc.DotNet.Forms">
+      <HintPath>..\..\VideoLan DotNet for WinForm, WPF, SL5 - 2011.11.29\Vlc.DotNet.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="Vlc.DotNet.Wpf">
+      <HintPath>..\..\VideoLan DotNet for WinForm, WPF, SL5 - 2011.11.29\Vlc.DotNet.Wpf.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BazaDanychMuzyka.cs" />
