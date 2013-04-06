@@ -16,7 +16,7 @@ namespace MuseSort
         public UtworzUstawienia()
         {
             InitializeComponent();
-            folderyPanel.Hide();
+            folderyPanel.Show();
             visiblePanel = "foldery";
             sortowaniaPanel.Hide();
             bazyDanychPanel.Hide();
