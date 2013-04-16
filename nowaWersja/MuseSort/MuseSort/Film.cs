@@ -16,6 +16,7 @@ namespace MuseSort
         Boolean pobranoZNazwy = false;
         public String logi = "";
 
+        #region publiczne metody klas
         //#############################PUBLICZNE METODY KLASY############################################
 
         //Konstruktor standardowy
@@ -110,7 +111,8 @@ namespace MuseSort
             System.IO.File.Copy(sciezka, nowaSciezka);
             logi += "Wykonano kopię pliku do folderu: " + path + Environment.NewLine;
         }
-
+        #endregion
+        #region metody pomocnicze klas
         //######################################METODY POMOCNICZE KLASY######################################
 
         //Pobieranie tagów z obiektu tagi i zapisywanie w obiekcie dane
@@ -143,5 +145,6 @@ namespace MuseSort
             wynik = wynik[0] + wynik.Substring(1).ToLower();
             return wynik;
         }
+        #endregion
     }
 }

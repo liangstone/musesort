@@ -10,7 +10,7 @@ namespace MuseSort
     {
         Regex regex;
         public String wzorzec;
-
+        #region publiczne metody klasy
         //#############################PUBLICZNE METODY KLASY############################################
 
         public Wzorzec()
@@ -37,8 +37,9 @@ namespace MuseSort
             }
             return rezultat;
         }
-
-
+        #endregion
+        #region metody pomocnicze klasy
         //######################################METODY POMOCNICZE KLASY######################################
+        #endregion
     }
 }

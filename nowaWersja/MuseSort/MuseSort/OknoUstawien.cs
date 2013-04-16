@@ -12,6 +12,7 @@ namespace MuseSort
     public partial class OknoUstawien : Form
     {
         List<IComponent> rozszerzenia;
+        #region publiczne metody klas
         //#############################PUBLICZNE METODY KLASY############################################
         //konstruktor
         public OknoUstawien()
@@ -29,6 +30,8 @@ namespace MuseSort
             rozszerzenia.Add(mp3CheckBox);
             rozszerzenia.Add(flacCheckBox);
         }
+        #endregion
+        #region metody pomocnicze klas
         //######################################METODY POMOCNICZE KLASY######################################
 
         //Wyśwetlanie listy ustawień
@@ -216,5 +219,6 @@ namespace MuseSort
                 }
             }
         }
+        #endregion
     }
 }

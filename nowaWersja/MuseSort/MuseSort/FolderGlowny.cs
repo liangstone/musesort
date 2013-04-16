@@ -7,6 +7,7 @@ namespace MuseSort
     class FolderGlowny
     {
         String sciezka;
+        public String logi;
 
         public String Sciezka
         {
@@ -23,6 +24,7 @@ namespace MuseSort
         public FolderGlowny(String path)
         {
             xml = new FolderGlownyXML(path);
+            logi = "";
             sciezka = path;
         }
 
@@ -64,6 +66,7 @@ namespace MuseSort
             try
             {
                 Microsoft.VisualBasic.FileIO.FileSystem.CopyDirectory(folder.Sciezka, this.sciezka);
+                logi += "Przeniesiono folder: " + folder.Sciezka + " do folderu: " + this.sciezka + Environment.NewLine;
             }
             /*
              * IOException rzucane jest w 3 przypadkach:
@@ -86,16 +89,19 @@ namespace MuseSort
 
                     Directory.CreateDirectory(Directory.GetParent(nowaSciezka).ToString()); //Tworzymy katalog jeśli potrzeba.
                     File.Copy(plikDodawany, nowaSciezka); //Kopiujemy plik.
+                    logi += "Przeniesiono plik: " + plikDodawany + " do sciezki: " + nowaSciezka + Environment.NewLine;
                 }
             }
             catch (UnauthorizedAccessException)
             {
                 System.Windows.Forms.MessageBox.Show("UnauthorizedAccessException: Uprawnień do folderu.");
+                logi += "UnauthorizedAccessException: Brak uprawnień do folderu." + Environment.NewLine;
                 return;
             }
             catch (System.Security.SecurityException)
             {
                 System.Windows.Forms.MessageBox.Show("SecurityException: Uprawnień do folderu.");
+                logi += "UnauthorizedAccessException: Brak uprawnień do folderu." + Environment.NewLine;
                 return;
             }
             System.Windows.Forms.MessageBox.Show("Operacja zakończona.");

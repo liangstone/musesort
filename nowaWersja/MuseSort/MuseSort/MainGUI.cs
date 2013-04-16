@@ -14,6 +14,7 @@ namespace MuseSort
     public partial class MainGUI : Form
     {
         FolderGlowny folderGlowny;
+        #region publiczne metody klas
         //#############################PUBLICZNE METODY KLASY############################################
         
         //Konstruktor głównego okna
@@ -24,7 +25,8 @@ namespace MuseSort
             listaSciezek(drzewoFolderow, @"C:\");
             zaladujUstawienia();
         }
-
+        #endregion
+        #region metody pomocnicze klas
         //######################################METODY POMOCNICZE KLASY######################################
 
         //Wyśwetlanie listy plików i folderów w drzewie folderów i liście plików
@@ -140,6 +142,7 @@ namespace MuseSort
             XmlDocument plikXML = new XmlDocument();
             if (!File.Exists(@"C:\museSort\config.xml"))
             {
+                logiTextBox.Text += "Brak pliku konfiguracyjnego." + Environment.NewLine;
                 MessageBox.Show("Nie instnieje plik konfiguracyjny programu!");
                 new UtworzUstawienia().Show();
                 //Wywołanie okna pierwszego uruchomienia
@@ -150,9 +153,11 @@ namespace MuseSort
                 {
                     UstawieniaProgramu.wczytajUstawienia();
                     folderGlowny = new FolderGlowny(UstawieniaProgramu.folderGlowny);
+                    logiTextBox.Text += "Załadowano ustawienia programu." + Environment.NewLine;
                 }
                 catch (Exception e)
                 {
+                    logiTextBox.Text += "Błąd wczytywania ustawień programu: " + e.Message + "." + Environment.NewLine;
                     MessageBox.Show("Nastapil blad we wczytywaniu ustawien programu" + e.Message + Environment.NewLine + "Nacisnij OK, aby utworzyc nowy plik konfiguracyjny");
                     //Wyswietlanie okna tworzenia ustawień
                     zaladujUstawienia();
@@ -204,6 +209,7 @@ namespace MuseSort
                 if (temp.analizuj())
                 {
                     folderGlowny.dodajFolder(sciezka);
+                    logiTextBox.Text += folderGlowny.logi;
                 }
                 else
                 {
@@ -259,6 +265,7 @@ namespace MuseSort
                 return;
             }
             docelowy.dodajIPosortujFolder(source);
+            logiTextBox.Text += docelowy.logi;
             MessageBox.Show("Pomyślnie dodano pliki.");
             dodajPanel.Visible = false;
         }
@@ -299,9 +306,11 @@ namespace MuseSort
                 folder.ustalSchemat(@"Wykonawca\Album\Piosenki");
                 folder.progressBar2 = toolStripProgressBar1.ProgressBar;
                 folder.sortuj();
+                logiTextBox.Text += folder.logi;
             }
         }
+        #endregion
 
-        
+
     }
 }

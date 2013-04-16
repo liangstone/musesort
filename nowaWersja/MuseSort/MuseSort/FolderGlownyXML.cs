@@ -13,6 +13,7 @@ namespace MuseSort
         String sciezka;      //przechowuje scieżkę do pliku XML
         XmlDocument plikXML;
 
+        #region publiczne metody klas
         //#############################PUBLICZNE METODY KLASY############################################
 
         //Tworzymy obiekt do generowania pliku
@@ -106,8 +107,9 @@ namespace MuseSort
             }
         }
 
-        
 
+        #endregion
+        #region metody pomocnicze klas
         //######################################METODY POMOCNICZE KLASY######################################
 
         //Generowanie węzłów do pliku XML (wywoływane na potrzeby metody generujElementy)
@@ -167,6 +169,8 @@ namespace MuseSort
                 return;
             }
         }
+
+        #endregion
 
     }
 }

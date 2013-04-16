@@ -34,6 +34,7 @@
             this.zamknijToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opcjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ustawieniaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wzorcePlikówAudioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drzewoFolderow = new System.Windows.Forms.TreeView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.modyfikujButton = new System.Windows.Forms.ToolStripButton();
@@ -61,7 +62,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.sourceFolderTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.wzorcePlikówAudioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logiTextBox = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -111,6 +112,12 @@
             this.ustawieniaToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.ustawieniaToolStripMenuItem.Text = "Ustawienia";
             this.ustawieniaToolStripMenuItem.Click += new System.EventHandler(this.ustawieniaToolStripMenuItem_Click);
+            // 
+            // wzorcePlikówAudioToolStripMenuItem
+            // 
+            this.wzorcePlikówAudioToolStripMenuItem.Name = "wzorcePlikówAudioToolStripMenuItem";
+            this.wzorcePlikówAudioToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.wzorcePlikówAudioToolStripMenuItem.Text = "Wzorce plików audio";
             // 
             // drzewoFolderow
             // 
@@ -359,11 +366,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Folder źródłowy:";
             // 
-            // wzorcePlikówAudioToolStripMenuItem
+            // logiTextBox
             // 
-            this.wzorcePlikówAudioToolStripMenuItem.Name = "wzorcePlikówAudioToolStripMenuItem";
-            this.wzorcePlikówAudioToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.wzorcePlikówAudioToolStripMenuItem.Text = "Wzorce plików audio";
+            this.logiTextBox.Location = new System.Drawing.Point(783, 301);
+            this.logiTextBox.Multiline = true;
+            this.logiTextBox.Name = "logiTextBox";
+            this.logiTextBox.Size = new System.Drawing.Size(194, 265);
+            this.logiTextBox.TabIndex = 7;
+            this.logiTextBox.TabStop = false;
             // 
             // MainGUI
             // 
@@ -372,6 +382,7 @@
             this.BackgroundImage = global::MuseSort.Properties.Resources.tlo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(988, 609);
+            this.Controls.Add(this.logiTextBox);
             this.Controls.Add(this.aktualnyFolder);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.statusStrip1);
@@ -432,6 +443,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripButton sortujCustom;
         private System.Windows.Forms.ToolStripMenuItem wzorcePlikówAudioToolStripMenuItem;
+        private System.Windows.Forms.TextBox logiTextBox;
 
     }
 }

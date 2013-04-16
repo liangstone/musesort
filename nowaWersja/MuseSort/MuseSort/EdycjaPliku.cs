@@ -15,6 +15,7 @@ namespace MuseSort
         Utwor dane;
         Boolean zapisane;
         String sciezka;
+        #region publiczne metody klas
         //#############################PUBLICZNE METODY KLASY############################################
 
         public EdycjaPliku(String path)
@@ -31,6 +32,8 @@ namespace MuseSort
             zapisane = true;
         }
 
+        #endregion
+        #region prywatne metody klas
         //######################################METODY POMOCNICZE KLASY######################################
 
         private void zapiszClick(object sender, EventArgs e)
@@ -139,5 +142,6 @@ namespace MuseSort
             przwrocButton.Enabled = true;
             zapisane = false;
         }
+        #endregion
     }
 }

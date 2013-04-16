@@ -8,8 +8,8 @@ namespace MuseSort
 {
     class Utwor : StaticUtwor
     {
-
-		public Dane dane;
+        #region atrybuty klasy
+        public Dane dane;
 
         String sciezka = "";
 
@@ -44,8 +44,8 @@ namespace MuseSort
         Boolean pobranoZNazwy = false;
         Boolean pobranoZeSciezki = false;
         public String logi = "";
-
-        
+        #endregion
+        #region publiczne metody klas
         //#############################PUBLICZNE METODY KLASY############################################
 
         //Konstruktor standardowy
@@ -276,7 +276,8 @@ namespace MuseSort
             sciezka = nowaSciezka;
             logi += "Przeniesiono plik " + nazwa + Path.GetExtension(sciezka) + " do folderu: " + nowyFolder + Environment.NewLine;
         }
-
+        #endregion
+        #region metody pomocnicze klasy
         //######################################METODY POMOCNICZE KLASY######################################
 
         //Pobieranie tagów z obiektu tagi i zapisywanie w obiekcie dane
@@ -330,5 +331,6 @@ namespace MuseSort
             wynik = wynik[0] + wynik.Substring(1).ToLower();
             return wynik;
         }
+        #endregion
     }
 }

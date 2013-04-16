@@ -13,7 +13,7 @@ namespace MuseSort
         String sciezka;
         XmlDocument plikXML;
         public String schemat;
-
+        #region publiczne metody klas
         //#############################PUBLICZNE METODY KLASY############################################
 
         //Tworzenie obiektu FolderXML wiążącego nowy obiekt z folderem ze ścieżki, sprawdza, czy folder posiada plik struktury logicznej
@@ -100,7 +100,8 @@ namespace MuseSort
         {
             generujXML();
         }
-
+        #endregion
+        #region metody pomocnicze klas
         //######################################METODY POMOCNICZE KLASY######################################
 
         //Generowanie węzłów do pliku XML (wywoływane na potrzeby metody generujXML)
@@ -140,6 +141,8 @@ namespace MuseSort
 
             parent.AppendChild(aktualny);
         }
+
+        #endregion
 
     }
 }

@@ -13,7 +13,7 @@ namespace MuseSort
 
         /// <summary>Ścieżka folderu.</summary>
         String sciezka;
-
+        public String logi;
         /// <summary>Udostępnia ścieżkę do odczytu.</summary>
         public String Sciezka
         {
@@ -34,6 +34,7 @@ namespace MuseSort
         {
             xml = new FolderXML(path);
             sciezka = path;
+            logi = "";
             if (xml.analizuj())
             {
                 schemat = xml.schemat;
@@ -100,7 +101,7 @@ namespace MuseSort
             List<string> listaPlikow = znajdz_wspierane_pliki();
 
             sukces = sortujListePlikow(listaPlikow);
-
+            logi += "Posortowano folder: " + this.sciezka + Environment.NewLine;
             System.Windows.Forms.MessageBox.Show("Sortowanie zakończone.");
             return sukces;
         }
@@ -125,7 +126,7 @@ namespace MuseSort
             List<string> listaPlikow = znajdz_wspierane_pliki(folderZrodlowy);
             sukces = sortujListePlikow(listaPlikow);
 
-
+            logi += "Dodano i posortowano folder: " + folderZrodlowy + " do folderu: " + this.sciezka + Environment.NewLine;
             System.Windows.Forms.MessageBox.Show("Dodawanie plików do posortowanego folderu zakończone.");
             progressBar2.Value = 0;
             return sukces;
@@ -230,6 +231,7 @@ namespace MuseSort
             try
             {
                 plik.przeniesPlik(sciezka_katalogu);
+                logi += plik.logi;
             }
             catch (System.IO.IOException) //rzucane w przypadku kolizji nazw plików
             {
@@ -247,6 +249,7 @@ namespace MuseSort
         /// <returns>Czy plik 1 został uznany za lepszy.</returns>
         private bool duplikat(Utwor plik1, Utwor plik2, string preferowaneRozszerzenie = "")
         {
+            logi += "Obsługa duplikatu pliku: " + plik1.NazwaPelna + Environment.NewLine ;
             // do decydowania który jest lepszy będziemy używali ifów, chyba prościej będzie najpierw ustalić wartość boola
             bool pierwszy_jest_lepszy = plik1.dane.bityNaMinute >= plik2.dane.bityNaMinute;
 
@@ -261,6 +264,7 @@ namespace MuseSort
                 string nowykatalog = sciezka_katalogu_z_pol(plik2, true);
                 Directory.CreateDirectory(nowykatalog);
                 plik2.przeniesPlik(nowykatalog);
+                logi += plik2.logi;
             }
             else //drugi plik zajmuje miejsce pierwszego, pierwszy idzie do zduplikowanych
             {
@@ -270,6 +274,8 @@ namespace MuseSort
                 string nowykatalog = sciezka_katalogu_z_pol(plik1, true);
                 Directory.CreateDirectory(nowykatalog);
                 plik1.zmienNazwePliku(Path.Combine(nowykatalog, Path.GetFileName(plik1.Sciezka)));
+                logi += plik2.logi;
+                logi += plik1.logi;
             }
 
             return pierwszy_jest_lepszy;
