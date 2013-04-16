@@ -148,8 +148,8 @@ namespace MuseSort
             {
                 try
                 {
-                    UstawieniaProgramu.wczytajUstawienia();
-                    folderGlowny = new FolderGlowny(UstawieniaProgramu.folderGlowny);
+                    UstawieniaProgramu.getInstance().wczytajUstawienia();
+                    folderGlowny = new FolderGlowny(UstawieniaProgramu.getInstance().folderGlowny);
                 }
                 catch (Exception e)
                 {

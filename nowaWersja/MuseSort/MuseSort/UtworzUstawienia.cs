@@ -48,14 +48,14 @@ namespace MuseSort
                     //MessageBox.Show("Wlazłem w switcha!");
                     if (defaultFolderCheckBox.Checked)
                     {
-                        UstawieniaProgramu.folderGlowny = @"C:\museSort\main";
+                        UstawieniaProgramu.getInstance().folderGlowny = @"C:\museSort\main";
                         aktywujPanel("sortowania");
                     }
                     else
                     {
                         if (sciezka.Text != "")
                         {
-                            UstawieniaProgramu.folderGlowny = sciezka.Text;
+                            UstawieniaProgramu.getInstance().folderGlowny = sciezka.Text;
                             aktywujPanel("sortowania");
                         }
                         else
@@ -67,7 +67,7 @@ namespace MuseSort
                 case "sortowania":
                     if (sortowaniaListBox.SelectedItems.Count > 0)
                     {
-                        UstawieniaProgramu.domyslneSortowanie = sortowaniaListBox.SelectedItem.ToString();
+                        UstawieniaProgramu.getInstance().domyslneSortowanie = sortowaniaListBox.SelectedItem.ToString();
                         aktywujPanel("bazyDanych");
                     }
                     else
@@ -78,7 +78,7 @@ namespace MuseSort
                 case "bazyDanych":
                     if (bazyDanychListBox.SelectedItems.Count > 0)
                     {
-                        UstawieniaProgramu.domyslnaBazaDanych = bazyDanychListBox.SelectedItem.ToString();
+                        UstawieniaProgramu.getInstance().domyslnaBazaDanych = bazyDanychListBox.SelectedItem.ToString();
                         aktywujPanel("rozszerzenia");
                     }
                     else
@@ -92,13 +92,13 @@ namespace MuseSort
                         if (x.Checked)
                         {
                             String temp = x.Name.Replace("CheckBox", "");
-                            UstawieniaProgramu.wspieraneRozszerzeniaAudio.Add(temp);
+                            UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio.Add(temp);
                         }
                     }
                     aktywujPanel("none");
                     break;
                 default:
-                    UstawieniaProgramu.zapiszUstawienia();
+                    UstawieniaProgramu.getInstance().zapiszUstawienia();
                     MessageBox.Show("Zapisano ustawienia programu!");
                     this.Dispose();
                     break;

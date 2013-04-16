@@ -38,32 +38,32 @@ namespace MuseSort
             if (e.Node.Name == "folderyNode")
             {
                 aktywujPanel("foldery");
-                sciezkaBox.Text = UstawieniaProgramu.folderGlowny;
+                sciezkaBox.Text = UstawieniaProgramu.getInstance().folderGlowny;
             }
             //Folder Główny
             else if (e.Node.Name == "folderGlownyNode")
             {
                 aktywujPanel("folderGlowny");
-                sciezka2Box.Text = UstawieniaProgramu.folderGlowny;
+                sciezka2Box.Text = UstawieniaProgramu.getInstance().folderGlowny;
             }
             //Sortowanie
             else if (e.Node.Name == "sortowaniaNode")
             {
                 aktywujPanel("sortowania");
-                sposobSortowaniaBox.Text = UstawieniaProgramu.domyslneSortowanie;
+                sposobSortowaniaBox.Text = UstawieniaProgramu.getInstance().domyslneSortowanie;
             }
             //Domyślne ustawienia (Sortowanie)
             else if (e.Node.Name == "domyslneSortowanieNode")
             {
                 aktywujPanel("domyslneSortowania");
-                sposobSortowania2Box.Text = UstawieniaProgramu.domyslneSortowanie;
+                sposobSortowania2Box.Text = UstawieniaProgramu.getInstance().domyslneSortowanie;
             }
             //Rozszerzenia
             else if (e.Node.Name == "rozszerzeniaNode")
             {
                 aktywujPanel("rozszerzenia");
                 String extensions = "";
-                foreach (String x in UstawieniaProgramu.wspieraneRozszerzeniaAudio)
+                foreach (String x in UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio)
                 {
                     extensions += x + "; ";
                 }
@@ -74,14 +74,14 @@ namespace MuseSort
             {
                 aktywujPanel("wspieraneRozszerzenia");
                 String extensions = "";
-                foreach (String x in UstawieniaProgramu.wspieraneRozszerzeniaAudio)
+                foreach (String x in UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio)
                 {
                     extensions += x + "; ";
                 }
                 textBox1.Text = extensions;
                 foreach (CheckBox x in rozszerzenia)
                 {
-                    if(UstawieniaProgramu.wspieraneRozszerzeniaAudio.Contains(x.Name.Replace("CheckBox", "")))
+                    if (UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio.Contains(x.Name.Replace("CheckBox", "")))
                     {
                         x.Checked = true;
                     }
@@ -91,14 +91,14 @@ namespace MuseSort
             else if (e.Node.Name == "bazyDanychNode")
             {
                 aktywujPanel("zewnetrzneBazyDanych");
-                dataBaseListBox.SelectedItem = UstawieniaProgramu.domyslnaBazaDanych;
+                dataBaseListBox.SelectedItem = UstawieniaProgramu.getInstance().domyslnaBazaDanych;
             }
 
         }//end void wyswietl(object sender, TreeNodeMouseClickEventArgs e)
 
         private void anulujButton_MouseClick(object sender, MouseEventArgs e)
         {
-            UstawieniaProgramu.wczytajUstawienia();
+            UstawieniaProgramu.getInstance().wczytajUstawienia();
             this.Dispose();
         }
 
@@ -154,9 +154,9 @@ namespace MuseSort
         {
             if (nowaSciezkaBox.Text != "")
             {
-                UstawieniaProgramu.folderGlowny = nowaSciezkaBox.Text;
-                sciezka2Box.Text = UstawieniaProgramu.folderGlowny;
-                sciezkaBox.Text = UstawieniaProgramu.folderGlowny;
+                UstawieniaProgramu.getInstance().folderGlowny = nowaSciezkaBox.Text;
+                sciezka2Box.Text = UstawieniaProgramu.getInstance().folderGlowny;
+                sciezkaBox.Text = UstawieniaProgramu.getInstance().folderGlowny;
             }
             else
             {
@@ -169,9 +169,9 @@ namespace MuseSort
         {
             if (sortowaniaListBox.SelectedItems.Count > 0)
             {
-                UstawieniaProgramu.domyslneSortowanie = sortowaniaListBox.SelectedItem.ToString();
-                sposobSortowaniaBox.Text = UstawieniaProgramu.domyslneSortowanie;
-                sposobSortowania2Box.Text = UstawieniaProgramu.domyslneSortowanie;
+                UstawieniaProgramu.getInstance().domyslneSortowanie = sortowaniaListBox.SelectedItem.ToString();
+                sposobSortowaniaBox.Text = UstawieniaProgramu.getInstance().domyslneSortowanie;
+                sposobSortowania2Box.Text = UstawieniaProgramu.getInstance().domyslneSortowanie;
             }
             else
             {
@@ -181,25 +181,25 @@ namespace MuseSort
 
         private void dodajRozszerzenieButton_Click(object sender, EventArgs e)
         {
-            UstawieniaProgramu.wspieraneRozszerzeniaAudio.Clear();
+            UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio.Clear();
             foreach (CheckBox x in rozszerzenia)
             {
                 if (x.Checked)
                 {
                     String temp = x.Name.Replace("CheckBox", "");
-                    UstawieniaProgramu.wspieraneRozszerzeniaAudio.Add(temp);
+                    UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio.Add(temp);
                 }
             }
         }
 
         private void wybierzBazeButton_Click(object sender, EventArgs e)
         {
-            UstawieniaProgramu.domyslnaBazaDanych = dataBaseListBox.SelectedItem.ToString();
+            UstawieniaProgramu.getInstance().domyslnaBazaDanych = dataBaseListBox.SelectedItem.ToString();
         }
 
         private void przywrocDomyslneButton_Click(object sender, EventArgs e)
         {
-            UstawieniaProgramu.wczytajUstawienia();
+            UstawieniaProgramu.getInstance().wczytajUstawienia();
             aktywujPanel("");
         }
 
@@ -209,7 +209,7 @@ namespace MuseSort
             {
                 try
                 {
-                    UstawieniaProgramu.zapiszUstawienia();
+                    UstawieniaProgramu.getInstance().zapiszUstawienia();
                     MessageBox.Show("Zapisano ustawienia programu!");
                 } catch (Exception ex) {
                     MessageBox.Show("Błąd zapisu danych " + ex.Message);
