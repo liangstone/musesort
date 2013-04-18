@@ -64,7 +64,7 @@ namespace MuseSort
         /// <summary>Sortowanie folderu, zwraca informację o sukcesie lub porażce w trakcie sortowania.
         /// </summary>
         /// <returns>Sukces operacji.</returns>
-        public bool sortuj()
+        public bool sortuj(IEnumerable<string> wspieraneRozszerzenia)
         {
             bool sukces = false;
             //System.Windows.Forms.MessageBox.Show("Rozpoczynam sortowanie.");
@@ -100,7 +100,7 @@ namespace MuseSort
 
             #endregion
 
-            List<string> listaPlikow = znajdz_wspierane_pliki();
+            List<string> listaPlikow = znajdz_wspierane_pliki(Sciezka, wspieraneRozszerzenia);
 
             sukces = sortujListePlikow(listaPlikow);
             logi += "Posortowano folder: " + this.sciezka + Environment.NewLine;
@@ -112,7 +112,7 @@ namespace MuseSort
         /// <summary>Dodawanie plików z podanego folderu do zbiorów w folderze powiązanym z obiektem</summary>
         /// <param name="folderZrodlowy">Ścieżka folderu źródłowego</param>
         /// <returns></returns>
-        public Boolean dodajIPosortujFolder(String folderZrodlowy)
+        public Boolean dodajIPosortujFolder(String folderZrodlowy, IEnumerable<string> wspieraneRozszerzenia)
         {
             System.Windows.Forms.MessageBox.Show("Rozpoczynam dodawanie.");
             bool sukces = false;
@@ -125,7 +125,7 @@ namespace MuseSort
             //        return false;
             //}
 
-            List<string> listaPlikow = znajdz_wspierane_pliki(folderZrodlowy);
+            List<string> listaPlikow = znajdz_wspierane_pliki(folderZrodlowy, wspieraneRozszerzenia);
             sukces = sortujListePlikow(listaPlikow);
 
             logi += "Dodano i posortowano folder: " + folderZrodlowy + " do folderu: " + this.sciezka + Environment.NewLine;
@@ -217,11 +217,11 @@ namespace MuseSort
 
 
             string sciezka_katalogu; //Ustalamy ścieżkę katalogu.
-            if (schemat == @"Piosenki\Wykonawca" && plik.GetType() == typeof(Utwor) && ((Utwor)plik).dane.wykonawca[0] != "" && ((Utwor)plik).dane.tytul != "")
+            if (schemat == @"Piosenki\Wykonawca" && plik is Utwor && ((Utwor)plik).dane.wykonawca[0] != "" && ((Utwor)plik).dane.tytul != "")
             {
                 sciezka_katalogu = @"Musesort\Posegregowane";
                 nazwaPliku = ((Utwor)plik).dane.wykonawca[0] + '_' + ((Utwor)plik).dane.tytul + Path.GetExtension(plik.Sciezka);
-
+                plik.zmienNazwePliku(nazwaPliku);
             }
             else
                 sciezka_katalogu = sciezka_katalogu_z_pol(plik);
@@ -331,12 +331,12 @@ namespace MuseSort
         /// </summary>
         /// <param name="katalog">Katalog do przeszukania.</param>
         /// <returns></returns>
-        List<string> znajdz_wspierane_pliki(string katalog = null)
+        List<string> znajdz_wspierane_pliki(string katalog, IEnumerable<string> wspieraneRozszerzenia)
         {
             if (katalog == null)
-                katalog = this.sciezka;
+                throw new ArgumentNullException("Katalog jest null!");
             List<string> wynik = new List<string>();
-            foreach (string rozszerzenie in UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio)
+            foreach (string rozszerzenie in wspieraneRozszerzenia)
             {
                 List<string> sciezki_plikow = new List<string>(Directory.GetFiles(katalog, "*." + rozszerzenie));
                 wynik.AddRange(sciezki_plikow);
@@ -353,7 +353,7 @@ namespace MuseSort
 
             foreach (string podkatalog in Directory.GetDirectories(katalog))//dodajemy pliki z podkatalogów
             {
-                wynik.AddRange(znajdz_wspierane_pliki(podkatalog));
+                wynik.AddRange(znajdz_wspierane_pliki(podkatalog, wspieraneRozszerzenia));
             }
 
             return wynik;
