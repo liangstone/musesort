@@ -151,9 +151,9 @@ namespace MuseSort
             {
                 try
                 {
-                    UstawieniaProgramu.wczytajUstawienia();
-                    folderGlowny = new FolderGlowny(UstawieniaProgramu.folderGlowny);
-                    logiTextBox.Text += "Załadowano ustawienia programu." + Environment.NewLine;
+
+                    UstawieniaProgramu.getInstance().wczytajUstawienia();
+                    folderGlowny = new FolderGlowny(UstawieniaProgramu.getInstance().folderGlowny);
                 }
                 catch (Exception e)
                 {

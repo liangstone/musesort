@@ -6,15 +6,35 @@ using System.Xml;
 
 namespace MuseSort
 {
-    static class UstawieniaProgramu
+    class UstawieniaProgramu
     {
-        public static String folderGlowny = "";
-        public static String domyslneSortowanie = "";
-        public static String domyslnaBazaDanych = "";
-        public static List<String> wspieraneRozszerzeniaAudio = new List<String>();
-        public static List<String> wspieraneRozszerzeniaVideo = new List<String>();
+        private static volatile UstawieniaProgramu instancja;
+        public String folderGlowny;
+        public String domyslneSortowanie;
+        public String domyslnaBazaDanych;
+        public List<String> wspieraneRozszerzeniaAudio;
+        public List<String> wspieraneRozszerzeniaVideo;
 
-        public static void zapiszUstawienia()
+        private UstawieniaProgramu()
+        {
+            wspieraneRozszerzeniaVideo = new List<String>();
+            wspieraneRozszerzeniaAudio = new List<String>();
+            domyslnaBazaDanych = "";
+            domyslneSortowanie = "";
+            folderGlowny = "";
+        }
+
+        public static UstawieniaProgramu getInstance()
+        {
+            if (instancja == null)
+            {
+                instancja = new UstawieniaProgramu();
+            }
+
+            return instancja;
+        }
+
+        public void zapiszUstawienia()
         {
             if (System.IO.File.Exists(@"C:\museSort\config.xml"))
             {
@@ -57,7 +77,7 @@ namespace MuseSort
             plikXML.Save(@"C:\museSort\config.xml");
         }
 
-        public static void wczytajUstawienia()
+        public void wczytajUstawienia()
         {
             XmlDocument plikXML = new XmlDocument();
             plikXML.Load(@"C:\museSort\config.xml");
