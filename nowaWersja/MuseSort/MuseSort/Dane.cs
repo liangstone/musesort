@@ -1,38 +1,57 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using TagLib;
-
+using System.IO;
+using System.Reflection;
 namespace MuseSort
 {
-    class Dane
+    abstract class Dane
     {
-        public String[] wykonawca = { "" };
-        public String[] wykonawcaAlbumu = { "" };
-        public String tytul = "";
-        public String album = "";
-        public String[] gatunek = { "" };
-        public uint rok;
-        public String komentarz = "";
-        public uint liczbaPiosenek;
-        public uint numerCd;
-        public uint liczbaCd;
-        public String tekstPiosenki = "";
-        public uint bityNaMinute;
-        public String dyrygent = "";
-        public String prawaAutorskie = "";
-        public String puid = "";
-        public IPicture[] zdjecia = { };
-        public uint numer;
 
-        public Boolean czyDaneWypelnione()
+        /// <summary>Generuje ścieżkę dla katalogu na podstawie pól w sortowaniu.</summary>
+        /// <param name="plik">Plik, dla którego ma być wygenerowana ścieżka.</param>
+        /// <returns>Szukana ścieżka katalogu.</returns>
+        public virtual string sciezka_katalogu_z_pol(string[] kategorie)
         {
-            if (wykonawca.Length > 0 && wykonawca[0] != "" && tytul != "" && album != "")
+            Type typ_utwor = this.GetType();
+            string sciezka_katalogu = "";
+            
+
+            foreach (string kategoria in kategorie) //tworzymy ścieżkę katalogu docelowego pliku
             {
-                return true;
+                string kat = "";
+                //Console.WriteLine(kategoria);
+                FieldInfo pole = typ_utwor.GetField(kategoria);         //pobiera pole
+
+                if (pole.FieldType.Equals(typeof(String)))				//jeśli pole to String
+                    kat = (string)pole.GetValue(this);
+                else if (pole.FieldType.Equals(typeof(int)) || pole.FieldType.Equals(typeof(uint)))//jeśli pole to int lub uint
+                    kat = Convert.ToString(pole.GetValue(this));
+                else if (pole.FieldType.Equals(typeof(string[])))		//jeśli pole to tablica
+                {
+                    try
+                    {
+                        kat = ((string[])pole.GetValue(this))[0];
+                    }
+                    catch (IndexOutOfRangeException)
+                    {
+                        kat = "";
+                    }
+                }
+                
+                if (kat == "")                                          //jeśli nie udało się pobrać
+                {
+                    sciezka_katalogu = "";
+                    break;
+                }
+                //kat = ZamienNaWlasciwe(kat);
+                System.Console.WriteLine(kat);
+                sciezka_katalogu = Path.Combine(sciezka_katalogu, kat);
+                //System.Console.WriteLine(sciezka_katalogu);
             }
-            return false;
-        }
+
+
+            return sciezka_katalogu;
+        }//end sciezka_z_pol()
+
+        public abstract bool czyDaneWypelnione();
     }
 }
