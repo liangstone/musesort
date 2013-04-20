@@ -16,12 +16,26 @@ namespace MuseSort
 {
     public partial class SzczegolyFilmu : Form
     {
-        public SzczegolyFilmu()
+        public SzczegolyFilmu(String x)
         {
             InitializeComponent();
-            String title = "";
-            title = "Milczenie.Owiec";
-            pobierzdane(title);
+            x = x.Replace(" ", ".");
+            x = x.Replace("ą", "a");
+            x = x.Replace("ć", "c");
+            x = x.Replace("Ć", "C");
+            x = x.Replace("ę", "e");
+            x = x.Replace("ł", "l");
+            x = x.Replace("Ł", "L");
+            x = x.Replace("ń", "n");
+            x = x.Replace("ó", "o");
+            x = x.Replace("Ó", "O");
+            x = x.Replace("ś", "s");
+            x = x.Replace("Ś", "S");
+            x = x.Replace("ź", "z");
+            x = x.Replace("Ź", "Z");
+            x = x.Replace("ż", "z");
+            x = x.Replace("Ż", "Z");
+            pobierzdane(x);
         }
         private void pobierzdane(String x)
         {
@@ -46,6 +60,7 @@ namespace MuseSort
                                           where link.Name == "div" && link.Attributes["class"] != null && link.Attributes["class"].Value == "filmPlot"
                                           select link;
             string tresc = links.ElementAt<HtmlNode>(0).InnerText;
+            tresc = tresc.Replace("oacute;", "ó");
             label1.Text = tresc;
             links = from link in doc.DocumentNode.Descendants()
                     where link.Name == "div" && link.Attributes["class"] != null && link.Attributes["class"].Value == "filmTime"
@@ -70,6 +85,11 @@ namespace MuseSort
         }
 
         private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
