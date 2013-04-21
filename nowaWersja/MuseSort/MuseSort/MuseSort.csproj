@@ -60,6 +60,12 @@
       <DependentUpon>EdycjaPliku.cs</DependentUpon>
     </Compile>
     <Compile Include="Film.cs" />
+    <Compile Include="FilmNowyWzorzecNazwy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilmNowyWzorzecNazwy.Designer.cs">
+      <DependentUpon>FilmNowyWzorzecNazwy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Folder.cs" />
     <Compile Include="FolderGlowny.cs" />
     <Compile Include="FolderGlownyXML.cs" />
@@ -82,6 +88,18 @@
     <Compile Include="StaticUtwor.cs" />
     <Compile Include="UstawieniaProgramu.cs" />
     <Compile Include="Utwor.cs" />
+    <Compile Include="UtworNowyWzorzecNazwyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UtworNowyWzorzecNazwyForm.Designer.cs">
+      <DependentUpon>UtworNowyWzorzecNazwyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UtworNowyWzorzecSciezki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UtworNowyWzorzecSciezki.Designer.cs">
+      <DependentUpon>UtworNowyWzorzecSciezki.cs</DependentUpon>
+    </Compile>
     <Compile Include="UtworzUstawienia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +109,9 @@
     <Compile Include="Wzorzec.cs" />
     <EmbeddedResource Include="EdycjaPliku.resx">
       <DependentUpon>EdycjaPliku.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilmNowyWzorzecNazwy.resx">
+      <DependentUpon>FilmNowyWzorzecNazwy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainGUI.resx">
       <DependentUpon>MainGUI.cs</DependentUpon>
@@ -109,6 +130,12 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <EmbeddedResource Include="UtworNowyWzorzecNazwyForm.resx">
+      <DependentUpon>UtworNowyWzorzecNazwyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UtworNowyWzorzecSciezki.resx">
+      <DependentUpon>UtworNowyWzorzecSciezki.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UtworzUstawienia.resx">
       <DependentUpon>UtworzUstawienia.cs</DependentUpon>
     </EmbeddedResource>

@@ -73,6 +73,48 @@ namespace MuseSort
                 main.AppendChild(video);
             }
 
+            foreach (Wzorzec s in StaticUtwor.wzorceNazwy)
+            {
+                XmlElement wzorzec = plikXML.CreateElement("utworWzorzecNazwy");
+                XmlElement wz = plikXML.CreateElement("wzorzec");
+                wartosc = plikXML.CreateTextNode(s.wzorzec);
+                wz.AppendChild(wartosc);
+                wzorzec.AppendChild(wz);
+                wz = plikXML.CreateElement("regex");
+                wartosc = plikXML.CreateTextNode(s.regex.ToString());
+                wz.AppendChild(wartosc);
+                wzorzec.AppendChild(wz);
+                main.AppendChild(wzorzec);
+            }
+
+            foreach (Wzorzec s in StaticUtwor.wzorceSciezki)
+            {
+                XmlElement wzorzec = plikXML.CreateElement("utworWzorzecSciezki");
+                XmlElement wz = plikXML.CreateElement("wzorzec");
+                wartosc = plikXML.CreateTextNode(s.wzorzec);
+                wz.AppendChild(wartosc);
+                wzorzec.AppendChild(wz);
+                wz = plikXML.CreateElement("regex");
+                wartosc = plikXML.CreateTextNode(s.regex.ToString());
+                wz.AppendChild(wartosc);
+                wzorzec.AppendChild(wz);
+                main.AppendChild(wzorzec);
+            }
+
+            foreach (Wzorzec s in StaticFilm.wzorceNazwy)
+            {
+                XmlElement wzorzec = plikXML.CreateElement("filmWzorzecNazwy");
+                XmlElement wz = plikXML.CreateElement("wzorzec");
+                wartosc = plikXML.CreateTextNode(s.wzorzec);
+                wz.AppendChild(wartosc);
+                wzorzec.AppendChild(wz);
+                wz = plikXML.CreateElement("regex");
+                wartosc = plikXML.CreateTextNode(s.regex.ToString());
+                wz.AppendChild(wartosc);
+                wzorzec.AppendChild(wz);
+                main.AppendChild(wzorzec);
+            }
+
             plikXML.AppendChild(main);
             plikXML.Save(@"C:\museSort\config.xml");
         }

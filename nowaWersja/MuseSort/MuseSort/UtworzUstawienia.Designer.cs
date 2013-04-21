@@ -220,10 +220,10 @@
             this.Controls.Add(this.dalej);
             this.Controls.Add(this.infoLabel);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.sortowaniaPanel);
-            this.Controls.Add(this.bazyDanychPanel);
-            this.Controls.Add(this.rozszerzeniaPanel);
             this.Controls.Add(this.folderyPanel);
+            this.Controls.Add(this.bazyDanychPanel);
+            this.Controls.Add(this.sortowaniaPanel);
+            this.Controls.Add(this.rozszerzeniaPanel);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UtworzUstawienia";
             this.Text = "UtworzUstawienia";
