@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\..\..\..\Desktop\Net40\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -80,6 +83,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaticFilm.cs" />
     <Compile Include="StaticUtwor.cs" />
+    <Compile Include="SzczegolyFilmu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SzczegolyFilmu.Designer.cs">
+      <DependentUpon>SzczegolyFilmu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SzczegolyMuzyki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SzczegolyMuzyki.Designer.cs">
+      <DependentUpon>SzczegolyMuzyki.cs</DependentUpon>
+    </Compile>
     <Compile Include="UstawieniaProgramu.cs" />
     <Compile Include="Utwor.cs" />
     <Compile Include="UtworzUstawienia.cs">
@@ -94,6 +109,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainGUI.resx">
       <DependentUpon>MainGUI.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="OknoUstawien.resx">
       <DependentUpon>OknoUstawien.cs</DependentUpon>
@@ -109,6 +125,12 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <EmbeddedResource Include="SzczegolyFilmu.resx">
+      <DependentUpon>SzczegolyFilmu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SzczegolyMuzyki.resx">
+      <DependentUpon>SzczegolyMuzyki.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UtworzUstawienia.resx">
       <DependentUpon>UtworzUstawienia.cs</DependentUpon>
     </EmbeddedResource>
