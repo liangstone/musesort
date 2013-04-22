@@ -63,11 +63,19 @@
             this.sourceFolderTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SzczegolyPliku = new System.Windows.Forms.ToolStripButton();
+            this.niestandardoweSortowaniePanel = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.sortowanieNiestandardoweListBox = new System.Windows.Forms.ListBox();
+            this.mp3checkBox = new System.Windows.Forms.CheckBox();
+            this.flacCheckBox = new System.Windows.Forms.CheckBox();
+            this.sortujNiestandardowoButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.dodajPanel.SuspendLayout();
+            this.niestandardoweSortowaniePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -141,7 +149,8 @@
             this.toolStripSeparator3,
             this.sortujButton,
             this.sortujCustom,
-            this.SzczegolyPliku});
+            this.SzczegolyPliku,
+            this.sortujCustom});
             this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1317, 32);
@@ -213,6 +222,7 @@
             this.sortujCustom.Name = "sortujCustom";
             this.sortujCustom.Size = new System.Drawing.Size(29, 29);
             this.sortujCustom.Text = "Sortowanie niestandardowe";
+            this.sortujCustom.Click += new System.EventHandler(this.sortujCustom_Click);
             // 
             // statusStrip1
             // 
@@ -262,7 +272,7 @@
             this.nazwa,
             this.rozszerzenie,
             this.rozmiar});
-            this.aktualnyFolder.Location = new System.Drawing.Point(361, 90);
+            this.aktualnyFolder.Location = new System.Drawing.Point(347, 78);
             this.aktualnyFolder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.aktualnyFolder.Name = "aktualnyFolder";
             this.aktualnyFolder.Size = new System.Drawing.Size(675, 486);
@@ -389,6 +399,91 @@
             this.SzczegolyPliku.Size = new System.Drawing.Size(29, 29);
             this.SzczegolyPliku.Text = "Szczegoly";
             this.SzczegolyPliku.Click += new System.EventHandler(this.SzczegolyPliku_Click);
+            // niestandardoweSortowaniePanel
+            // 
+            this.niestandardoweSortowaniePanel.BackColor = System.Drawing.Color.Transparent;
+            this.niestandardoweSortowaniePanel.Controls.Add(this.sortujNiestandardowoButton);
+            this.niestandardoweSortowaniePanel.Controls.Add(this.flacCheckBox);
+            this.niestandardoweSortowaniePanel.Controls.Add(this.mp3checkBox);
+            this.niestandardoweSortowaniePanel.Controls.Add(this.sortowanieNiestandardoweListBox);
+            this.niestandardoweSortowaniePanel.Controls.Add(this.label4);
+            this.niestandardoweSortowaniePanel.Controls.Add(this.label3);
+            this.niestandardoweSortowaniePanel.Location = new System.Drawing.Point(0, 571);
+            this.niestandardoweSortowaniePanel.Name = "niestandardoweSortowaniePanel";
+            this.niestandardoweSortowaniePanel.Size = new System.Drawing.Size(1305, 146);
+            this.niestandardoweSortowaniePanel.TabIndex = 7;
+            this.niestandardoweSortowaniePanel.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tw Cen MT Condensed", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(49, 43);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(191, 22);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Wybierz sposób sortowania";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tw Cen MT Condensed", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(624, 43);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(224, 22);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Wybierz typ sortowanych plików";
+            // 
+            // sortowanieNiestandardoweListBox
+            // 
+            this.sortowanieNiestandardoweListBox.FormattingEnabled = true;
+            this.sortowanieNiestandardoweListBox.ItemHeight = 16;
+            this.sortowanieNiestandardoweListBox.Items.AddRange(new object[] {
+            "Wykonawca\\Album\\Piosenki",
+            "Wykonawca\\Rok\\Album\\Piosenki",
+            "Gatunek\\Wykonawca\\Album\\Piosenki",
+            "Gatunek\\Wykonawca\\Piosenki",
+            "Rok\\Gatunek\\Wykonawca\\Album\\Piosenki",
+            "Rok\\Wykonawca\\Album\\Piosenki",
+            "Piosenki\\Alfabetycznie",
+            "Piosenki\\Wykonawca"});
+            this.sortowanieNiestandardoweListBox.Location = new System.Drawing.Point(276, 11);
+            this.sortowanieNiestandardoweListBox.Name = "sortowanieNiestandardoweListBox";
+            this.sortowanieNiestandardoweListBox.Size = new System.Drawing.Size(303, 132);
+            this.sortowanieNiestandardoweListBox.TabIndex = 2;
+            // 
+            // mp3checkBox
+            // 
+            this.mp3checkBox.ForeColor = System.Drawing.Color.White;
+            this.mp3checkBox.Location = new System.Drawing.Point(867, 43);
+            this.mp3checkBox.Name = "mp3checkBox";
+            this.mp3checkBox.Size = new System.Drawing.Size(104, 24);
+            this.mp3checkBox.TabIndex = 3;
+            this.mp3checkBox.Text = "*.mp3";
+            this.mp3checkBox.UseVisualStyleBackColor = true;
+            // 
+            // flacCheckBox
+            // 
+            this.flacCheckBox.AutoSize = true;
+            this.flacCheckBox.ForeColor = System.Drawing.Color.White;
+            this.flacCheckBox.Location = new System.Drawing.Point(977, 43);
+            this.flacCheckBox.Name = "flacCheckBox";
+            this.flacCheckBox.Size = new System.Drawing.Size(61, 21);
+            this.flacCheckBox.TabIndex = 4;
+            this.flacCheckBox.Text = "*.flac";
+            this.flacCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // sortujNiestandardowoButton
+            // 
+            this.sortujNiestandardowoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.sortujNiestandardowoButton.Location = new System.Drawing.Point(1131, 82);
+            this.sortujNiestandardowoButton.Name = "sortujNiestandardowoButton";
+            this.sortujNiestandardowoButton.Size = new System.Drawing.Size(160, 39);
+            this.sortujNiestandardowoButton.TabIndex = 5;
+            this.sortujNiestandardowoButton.Text = "Sortuj";
+            this.sortujNiestandardowoButton.UseVisualStyleBackColor = true;
             // 
             // MainGUI
             // 
@@ -397,6 +492,7 @@
             this.BackgroundImage = global::MuseSort.Properties.Resources.tlo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1317, 750);
+            this.Controls.Add(this.niestandardoweSortowaniePanel);
             this.Controls.Add(this.aktualnyFolder);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.statusStrip1);
@@ -418,6 +514,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.dodajPanel.ResumeLayout(false);
             this.dodajPanel.PerformLayout();
+            this.niestandardoweSortowaniePanel.ResumeLayout(false);
+            this.niestandardoweSortowaniePanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -458,6 +556,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripButton sortujCustom;
         private System.Windows.Forms.ToolStripMenuItem wzorcePlikówAudioToolStripMenuItem;
+        private System.Windows.Forms.Panel niestandardoweSortowaniePanel;
+        private System.Windows.Forms.Button sortujNiestandardowoButton;
+        private System.Windows.Forms.CheckBox flacCheckBox;
+        private System.Windows.Forms.CheckBox mp3checkBox;
+        private System.Windows.Forms.ListBox sortowanieNiestandardoweListBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
 
         private System.Windows.Forms.TextBox logiTextBox;
         private System.Windows.Forms.ToolStripButton SzczegolyPliku;

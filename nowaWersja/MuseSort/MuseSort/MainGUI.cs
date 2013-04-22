@@ -24,6 +24,7 @@ namespace MuseSort
             drzewoFolderow.NodeMouseClick += wyswietl;
             listaSciezek(drzewoFolderow, @"C:\");
             zaladujUstawienia();
+            niestandardoweSortowaniePanel.Visible = false;
         }
         #endregion
         #region metody pomocnicze klas
@@ -168,6 +169,7 @@ namespace MuseSort
         //Otwieranie okna do edycji tagów pliku, jeśli plik nie zostanie zaznaczony, zostanie zwrócony komunikat o błędzie
         private void modyfikujButton_Click(object sender, EventArgs e)
         {
+            niestandardoweSortowaniePanel.Visible = false;
             if (drzewoFolderow.SelectedNode == null || aktualnyFolder.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Nie został wybrany plik do otwarcia!");
@@ -183,7 +185,7 @@ namespace MuseSort
         //Dodawanie folderu z muzyką do głównego folderu
         private void dodajDoGlownegoFolderuButton_Click(object sender, EventArgs e)
         {
-            
+            niestandardoweSortowaniePanel.Visible = false;
             if (folderGlowny == null || folderGlowny.Sciezka == "")
             {
                 MessageBox.Show("Nie został ustawiony folder główny!");
@@ -227,6 +229,7 @@ namespace MuseSort
 
         private void dodajPiosenkiButton_Click(object sender, EventArgs e)
         {
+            niestandardoweSortowaniePanel.Visible = false;
             dodajPanel.Visible = true;
         }
 
@@ -294,6 +297,7 @@ namespace MuseSort
 
         private void sortujButton_Click(object sender, EventArgs e)
         {
+            niestandardoweSortowaniePanel.Visible = false;
             if (drzewoFolderow.SelectedNode == null || aktualnyFolder.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Nie został wybrany folder do posortowania!");
@@ -310,7 +314,7 @@ namespace MuseSort
             }
         }
         #endregion
-
+		
         private void SzczegolyPliku_Click(object sender, EventArgs e)
         {
             //sprawdzam, czy plik jest zaznaczony przez uzytkownika
@@ -340,5 +344,11 @@ namespace MuseSort
                 }
             }
         }//end private void SzczegolyPliku_Click(object sender, EventArgs e)
+        private void sortujCustom_Click(object sender, EventArgs e)
+        {
+            niestandardoweSortowaniePanel.Visible = true;
+        }
+
+        
     }
 }
