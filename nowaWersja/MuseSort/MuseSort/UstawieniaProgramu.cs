@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 
+
 namespace MuseSort
 {
     class UstawieniaProgramu
@@ -121,6 +122,7 @@ namespace MuseSort
 
         public void wczytajUstawienia()
         {
+            
             XmlDocument plikXML = new XmlDocument();
             plikXML.Load(@"C:\museSort\config.xml");
             XmlNode node = plikXML.GetElementsByTagName("folderGlowny").Item(0);

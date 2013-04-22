@@ -155,6 +155,7 @@ namespace MuseSort
 
                     UstawieniaProgramu.getInstance().wczytajUstawienia();
                     folderGlowny = new FolderGlowny(UstawieniaProgramu.getInstance().folderGlowny);
+                    logiTextBox.Text += "Pomyślnie wczytano ustawienia programu!" + Environment.NewLine;
                 }
                 catch (Exception e)
                 {
