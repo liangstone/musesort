@@ -15,7 +15,7 @@ namespace MuseSort
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FilmNowyWzorzecNazwy(@"Milczenie owiec (1991)"));
+            Application.Run(new MainGUI());
         }
     }
 }

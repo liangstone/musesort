@@ -35,7 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="HtmlAgilityPack">
-      <HintPath>..\..\..\..\Desktop\Net40\HtmlAgilityPack.dll</HintPath>
+      <HintPath>..\..\Net20\HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
@@ -151,7 +151,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SzczegolyMuzyki.resx">
       <DependentUpon>SzczegolyMuzyki.cs</DependentUpon>
-	</EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="UtworNowyWzorzecNazwyForm.resx">
       <DependentUpon>UtworNowyWzorzecNazwyForm.cs</DependentUpon>
     </EmbeddedResource>

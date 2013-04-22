@@ -45,6 +45,7 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.sortujButton = new System.Windows.Forms.ToolStripButton();
             this.sortujCustom = new System.Windows.Forms.ToolStripButton();
+            this.SzczegolyPliku = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -62,14 +63,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.sourceFolderTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.SzczegolyPliku = new System.Windows.Forms.ToolStripButton();
             this.niestandardoweSortowaniePanel = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.sortowanieNiestandardoweListBox = new System.Windows.Forms.ListBox();
-            this.mp3checkBox = new System.Windows.Forms.CheckBox();
-            this.flacCheckBox = new System.Windows.Forms.CheckBox();
             this.sortujNiestandardowoButton = new System.Windows.Forms.Button();
+            this.flacCheckBox = new System.Windows.Forms.CheckBox();
+            this.mp3checkBox = new System.Windows.Forms.CheckBox();
+            this.sortowanieNiestandardoweListBox = new System.Windows.Forms.ListBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -86,8 +86,7 @@
             this.opcjeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1317, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(988, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -96,13 +95,13 @@
             this.programToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.zamknijToolStripMenuItem});
             this.programToolStripMenuItem.Name = "programToolStripMenuItem";
-            this.programToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
+            this.programToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.programToolStripMenuItem.Text = "Program";
             // 
             // zamknijToolStripMenuItem
             // 
             this.zamknijToolStripMenuItem.Name = "zamknijToolStripMenuItem";
-            this.zamknijToolStripMenuItem.Size = new System.Drawing.Size(131, 24);
+            this.zamknijToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.zamknijToolStripMenuItem.Text = "Zamknij";
             this.zamknijToolStripMenuItem.Click += new System.EventHandler(this.zamknijToolStripMenuItem_Click);
             // 
@@ -112,28 +111,27 @@
             this.ustawieniaToolStripMenuItem,
             this.wzorcePlikówAudioToolStripMenuItem});
             this.opcjeToolStripMenuItem.Name = "opcjeToolStripMenuItem";
-            this.opcjeToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
+            this.opcjeToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.opcjeToolStripMenuItem.Text = "Opcje";
             // 
             // ustawieniaToolStripMenuItem
             // 
             this.ustawieniaToolStripMenuItem.Name = "ustawieniaToolStripMenuItem";
-            this.ustawieniaToolStripMenuItem.Size = new System.Drawing.Size(218, 24);
+            this.ustawieniaToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.ustawieniaToolStripMenuItem.Text = "Ustawienia";
             this.ustawieniaToolStripMenuItem.Click += new System.EventHandler(this.ustawieniaToolStripMenuItem_Click);
             // 
             // wzorcePlikówAudioToolStripMenuItem
             // 
             this.wzorcePlikówAudioToolStripMenuItem.Name = "wzorcePlikówAudioToolStripMenuItem";
-            this.wzorcePlikówAudioToolStripMenuItem.Size = new System.Drawing.Size(218, 24);
+            this.wzorcePlikówAudioToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.wzorcePlikówAudioToolStripMenuItem.Text = "Wzorce plików audio";
             // 
             // drzewoFolderow
             // 
-            this.drzewoFolderow.Location = new System.Drawing.Point(16, 78);
-            this.drzewoFolderow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.drzewoFolderow.Location = new System.Drawing.Point(12, 63);
             this.drzewoFolderow.Name = "drzewoFolderow";
-            this.drzewoFolderow.Size = new System.Drawing.Size(309, 486);
+            this.drzewoFolderow.Size = new System.Drawing.Size(233, 396);
             this.drzewoFolderow.TabIndex = 1;
             // 
             // toolStrip1
@@ -148,12 +146,11 @@
             this.dodajPiosenkiButton,
             this.toolStripSeparator3,
             this.sortujButton,
-            this.sortujCustom,
             this.SzczegolyPliku,
             this.sortujCustom});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1317, 32);
+            this.toolStrip1.Size = new System.Drawing.Size(988, 32);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -224,44 +221,52 @@
             this.sortujCustom.Text = "Sortowanie niestandardowe";
             this.sortujCustom.Click += new System.EventHandler(this.sortujCustom_Click);
             // 
+            // SzczegolyPliku
+            // 
+            this.SzczegolyPliku.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.SzczegolyPliku.Image = ((System.Drawing.Image)(resources.GetObject("SzczegolyPliku.Image")));
+            this.SzczegolyPliku.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SzczegolyPliku.Name = "SzczegolyPliku";
+            this.SzczegolyPliku.Size = new System.Drawing.Size(29, 29);
+            this.SzczegolyPliku.Text = "Szczegoly";
+            this.SzczegolyPliku.Click += new System.EventHandler(this.SzczegolyPliku_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2,
             this.toolStripProgressBar1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 724);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 587);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1317, 26);
+            this.statusStrip1.Size = new System.Drawing.Size(988, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(165, 21);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(132, 17);
             this.toolStripStatusLabel1.Text = "Wykonywanie operacji: ";
             // 
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(17, 21);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(13, 17);
             this.toolStripStatusLabel2.Text = "  ";
             // 
             // toolStripProgressBar1
             // 
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(400, 20);
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(300, 16);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::MuseSort.Properties.Resources.logo1;
             this.pictureBox1.InitialImage = global::MuseSort.Properties.Resources.logo1;
-            this.pictureBox1.Location = new System.Drawing.Point(1044, 78);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(783, 63);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(259, 270);
+            this.pictureBox1.Size = new System.Drawing.Size(194, 219);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -272,10 +277,9 @@
             this.nazwa,
             this.rozszerzenie,
             this.rozmiar});
-            this.aktualnyFolder.Location = new System.Drawing.Point(347, 78);
-            this.aktualnyFolder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.aktualnyFolder.Location = new System.Drawing.Point(260, 63);
             this.aktualnyFolder.Name = "aktualnyFolder";
-            this.aktualnyFolder.Size = new System.Drawing.Size(675, 486);
+            this.aktualnyFolder.Size = new System.Drawing.Size(507, 396);
             this.aktualnyFolder.TabIndex = 5;
             this.aktualnyFolder.UseCompatibleStateImageBehavior = false;
             this.aktualnyFolder.View = System.Windows.Forms.View.Details;
@@ -305,20 +309,18 @@
             this.dodajPanel.Controls.Add(this.label2);
             this.dodajPanel.Controls.Add(this.sourceFolderTextBox);
             this.dodajPanel.Controls.Add(this.label1);
-            this.dodajPanel.Location = new System.Drawing.Point(16, 574);
-            this.dodajPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dodajPanel.Location = new System.Drawing.Point(12, 466);
             this.dodajPanel.Name = "dodajPanel";
-            this.dodajPanel.Size = new System.Drawing.Size(1007, 165);
+            this.dodajPanel.Size = new System.Drawing.Size(755, 134);
             this.dodajPanel.TabIndex = 6;
             this.dodajPanel.Visible = false;
             // 
             // dodajButton
             // 
             this.dodajButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dodajButton.Location = new System.Drawing.Point(748, 107);
-            this.dodajButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dodajButton.Location = new System.Drawing.Point(561, 87);
             this.dodajButton.Name = "dodajButton";
-            this.dodajButton.Size = new System.Drawing.Size(205, 36);
+            this.dodajButton.Size = new System.Drawing.Size(154, 29);
             this.dodajButton.TabIndex = 6;
             this.dodajButton.Text = "Dodaj";
             this.dodajButton.UseVisualStyleBackColor = true;
@@ -327,10 +329,9 @@
             // ustalDestinationButton
             // 
             this.ustalDestinationButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ustalDestinationButton.Location = new System.Drawing.Point(853, 57);
-            this.ustalDestinationButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ustalDestinationButton.Location = new System.Drawing.Point(640, 46);
             this.ustalDestinationButton.Name = "ustalDestinationButton";
-            this.ustalDestinationButton.Size = new System.Drawing.Size(149, 32);
+            this.ustalDestinationButton.Size = new System.Drawing.Size(112, 26);
             this.ustalDestinationButton.TabIndex = 5;
             this.ustalDestinationButton.Text = "Ustal";
             this.ustalDestinationButton.UseVisualStyleBackColor = true;
@@ -339,10 +340,9 @@
             // ustalSourceButton
             // 
             this.ustalSourceButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ustalSourceButton.Location = new System.Drawing.Point(853, 10);
-            this.ustalSourceButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ustalSourceButton.Location = new System.Drawing.Point(640, 8);
             this.ustalSourceButton.Name = "ustalSourceButton";
-            this.ustalSourceButton.Size = new System.Drawing.Size(149, 32);
+            this.ustalSourceButton.Size = new System.Drawing.Size(112, 26);
             this.ustalSourceButton.TabIndex = 4;
             this.ustalSourceButton.Text = "Ustal";
             this.ustalSourceButton.UseVisualStyleBackColor = true;
@@ -351,10 +351,9 @@
             // destinationFolderTextBox
             // 
             this.destinationFolderTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.destinationFolderTextBox.Location = new System.Drawing.Point(244, 57);
-            this.destinationFolderTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.destinationFolderTextBox.Location = new System.Drawing.Point(183, 46);
             this.destinationFolderTextBox.Name = "destinationFolderTextBox";
-            this.destinationFolderTextBox.Size = new System.Drawing.Size(600, 30);
+            this.destinationFolderTextBox.Size = new System.Drawing.Size(451, 26);
             this.destinationFolderTextBox.TabIndex = 3;
             // 
             // label2
@@ -362,20 +361,18 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(32, 59);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(24, 48);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(199, 29);
+            this.label2.Size = new System.Drawing.Size(156, 24);
             this.label2.TabIndex = 2;
             this.label2.Text = "Folder docelowy:";
             // 
             // sourceFolderTextBox
             // 
             this.sourceFolderTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.sourceFolderTextBox.Location = new System.Drawing.Point(244, 10);
-            this.sourceFolderTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sourceFolderTextBox.Location = new System.Drawing.Point(183, 8);
             this.sourceFolderTextBox.Name = "sourceFolderTextBox";
-            this.sourceFolderTextBox.Size = new System.Drawing.Size(600, 30);
+            this.sourceFolderTextBox.Size = new System.Drawing.Size(451, 26);
             this.sourceFolderTextBox.TabIndex = 1;
             // 
             // label1
@@ -383,22 +380,12 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(31, 12);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(23, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(195, 29);
+            this.label1.Size = new System.Drawing.Size(154, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Folder źródłowy:";
             // 
-            // SzczegolyPliku
-            // 
-            this.SzczegolyPliku.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SzczegolyPliku.Image = ((System.Drawing.Image)(resources.GetObject("SzczegolyPliku.Image")));
-            this.SzczegolyPliku.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.SzczegolyPliku.Name = "SzczegolyPliku";
-            this.SzczegolyPliku.Size = new System.Drawing.Size(29, 29);
-            this.SzczegolyPliku.Text = "Szczegoly";
-            this.SzczegolyPliku.Click += new System.EventHandler(this.SzczegolyPliku_Click);
             // niestandardoweSortowaniePanel
             // 
             this.niestandardoweSortowaniePanel.BackColor = System.Drawing.Color.Transparent;
@@ -408,38 +395,50 @@
             this.niestandardoweSortowaniePanel.Controls.Add(this.sortowanieNiestandardoweListBox);
             this.niestandardoweSortowaniePanel.Controls.Add(this.label4);
             this.niestandardoweSortowaniePanel.Controls.Add(this.label3);
-            this.niestandardoweSortowaniePanel.Location = new System.Drawing.Point(0, 571);
+            this.niestandardoweSortowaniePanel.Location = new System.Drawing.Point(0, 464);
+            this.niestandardoweSortowaniePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.niestandardoweSortowaniePanel.Name = "niestandardoweSortowaniePanel";
-            this.niestandardoweSortowaniePanel.Size = new System.Drawing.Size(1305, 146);
+            this.niestandardoweSortowaniePanel.Size = new System.Drawing.Size(979, 119);
             this.niestandardoweSortowaniePanel.TabIndex = 7;
             this.niestandardoweSortowaniePanel.Visible = false;
             // 
-            // label3
+            // sortujNiestandardowoButton
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tw Cen MT Condensed", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(49, 43);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(191, 22);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Wybierz sposób sortowania";
+            this.sortujNiestandardowoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.sortujNiestandardowoButton.Location = new System.Drawing.Point(848, 67);
+            this.sortujNiestandardowoButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sortujNiestandardowoButton.Name = "sortujNiestandardowoButton";
+            this.sortujNiestandardowoButton.Size = new System.Drawing.Size(120, 32);
+            this.sortujNiestandardowoButton.TabIndex = 5;
+            this.sortujNiestandardowoButton.Text = "Sortuj";
+            this.sortujNiestandardowoButton.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // flacCheckBox
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tw Cen MT Condensed", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(624, 43);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(224, 22);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Wybierz typ sortowanych plików";
+            this.flacCheckBox.AutoSize = true;
+            this.flacCheckBox.ForeColor = System.Drawing.Color.White;
+            this.flacCheckBox.Location = new System.Drawing.Point(733, 35);
+            this.flacCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flacCheckBox.Name = "flacCheckBox";
+            this.flacCheckBox.Size = new System.Drawing.Size(50, 17);
+            this.flacCheckBox.TabIndex = 4;
+            this.flacCheckBox.Text = "*.flac";
+            this.flacCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // mp3checkBox
+            // 
+            this.mp3checkBox.ForeColor = System.Drawing.Color.White;
+            this.mp3checkBox.Location = new System.Drawing.Point(650, 35);
+            this.mp3checkBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mp3checkBox.Name = "mp3checkBox";
+            this.mp3checkBox.Size = new System.Drawing.Size(78, 20);
+            this.mp3checkBox.TabIndex = 3;
+            this.mp3checkBox.Text = "*.mp3";
+            this.mp3checkBox.UseVisualStyleBackColor = true;
             // 
             // sortowanieNiestandardoweListBox
             // 
             this.sortowanieNiestandardoweListBox.FormattingEnabled = true;
-            this.sortowanieNiestandardoweListBox.ItemHeight = 16;
             this.sortowanieNiestandardoweListBox.Items.AddRange(new object[] {
             "Wykonawca\\Album\\Piosenki",
             "Wykonawca\\Rok\\Album\\Piosenki",
@@ -449,49 +448,43 @@
             "Rok\\Wykonawca\\Album\\Piosenki",
             "Piosenki\\Alfabetycznie",
             "Piosenki\\Wykonawca"});
-            this.sortowanieNiestandardoweListBox.Location = new System.Drawing.Point(276, 11);
+            this.sortowanieNiestandardoweListBox.Location = new System.Drawing.Point(207, 9);
+            this.sortowanieNiestandardoweListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.sortowanieNiestandardoweListBox.Name = "sortowanieNiestandardoweListBox";
-            this.sortowanieNiestandardoweListBox.Size = new System.Drawing.Size(303, 132);
+            this.sortowanieNiestandardoweListBox.Size = new System.Drawing.Size(228, 108);
             this.sortowanieNiestandardoweListBox.TabIndex = 2;
             // 
-            // mp3checkBox
+            // label4
             // 
-            this.mp3checkBox.ForeColor = System.Drawing.Color.White;
-            this.mp3checkBox.Location = new System.Drawing.Point(867, 43);
-            this.mp3checkBox.Name = "mp3checkBox";
-            this.mp3checkBox.Size = new System.Drawing.Size(104, 24);
-            this.mp3checkBox.TabIndex = 3;
-            this.mp3checkBox.Text = "*.mp3";
-            this.mp3checkBox.UseVisualStyleBackColor = true;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(468, 35);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(250, 18);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Wybierz typ sortowanych plików";
             // 
-            // flacCheckBox
+            // label3
             // 
-            this.flacCheckBox.AutoSize = true;
-            this.flacCheckBox.ForeColor = System.Drawing.Color.White;
-            this.flacCheckBox.Location = new System.Drawing.Point(977, 43);
-            this.flacCheckBox.Name = "flacCheckBox";
-            this.flacCheckBox.Size = new System.Drawing.Size(61, 21);
-            this.flacCheckBox.TabIndex = 4;
-            this.flacCheckBox.Text = "*.flac";
-            this.flacCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // sortujNiestandardowoButton
-            // 
-            this.sortujNiestandardowoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.sortujNiestandardowoButton.Location = new System.Drawing.Point(1131, 82);
-            this.sortujNiestandardowoButton.Name = "sortujNiestandardowoButton";
-            this.sortujNiestandardowoButton.Size = new System.Drawing.Size(160, 39);
-            this.sortujNiestandardowoButton.TabIndex = 5;
-            this.sortujNiestandardowoButton.Text = "Sortuj";
-            this.sortujNiestandardowoButton.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(37, 35);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(218, 18);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Wybierz sposób sortowania";
             // 
             // MainGUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::MuseSort.Properties.Resources.tlo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1317, 750);
+            this.ClientSize = new System.Drawing.Size(988, 609);
             this.Controls.Add(this.niestandardoweSortowaniePanel);
             this.Controls.Add(this.aktualnyFolder);
             this.Controls.Add(this.pictureBox1);
@@ -501,7 +494,6 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dodajPanel);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "MainGUI";
             this.Text = "MuseSort";
