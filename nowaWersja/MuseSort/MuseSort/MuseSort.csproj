@@ -151,6 +151,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SzczegolyMuzyki.resx">
       <DependentUpon>SzczegolyMuzyki.cs</DependentUpon>
+	</EmbeddedResource>
     <EmbeddedResource Include="UtworNowyWzorzecNazwyForm.resx">
       <DependentUpon>UtworNowyWzorzecNazwyForm.cs</DependentUpon>
     </EmbeddedResource>
