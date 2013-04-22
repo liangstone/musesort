@@ -44,8 +44,8 @@
             this.dodajPiosenkiButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.sortujButton = new System.Windows.Forms.ToolStripButton();
-            this.sortujCustom = new System.Windows.Forms.ToolStripButton();
             this.SzczegolyPliku = new System.Windows.Forms.ToolStripButton();
+            this.sortujCustom = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -70,6 +70,7 @@
             this.sortowanieNiestandardoweListBox = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.logiTextBox = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -211,16 +212,6 @@
             this.sortujButton.Text = "Sortuj";
             this.sortujButton.Click += new System.EventHandler(this.sortujButton_Click);
             // 
-            // sortujCustom
-            // 
-            this.sortujCustom.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.sortujCustom.Image = ((System.Drawing.Image)(resources.GetObject("sortujCustom.Image")));
-            this.sortujCustom.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.sortujCustom.Name = "sortujCustom";
-            this.sortujCustom.Size = new System.Drawing.Size(29, 29);
-            this.sortujCustom.Text = "Sortowanie niestandardowe";
-            this.sortujCustom.Click += new System.EventHandler(this.sortujCustom_Click);
-            // 
             // SzczegolyPliku
             // 
             this.SzczegolyPliku.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -230,6 +221,16 @@
             this.SzczegolyPliku.Size = new System.Drawing.Size(29, 29);
             this.SzczegolyPliku.Text = "Szczegoly";
             this.SzczegolyPliku.Click += new System.EventHandler(this.SzczegolyPliku_Click);
+            // 
+            // sortujCustom
+            // 
+            this.sortujCustom.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.sortujCustom.Image = ((System.Drawing.Image)(resources.GetObject("sortujCustom.Image")));
+            this.sortujCustom.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.sortujCustom.Name = "sortujCustom";
+            this.sortujCustom.Size = new System.Drawing.Size(29, 29);
+            this.sortujCustom.Text = "Sortowanie niestandardowe";
+            this.sortujCustom.Click += new System.EventHandler(this.sortujCustom_Click);
             // 
             // statusStrip1
             // 
@@ -396,7 +397,7 @@
             this.niestandardoweSortowaniePanel.Controls.Add(this.label4);
             this.niestandardoweSortowaniePanel.Controls.Add(this.label3);
             this.niestandardoweSortowaniePanel.Location = new System.Drawing.Point(0, 464);
-            this.niestandardoweSortowaniePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.niestandardoweSortowaniePanel.Margin = new System.Windows.Forms.Padding(2);
             this.niestandardoweSortowaniePanel.Name = "niestandardoweSortowaniePanel";
             this.niestandardoweSortowaniePanel.Size = new System.Drawing.Size(979, 119);
             this.niestandardoweSortowaniePanel.TabIndex = 7;
@@ -406,7 +407,7 @@
             // 
             this.sortujNiestandardowoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.sortujNiestandardowoButton.Location = new System.Drawing.Point(848, 67);
-            this.sortujNiestandardowoButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sortujNiestandardowoButton.Margin = new System.Windows.Forms.Padding(2);
             this.sortujNiestandardowoButton.Name = "sortujNiestandardowoButton";
             this.sortujNiestandardowoButton.Size = new System.Drawing.Size(120, 32);
             this.sortujNiestandardowoButton.TabIndex = 5;
@@ -417,8 +418,8 @@
             // 
             this.flacCheckBox.AutoSize = true;
             this.flacCheckBox.ForeColor = System.Drawing.Color.White;
-            this.flacCheckBox.Location = new System.Drawing.Point(733, 35);
-            this.flacCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flacCheckBox.Location = new System.Drawing.Point(848, 32);
+            this.flacCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.flacCheckBox.Name = "flacCheckBox";
             this.flacCheckBox.Size = new System.Drawing.Size(50, 17);
             this.flacCheckBox.TabIndex = 4;
@@ -428,8 +429,8 @@
             // mp3checkBox
             // 
             this.mp3checkBox.ForeColor = System.Drawing.Color.White;
-            this.mp3checkBox.Location = new System.Drawing.Point(650, 35);
-            this.mp3checkBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mp3checkBox.Location = new System.Drawing.Point(766, 29);
+            this.mp3checkBox.Margin = new System.Windows.Forms.Padding(2);
             this.mp3checkBox.Name = "mp3checkBox";
             this.mp3checkBox.Size = new System.Drawing.Size(78, 20);
             this.mp3checkBox.TabIndex = 3;
@@ -448,8 +449,8 @@
             "Rok\\Wykonawca\\Album\\Piosenki",
             "Piosenki\\Alfabetycznie",
             "Piosenki\\Wykonawca"});
-            this.sortowanieNiestandardoweListBox.Location = new System.Drawing.Point(207, 9);
-            this.sortowanieNiestandardoweListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sortowanieNiestandardoweListBox.Location = new System.Drawing.Point(259, 4);
+            this.sortowanieNiestandardoweListBox.Margin = new System.Windows.Forms.Padding(2);
             this.sortowanieNiestandardoweListBox.Name = "sortowanieNiestandardoweListBox";
             this.sortowanieNiestandardoweListBox.Size = new System.Drawing.Size(228, 108);
             this.sortowanieNiestandardoweListBox.TabIndex = 2;
@@ -459,7 +460,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(468, 35);
+            this.label4.Location = new System.Drawing.Point(500, 29);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(250, 18);
@@ -478,6 +479,14 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Wybierz sposób sortowania";
             // 
+            // logiTextBox
+            // 
+            this.logiTextBox.Location = new System.Drawing.Point(783, 289);
+            this.logiTextBox.Multiline = true;
+            this.logiTextBox.Name = "logiTextBox";
+            this.logiTextBox.Size = new System.Drawing.Size(196, 170);
+            this.logiTextBox.TabIndex = 8;
+            // 
             // MainGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -485,6 +494,7 @@
             this.BackgroundImage = global::MuseSort.Properties.Resources.tlo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(988, 609);
+            this.Controls.Add(this.logiTextBox);
             this.Controls.Add(this.niestandardoweSortowaniePanel);
             this.Controls.Add(this.aktualnyFolder);
             this.Controls.Add(this.pictureBox1);
@@ -555,9 +565,8 @@
         private System.Windows.Forms.ListBox sortowanieNiestandardoweListBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-
-        private System.Windows.Forms.TextBox logiTextBox;
         private System.Windows.Forms.ToolStripButton SzczegolyPliku;
+        private System.Windows.Forms.TextBox logiTextBox;
 
     }
 }
