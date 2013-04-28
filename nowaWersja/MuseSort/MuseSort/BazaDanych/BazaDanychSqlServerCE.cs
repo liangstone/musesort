@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data.SqlClient;
-using System.Data.SqlServerCe;
 using System.Data;
+using System.Data.SqlServerCe;
 
 namespace MuseSort
 {
@@ -44,7 +41,8 @@ namespace MuseSort
                 }
                 catch (SqlCeException e)
                 {
-                    throw new Exception("Wystąpił błąd przy wykonywaniu zapytania " + select.CommandText, e);
+                    
+                    throw new EvaluateException("Wystąpił błąd przy wykonywaniu zapytania " + select.CommandText, e);
                 }
 
                 using (DataTable tabela = new DataTable())
@@ -79,14 +77,14 @@ namespace MuseSort
                 }
                 catch (SqlCeException SQLe)
                 {
-                    Exception e = new Exception("Wystąpił błąd przy próbie wykonania polecenia " + delete.CommandText, SQLe);
+                    InvalidOperationException e = new InvalidOperationException("Wystąpił błąd przy próbie wykonania polecenia " + delete.CommandText, SQLe);
                     try
                     {
                         traksakcja.Rollback();
                     }
                     catch (InvalidOperationException IOe)
                     {
-                        e = new Exception("Wstąpił błąd przy próbie cofnięcia transakcji \npo błędzie polecenia " + delete.CommandText, IOe);
+                        e = new InvalidOperationException("Wstąpił błąd przy próbie cofnięcia transakcji \npo błędzie polecenia " + delete.CommandText, IOe);
                     }
                     throw e;
                 }
@@ -112,14 +110,14 @@ namespace MuseSort
                 }
                 catch (SqlCeException SQLe)
                 {
-                    Exception e = new Exception("Wystąpił błąd przy próbie wykonania polecenia " + insert.CommandText, SQLe);
+                    InvalidOperationException e = new InvalidOperationException("Wystąpił błąd przy próbie wykonania polecenia " + insert.CommandText, SQLe);
                     try
                     {
                         traksakcja.Rollback();
                     }
                     catch (InvalidOperationException IOe)
                     {
-                        e = new Exception("Wstąpił błąd przy próbie cofnięcia transakcji \npo błędzie polecenia " + insert.CommandText, IOe);
+                        e = new InvalidOperationException("Wstąpił błąd przy próbie cofnięcia transakcji \npo błędzie polecenia " + insert.CommandText, IOe);
                     }
                     throw e;
                 }
@@ -155,14 +153,14 @@ namespace MuseSort
                 }
                 catch (SqlCeException SQLe)
                 {
-                    Exception e = new Exception("Wystąpił błąd przy próbie wykonania polecenia " + insert.CommandText, SQLe);
+                    InvalidOperationException e = new InvalidOperationException("Wystąpił błąd przy próbie wykonania polecenia " + insert.CommandText, SQLe);
                     try
                     {
                         traksakcja.Rollback();
                     }
                     catch (InvalidOperationException IOe)
                     {
-                        e = new Exception("Wstąpił błąd przy próbie cofnięcia transakcji \npo błędzie polecenia " + insert.CommandText, IOe);
+                        e = new InvalidOperationException("Wstąpił błąd przy próbie cofnięcia transakcji \npo błędzie polecenia " + insert.CommandText, IOe);
                     }
                     throw e;
                 }
@@ -190,14 +188,14 @@ namespace MuseSort
                 }
                 catch (SqlCeException SQLe)
                 {
-                    Exception e = new Exception("Wystąpił błąd przy próbie wykonania polecenia " + update.CommandText, SQLe);
+                    InvalidOperationException e = new InvalidOperationException("Wystąpił błąd przy próbie wykonania polecenia " + update.CommandText, SQLe);
                     try
                     {
                         traksakcja.Rollback();
                     }
                     catch (InvalidOperationException IOe)
                     {
-                        e = new Exception("Wstąpił błąd przy próbie cofnięcia transakcji \npo błędzie polecenia " + update.CommandText, IOe);
+                        e = new InvalidOperationException("Wstąpił błąd przy próbie cofnięcia transakcji \npo błędzie polecenia " + update.CommandText, IOe);
                     }
                     throw e;
                 }
@@ -205,9 +203,14 @@ namespace MuseSort
             }
         }
 
-        public string[] getNazwyKolumn(string nazwaTabeli)
+        /// <summary>Pobiera z bazy danych informacje o strukturze tabeli.</summary>
+        /// <returns>Każdy WierszTabeli w liście zawiera informacje o kolumnie tabeli, 
+        /// w kolejności zgodnej z kolejnością kolumn w tabeli.
+        /// W przypadku gdy w w bazie tabeli nie znaleziono, zwracany jest null.</returns>
+        public List<WierszTabeli> getSchemaInfo(string nazwaTabeli)
         {
-            List<string> wynik = new List<string>();
+            //List<string> _wynik = new List<string>();
+            List<WierszTabeli> wynik = new List<WierszTabeli>();
             using (SqlCeConnection connection = new SqlCeConnection(connectionString))
             {
                 connection.Open();
@@ -217,7 +220,7 @@ namespace MuseSort
                 {
                     reader = select.ExecuteReader();
                 }
-                catch (SqlCeException e)
+                catch (SqlCeException)
                 {
                     return null;
                 }
@@ -227,12 +230,13 @@ namespace MuseSort
                 {
                     foreach (DataRow wiersz in tabela.Rows)
                     {
-                        wynik.Add(wiersz.Field<string>("ColumnName"));
+                        //_wynik.Add(wiersz.Field<string>("ColumnName"));
+                        wynik.Add(new WierszTabeli(wiersz));
                     } 
                 }
             }
 
-            return wynik.ToArray();
+            return wynik;
         }
 
         #endregion

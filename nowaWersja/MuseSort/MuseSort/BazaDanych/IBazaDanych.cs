@@ -5,7 +5,7 @@ namespace MuseSort
     interface IBazaDanych
     {
         void delete(WierszTabeli where);
-        string[] getNazwyKolumn(string nazwaTabeli);
+        List<WierszTabeli> getSchemaInfo(string nazwaTabeli);
         void insert(WierszTabeli nowyWiersz); 
         void insert(IList<WierszTabeli> noweWiersze);
         void update(WierszTabeli where, WierszTabeli noweDane);
