@@ -56,6 +56,30 @@
     <Compile Include="BazaDanychMuzyka.cs" />
     <Compile Include="Dane.cs" />
     <Compile Include="DaneFilmu.cs" />
+    <Compile Include="DatabaseFilm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatabaseFilm.Designer.cs">
+      <DependentUpon>DatabaseFilm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseMuzyka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatabaseMuzyka.Designer.cs">
+      <DependentUpon>DatabaseMuzyka.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseSerial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatabaseSerial.Designer.cs">
+      <DependentUpon>DatabaseSerial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatabaseStart.Designer.cs">
+      <DependentUpon>DatabaseStart.cs</DependentUpon>
+    </Compile>
     <Compile Include="EdycjaPliku.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +146,18 @@
       <DependentUpon>UtworzUstawienia.cs</DependentUpon>
     </Compile>
     <Compile Include="Wzorzec.cs" />
+    <EmbeddedResource Include="DatabaseFilm.resx">
+      <DependentUpon>DatabaseFilm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatabaseMuzyka.resx">
+      <DependentUpon>DatabaseMuzyka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatabaseSerial.resx">
+      <DependentUpon>DatabaseSerial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatabaseStart.resx">
+      <DependentUpon>DatabaseStart.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EdycjaPliku.resx">
       <DependentUpon>EdycjaPliku.cs</DependentUpon>
     </EmbeddedResource>
