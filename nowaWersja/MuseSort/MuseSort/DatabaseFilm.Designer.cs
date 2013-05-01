@@ -29,6 +29,20 @@
         private void InitializeComponent()
         {
             this.wrocButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.filmyButton = new System.Windows.Forms.Button();
+            this.gatunkiButton = new System.Windows.Forms.Button();
+            this.produkcjaButton = new System.Windows.Forms.Button();
+            this.rokButton = new System.Windows.Forms.Button();
+            this.filmyPanel = new System.Windows.Forms.Panel();
+            this.tabela = new System.Windows.Forms.DataGridView();
+            this.Tytuł = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rok = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Produkcja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usunButton = new System.Windows.Forms.Button();
+            this.dodajButton = new System.Windows.Forms.Button();
+            this.filmyPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tabela)).BeginInit();
             this.SuspendLayout();
             // 
             // wrocButton
@@ -44,6 +58,133 @@
             this.wrocButton.UseVisualStyleBackColor = false;
             this.wrocButton.Click += new System.EventHandler(this.wrocButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(13, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(218, 33);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Twoje Filmy";
+            // 
+            // filmyButton
+            // 
+            this.filmyButton.BackColor = System.Drawing.Color.Blue;
+            this.filmyButton.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filmyButton.ForeColor = System.Drawing.Color.Transparent;
+            this.filmyButton.Location = new System.Drawing.Point(54, 78);
+            this.filmyButton.Name = "filmyButton";
+            this.filmyButton.Size = new System.Drawing.Size(152, 41);
+            this.filmyButton.TabIndex = 3;
+            this.filmyButton.Text = "Filmy";
+            this.filmyButton.UseVisualStyleBackColor = false;
+            this.filmyButton.Click += new System.EventHandler(this.filmyButton_Click);
+            // 
+            // gatunkiButton
+            // 
+            this.gatunkiButton.BackColor = System.Drawing.Color.Blue;
+            this.gatunkiButton.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gatunkiButton.ForeColor = System.Drawing.Color.Transparent;
+            this.gatunkiButton.Location = new System.Drawing.Point(228, 78);
+            this.gatunkiButton.Name = "gatunkiButton";
+            this.gatunkiButton.Size = new System.Drawing.Size(152, 41);
+            this.gatunkiButton.TabIndex = 4;
+            this.gatunkiButton.Text = "Gatunki";
+            this.gatunkiButton.UseVisualStyleBackColor = false;
+            this.gatunkiButton.Click += new System.EventHandler(this.gatunkiButton_Click);
+            // 
+            // produkcjaButton
+            // 
+            this.produkcjaButton.BackColor = System.Drawing.Color.Blue;
+            this.produkcjaButton.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.produkcjaButton.ForeColor = System.Drawing.Color.Transparent;
+            this.produkcjaButton.Location = new System.Drawing.Point(415, 78);
+            this.produkcjaButton.Name = "produkcjaButton";
+            this.produkcjaButton.Size = new System.Drawing.Size(152, 41);
+            this.produkcjaButton.TabIndex = 5;
+            this.produkcjaButton.Text = "Produkcja";
+            this.produkcjaButton.UseVisualStyleBackColor = false;
+            this.produkcjaButton.Click += new System.EventHandler(this.produkcjaButton_Click);
+            // 
+            // rokButton
+            // 
+            this.rokButton.BackColor = System.Drawing.Color.Blue;
+            this.rokButton.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rokButton.ForeColor = System.Drawing.Color.Transparent;
+            this.rokButton.Location = new System.Drawing.Point(595, 78);
+            this.rokButton.Name = "rokButton";
+            this.rokButton.Size = new System.Drawing.Size(152, 41);
+            this.rokButton.TabIndex = 6;
+            this.rokButton.Text = "Rok";
+            this.rokButton.UseVisualStyleBackColor = false;
+            this.rokButton.Click += new System.EventHandler(this.rokButton_Click);
+            // 
+            // filmyPanel
+            // 
+            this.filmyPanel.BackColor = System.Drawing.Color.Transparent;
+            this.filmyPanel.Controls.Add(this.tabela);
+            this.filmyPanel.Location = new System.Drawing.Point(44, 164);
+            this.filmyPanel.Name = "filmyPanel";
+            this.filmyPanel.Size = new System.Drawing.Size(703, 338);
+            this.filmyPanel.TabIndex = 7;
+            // 
+            // tabela
+            // 
+            this.tabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tabela.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Tytuł,
+            this.rok,
+            this.Produkcja});
+            this.tabela.Location = new System.Drawing.Point(65, 60);
+            this.tabela.Name = "tabela";
+            this.tabela.RowTemplate.Height = 24;
+            this.tabela.Size = new System.Drawing.Size(379, 152);
+            this.tabela.TabIndex = 0;
+            // 
+            // Tytuł
+            // 
+            this.Tytuł.HeaderText = "Column1";
+            this.Tytuł.Name = "Tytuł";
+            // 
+            // rok
+            // 
+            this.rok.HeaderText = "Column1";
+            this.rok.Name = "rok";
+            // 
+            // Produkcja
+            // 
+            this.Produkcja.HeaderText = "Column1";
+            this.Produkcja.Name = "Produkcja";
+            // 
+            // usunButton
+            // 
+            this.usunButton.BackColor = System.Drawing.Color.MediumBlue;
+            this.usunButton.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.usunButton.ForeColor = System.Drawing.Color.Snow;
+            this.usunButton.Location = new System.Drawing.Point(787, 209);
+            this.usunButton.Name = "usunButton";
+            this.usunButton.Size = new System.Drawing.Size(121, 48);
+            this.usunButton.TabIndex = 8;
+            this.usunButton.Text = "USUŃ";
+            this.usunButton.UseVisualStyleBackColor = false;
+            this.usunButton.Click += new System.EventHandler(this.usunButton_Click);
+            // 
+            // dodajButton
+            // 
+            this.dodajButton.BackColor = System.Drawing.Color.MediumBlue;
+            this.dodajButton.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.dodajButton.ForeColor = System.Drawing.Color.Snow;
+            this.dodajButton.Location = new System.Drawing.Point(787, 271);
+            this.dodajButton.Name = "dodajButton";
+            this.dodajButton.Size = new System.Drawing.Size(121, 48);
+            this.dodajButton.TabIndex = 9;
+            this.dodajButton.Text = "DODAJ";
+            this.dodajButton.UseVisualStyleBackColor = false;
+            this.dodajButton.Click += new System.EventHandler(this.dodajButton_Click);
+            // 
             // DatabaseFilm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -51,15 +192,38 @@
             this.BackgroundImage = global::MuseSort.Properties.Resources.tlo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(987, 514);
+            this.Controls.Add(this.dodajButton);
+            this.Controls.Add(this.usunButton);
+            this.Controls.Add(this.filmyPanel);
+            this.Controls.Add(this.rokButton);
+            this.Controls.Add(this.produkcjaButton);
+            this.Controls.Add(this.gatunkiButton);
+            this.Controls.Add(this.filmyButton);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.wrocButton);
             this.Name = "DatabaseFilm";
             this.Text = "Twoje Filmy";
+            this.filmyPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tabela)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button wrocButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button filmyButton;
+        private System.Windows.Forms.Button gatunkiButton;
+        private System.Windows.Forms.Button produkcjaButton;
+        private System.Windows.Forms.Button rokButton;
+        private System.Windows.Forms.Panel filmyPanel;
+        private System.Windows.Forms.DataGridView tabela;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tytuł;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rok;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Produkcja;
+        private System.Windows.Forms.Button usunButton;
+        private System.Windows.Forms.Button dodajButton;
     }
 }
