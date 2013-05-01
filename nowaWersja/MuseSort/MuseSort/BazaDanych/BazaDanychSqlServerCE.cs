@@ -21,6 +21,12 @@ namespace MuseSort
             }
         }
 
+        /// <summary>Zwraca listę rekordów, których wartości w wybranych kolumnach są równe podanym w parametrze.</summary>
+        /// <param name="where">
+        /// <para>Zawiera wartości, jakie znajdują się w zwracanych rekordach.</para> 
+        /// <para>Wartości dla kolumn, dla których nie sprawdzamy wartości mają pozostać jako null.</para>
+        /// </param>
+        /// <returns>Lista rekordów odpowiadających zapytaniu.</returns>
         public IList<WierszTabeli> select(WierszTabeli where)
         {
             IList<WierszTabeli> wynik = new List<WierszTabeli>();
@@ -61,6 +67,11 @@ namespace MuseSort
             return wynik;
         }
 
+        /// <summary>Usuwa z bazy danych rzędy, których wartości w wybranych kolumnach są równe podanym w parametrze.</summary>
+        /// <param name="where">
+        /// <para>Zawiera wartości, jakie znajdują się w usuwanych rekordach.</para> 
+        /// <para>Wartości dla kolumn, dla których nie sprawdzamy wartości mają pozostać jako null.</para>
+        /// </param>
         public void delete(WierszTabeli where)
         {
 
@@ -91,6 +102,8 @@ namespace MuseSort
             }
         }
 
+        /// <summary>Dodaje podany wiersz do odpowiedniej tabeli.</summary>
+        /// <param name="nowyWiersz">Wiersz do dodania.</param>
         public void insert(WierszTabeli nowyWiersz)
         {
             nowyWiersz = opakujWartosci(nowyWiersz);
@@ -125,6 +138,8 @@ namespace MuseSort
             }
         }
 
+        /// <summary>Dodaje podane wierse do odpowiedniej tabeli.</summary>
+        /// <param name="nowyWiersz">Wiersze do dodania.</param>
         public void insert(IList<WierszTabeli> noweWiersze)
         {
             if (noweWiersze.Count == 0)
@@ -169,6 +184,16 @@ namespace MuseSort
 
         }
 
+        /// <summary>Zmienia dane w rzędach, w których wartości w wybranych kolumnach są równe podanym w parametrze where 
+        /// na te podane w parametrze noweDane.</summary>
+        /// <param name="where">
+        /// <para>Zawiera wartości, jakie znajdują się w zmienianych rekordach.</para> 
+        /// <para>Wartości dla kolumn, dla których nie sprawdzamy wartości mają pozostać jako null.</para>
+        /// </param>
+        /// <param name="noweDane">
+        /// <para>Zawiera wartości, jakie znajdą się w zmienianych rekordach.</para> 
+        /// <para>Wartości dla kolumn, dla których nie zmianiamy wartości mają pozostać jako null.</para>
+        /// </param>
         public void update(WierszTabeli where, WierszTabeli noweDane)
         {
             using (SqlCeConnection connection = new SqlCeConnection(connectionString))
@@ -203,10 +228,33 @@ namespace MuseSort
             }
         }
 
-        /// <summary>Pobiera z bazy danych informacje o strukturze tabeli.</summary>
-        /// <returns>Każdy WierszTabeli w liście zawiera informacje o kolumnie tabeli, 
-        /// w kolejności zgodnej z kolejnością kolumn w tabeli.
-        /// W przypadku gdy w w bazie tabeli nie znaleziono, zwracany jest null.</returns>
+
+        /// <summary>Pobiera informacje o kolumnach danej tabeli w bazie danych.</summary>
+        /// <param name="nazwaTabeli">Nazwa tabeli której opis ma być pobrany.</param>
+        /// <remarks>Nazwa tabeli tych wierszy to SchemaTable. Zawarte dane (Typ, Nazwa kolumny, Opis):
+        /// <list type="bullet">
+        /// <item><description>System.String, ColumnName, Nazwa kolumny</description></item>
+        /// <item><description>System.RuntimeType, DataType, Typ danych C# który przyjmuje </description></item>
+        /// <item><description>System.Int32, ColumnOrdinal</description></item>
+        /// <item><description>System.Int32, ColumnSize</description></item>
+        /// <item><description>System.DBNull, NumericPrecision</description></item>
+        /// <item><description>System.DBNull, NumericScale</description></item>
+        /// <item><description>System.DBNull, IsUnique</description></item>
+        /// <item><description>System.DBNull, IsKey</description></item>
+        /// <item><description>System.String, BaseColumnName</description></item>
+        /// <item><description>System.String, BaseTableName</description></item>
+        /// <item><description>System.Boolean, AllowDBNull</description></item>
+        /// <item><description>System.Data.SqlServerCe.SqlCeType, ProviderType</description></item>
+        /// <item><description>System.Boolean, IsAliased</description></item>
+        /// <item><description>System.Boolean, IsExpression</description></item>
+        /// <item><description>System.Boolean, IsIdentity</description></item>
+        /// <item><description>System.Boolean, IsAutoIncrement</description></item>
+        /// <item><description>System.Boolean, IsRowVersion</description></item>
+        /// <item><description>System.Boolean, IsLong</description></item>
+        /// <item><description>System.Boolean, IsReadOnly</description></item>
+        /// </list>
+        /// </remarks>
+        /// <returns>Lista WierszyTabeli, każdy z informacjami o jednej z kolumn, w kolejności w której występują w tabeli.</returns>
         public List<WierszTabeli> getSchemaInfo(string nazwaTabeli)
         {
             //List<string> _wynik = new List<string>();
@@ -241,6 +289,10 @@ namespace MuseSort
 
         #endregion
 
+
+        #region Metody prywatne
+
+        /// <summary>Zmienia format wartości w wierszu na zgodny z SQL Server CE</summary>
         static WierszTabeli opakujWartosci(WierszTabeli wiersz)
         {
             WierszTabeli wynik = new WierszTabeli(wiersz);
@@ -251,16 +303,16 @@ namespace MuseSort
             return wynik;
         }
 
-        static string opakujWartosc(Object wartosc)
+        /// <summary>Zmienia format wartości na zgodny z SQL Server CE</summary>
+        static Object opakujWartosc(Object wartosc)
         {
-            if (wartosc == null)
-                return null;
-            if (wartosc.GetType() == typeof(string))
+            if (wartosc != null && wartosc.GetType() == typeof(string))
                 return "N'" + wartosc.ToString() + "'";
             else
-                return wartosc.ToString();
+                return wartosc;
         }
 
+        /// <summary>Konstruuje klauzulę WHERE dla podanego wiersza</summary>
         static string klauzulaWhere(WierszTabeli zapytanie)
         {
             List<string> warunki = new List<string>();
@@ -278,7 +330,8 @@ namespace MuseSort
             else
                 return " WHERE (" + string.Join(" AND ", warunki) + ")";
         }
-
+        
+        #endregion
 
 
     }

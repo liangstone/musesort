@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace MuseSort
@@ -13,7 +11,10 @@ namespace MuseSort
         [STAThread]
         static void Main()
         {
-            AppDomain.CurrentDomain.SetData("DataDirectory", "../../BazaDanych");
+            //Konieczne dla prawidłowgo funkcjonowania bazy danych, 
+            //ustala relatywną ścieżkę pliku bazodanowago względem katalogu początkowego.
+            AppDomain.CurrentDomain.SetData("DataDirectory", "../../BazaDanych"); 
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainGUI());

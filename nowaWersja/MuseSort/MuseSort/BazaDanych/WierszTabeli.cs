@@ -70,7 +70,17 @@ namespace MuseSort
         /// <summary>Zawiera tablicę nazw kolumn.</summary>
         public string[] NazwyKolumn
         {
-            get { return tabele[NazwaTabeli].nazwyKolumn; }
+            get 
+            {
+                try
+                {
+                    return tabele[NazwaTabeli].nazwyKolumn;
+                }
+                catch (KeyNotFoundException) //W przyadku wiersza nie odpowiadającego tabeli (SchemaTable)
+                {
+                    return zawartosc.Keys.ToArray();
+                }
+            }
         }
 
         /// <summary>Zawiera wartości posczególnych kolumn dla tego wiersza. </summary>
@@ -78,7 +88,15 @@ namespace MuseSort
         {
             get
             {
-                string[] nazwy = tabele[NazwaTabeli].nazwyKolumn;
+                string[] nazwy;
+                try
+                {
+                    nazwy = tabele[NazwaTabeli].nazwyKolumn;
+                }
+                catch (KeyNotFoundException) //W przyadku wiersza nie odpowiadającego tabeli (SchemaTable)
+                {
+                    nazwy = zawartosc.Keys.ToArray();
+                }
                 Object[] wynik = new Object[nazwy.Length];
                 for (int i = 0; i < wynik.Length; i++)
                     wynik[i] = zawartosc[nazwy[i]];
@@ -105,9 +123,6 @@ namespace MuseSort
             }
 
             string[] nazwy = tabele[nazwaTabeli].nazwyKolumn;
-            
-            if (nazwy == null)
-                throw new ArgumentException("Nieprawidłowa nazwa tabeli: " + nazwaTabeli);
 
             this.NazwaTabeli = nazwaTabeli;
             this.zawartosc = new Dictionary<string, object>();
@@ -171,17 +186,25 @@ namespace MuseSort
 
         #region Pola i metody prywatne
 
+        /// <summary>Klucze - nazwy kolumn, wartości - wartości kolumn.</summary>
         Dictionary<string, Object> zawartosc;
+
+        /// <summary>Klucze - nazwy kolumn, wartości - typy kolumn.</summary>
         Dictionary<string, Type> typyKolumn;
-        //static volatile Dictionary<string, string[]> nazwyKolumnDict = new Dictionary<string, string[]>();
+
+        /// <summary>Cache informacji o strukturach tabel.</summary>
         static volatile Dictionary<string, SchemaInfo> tabele = new Dictionary<string, SchemaInfo>();
         
         /// <summary>Struct służący do przechowywania danych o strukturze tabeli.</summary>
         struct SchemaInfo
         {
+            /// <summary>Kolumny w kolejności występowania w tabeli.</summary>
             public readonly string[] nazwyKolumn;
+
+            /// <summary>Mapuje nazwy kolumn do ich typów C#.</summary>
             public readonly Dictionary<string, Type> mapaTypow;
 
+            /// <summary>Bazowy konstruktor wypełniający struct podanymi danymi.</summary>
             public SchemaInfo(string[] nazwyKolumn, Dictionary<string, Type> typyKolumn)
             {
                 this.nazwyKolumn = nazwyKolumn;
