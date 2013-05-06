@@ -61,7 +61,15 @@ namespace MuseSort
 
             label3.Text = tresc;
 
-
+            links = from link in doc.DocumentNode.Descendants()
+                    where link.Name == "a" && link.Attributes["class"] != null && link.Attributes["class"].Value == "image"
+                    select link;
+            tresc = links.ElementAt<HtmlNode>(0).InnerHtml;
+            String[] temp = tresc.Split('"');
+            MessageBox.Show(temp[3]);
+            temp[3] = temp[3].Substring(2);
+            MessageBox.Show(temp[3]);
+            cover.Load("http://" + temp[3]);
             try
             {
                 content = klient.DownloadString("http://fm.tuba.pl/artysta/" + wykonawca);
