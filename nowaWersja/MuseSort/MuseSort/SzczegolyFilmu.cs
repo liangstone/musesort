@@ -49,9 +49,7 @@ namespace MuseSort
             }
             catch (Exception e)
             {
-                System.Console.WriteLine("HTTP Connection Error: " + e.Message);
-                System.Console.ReadLine();
-                System.Environment.Exit(0);
+                MessageBox.Show("HTTP Connection Error: " + e.Message);
             }
             label1.Text = content;
             HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();

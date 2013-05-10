@@ -66,9 +66,9 @@ namespace MuseSort
                     select link;
             tresc = links.ElementAt<HtmlNode>(0).InnerHtml;
             String[] temp = tresc.Split('"');
-            MessageBox.Show(temp[3]);
+            //MessageBox.Show(temp[3]);
             temp[3] = temp[3].Substring(2);
-            MessageBox.Show(temp[3]);
+            //MessageBox.Show(temp[3]);
             cover.Load("http://" + temp[3]);
             try
             {
@@ -76,9 +76,7 @@ namespace MuseSort
             }
             catch (Exception e)
             {
-                System.Console.WriteLine("HTTP Connection Error: " + e.Message);
-                System.Console.ReadLine();
-                System.Environment.Exit(0);
+                MessageBox.Show("HTTP Connection Error: " + e.Message);
             }
             doc = new HtmlAgilityPack.HtmlDocument();
             doc.LoadHtml(content);
