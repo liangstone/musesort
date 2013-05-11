@@ -226,9 +226,46 @@ namespace MuseSort
             else
                 sciezka_katalogu = sciezka_katalogu_z_pol(plik);
 
+            #region Tworzenie katalogu
             if (!Directory.Exists(sciezka_katalogu))
-                Directory.CreateDirectory(sciezka_katalogu); // to tworzy też wszystkie katalogi które są "po drodze"
-            // tzn. wyższego rzędu które też nie istnieją
+            {
+                string nowyKatalog = sciezka_katalogu; //Używamy nowej zmiennej, by zachować oryginalną ścieżkę na potrzeby logowania błędów.
+                while (!Directory.Exists(nowyKatalog))
+                {
+                    try
+                    {
+                        Directory.CreateDirectory(nowyKatalog); // to tworzy też wszystkie katalogi które są "po drodze"
+                        // tzn. wyższego rzędu które też nie istnieją
+                    }
+                    catch (NotSupportedException) //Rzucane, gdy w ścieżce wystąpi ':' poza nazwą dysku.
+                    {
+                        int ostatniDwukropek = nowyKatalog.LastIndexOf(':');
+                        if (ostatniDwukropek < nowyKatalog.LastIndexOf('\\')) //Jeśli ostatni dwukropek występuje poza nazwą ostatniego katalogu, nie sortujemy takiego pliku.
+                        {
+                            string message = "Nie posortowano pliku:\n" + plik.Sciezka
+                                + "Gdyż wedle wybranego schematu: " + schemat
+                                + "\nGenerowana jest nieprawidłowa (z punktu widzenia systemu) ścieżka:\n'"
+                                + sciezka_katalogu + "'";
+                            Console.WriteLine(message);
+                            logi += message;
+                            return;
+                        }
+                        nowyKatalog = nowyKatalog.Substring(0, ostatniDwukropek); //Obcinamy ostatni dwukropek
+                    }
+                    catch (ArgumentException) //Rzucane, gdy ścieżka jest pusta lub zaczyna się od ':'
+                    {
+                        string message = "Nie posortowano pliku:\n" + plik.Sciezka
+                            + "Gdyż wedle wybranego schematu: " + schemat
+                            + "\nGenerowana jest nieprawidłowa (z punktu widzenia systemu) ścieżka:\n'"
+                            + sciezka_katalogu + "'";
+                        Console.WriteLine(message);
+                        logi += message;
+                        return;
+                    }
+                }
+                sciezka_katalogu = nowyKatalog; //Jeśli udało się pomyślnie utworzyć katalog, przepisujemy ostateczną ścieżkę z powrotem.
+            }
+            #endregion
 
             //Przenosimy plik.
 
@@ -237,7 +274,16 @@ namespace MuseSort
                 plik.przeniesPlik(sciezka_katalogu);
                 logi += plik.logi;
             }
-            catch (System.IO.IOException) //rzucane w przypadku kolizji nazw plików
+            catch (PathTooLongException)
+            {
+                string message = "Nie posortowano pliku:\n" + plik.Sciezka
+                    + "Gdyż wedle wybranego schematu: " + schemat
+                    + "\nGenerowana jest nieprawidłowa (konkratnie: za długa) ścieżka:\n'"
+                    + sciezka_katalogu + "'";
+                Console.WriteLine(message);
+                logi += message;
+            }
+            catch (IOException) //rzucane w przypadku kolizji nazw plików
             {
                 duplikat(Plik.Create(Path.Combine(sciezka_katalogu, nazwaPliku)), plik);
             }
@@ -301,27 +347,29 @@ namespace MuseSort
                 kategorie = temp.ToArray();                                       //ale i tak pracujemy na obiekcie kilkuelementowym
             }
 
-            #region Sporządź listę kategorii, po których można sortować.
-            Type[] poprawne_typy = { typeof(string), typeof(int), typeof(uint), typeof(string[]) }; //typy pól, po których można sortować
-            List<string> poprawne_kategorie = new List<string>();
-            foreach (System.Reflection.FieldInfo pole in typeof(DaneUtworu).GetFields())
-                if (poprawne_typy.Contains(pole.FieldType))
-                    poprawne_kategorie.Add(pole.Name);
+            //Bug: walidacja kategorii zakłada, że sortujemy muzykę.
 
-            //poprawne_kategorie.Remove("staraNazwa");
-            poprawne_kategorie.Add("alfabetycznie");
+            //#region Sporządź listę kategorii, po których można sortować.
+            //Type[] poprawne_typy = { typeof(string), typeof(int), typeof(uint), typeof(string[]) }; //typy pól, po których można sortować
+            //List<string> poprawne_kategorie = new List<string>();
+            //foreach (System.Reflection.FieldInfo pole in typeof(DaneUtworu).GetFields())
+            //    if (poprawne_typy.Contains(pole.FieldType))
+            //        poprawne_kategorie.Add(pole.Name);
 
-            #endregion
+            ////poprawne_kategorie.Remove("staraNazwa");
+            //poprawne_kategorie.Add("alfabetycznie");
+
+            //#endregion
 
             for (int i = 0; i < kategorie.Length; i++)
             {
                 kategorie[i] = kategorie[i].ToLower();
                 if (kategorie[i] == "artysta")
                     kategorie[i] = "wykonawca";
-                if (!poprawne_kategorie.Contains(kategorie[i]))
-                {
-                    throw new Exception("Błąd. Nie można sortować po polu " + kategorie[i]);
-                }
+                //if (!poprawne_kategorie.Contains(kategorie[i]))
+                //{
+                //    throw new Exception("Błąd. Nie można sortować po polu " + kategorie[i]);
+                //}
             }
 
             return kategorie;

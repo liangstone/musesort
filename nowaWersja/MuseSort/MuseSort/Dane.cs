@@ -9,7 +9,7 @@ namespace MuseSort
         /// <summary>Generuje ścieżkę dla katalogu na podstawie pól w sortowaniu.</summary>
         /// <param name="plik">Plik, dla którego ma być wygenerowana ścieżka.</param>
         /// <returns>Szukana ścieżka katalogu.</returns>
-        public virtual string sciezka_katalogu_z_pol(string[] kategorie)
+        public virtual string sciezkaKataloguZPol(string[] kategorie)
         {
             Type typ_utwor = this.GetType();
             string sciezka_katalogu = "";
@@ -37,7 +37,7 @@ namespace MuseSort
                     }
                 }
                 
-                if (kat == "")                                          //jeśli nie udało się pobrać
+                if (kat==null || kat == "")                                          //jeśli nie udało się pobrać
                 {
                     sciezka_katalogu = "";
                     break;
@@ -52,6 +52,5 @@ namespace MuseSort
             return sciezka_katalogu;
         }//end sciezka_z_pol()
 
-        public abstract bool czyDaneWypelnione();
     }
 }

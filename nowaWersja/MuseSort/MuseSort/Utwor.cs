@@ -224,7 +224,7 @@ namespace MuseSort
             else
                 sciezka_katalogu = @"Musesort\Muzyka\Posegregowane\";
 
-            string sciezkaZDanych = dane.sciezka_katalogu_z_pol(kategorie);
+            string sciezkaZDanych = dane.sciezkaKataloguZPol(kategorie);
 
             if (sciezkaZDanych.Equals("")) //przenieś do "Nieprzydzielone
             {

@@ -5,15 +5,11 @@ using System.Text;
 
 namespace MuseSort
 {
-    class DaneFilmu
+    class DaneFilmu: Dane
     {
-        //Implementacja klasy zależy od biblioteki z jakiej będziemy korzystali
-
-        //Sprawdzanie, czy mamy wszystko, czego nam trzeba
-        public Boolean czyDaneWypelnione()
-        {
-            
-            return false;
-        }
+        public String tytul = "";
+        public String[] gatunki = { "" };
+        public String[] dyrektorzy = { "" };
+        public uint rok;
     }
 }

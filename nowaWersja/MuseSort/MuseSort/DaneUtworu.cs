@@ -26,13 +26,9 @@ namespace MuseSort
         public IPicture[] zdjecia = { };
         public uint numer;
 
-        public override Boolean czyDaneWypelnione()
+        public Boolean czyDaneWypelnione()
         {
-            if (wykonawca.Length > 0 && wykonawca[0] != "" && tytul != "" && album != "")
-            {
-                return true;
-            }
-            return false;
+            return wykonawca.Length > 0 && wykonawca[0] != "" && tytul != "" && album != "";
         }
     }
 }

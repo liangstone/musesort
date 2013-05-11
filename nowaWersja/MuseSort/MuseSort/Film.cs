@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace MuseSort
 {
     partial class Film : Plik
     {
-        DaneFilmu dane;
-        String sciezka = "";
-        String sciezkaZrodlowa = "";
-        String nazwa = "";
+        public DaneFilmu dane;
         //<należy wybrać klasę źródłową> tagi;
         //<należy wybrać klasę źródłową> stareTagi;
         Boolean pobranoZNazwy = false;
@@ -29,8 +25,8 @@ namespace MuseSort
         //Konstruktor dowolnego pliku
         public Film(String path)
         {
-            sciezka = sciezkaZrodlowa = path;
-            nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
+            Sciezka = SciezkaZrodlowa = path;
+            Nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
             dane = new DaneFilmu();
             resetujTagi();
             pobierzTagi();
@@ -39,9 +35,9 @@ namespace MuseSort
         //Konstruktor dla pliku, który został skopiowany w ramach działania programu
         public Film(String path, String source)
         {
-            sciezkaZrodlowa = source;
-            sciezka = path;
-            nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
+            SciezkaZrodlowa = source;
+            Sciezka = path;
+            Nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
             dane = new DaneFilmu();
             //tagi = 
             //stareTagi = 
@@ -70,7 +66,7 @@ namespace MuseSort
             //Do wykonania tej metody wykorzystujemy listę wzorców z obiektu wzorceNazwy
             foreach (Wzorzec wzor in wzorceNazwy)
             {
-                if (wzor.czyPasuje(nazwa))
+                if (wzor.czyPasuje(Nazwa))
                 {
                     pobranoZNazwy = true;
                 }
@@ -110,7 +106,40 @@ namespace MuseSort
 
         public override string sciezka_katalogu_z_pol(string[] kategorie, bool duplikat = false)
         {
-            throw new NotImplementedException();
+            string sciezka_katalogu;
+            if (duplikat)
+                sciezka_katalogu = @"Musesort\Filmy\Zduplikowane\Posegregowane\";
+            else
+                sciezka_katalogu = @"Musesort\Filmy\Posegregowane\";
+
+            string sciezkaZDanych = dane.sciezkaKataloguZPol(kategorie);
+
+            if (sciezkaZDanych.Equals("")) //przenieś do "Nieprzydzielone
+            {
+                if (duplikat)
+                    sciezka_katalogu = @"Musesort\Filmy\Zduplikowane\Posegregowane\Nieprzydzielone";
+                else
+                    sciezka_katalogu = @"Musesort\Filmy\Posegregowane\Nieprzydzielone";
+            }
+            else
+                sciezka_katalogu += sciezkaZDanych;
+
+            if (kategorie.Last() == "alfabetycznie")
+                sciezka_katalogu += dane.tytul.Substring(0, 1);
+
+            if (duplikat && File.Exists(Path.Combine(sciezka_katalogu, Path.GetFileName(Sciezka))))
+            {
+                string fullpath = Path.Combine(sciezka_katalogu, Nazwa);
+                int i;
+                for (i = 1; File.Exists(fullpath); )
+                {
+                    i++;
+                    fullpath = Path.Combine(sciezka_katalogu + Convert.ToString(i), Nazwa);
+                }
+                sciezka_katalogu += Convert.ToString(i);
+            }
+
+            return sciezka_katalogu;
         }
 
         protected override bool porownaj(Plik plik2)
