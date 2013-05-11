@@ -350,6 +350,18 @@ namespace MuseSort
             niestandardoweSortowaniePanel.Visible = true;
         }
 
+        private void wzorcePlikówVideoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WzorcePlikowVideo okno = new WzorcePlikowVideo();
+            okno.Show();
+        }
+
+        private void wzorcePlikówAudioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WzorcePlikowAudio okno = new WzorcePlikowAudio();
+            okno.Show();
+        }
+
         
     }
 }

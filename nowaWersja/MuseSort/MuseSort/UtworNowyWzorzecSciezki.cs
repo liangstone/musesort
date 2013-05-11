@@ -67,6 +67,7 @@ namespace MuseSort
             regex = regex = "^" + regex + "$";
             Regex rx = new Regex(regex);
             StaticUtwor.dodajWzorzec(wzorzecTextBox.Text, regex, "wzorceSciezki");
+            UstawieniaProgramu.getInstance().zapiszUstawienia();
             this.Dispose();
         }
 

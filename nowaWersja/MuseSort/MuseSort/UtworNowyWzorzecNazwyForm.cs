@@ -64,6 +64,7 @@ namespace MuseSort
             regex = regex = "^" + regex + "$";
             Regex rx = new Regex(regex);
             StaticUtwor.dodajWzorzec(wzorzecTextBox.Text, regex, "wzorceNazwy");
+            UstawieniaProgramu.getInstance().zapiszUstawienia();
             this.Dispose();
         }
 

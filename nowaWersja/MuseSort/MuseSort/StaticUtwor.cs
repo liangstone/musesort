@@ -54,13 +54,13 @@ namespace MuseSort
             return true;
         }//end  Boolean sprawdzWzorzec(String wzorzec, String rodzaj)
 
-        public void wczytajWzorceZPliku(String path)
+        public static void wczytajWzorceZPliku(String path)
         {
             //Wczytywanie listy wzorców z pliku XML do obiektów klasy
             //W zmiennej path zawarta jest ścieżka do pliku
             XmlDocument plikXML = new XmlDocument();
             plikXML.Load(path);
-            XmlNodeList wzorceList = plikXML.GetElementsByTagName("wzorzec_nazwy");
+            XmlNodeList wzorceList = plikXML.GetElementsByTagName("utworWzorzecNazwy");
             for (int i = 0; i < wzorceList.Count; i++)
             {
                 
@@ -70,7 +70,7 @@ namespace MuseSort
                 wzorceNazwy.Add(wz);
             }
 
-            wzorceList = plikXML.GetElementsByTagName("wzorzec_sciezki");
+            wzorceList = plikXML.GetElementsByTagName("utworWzorzecSciezki");
             for (int i = 0; i < wzorceList.Count; i++)
             {
 
