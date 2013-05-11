@@ -64,7 +64,7 @@ namespace MuseSort
         /// <summary>Sortowanie folderu, zwraca informację o sukcesie lub porażce w trakcie sortowania.
         /// </summary>
         /// <returns>Sukces operacji.</returns>
-        public bool sortuj()
+        public bool sortuj(IEnumerable<string> wspieraneRozszerzenia)
         {
             bool sukces = false;
             //System.Windows.Forms.MessageBox.Show("Rozpoczynam sortowanie.");
@@ -82,23 +82,25 @@ namespace MuseSort
 
             string workingDirectory = Directory.GetCurrentDirectory();
             Directory.SetCurrentDirectory(sciezka);
+            Directory.CreateDirectory(@"Musesort\Temp");
 
-            string[] standardDirecories = 
-                new string[] 
-                {
-                        @"Musesort\Temp",
-                        @"Musesort\Posegregowane\Nieprzydzielone",
-                        @"Musesort\Zduplikowane\Posegregowane\Nieprzydzielone",
-                        @"Musesort\Zduplikowane\Temp"
-                };
-            foreach (string directory in standardDirecories)
-            {
-                Directory.CreateDirectory(directory);
-            }
+            //Wykomentowane: będą tworzone w miarę zapotrzebowania.
+            //string[] standardDirecories = 
+            //    new string[] 
+            //    {
+            //            @"Musesort\Temp",
+            //            @"Musesort\Posegregowane\Nieprzydzielone",
+            //            @"Musesort\Zduplikowane\Posegregowane\Nieprzydzielone",
+            //            @"Musesort\Zduplikowane\Temp"
+            //    };
+            //foreach (string directory in standardDirecories)
+            //{
+            //    Directory.CreateDirectory(directory);
+            //}
 
             #endregion
 
-            List<string> listaPlikow = znajdz_wspierane_pliki();
+            List<string> listaPlikow = znajdz_wspierane_pliki(Sciezka, wspieraneRozszerzenia);
 
             sukces = sortujListePlikow(listaPlikow);
             logi += "Posortowano folder: " + this.sciezka + Environment.NewLine;
@@ -110,7 +112,7 @@ namespace MuseSort
         /// <summary>Dodawanie plików z podanego folderu do zbiorów w folderze powiązanym z obiektem</summary>
         /// <param name="folderZrodlowy">Ścieżka folderu źródłowego</param>
         /// <returns></returns>
-        public Boolean dodajIPosortujFolder(String folderZrodlowy)
+        public Boolean dodajIPosortujFolder(String folderZrodlowy, IEnumerable<string> wspieraneRozszerzenia)
         {
             System.Windows.Forms.MessageBox.Show("Rozpoczynam dodawanie.");
             bool sukces = false;
@@ -123,7 +125,7 @@ namespace MuseSort
             //        return false;
             //}
 
-            List<string> listaPlikow = znajdz_wspierane_pliki(folderZrodlowy);
+            List<string> listaPlikow = znajdz_wspierane_pliki(folderZrodlowy, wspieraneRozszerzenia);
             sukces = sortujListePlikow(listaPlikow);
 
             logi += "Dodano i posortowano folder: " + folderZrodlowy + " do folderu: " + this.sciezka + Environment.NewLine;
@@ -168,20 +170,20 @@ namespace MuseSort
             //{
 
                 logiInitSortProgress(listaPlikow.Count);
-                foreach (string plik in listaPlikow)
+                foreach (string sciezkaPliku in listaPlikow)
                 {
-                    Utwor utwor;
+                    Plik plik;
                     try
                     {
-                        utwor = new Utwor(plik);
+                        plik = Plik.Create(sciezkaPliku);
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine("Błąd w pliku " + plik);
+                        Console.WriteLine("Błąd w pliku " + sciezkaPliku);
                         Console.WriteLine(e);
                         continue;
                     }
-                    sortujPlik(utwor);
+                    sortujPlik(plik);
                 }
             //}
             //catch (Exception e) //Łapanie dowolnych nieprawidłowości.
@@ -202,29 +204,68 @@ namespace MuseSort
             return true;
         }
 
-        private void sortujPlik(Utwor plik)
+        /// <summary>Sortuje pojedynczy plik.</summary>
+        /// <param name="plik">Plik do posortowania.</param>
+        private void sortujPlik(Plik plik)
         {
             string nazwaPliku = Path.GetFileName(plik.Sciezka);
             //logiAddLine("Sortuję plik " + plik.Sciezka);
 
             //Kopiujemy plik do Temp i dalej działamy na kopii.
             plik.kopiujPlik(@"Musesort\Temp\");
-            plik = new Utwor(@"Musesort\Temp\" + nazwaPliku, plik.Sciezka);
+            plik = Plik.Create(@"Musesort\Temp\" + nazwaPliku, plik.Sciezka);
 
 
             string sciezka_katalogu; //Ustalamy ścieżkę katalogu.
-            if (schemat == @"Piosenki\Wykonawca" && plik.dane.wykonawca[0] != "" && plik.dane.tytul != "")
+            if (schemat == @"Piosenki\Wykonawca" && plik is Utwor && ((Utwor)plik).dane.wykonawca[0] != "" && ((Utwor)plik).dane.tytul != "")
             {
                 sciezka_katalogu = @"Musesort\Posegregowane";
-                nazwaPliku = plik.dane.wykonawca[0] + '_' + plik.dane.tytul + Path.GetExtension(plik.Sciezka);
-
+                nazwaPliku = ((Utwor)plik).dane.wykonawca[0] + '_' + ((Utwor)plik).dane.tytul + Path.GetExtension(plik.Sciezka);
+                plik.zmienNazwePliku(nazwaPliku);
             }
             else
                 sciezka_katalogu = sciezka_katalogu_z_pol(plik);
 
+            #region Tworzenie katalogu
             if (!Directory.Exists(sciezka_katalogu))
-                Directory.CreateDirectory(sciezka_katalogu); // to tworzy też wszystkie katalogi które są "po drodze"
-            // tzn. wyższego rzędu które też nie istnieją
+            {
+                string nowyKatalog = sciezka_katalogu; //Używamy nowej zmiennej, by zachować oryginalną ścieżkę na potrzeby logowania błędów.
+                while (!Directory.Exists(nowyKatalog))
+                {
+                    try
+                    {
+                        Directory.CreateDirectory(nowyKatalog); // to tworzy też wszystkie katalogi które są "po drodze"
+                        // tzn. wyższego rzędu które też nie istnieją
+                    }
+                    catch (NotSupportedException) //Rzucane, gdy w ścieżce wystąpi ':' poza nazwą dysku.
+                    {
+                        int ostatniDwukropek = nowyKatalog.LastIndexOf(':');
+                        if (ostatniDwukropek < nowyKatalog.LastIndexOf('\\')) //Jeśli ostatni dwukropek występuje poza nazwą ostatniego katalogu, nie sortujemy takiego pliku.
+                        {
+                            string message = "Nie posortowano pliku:\n" + plik.Sciezka
+                                + "Gdyż wedle wybranego schematu: " + schemat
+                                + "\nGenerowana jest nieprawidłowa (z punktu widzenia systemu) ścieżka:\n'"
+                                + sciezka_katalogu + "'";
+                            Console.WriteLine(message);
+                            logi += message;
+                            return;
+                        }
+                        nowyKatalog = nowyKatalog.Substring(0, ostatniDwukropek); //Obcinamy ostatni dwukropek
+                    }
+                    catch (ArgumentException) //Rzucane, gdy ścieżka jest pusta lub zaczyna się od ':'
+                    {
+                        string message = "Nie posortowano pliku:\n" + plik.Sciezka
+                            + "Gdyż wedle wybranego schematu: " + schemat
+                            + "\nGenerowana jest nieprawidłowa (z punktu widzenia systemu) ścieżka:\n'"
+                            + sciezka_katalogu + "'";
+                        Console.WriteLine(message);
+                        logi += message;
+                        return;
+                    }
+                }
+                sciezka_katalogu = nowyKatalog; //Jeśli udało się pomyślnie utworzyć katalog, przepisujemy ostateczną ścieżkę z powrotem.
+            }
+            #endregion
 
             //Przenosimy plik.
 
@@ -233,9 +274,18 @@ namespace MuseSort
                 plik.przeniesPlik(sciezka_katalogu);
                 logi += plik.logi;
             }
-            catch (System.IO.IOException) //rzucane w przypadku kolizji nazw plików
+            catch (PathTooLongException)
             {
-                duplikat(new Utwor(Path.Combine(sciezka_katalogu, nazwaPliku)), plik);
+                string message = "Nie posortowano pliku:\n" + plik.Sciezka
+                    + "Gdyż wedle wybranego schematu: " + schemat
+                    + "\nGenerowana jest nieprawidłowa (konkratnie: za długa) ścieżka:\n'"
+                    + sciezka_katalogu + "'";
+                Console.WriteLine(message);
+                logi += message;
+            }
+            catch (IOException) //rzucane w przypadku kolizji nazw plików
+            {
+                duplikat(Plik.Create(Path.Combine(sciezka_katalogu, nazwaPliku)), plik);
             }
 
             progressBar2.PerformStep();
@@ -245,13 +295,14 @@ namespace MuseSort
         /// </summary>
         /// <param name="plik1"></param>
         /// <param name="plik2"></param>
-        /// <param name="preferowaneRozszerzenie">Rozszerzeenie które ma pierwszeństwo.</param>
+        /// <param name="preferowaneRozszerzenie">Rozszerzenie które ma pierwszeństwo.</param>
         /// <returns>Czy plik 1 został uznany za lepszy.</returns>
-        private bool duplikat(Utwor plik1, Utwor plik2, string preferowaneRozszerzenie = "")
+        private bool duplikat(Plik plik1, Plik plik2, string preferowaneRozszerzenie = "")
         {
-            logi += "Obsługa duplikatu pliku: " + plik1.NazwaPelna + Environment.NewLine ;
+            logi += "Obsługa duplikatu pliku: " + Path.GetFileName(plik1.Sciezka) + Environment.NewLine ;
+
             // do decydowania który jest lepszy będziemy używali ifów, chyba prościej będzie najpierw ustalić wartość boola
-            bool pierwszy_jest_lepszy = plik1.dane.bityNaMinute >= plik2.dane.bityNaMinute;
+            bool pierwszy_jest_lepszy = Plik.porownajJakosc(plik1, plik2);
 
             if (Path.GetExtension(plik1.Sciezka).Substring(1) == preferowaneRozszerzenie)
                 if (Path.GetExtension(plik2.Sciezka).Substring(1) != preferowaneRozszerzenie)
@@ -296,27 +347,29 @@ namespace MuseSort
                 kategorie = temp.ToArray();                                       //ale i tak pracujemy na obiekcie kilkuelementowym
             }
 
-            #region Sporządź listę kategorii, po których można sortować.
-            Type[] poprawne_typy = { typeof(string), typeof(int), typeof(uint), typeof(string[]) }; //typy pól, po których można sortować
-            List<string> poprawne_kategorie = new List<string>();
-            foreach (System.Reflection.FieldInfo pole in typeof(Dane).GetFields())
-                if (poprawne_typy.Contains(pole.FieldType))
-                    poprawne_kategorie.Add(pole.Name);
+            //Bug: walidacja kategorii zakłada, że sortujemy muzykę.
 
-            //poprawne_kategorie.Remove("staraNazwa");
-            poprawne_kategorie.Add("alfabetycznie");
+            //#region Sporządź listę kategorii, po których można sortować.
+            //Type[] poprawne_typy = { typeof(string), typeof(int), typeof(uint), typeof(string[]) }; //typy pól, po których można sortować
+            //List<string> poprawne_kategorie = new List<string>();
+            //foreach (System.Reflection.FieldInfo pole in typeof(DaneUtworu).GetFields())
+            //    if (poprawne_typy.Contains(pole.FieldType))
+            //        poprawne_kategorie.Add(pole.Name);
 
-            #endregion
+            ////poprawne_kategorie.Remove("staraNazwa");
+            //poprawne_kategorie.Add("alfabetycznie");
+
+            //#endregion
 
             for (int i = 0; i < kategorie.Length; i++)
             {
                 kategorie[i] = kategorie[i].ToLower();
                 if (kategorie[i] == "artysta")
                     kategorie[i] = "wykonawca";
-                if (!poprawne_kategorie.Contains(kategorie[i]))
-                {
-                    throw new Exception("Błąd. Nie można sortować po polu " + kategorie[i]);
-                }
+                //if (!poprawne_kategorie.Contains(kategorie[i]))
+                //{
+                //    throw new Exception("Błąd. Nie można sortować po polu " + kategorie[i]);
+                //}
             }
 
             return kategorie;
@@ -326,12 +379,12 @@ namespace MuseSort
         /// </summary>
         /// <param name="katalog">Katalog do przeszukania.</param>
         /// <returns></returns>
-        List<string> znajdz_wspierane_pliki(string katalog = null)
+        List<string> znajdz_wspierane_pliki(string katalog, IEnumerable<string> wspieraneRozszerzenia)
         {
             if (katalog == null)
-                katalog = this.sciezka;
+                throw new ArgumentNullException("Katalog jest null!");
             List<string> wynik = new List<string>();
-            foreach (string rozszerzenie in UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio)
+            foreach (string rozszerzenie in wspieraneRozszerzenia)
             {
                 List<string> sciezki_plikow = new List<string>(Directory.GetFiles(katalog, "*." + rozszerzenie));
                 wynik.AddRange(sciezki_plikow);
@@ -348,7 +401,7 @@ namespace MuseSort
 
             foreach (string podkatalog in Directory.GetDirectories(katalog))//dodajemy pliki z podkatalogów
             {
-                wynik.AddRange(znajdz_wspierane_pliki(podkatalog));
+                wynik.AddRange(znajdz_wspierane_pliki(podkatalog, wspieraneRozszerzenia));
             }
 
             return wynik;
@@ -359,77 +412,11 @@ namespace MuseSort
         /// <param name="plik">Plik, dla którego ma być wygenerowana ścieżka.</param>
         /// <param name="duplikat">Czy generujemy ścieżkę dla duplikatu.</param>
         /// <returns>Szukana ścieżka katalogu.</returns>
-        private string sciezka_katalogu_z_pol(Utwor plik, bool duplikat = false)
+        private string sciezka_katalogu_z_pol(Plik plik, bool duplikat = false)
         {
-            Type typ_utwor = typeof(Dane);
-            Dane dane = plik.dane;
-            string sciezka_katalogu;
-            if (duplikat)
-                sciezka_katalogu = @"Musesort\Zduplikowane\Posegregowane";
-            else
-                sciezka_katalogu = @"Musesort\Posegregowane";
-
-            foreach (string kategoria in kategorie) //tworzymy ścieżkę katalogu docelowego pliku
-            {
-                string kat = "";
-                if (kategoria == "alfabetycznie")
-                {
-                    try
-                    {
-                        kat = plik.dane.tytul.Substring(0, 1);
-                    }
-                    catch (ArgumentOutOfRangeException) { }
-                }
-                else
-                {
-                    Console.WriteLine(kategoria);
-                    System.Reflection.FieldInfo pole = typ_utwor.GetField(kategoria);         //pobiera pole
-
-                    if (pole.FieldType.Equals(typeof(String)))				//jeśli pole to String
-                        kat = (string)pole.GetValue(dane);
-                    else if (pole.FieldType.Equals(typeof(int)) || pole.FieldType.Equals(typeof(uint)))//jeśli pole to int lub uint
-                        kat = Convert.ToString(pole.GetValue(dane));
-                    else if (pole.FieldType.Equals(typeof(string[])))		//jeśli pole to tablica
-                    {
-                        try
-                        {
-                            kat = ((string[])pole.GetValue(dane))[0];
-                        }
-                        catch (IndexOutOfRangeException)
-                        {
-                            kat = "";
-                        }
-                    }
-                }
-                if (kat == "")                                          //jeśli nie udało się pobrać
-                {
-                    if (duplikat)
-                        sciezka_katalogu = @"Musesort\Zduplikowane\Posegregowane\Nieprzydzielone";
-                    else
-                        sciezka_katalogu = @"Musesort\Posegregowane\Nieprzydzielone";//przenieś do "Nieprzydzielone
-                    break;
-                }
-                //kat = ZamienNaWlasciwe(kat);
-                System.Console.WriteLine(kat);
-                sciezka_katalogu = Path.Combine(sciezka_katalogu, kat);
-                System.Console.WriteLine(sciezka_katalogu);
-            }
-            if (duplikat && File.Exists(Path.Combine(sciezka_katalogu, Path.GetFileName(plik.Sciezka))))
-            {
-                string nazwa = Path.GetFileName(plik.Sciezka);
-                string fullpath = Path.Combine(sciezka_katalogu, nazwa);
-                int i;
-                for (i = 1; File.Exists(fullpath); )
-                {
-                    i++;
-                    fullpath = Path.Combine(sciezka_katalogu + Convert.ToString(i), nazwa);
-                }
-                sciezka_katalogu += Convert.ToString(i);
-            }
-
-            return sciezka_katalogu;
+            return plik.sciezka_katalogu_z_pol(kategorie, duplikat);
         }//end sciezka_z_pol()
 
-		#endregion
+        #endregion
     }
 }

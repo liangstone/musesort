@@ -13,7 +13,7 @@ namespace MuseSort
         //Metoda sprawdzająca, czy istnieje możliwość połączenia z bazą, zwraca true w przypadku udanego połączenia
         Boolean sprawdzPolaczenie();
         //Metoda pobierająca dane z serwera, zapisuje je do obiektu tagi i zwraca ten obiekt
-        Dane pobierzDaneZSerwera();
+        DaneUtworu pobierzDaneZSerwera();
         //dodatkowo powinny zostać zaimplementowane prywatne metody:
         //Przetwarzanie pliku do wysłania na serwer
         //private void PrzygotujPlikDowyslania()

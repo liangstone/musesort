@@ -6,7 +6,7 @@ using System.Xml;
 
 namespace MuseSort
 {
-    class StaticUtwor
+    partial class Utwor
     {
         public static List<Wzorzec> wzorceNazwy = new List<Wzorzec>();
         public static List<Wzorzec> wzorceSciezki = new List<Wzorzec>();

@@ -6,44 +6,16 @@ using System.IO;
 
 namespace MuseSort
 {
-    class Utwor : StaticUtwor
+    partial class Utwor : Plik
     {
         #region atrybuty klasy
-        public Dane dane;
-
-        String sciezka = "";
-
-        public String Sciezka
-        {
-          get { return sciezka; }
-        }
-        String sciezkaZrodlowa = "";
-
-        String nazwa = "";
-
-        /// <summary>Nazwa z rozszerzeniem.</summary>
-        public string NazwaPelna
-        {
-            get
-            {
-                return Path.GetFileName(sciezka);
-            }
-        }
-
-        /// <summary>Zwraca rozszerzenie bez kropki.</summary>
-        public string Rozszerzenie
-        {
-            get 
-            { 
-                return Path.GetExtension(sciezka).Substring(1); 
-            }
-        }
+        public DaneUtworu dane;
 
         TagLib.File tagi;
         TagLib.File stareTagi;
         Boolean pobranoZNazwy = false;
         Boolean pobranoZeSciezki = false;
-        public String logi = "";
+        
         #endregion
         #region publiczne metody klas
         //#############################PUBLICZNE METODY KLASY############################################
@@ -51,7 +23,7 @@ namespace MuseSort
         //Konstruktor standardowy
         public Utwor()
         {
-            dane = new Dane();
+            dane = new DaneUtworu();
             tagi = null;
             stareTagi = null;
         }
@@ -59,9 +31,9 @@ namespace MuseSort
         //Konstruktor dowolnego pliku
         public Utwor(String path)
         {
-            sciezka = sciezkaZrodlowa = path;
-            nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
-            dane = new Dane();
+            Sciezka = SciezkaZrodlowa = path;
+            Nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
+            dane = new DaneUtworu();
             tagi = TagLib.File.Create(path);
             stareTagi = TagLib.File.Create(path);
             pobierzTagi();
@@ -70,10 +42,10 @@ namespace MuseSort
         //Konstruktor dla pliku, który został skopiowany w ramach działania programu
         public Utwor(String path, String source)
         {
-            sciezkaZrodlowa = source;
-            sciezka = path;
-            nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
-            dane = new Dane();
+            SciezkaZrodlowa = source;
+            Sciezka = path;
+            Nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
+            dane = new DaneUtworu();
             tagi = TagLib.File.Create(path);
             stareTagi = TagLib.File.Create(path);
             pobierzTagi();
@@ -81,7 +53,7 @@ namespace MuseSort
 
         //Zapisuje dane z obiektu dane do obiektu tagi
         //Uaktualnia dane w obiekcie stareTagi
-        public void zapiszTagi()
+        public override void zapiszTagi()
         {
             tagi.Tag.Album = dane.album;
             tagi.Tag.BeatsPerMinute = dane.bityNaMinute;
@@ -106,22 +78,22 @@ namespace MuseSort
         }
 
         //Przywraca do obiektu dane informacje z obiektu stareTagi
-        public void przywrocDomyslneTagi()
+        public override void przywrocDomyslneTagi()
         {
             tagi = stareTagi;
             pobierzTagi();
             logi += "Anulowano modyfikowanie tagów." + Environment.NewLine;
         }
 
-		//Generuje tagi z nazwy pliku i zapisuje w obiekcie dane
-        public void pobierzTagiZNazwy()
+        //Generuje tagi z nazwy pliku i zapisuje w obiekcie dane
+        public override void pobierzTagiZNazwy()
         {
             //Generuje tagi z nazwy pliku i zapisuje w obiekcie dane
             //Zmienia wartość zmiennej pobranoZNazwy na true
             //Do wykonania tej metody wykorzystujemy listę wzorców z obiektu wzorceNazwy
             foreach (Wzorzec wzor in wzorceNazwy)
             {
-                if (wzor.czyPasuje(nazwa))
+                if (wzor.czyPasuje(Nazwa))
                 {
                     pobranoZNazwy = true;
                 }
@@ -133,7 +105,7 @@ namespace MuseSort
                 Wzorzec wzr = null;
                 foreach (Wzorzec w in wzorceNazwy)
                 {
-                    if (w.czyPasuje(nazwa))     //wybranie pasującego wzorcu
+                    if (w.czyPasuje(Nazwa))     //wybranie pasującego wzorcu
                     {
                         pobranoZNazwy = true;
                         wzr = w;
@@ -150,7 +122,7 @@ namespace MuseSort
                         tmp += wzrSp[1 + 2 * i];                 
                     }
                     char[] nazwaSep = tmp.ToCharArray();
-                    String[] nazwaSp = nazwa.Split(nazwaSep);       //podział nazwy na oczekiwane informacje
+                    String[] nazwaSp = Nazwa.Split(nazwaSep);       //podział nazwy na oczekiwane informacje
 
                     String s = "";
                     for (int i=0; i <= (nazwaSp.Length + 1)/2; i++) //sprawdzenie pokolei zawartości wzorca
@@ -192,7 +164,7 @@ namespace MuseSort
                 Wzorzec wzr = null;
                 foreach (Wzorzec w in wzorceSciezki)
                 {
-                    if (w.czyPasuje(nazwa))     //wybranie pasującego wzorcu
+                    if (w.czyPasuje(Nazwa))     //wybranie pasującego wzorcu
                     {
                         pobranoZeSciezki = true;
                         wzr = w;
@@ -203,7 +175,7 @@ namespace MuseSort
                 {
                     char[] wzrSep = { '<', '>' };
                     String[] wzrSp = wzr.wzorzec.Split(wzrSep);    //podział wzorcu na elementy
-                    String[] nazwaSp = nazwa.Split('\\');                   //podział nazwy na oczekiwane informacje
+                    String[] nazwaSp = Nazwa.Split('\\');                   //podział nazwy na oczekiwane informacje
                                                                             //zakładam że wzorzec do scieżki wygląda <Autor><Album>
                     int nazwaLen = nazwaSp.Length;                          //a to odpowiada scieżce ...\\Autor\\Album\\plik.ext
                     int wzrLen = wzrSp.Length;
@@ -227,8 +199,8 @@ namespace MuseSort
             }
         }
 
-        //Na podstawie danych w obiekcie dane tworzy nową nazwę pliku
-        public String generujNazwePlikuZTagow()
+        ///<summary>Na podstawie danych w obiekcie dane tworzy nową nazwę pliku.</summary>
+        public override String generujNazwePlikuZTagow()
         {
             String nowaNazwa = "";
             if (dane.czyDaneWypelnione())
@@ -244,41 +216,53 @@ namespace MuseSort
             return nowaNazwa;
         }
 
-        //Zmienia nazwę pliku i zmienną nazwa
-        public void zmienNazwePliku(String nowaNazwa)
+        public override string sciezka_katalogu_z_pol(string[] kategorie, bool duplikat = false)
         {
-            nowaNazwa = usunZnakiSpecjalne(nowaNazwa);
-            tagi = null;
-            stareTagi = null;
-            String nowaSciezka = System.IO.Path.GetDirectoryName(sciezka)+ "\\" + nowaNazwa + "." + System.IO.Path.GetExtension(sciezka);
-            System.IO.File.Move(sciezka, nowaSciezka);
-            logi += "Zmieniono nazwę pliku. Stara nazwa: " + nazwa + " Nowa nazwa: " + nowaNazwa + Environment.NewLine;
-            nazwa = nowaNazwa;
-            sciezka = nowaSciezka;
-            tagi = TagLib.File.Create(nowaSciezka);
-            stareTagi = TagLib.File.Create(nowaSciezka);
+            string sciezka_katalogu;
+            if (duplikat)
+                sciezka_katalogu = @"Musesort\Muzyka\Zduplikowane\Posegregowane\";
+            else
+                sciezka_katalogu = @"Musesort\Muzyka\Posegregowane\";
+
+            string sciezkaZDanych = dane.sciezkaKataloguZPol(kategorie);
+
+            if (sciezkaZDanych.Equals("")) //przenieś do "Nieprzydzielone
+            {
+                if (duplikat)
+                    sciezka_katalogu = @"Musesort\Muzyka\Zduplikowane\Posegregowane\Nieprzydzielone";
+                else
+                    sciezka_katalogu = @"Musesort\Muzyka\Posegregowane\Nieprzydzielone";
+            }
+            else
+                sciezka_katalogu += sciezkaZDanych;
+
+            if (kategorie.Last() == "alfabetycznie")
+                sciezka_katalogu += dane.tytul.Substring(0, 1);
+
+            if (duplikat && File.Exists(Path.Combine(sciezka_katalogu, Path.GetFileName(Sciezka))))
+            {
+                string fullpath = Path.Combine(sciezka_katalogu, Nazwa);
+                int i;
+                for (i = 1; File.Exists(fullpath); )
+                {
+                    i++;
+                    fullpath = Path.Combine(sciezka_katalogu + Convert.ToString(i), Nazwa);
+                }
+                sciezka_katalogu += Convert.ToString(i);
+            }
+
+            return sciezka_katalogu;
         }
 
-        //Kopiuje plik do lokalizacji w zmiennej path i uaktualnia zmienną sciezka
-        public void kopiujPlik(String nowyFolder)
-        {
-            String nowaSciezka = Path.Combine(nowyFolder, nazwa + Path.GetExtension(sciezka));
-            System.IO.File.Copy(sciezka, nowaSciezka);
-            logi += "Wykonano kopię pliku do folderu: " + nowyFolder + Environment.NewLine;
-        }
-
-        /// <summary>Przenosi plik do podanego folderu.</summary>
-        /// <param name="nowyFolder">Folder docelowy.</param>
-        public void przeniesPlik(string nowyFolder)
-        {
-            String nowaSciezka = Path.Combine(nowyFolder, nazwa + Path.GetExtension(sciezka));
-            System.IO.File.Move(sciezka, nowaSciezka);
-            sciezka = nowaSciezka;
-            logi += "Przeniesiono plik " + nazwa + Path.GetExtension(sciezka) + " do folderu: " + nowyFolder + Environment.NewLine;
-        }
         #endregion
         #region metody pomocnicze klasy
         //######################################METODY POMOCNICZE KLASY######################################
+
+        protected override void resetujTagi()
+        {
+            tagi = TagLib.File.Create(Sciezka);
+            stareTagi = TagLib.File.Create(Sciezka);
+        }
 
         //Pobieranie tagów z obiektu tagi i zapisywanie w obiekcie dane
         private void pobierzTagi()
@@ -307,30 +291,19 @@ namespace MuseSort
             }
         }
 
-        //Usuwanie znaków \/:*?<>|" z nazwy w celu przygotowania prawidłowej nazwy pliku
-        //Wywoływane na potrzeby metod: zmienNazwePliku oraz generujNazwePlikowZTagow
-        private String usunZnakiSpecjalne(String nazwa)
+        /// <summary>Porównuje jakość plików.</summary>
+        /// <param name="plik2">Drugi plik do porównania. Z powodu kompatybilności deklarowany typ plik, 
+        /// ale zakładamy że ma to być drugi tego samego typu.</param>
+        /// <exception cref="InvalidCastException">Rzucane jeśli drugi plik jest innego typu.</exception>
+        /// <returns>True jeśli pliki są równie "dobre" lub pierwszy jest lepszy.</returns>
+        protected override bool porownaj(Plik plik2)
         {
-            String wynik = nazwa;
-            wynik.Replace("\\", "");
-            wynik.Replace("/", "");
-            wynik.Replace(":", "");
-            wynik.Replace("*", "");
-            wynik.Replace("?", "");
-            wynik.Replace("<", "");
-            wynik.Replace(">", "");
-            wynik.Replace("|", "");
-            wynik.Replace("\"", "");
-            return wynik;
+            return dane.bityNaMinute >= ((Utwor)plik2).dane.bityNaMinute;
         }
 
-        //Zmiana nazwy w taki sposób, aby zaczynała się z dużej i kończyła małymi literami
-        private String normalizujNazwe(String nazwa)
-        {
-            String wynik = nazwa.ToUpper();
-            wynik = wynik[0] + wynik.Substring(1).ToLower();
-            return wynik;
-        }
         #endregion
+
+
+
     }
 }

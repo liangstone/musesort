@@ -268,7 +268,7 @@ namespace MuseSort
                 MessageBox.Show("Folder docelowy nie został posortowany!");
                 return;
             }
-            docelowy.dodajIPosortujFolder(source);
+            docelowy.dodajIPosortujFolder(source, UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio);
             logiTextBox.Text += docelowy.logi;
             MessageBox.Show("Pomyślnie dodano pliki.");
             dodajPanel.Visible = false;
@@ -310,7 +310,7 @@ namespace MuseSort
                 Folder folder = new Folder(sciezka);
                 folder.ustalSchemat(@"Wykonawca\Album\Piosenki");
                 folder.progressBar2 = toolStripProgressBar1.ProgressBar;
-                folder.sortuj();
+                folder.sortuj(UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio);
                 logiTextBox.Text += folder.logi;
             }
         }

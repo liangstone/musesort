@@ -6,7 +6,7 @@ using System.Xml;
 
 namespace MuseSort
 {
-    class StaticFilm
+    partial class Film
     {
         public static List<Wzorzec> wzorceNazwy = new List<Wzorzec>();
 
