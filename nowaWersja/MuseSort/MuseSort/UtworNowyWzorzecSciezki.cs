@@ -66,7 +66,7 @@ namespace MuseSort
             regex = regex.Replace("<rok>", @"[\d]{4}");
             regex = regex = "^" + regex + "$";
             Regex rx = new Regex(regex);
-            StaticUtwor.dodajWzorzec(wzorzecTextBox.Text, regex, "wzorceSciezki");
+            Utwor.dodajWzorzec(wzorzecTextBox.Text, regex, "wzorceSciezki");
             this.Dispose();
         }
 
