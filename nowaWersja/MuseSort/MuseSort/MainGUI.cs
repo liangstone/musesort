@@ -141,11 +141,11 @@ namespace MuseSort
         private void zaladujUstawienia()
         {
             XmlDocument plikXML = new XmlDocument();
-            if (!File.Exists(@"C:\museSort\config.xml"))
+            if (!File.Exists(Properties.Settings.Default.ConfigFilePath))
             {
                 logiTextBox.Text += "Brak pliku konfiguracyjnego." + Environment.NewLine;
                 MessageBox.Show("Nie instnieje plik konfiguracyjny programu!");
-                new UtworzUstawienia().Show();
+                new UtworzUstawienia().ShowDialog(); //.Show();
                 //Wywołanie okna pierwszego uruchomienia
             }
             else

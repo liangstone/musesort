@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml;
@@ -11,6 +12,7 @@ namespace MuseSort
     {
         private static volatile UstawieniaProgramu instancja;
         public String folderGlowny;
+        private string plikKonfiguracyjnyPath;
         public String domyslneSortowanie;
         public String domyslnaBazaDanych;
         public List<String> wspieraneRozszerzeniaAudio;
@@ -23,6 +25,7 @@ namespace MuseSort
             domyslnaBazaDanych = "";
             domyslneSortowanie = "";
             folderGlowny = "";
+            plikKonfiguracyjnyPath = String.Empty;
         }
 
         public static UstawieniaProgramu getInstance()
@@ -37,10 +40,10 @@ namespace MuseSort
 
         public void zapiszUstawienia()
         {
-            if (System.IO.File.Exists(@"C:\museSort\config.xml"))
-            {
-                System.IO.File.Delete(@"C:\museSort\config.xml");
-            }
+            //if (System.IO.File.Exists(@"C:\museSort\config.xml"))
+            //{
+            //    System.IO.File.Delete(@"C:\museSort\config.xml");
+            //}
             XmlDocument plikXML = new XmlDocument();
             XmlDeclaration dec = plikXML.CreateXmlDeclaration("1.0", "UTF-8", null);
             plikXML.AppendChild(dec);
@@ -117,14 +120,34 @@ namespace MuseSort
             }
 
             plikXML.AppendChild(main);
-            plikXML.Save(@"C:\museSort\config.xml");
+
+            if (!folderGlowny.EndsWith("\\"))
+            {
+                folderGlowny = folderGlowny + "\\";
+            }
+            plikKonfiguracyjnyPath = folderGlowny + "config.xml";
+            if (!File.Exists(plikKonfiguracyjnyPath))
+            {
+                try
+                {
+                    FileStream fs = File.Create(plikKonfiguracyjnyPath);
+                    fs.Close();
+                }
+                catch (DirectoryNotFoundException e)
+                {
+                    System.Windows.Forms.MessageBox.Show("Podany katalog nie istnieje.");
+                }
+            }
+            plikXML.Save(plikKonfiguracyjnyPath);
+            Properties.Settings.Default.ConfigFilePath = plikKonfiguracyjnyPath;
+            Properties.Settings.Default.Save();
         }
 
         public void wczytajUstawienia()
         {
             
             XmlDocument plikXML = new XmlDocument();
-            plikXML.Load(@"C:\museSort\config.xml");
+            plikXML.Load(Properties.Settings.Default.ConfigFilePath);
             XmlNode node = plikXML.GetElementsByTagName("folderGlowny").Item(0);
             folderGlowny = node.InnerText;
             node = plikXML.GetElementsByTagName("domyslneSortowanie").Item(0);
