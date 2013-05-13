@@ -337,11 +337,26 @@ namespace MuseSort
                 if (rozszerzeniePliku.Equals(".mkv") || rozszerzeniePliku.Equals(".mov") || rozszerzeniePliku.Equals(".avi"))
                 {
                     sciezka = Path.GetFileNameWithoutExtension(sciezka);
-                    new SzczegolyFilmu(sciezka).ShowDialog();
+                    try
+                    {
+                        new SzczegolyFilmu(sciezka).ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Blad! Sprawdz polaczenie z Internetem!");
+                    }
                 }
                 else
                 {
-                    new SzczegolyMuzyki(sciezka).ShowDialog();
+                    try
+                    {
+
+                        new SzczegolyMuzyki(sciezka).ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Blad! Sprawdz polaczenie z Internetem!");
+                    }
                 }
             }
         }//end private void SzczegolyPliku_Click(object sender, EventArgs e)

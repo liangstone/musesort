@@ -36,6 +36,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.cover = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.cover)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -133,6 +135,15 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Czas trwania:";
             // 
+            // cover
+            // 
+            this.cover.Location = new System.Drawing.Point(34, 32);
+            this.cover.Name = "cover";
+            this.cover.Size = new System.Drawing.Size(100, 50);
+            this.cover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.cover.TabIndex = 9;
+            this.cover.TabStop = false;
+            // 
             // SzczegolyMuzyki
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -140,6 +151,7 @@
             this.BackgroundImage = global::MuseSort.Properties.Resources.tlo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1114, 630);
+            this.Controls.Add(this.cover);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -150,6 +162,7 @@
             this.Controls.Add(this.label1);
             this.Name = "SzczegolyMuzyki";
             this.Text = "SzczegolyMuzyki";
+            ((System.ComponentModel.ISupportInitialize)(this.cover)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,5 +178,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox cover;
     }
 }

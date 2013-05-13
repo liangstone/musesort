@@ -49,9 +49,7 @@ namespace MuseSort
             }
             catch (Exception e)
             {
-                System.Console.WriteLine("HTTP Connection Error: " + e.Message);
-                System.Console.ReadLine();
-                System.Environment.Exit(0);
+                MessageBox.Show("HTTP Connection Error: " + e.Message);
             }
             label1.Text = content;
             HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
@@ -82,6 +80,15 @@ namespace MuseSort
                     select link;
             tresc = links.ElementAt<HtmlNode>(0).InnerText;
             label5.Text = tresc;
+            
+            links = from link in doc.DocumentNode.Descendants()
+                    where link.Name == "div" && link.Attributes["class"] != null && link.Attributes["class"].Value == "filmPosterBox"
+                    select link;
+            tresc = links.ElementAt<HtmlNode>(0).InnerText;
+            //MessageBox.Show(tresc);
+            String [] temp = tresc.Split('"');
+            //MessageBox.Show(temp[1]);
+            Poster.Load(temp[1]);
         }
 
         private void label6_Click(object sender, EventArgs e)
