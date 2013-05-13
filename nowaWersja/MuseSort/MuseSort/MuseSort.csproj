@@ -127,7 +127,10 @@
     <Compile Include="MainGUI.Designer.cs">
       <DependentUpon>MainGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="ObslugaNapisy24.cs" />
+    <Compile Include="ObslugaNapiProjekt.cs" />
+    <Compile Include="ObslugaNapisy24.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="OknoUstawien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +140,12 @@
     <Compile Include="Plik.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProstyWebBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProstyWebBrowser.Designer.cs">
+      <DependentUpon>ProstyWebBrowser.cs</DependentUpon>
+    </Compile>
     <Compile Include="StaticFilm.cs" />
     <Compile Include="StaticUtwor.cs" />
     <Compile Include="SzczegolyFilmu.cs">
@@ -220,6 +229,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ProstyWebBrowser.resx">
+      <DependentUpon>ProstyWebBrowser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WzorcePlikowAudio.resx">
       <DependentUpon>WzorcePlikowAudio.cs</DependentUpon>
     </EmbeddedResource>

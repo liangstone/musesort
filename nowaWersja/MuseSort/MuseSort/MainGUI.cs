@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MuseSort.Pomoce;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +17,7 @@ namespace MuseSort
         FolderGlowny folderGlowny;
         #region publiczne metody klas
         //#############################PUBLICZNE METODY KLASY############################################
-        
+
         //Konstruktor głównego okna
         public MainGUI()
         {
@@ -247,14 +248,18 @@ namespace MuseSort
             {
                 MessageBox.Show("Nie został wybrany folder do dodania!");
                 return;
-            } else {
+            }
+            else
+            {
                 source = sourceFolderTextBox.Text;
             }
             if (destinationFolderTextBox.Text == "")
             {
                 MessageBox.Show("Nie został wybrany folder docelowy!");
                 return;
-            } else {
+            }
+            else
+            {
                 destination = destinationFolderTextBox.Text;
             }
             if (!(Directory.Exists(source) || Directory.Exists(destination)))
@@ -314,8 +319,8 @@ namespace MuseSort
                 logiTextBox.Text += folder.logi;
             }
         }
-        
-		
+
+
         private void SzczegolyPliku_Click(object sender, EventArgs e)
         {
             //sprawdzam, czy plik jest zaznaczony przez uzytkownika
@@ -328,7 +333,7 @@ namespace MuseSort
             //sciezka pliku
             String sciezka = drzewoFolderow.SelectedNode.Name + "\\" + aktualnyFolder.SelectedItems[0].Text;
             //MessageBox.Show(Path.GetExtension(sciezka));
-            
+
             if (System.IO.File.Exists(sciezka))
             {
                 //rozszerzenie pliku
@@ -414,6 +419,103 @@ namespace MuseSort
         {
             WzorcePlikowAudio okno = new WzorcePlikowAudio();
             okno.Show();
+        }
+
+        private void pobierzNapiButton_Click(object sender, EventArgs e)
+        {
+            //sprawdzam, czy plik jest zaznaczony przez uzytkownika
+            if (drzewoFolderow.SelectedNode == null || aktualnyFolder.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Nie został wybrany plik do otwarcia!");
+                return;
+            }
+
+            //sciezka pliku
+            String sciezka = drzewoFolderow.SelectedNode.Name + "\\" + aktualnyFolder.SelectedItems[0].Text;
+            //MessageBox.Show(Path.GetExtension(sciezka));
+
+            if (System.IO.File.Exists(sciezka))
+            {
+                //rozszerzenie pliku
+                String rozszerzeniePliku = Path.GetExtension(sciezka);
+                //sprawdzamy czy plik jest filmowy, czy tez muzyczny i wlaczamy odpowiednie okno
+                if (rozszerzeniePliku.Equals(".mkv") || rozszerzeniePliku.Equals(".mov") || rozszerzeniePliku.Equals(".avi"))
+                {
+                    string filmNazwaPliku = Path.GetFileNameWithoutExtension(sciezka);
+                    try
+                    {
+                        ObslugaNapiProjekt.PobierzNapisy(sciezka);
+                        //new SzczegolyFilmu(sciezka).ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Blad! pobieranie napisów" + Environment.NewLine + ex.Message);
+                    }
+                }
+                else
+                {
+                    try
+                    {
+
+                        new SzczegolyMuzyki(sciezka).ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Blad! Sprawdz polaczenie z Internetem!" + Environment.NewLine + ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void pobierzN24Button_Click(object sender, EventArgs e)
+        {
+            //sprawdzam, czy plik jest zaznaczony przez uzytkownika
+            if (drzewoFolderow.SelectedNode == null || aktualnyFolder.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Nie został wybrany plik do otwarcia!");
+                return;
+            }
+
+            //sciezka pliku
+            String sciezka = drzewoFolderow.SelectedNode.Name + "\\" + aktualnyFolder.SelectedItems[0].Text;
+            //MessageBox.Show(Path.GetExtension(sciezka));
+
+            if (System.IO.File.Exists(sciezka))
+            {
+                //rozszerzenie pliku
+                String rozszerzeniePliku = Path.GetExtension(sciezka);
+                //sprawdzamy czy plik jest filmowy, czy tez muzyczny i wlaczamy odpowiednie okno
+                if (rozszerzeniePliku.Equals(".mkv") || rozszerzeniePliku.Equals(".mov") || rozszerzeniePliku.Equals(".avi"))
+                {
+                    string filmNazwaPliku = Path.GetFileNameWithoutExtension(sciezka);
+                    try
+                    {
+                        ProstyWebBrowser pwb = new ProstyWebBrowser();
+                        string url = ObslugaNapisy24.FilmUrl(filmNazwaPliku);
+                        // string url = ObslugaNapisy24.FilmUrl(film);
+                        pwb.Start(url);
+
+                        //ObslugaNapiProjekt.PobierzNapisy(sciezka);
+                        //new SzczegolyFilmu(sciezka).ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Blad! pobieranie napisów" + Environment.NewLine + ex.Message);
+                    }
+                }
+                else
+                {
+                    try
+                    {
+
+                        new SzczegolyMuzyki(sciezka).ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Blad! Sprawdz polaczenie z Internetem!" + Environment.NewLine + ex.Message);
+                    }
+                }
+            }
         }
 
     }

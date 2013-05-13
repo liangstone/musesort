@@ -72,21 +72,38 @@ namespace MuseSort.Pomoce
         }
 
 
-        public class CookieAwareWebClient : WebClient
+
+
+        internal static string FilmUrl(string filmNazwaPliku)
         {
-
-            private CookieContainer m_container = new CookieContainer();
-
-            protected override WebRequest GetWebRequest(Uri address)
-            {
-                WebRequest request = base.GetWebRequest(address);
-                if (request is HttpWebRequest)
-                {
-                    (request as HttpWebRequest).CookieContainer = m_container;
-                }
-                return request;
-            }
+            string title = filmNazwaPliku;
+            string encodedTitle = Uri.EscapeDataString(title).Replace("%20", "+");
+            string napisyURL = "http://napisy24.pl/search.php?str=";
+            string requestURL = string.Format("{0}{1}", napisyURL, encodedTitle);
+            return requestURL;
         }
+        internal static string FilmUrl(Film film)
+        {
+            string title = film.dane.tytul;
+            string encodedTitle = Uri.EscapeDataString(title).Replace("%20", "+");
+            string napisyURL = "http://napisy24.pl/search.php?str=";
+            string requestURL = string.Format("{0}{1}", napisyURL, encodedTitle);
+            return requestURL;
+        }
+    }
+    public class CookieAwareWebClient : WebClient
+    {
 
+        private CookieContainer m_container = new CookieContainer();
+
+        protected override WebRequest GetWebRequest(Uri address)
+        {
+            WebRequest request = base.GetWebRequest(address);
+            if (request is HttpWebRequest)
+            {
+                (request as HttpWebRequest).CookieContainer = m_container;
+            }
+            return request;
+        }
     }
 }
