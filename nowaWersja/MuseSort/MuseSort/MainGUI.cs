@@ -314,7 +314,7 @@ namespace MuseSort
                 logiTextBox.Text += folder.logi;
             }
         }
-        #endregion
+        
 		
         private void SzczegolyPliku_Click(object sender, EventArgs e)
         {
@@ -350,6 +350,44 @@ namespace MuseSort
             niestandardoweSortowaniePanel.Visible = true;
         }
 
-        
+        //autor:Karolina
+        private void dodajDoBibliotekiButton_Click(object sender, EventArgs e)
+        {
+            //sprawdzam, czy plik jest zaznaczony przez uzytkownika
+            if (drzewoFolderow.SelectedNode == null || aktualnyFolder.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Nie został wybrany plik do otwarcia!");
+                return;
+            }
+
+            //sciezka pliku
+            String sciezka = drzewoFolderow.SelectedNode.Name + "\\" + aktualnyFolder.SelectedItems[0].Text;
+            //MessageBox.Show(Path.GetExtension(sciezka));
+
+            if (System.IO.File.Exists(sciezka))
+            {
+                //rozszerzenie pliku
+                String rozszerzeniePliku = Path.GetExtension(sciezka);
+                //sprawdzamy czy plik jest filmowy, czy tez muzyczny i wlaczamy odpowiednie okno
+                if (rozszerzeniePliku.Equals(".mkv") || rozszerzeniePliku.Equals(".mov") || rozszerzeniePliku.Equals(".avi"))
+                {
+                    //dodanie do biblioteki filmow lub seriali
+                    MessageBox.Show("Dodano do biblioteki filmowej");
+                }
+                else
+                {
+                    //dodanie do biblioteki muzycznej
+                    MessageBox.Show("Dodanie do biblioteki muzycznej");
+                }
+            }
+        }//end private void dodajDoBibliotekiButton_Click(object sender, EventArgs e)
+
+        //autor:Karolina
+        private void pokazBibliotekeButton_Click(object sender, EventArgs e)
+        {
+            new DatabaseStart().ShowDialog();
+        }//end  private void pokazBibliotekeButton_Click(object sender, EventArgs e)
+
+        #endregion
     }
 }
