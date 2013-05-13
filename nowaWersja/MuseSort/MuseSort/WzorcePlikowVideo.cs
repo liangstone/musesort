@@ -33,7 +33,7 @@ namespace MuseSort
 
             String nazwa = listaWzorcow.SelectedItems[0].Text;
             Wzorzec poszukiwany = null;
-            foreach(Wzorzec wz in StaticFilm.wzorceNazwy)
+            foreach(Wzorzec wz in Film.wzorceNazwy)
             {
                 if (wz.wzorzec.Equals(nazwa))
                 {
@@ -47,7 +47,7 @@ namespace MuseSort
                 return;
             }
 
-            StaticFilm.wzorceNazwy.Remove(poszukiwany);
+            Film.wzorceNazwy.Remove(poszukiwany);
             listaWzorcow.Items.Remove(listaWzorcow.SelectedItems[0]);
             UstawieniaProgramu.getInstance().zapiszUstawienia();
         }
@@ -72,7 +72,7 @@ namespace MuseSort
         {
             listaWzorcow.Items.Clear();
             int i = 0;
-            foreach(Wzorzec wz in StaticFilm.wzorceNazwy)
+            foreach(Wzorzec wz in Film.wzorceNazwy)
             {
                 listaWzorcow.Items.Add(wz.wzorzec);
                 listaWzorcow.Items[i].SubItems.Add(wz.regex.ToString());

@@ -343,7 +343,7 @@ namespace MuseSort
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Blad! Sprawdz polaczenie z Internetem!");
+                        MessageBox.Show("Blad! Sprawdz polaczenie z Internetem!" + Environment.NewLine + ex.Message);
                     }
                 }
                 else
@@ -355,7 +355,7 @@ namespace MuseSort
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Blad! Sprawdz polaczenie z Internetem!");
+                        MessageBox.Show("Blad! Sprawdz polaczenie z Internetem!" + Environment.NewLine + ex.Message);
                     }
                 }
             }

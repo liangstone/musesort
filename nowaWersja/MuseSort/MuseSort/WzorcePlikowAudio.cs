@@ -45,7 +45,7 @@ namespace MuseSort
 
             String nazwa = listaWzorcowSciezki.SelectedItems[0].Text;
             Wzorzec poszukiwany = null;
-            foreach (Wzorzec wz in StaticUtwor.wzorceSciezki)
+            foreach (Wzorzec wz in Utwor.wzorceSciezki)
             {
                 if (wz.wzorzec.Equals(nazwa))
                 {
@@ -59,7 +59,7 @@ namespace MuseSort
                 return;
             }
 
-            StaticUtwor.wzorceSciezki.Remove(poszukiwany);
+            Utwor.wzorceSciezki.Remove(poszukiwany);
             listaWzorcowSciezki.Items.Remove(listaWzorcowSciezki.SelectedItems[0]);
             UstawieniaProgramu.getInstance().zapiszUstawienia();
         }
@@ -73,7 +73,7 @@ namespace MuseSort
         {
             listaWzorcowNazwy.Items.Clear();
             int i = 0;
-            foreach (Wzorzec wz in StaticUtwor.wzorceNazwy)
+            foreach (Wzorzec wz in Utwor.wzorceNazwy)
             {
                 listaWzorcowNazwy.Items.Add(wz.wzorzec);
                 listaWzorcowNazwy.Items[i].SubItems.Add(wz.regex.ToString());
@@ -82,7 +82,7 @@ namespace MuseSort
 
             listaWzorcowSciezki.Items.Clear();
             i = 0;
-            foreach (Wzorzec wz in StaticUtwor.wzorceSciezki)
+            foreach (Wzorzec wz in Utwor.wzorceSciezki)
             {
                 listaWzorcowSciezki.Items.Add(wz.wzorzec);
                 listaWzorcowSciezki.Items[i].SubItems.Add(wz.regex.ToString());
@@ -117,7 +117,7 @@ namespace MuseSort
 
             String nazwa = listaWzorcowNazwy.SelectedItems[0].Text;
             Wzorzec poszukiwany = null;
-            foreach (Wzorzec wz in StaticUtwor.wzorceNazwy)
+            foreach (Wzorzec wz in Utwor.wzorceNazwy)
             {
                 if (wz.wzorzec.Equals(nazwa))
                 {
@@ -131,7 +131,7 @@ namespace MuseSort
                 return;
             }
 
-            StaticUtwor.wzorceNazwy.Remove(poszukiwany);
+            Utwor.wzorceNazwy.Remove(poszukiwany);
             listaWzorcowNazwy.Items.Remove(listaWzorcowNazwy.SelectedItems[0]);
             UstawieniaProgramu.getInstance().zapiszUstawienia();
         }

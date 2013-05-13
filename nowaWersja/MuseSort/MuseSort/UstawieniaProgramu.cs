@@ -74,7 +74,7 @@ namespace MuseSort
                 main.AppendChild(video);
             }
 
-            foreach (Wzorzec s in StaticUtwor.wzorceNazwy)
+            foreach (Wzorzec s in Utwor.wzorceNazwy)
             {
                 XmlElement wzorzec = plikXML.CreateElement("utworWzorzecNazwy");
                 XmlElement wz = plikXML.CreateElement("wzorzec");
@@ -88,7 +88,7 @@ namespace MuseSort
                 main.AppendChild(wzorzec);
             }
 
-            foreach (Wzorzec s in StaticUtwor.wzorceSciezki)
+            foreach (Wzorzec s in Utwor.wzorceSciezki)
             {
                 XmlElement wzorzec = plikXML.CreateElement("utworWzorzecSciezki");
                 XmlElement wz = plikXML.CreateElement("wzorzec");
@@ -102,7 +102,7 @@ namespace MuseSort
                 main.AppendChild(wzorzec);
             }
 
-            foreach (Wzorzec s in StaticFilm.wzorceNazwy)
+            foreach (Wzorzec s in Film.wzorceNazwy)
             {
                 XmlElement wzorzec = plikXML.CreateElement("filmWzorzecNazwy");
                 XmlElement wz = plikXML.CreateElement("wzorzec");
@@ -141,8 +141,8 @@ namespace MuseSort
             {
                 wspieraneRozszerzeniaVideo.Add(x.InnerText);
             }
-            StaticFilm.wczytajWzorceZPliku(@"C:\museSort\config.xml");
-            StaticUtwor.wczytajWzorceZPliku(@"C:\museSort\config.xml");
+            Film.wczytajWzorceZPliku(@"C:\museSort\config.xml");
+            Utwor.wczytajWzorceZPliku(@"C:\museSort\config.xml");
         }
     }
 }

@@ -56,7 +56,7 @@ namespace MuseSort
             regex = regex.Replace("<rok>", @"[\d]{4}");
             regex = regex = "^" + regex + "$";
             Regex rx = new Regex(regex);
-            StaticFilm.dodajWzorzec(wzorzecTextBox.Text, regex);
+            Film.dodajWzorzec(wzorzecTextBox.Text, regex);
             UstawieniaProgramu.getInstance().zapiszUstawienia();
             this.Dispose();
         }
