@@ -39,6 +39,7 @@ namespace MuseSort
 
         private void anulujButton_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.OK;
             this.Dispose();
         }
 

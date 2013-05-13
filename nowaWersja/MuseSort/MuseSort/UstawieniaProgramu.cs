@@ -141,6 +141,8 @@ namespace MuseSort
             {
                 wspieraneRozszerzeniaVideo.Add(x.InnerText);
             }
+            StaticFilm.wczytajWzorceZPliku(@"C:\museSort\config.xml");
+            StaticUtwor.wczytajWzorceZPliku(@"C:\museSort\config.xml");
         }
     }
 }

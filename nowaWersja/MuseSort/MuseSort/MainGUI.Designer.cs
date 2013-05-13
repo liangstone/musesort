@@ -35,6 +35,7 @@
             this.opcjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ustawieniaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wzorcePlikówAudioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wzorcePlikówVideoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drzewoFolderow = new System.Windows.Forms.TreeView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.modyfikujButton = new System.Windows.Forms.ToolStripButton();
@@ -113,7 +114,8 @@
             // 
             this.opcjeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ustawieniaToolStripMenuItem,
-            this.wzorcePlikówAudioToolStripMenuItem});
+            this.wzorcePlikówAudioToolStripMenuItem,
+            this.wzorcePlikówVideoToolStripMenuItem});
             this.opcjeToolStripMenuItem.Name = "opcjeToolStripMenuItem";
             this.opcjeToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.opcjeToolStripMenuItem.Text = "Opcje";
@@ -130,6 +132,14 @@
             this.wzorcePlikówAudioToolStripMenuItem.Name = "wzorcePlikówAudioToolStripMenuItem";
             this.wzorcePlikówAudioToolStripMenuItem.Size = new System.Drawing.Size(218, 24);
             this.wzorcePlikówAudioToolStripMenuItem.Text = "Wzorce plików audio";
+            this.wzorcePlikówAudioToolStripMenuItem.Click += new System.EventHandler(this.wzorcePlikówAudioToolStripMenuItem_Click);
+            // 
+            // wzorcePlikówVideoToolStripMenuItem
+            // 
+            this.wzorcePlikówVideoToolStripMenuItem.Name = "wzorcePlikówVideoToolStripMenuItem";
+            this.wzorcePlikówVideoToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.wzorcePlikówVideoToolStripMenuItem.Text = "Wzorce plików video";
+            this.wzorcePlikówVideoToolStripMenuItem.Click += new System.EventHandler(this.wzorcePlikówVideoToolStripMenuItem_Click);
             // 
             // drzewoFolderow
             // 
@@ -607,6 +617,7 @@
         private System.Windows.Forms.TextBox logiTextBox;
         private System.Windows.Forms.ToolStripButton dodajDoBibliotekiButton;
         private System.Windows.Forms.ToolStripButton pokazBibliotekeButton;
+        private System.Windows.Forms.ToolStripMenuItem wzorcePlikówVideoToolStripMenuItem;
 
     }
 }
