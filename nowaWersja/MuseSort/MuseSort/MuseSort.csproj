@@ -127,6 +127,7 @@
     <Compile Include="MainGUI.Designer.cs">
       <DependentUpon>MainGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="ObslugaNapisy24.cs" />
     <Compile Include="OknoUstawien.cs">
       <SubType>Form</SubType>
     </Compile>
