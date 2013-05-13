@@ -16,7 +16,7 @@ namespace MuseSort
         FolderGlowny folderGlowny;
         #region publiczne metody klas
         //#############################PUBLICZNE METODY KLASY############################################
-        
+
         //Konstruktor głównego okna
         public MainGUI()
         {
@@ -145,7 +145,12 @@ namespace MuseSort
             {
                 logiTextBox.Text += "Brak pliku konfiguracyjnego." + Environment.NewLine;
                 MessageBox.Show("Nie instnieje plik konfiguracyjny programu!");
-                new UtworzUstawienia().ShowDialog(); //.Show();
+                //new UtworzUstawienia().ShowDialog(); //.Show();
+                UtworzUstawienia fUtwUst = new UtworzUstawienia();
+                if (fUtwUst.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    logiTextBox.Text += "Zapisano nowe ustawienia programu." + Environment.NewLine;
+                }
                 //Wywołanie okna pierwszego uruchomienia
             }
             else
@@ -247,14 +252,18 @@ namespace MuseSort
             {
                 MessageBox.Show("Nie został wybrany folder do dodania!");
                 return;
-            } else {
+            }
+            else
+            {
                 source = sourceFolderTextBox.Text;
             }
             if (destinationFolderTextBox.Text == "")
             {
                 MessageBox.Show("Nie został wybrany folder docelowy!");
                 return;
-            } else {
+            }
+            else
+            {
                 destination = destinationFolderTextBox.Text;
             }
             if (!(Directory.Exists(source) || Directory.Exists(destination)))
@@ -315,7 +324,7 @@ namespace MuseSort
             }
         }
         #endregion
-		
+
         private void SzczegolyPliku_Click(object sender, EventArgs e)
         {
             //sprawdzam, czy plik jest zaznaczony przez uzytkownika
@@ -328,7 +337,7 @@ namespace MuseSort
             //sciezka pliku
             String sciezka = drzewoFolderow.SelectedNode.Name + "\\" + aktualnyFolder.SelectedItems[0].Text;
             //MessageBox.Show(Path.GetExtension(sciezka));
-            
+
             if (System.IO.File.Exists(sciezka))
             {
                 //rozszerzenie pliku
@@ -350,6 +359,9 @@ namespace MuseSort
             niestandardoweSortowaniePanel.Visible = true;
         }
 
-        
+        private void PobierzNapisyButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

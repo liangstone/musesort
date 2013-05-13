@@ -71,6 +71,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.logiTextBox = new System.Windows.Forms.TextBox();
+            this.PobierzNapisyButton = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -148,7 +149,8 @@
             this.toolStripSeparator3,
             this.sortujButton,
             this.SzczegolyPliku,
-            this.sortujCustom});
+            this.sortujCustom,
+            this.PobierzNapisyButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(988, 32);
@@ -487,6 +489,17 @@
             this.logiTextBox.Size = new System.Drawing.Size(196, 170);
             this.logiTextBox.TabIndex = 8;
             // 
+            // PobierzNapisyButton
+            // 
+            this.PobierzNapisyButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.PobierzNapisyButton.Image = ((System.Drawing.Image)(resources.GetObject("PobierzNapisyButton.Image")));
+            this.PobierzNapisyButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.PobierzNapisyButton.Name = "PobierzNapisyButton";
+            this.PobierzNapisyButton.Size = new System.Drawing.Size(29, 29);
+            this.PobierzNapisyButton.Text = "toolStripButton1";
+            this.PobierzNapisyButton.ToolTipText = "Pobierz napisy";
+            this.PobierzNapisyButton.Click += new System.EventHandler(this.PobierzNapisyButton_Click);
+            // 
             // MainGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -567,6 +580,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripButton SzczegolyPliku;
         private System.Windows.Forms.TextBox logiTextBox;
+        private System.Windows.Forms.ToolStripButton PobierzNapisyButton;
 
     }
 }

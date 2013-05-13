@@ -99,8 +99,10 @@ namespace MuseSort
                     break;
                 default:
                     UstawieniaProgramu.getInstance().zapiszUstawienia();
-                    MessageBox.Show("Zapisano ustawienia programu!");
-                    this.Dispose();
+                    //MessageBox.Show("Zapisano ustawienia programu!");
+                    this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                    this.Close();
+                    //this.Dispose();
                     break;
             }
         }
