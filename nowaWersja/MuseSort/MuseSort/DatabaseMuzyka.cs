@@ -30,29 +30,7 @@ namespace MuseSort
         private void button1_Click(object sender, EventArgs e)
         {
             muzykaPanel.Visible = true;
-            //WierszTabeli x = new WierszTabeli("Muzyka");
-
-
-             try
-            {
-                string connectionString = @"Data Source=|DataDirectory|\MyDatabase#1.sdf; Password = Projekt&4";
-                conn = new SqlCeConnection(connectionString);
-                SqlCeDataAdapter dataadapter = new SqlCeDataAdapter("Select * FROM Muzyka", conn);
-                DataSet ds = new DataSet();
-                conn.Open();
-                dataadapter.Fill(ds, "Muzyka");
-                conn.Close();
-                tabela.DataSource = ds;
-                tabela.DataMember = "Muzyka";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (conn != null) conn.Close();
-            }
+            refresh();
         }
 
         private void refresh()

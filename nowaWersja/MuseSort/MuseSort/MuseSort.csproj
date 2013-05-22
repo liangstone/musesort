@@ -104,6 +104,12 @@
     <Compile Include="DatabaseStart.Designer.cs">
       <DependentUpon>DatabaseStart.cs</DependentUpon>
     </Compile>
+    <Compile Include="DodawanieFilmow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodawanieFilmow.Designer.cs">
+      <DependentUpon>DodawanieFilmow.cs</DependentUpon>
+    </Compile>
     <Compile Include="EdycjaPliku.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DatabaseStart.resx">
       <DependentUpon>DatabaseStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodawanieFilmow.resx">
+      <DependentUpon>DodawanieFilmow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EdycjaPliku.resx">
       <DependentUpon>EdycjaPliku.cs</DependentUpon>
