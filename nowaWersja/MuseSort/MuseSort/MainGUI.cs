@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
+using System.Data.SqlServerCe;
+using System.Data.SqlClient;
 
 namespace MuseSort
 {
@@ -386,13 +388,47 @@ namespace MuseSort
                 //sprawdzamy czy plik jest filmowy, czy tez muzyczny i wlaczamy odpowiednie okno
                 if (rozszerzeniePliku.Equals(".mkv") || rozszerzeniePliku.Equals(".mov") || rozszerzeniePliku.Equals(".avi"))
                 {
-                    //dodanie do biblioteki filmow lub seriali
+                    new DodawanieFilmow(sciezka).ShowDialog();
                     MessageBox.Show("Dodano do biblioteki filmowej");
                 }
                 else
                 {
-                    //dodanie do biblioteki muzycznej
-                    MessageBox.Show("Dodanie do biblioteki muzycznej");
+                        Utwor x = new Utwor(sciezka);
+                        String album = "";
+                        album = x.dane.album;
+                        String[] wykonawca = {""};
+                        wykonawca = x.dane.wykonawca;
+                        uint rok = x.dane.rok;
+                        String tytul = "";
+                        tytul = x.dane.tytul;
+                        String[] gatunek = { "" };
+                        gatunek = x.dane.gatunek;
+                        string connectionString = @"Data Source=|DataDirectory|\MyDatabase#1.sdf; Password = Projekt&4";
+                        SqlCeConnection conn;
+                        conn = new SqlCeConnection(connectionString);
+                        conn.Open();
+                        try
+                        {
+                            SqlCeCommand Query = new SqlCeCommand("INSERT INTO Muzyka " +
+                                        "(Wykonawca, Tytul, Album, Rok, Gatunek, Sciezka) " +
+                                        "VALUES (@Wykonawca, @Tytul, @Album, @Rok, @Gatunek, @Sciezka)", conn);
+
+                            Query.Parameters.AddWithValue("@Wykonawca", wykonawca[0]);
+                            Query.Parameters.AddWithValue("@Tytul", tytul);
+                            Query.Parameters.AddWithValue("@Album", album);
+                            Query.Parameters.AddWithValue("@Rok", rok);
+                            Query.Parameters.AddWithValue("@Gatunek", gatunek[0]);
+                            Query.Parameters.AddWithValue("@Sciezka", sciezka);
+                            Query.ExecuteNonQuery();
+                            MessageBox.Show("Dodano do biblioteki muzycznej");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Wysypalo sie");
+                            MessageBox.Show(ex.Message);
+                        }
+                         conn.Close();
+                    
                 }
             }
         }//end private void dodajDoBibliotekiButton_Click(object sender, EventArgs e)
