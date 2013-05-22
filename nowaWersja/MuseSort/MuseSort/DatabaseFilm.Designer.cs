@@ -36,9 +36,6 @@
             this.rokButton = new System.Windows.Forms.Button();
             this.filmyPanel = new System.Windows.Forms.Panel();
             this.tabela = new System.Windows.Forms.DataGridView();
-            this.Tytuł = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rok = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Produkcja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usunButton = new System.Windows.Forms.Button();
             this.dodajButton = new System.Windows.Forms.Button();
             this.filmyPanel.SuspendLayout();
@@ -126,45 +123,28 @@
             // 
             this.filmyPanel.BackColor = System.Drawing.Color.Transparent;
             this.filmyPanel.Controls.Add(this.tabela);
-            this.filmyPanel.Location = new System.Drawing.Point(44, 164);
+            this.filmyPanel.Location = new System.Drawing.Point(12, 125);
             this.filmyPanel.Name = "filmyPanel";
-            this.filmyPanel.Size = new System.Drawing.Size(703, 338);
+            this.filmyPanel.Size = new System.Drawing.Size(836, 392);
             this.filmyPanel.TabIndex = 7;
             // 
             // tabela
             // 
+            this.tabela.BackgroundColor = System.Drawing.SystemColors.MenuHighlight;
             this.tabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tabela.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Tytuł,
-            this.rok,
-            this.Produkcja});
-            this.tabela.Location = new System.Drawing.Point(65, 60);
+            this.tabela.GridColor = System.Drawing.SystemColors.Highlight;
+            this.tabela.Location = new System.Drawing.Point(10, 3);
             this.tabela.Name = "tabela";
             this.tabela.RowTemplate.Height = 24;
-            this.tabela.Size = new System.Drawing.Size(379, 152);
-            this.tabela.TabIndex = 0;
-            // 
-            // Tytuł
-            // 
-            this.Tytuł.HeaderText = "Column1";
-            this.Tytuł.Name = "Tytuł";
-            // 
-            // rok
-            // 
-            this.rok.HeaderText = "Column1";
-            this.rok.Name = "rok";
-            // 
-            // Produkcja
-            // 
-            this.Produkcja.HeaderText = "Column1";
-            this.Produkcja.Name = "Produkcja";
+            this.tabela.Size = new System.Drawing.Size(806, 386);
+            this.tabela.TabIndex = 1;
             // 
             // usunButton
             // 
             this.usunButton.BackColor = System.Drawing.Color.MediumBlue;
             this.usunButton.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.usunButton.ForeColor = System.Drawing.Color.Snow;
-            this.usunButton.Location = new System.Drawing.Point(787, 209);
+            this.usunButton.Location = new System.Drawing.Point(854, 183);
             this.usunButton.Name = "usunButton";
             this.usunButton.Size = new System.Drawing.Size(121, 48);
             this.usunButton.TabIndex = 8;
@@ -177,7 +157,7 @@
             this.dodajButton.BackColor = System.Drawing.Color.MediumBlue;
             this.dodajButton.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.dodajButton.ForeColor = System.Drawing.Color.Snow;
-            this.dodajButton.Location = new System.Drawing.Point(787, 271);
+            this.dodajButton.Location = new System.Drawing.Point(854, 252);
             this.dodajButton.Name = "dodajButton";
             this.dodajButton.Size = new System.Drawing.Size(121, 48);
             this.dodajButton.TabIndex = 9;
@@ -220,9 +200,6 @@
         private System.Windows.Forms.Button rokButton;
         private System.Windows.Forms.Panel filmyPanel;
         private System.Windows.Forms.DataGridView tabela;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tytuł;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rok;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Produkcja;
         private System.Windows.Forms.Button usunButton;
         private System.Windows.Forms.Button dodajButton;
     }

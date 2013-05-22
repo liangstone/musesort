@@ -47,6 +47,8 @@
             this.sortujButton = new System.Windows.Forms.ToolStripButton();
             this.SzczegolyPliku = new System.Windows.Forms.ToolStripButton();
             this.sortujCustom = new System.Windows.Forms.ToolStripButton();
+            this.dodajDoBibliotekiButton = new System.Windows.Forms.ToolStripButton();
+            this.pokazBibliotekeButton = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -72,8 +74,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.logiTextBox = new System.Windows.Forms.TextBox();
-            this.dodajDoBibliotekiButton = new System.Windows.Forms.ToolStripButton();
-            this.pokazBibliotekeButton = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -137,14 +137,14 @@
             // wzorcePlikówVideoToolStripMenuItem
             // 
             this.wzorcePlikówVideoToolStripMenuItem.Name = "wzorcePlikówVideoToolStripMenuItem";
-            this.wzorcePlikówVideoToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.wzorcePlikówVideoToolStripMenuItem.Size = new System.Drawing.Size(218, 24);
             this.wzorcePlikówVideoToolStripMenuItem.Text = "Wzorce plików video";
             this.wzorcePlikówVideoToolStripMenuItem.Click += new System.EventHandler(this.wzorcePlikówVideoToolStripMenuItem_Click);
             // 
             // drzewoFolderow
             // 
             this.drzewoFolderow.Location = new System.Drawing.Point(16, 78);
-            this.drzewoFolderow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.drzewoFolderow.Margin = new System.Windows.Forms.Padding(4);
             this.drzewoFolderow.Name = "drzewoFolderow";
             this.drzewoFolderow.Size = new System.Drawing.Size(309, 486);
             this.drzewoFolderow.TabIndex = 1;
@@ -248,6 +248,26 @@
             this.sortujCustom.Text = "Sortowanie niestandardowe";
             this.sortujCustom.Click += new System.EventHandler(this.sortujCustom_Click);
             // 
+            // dodajDoBibliotekiButton
+            // 
+            this.dodajDoBibliotekiButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.dodajDoBibliotekiButton.Image = ((System.Drawing.Image)(resources.GetObject("dodajDoBibliotekiButton.Image")));
+            this.dodajDoBibliotekiButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.dodajDoBibliotekiButton.Name = "dodajDoBibliotekiButton";
+            this.dodajDoBibliotekiButton.Size = new System.Drawing.Size(29, 29);
+            this.dodajDoBibliotekiButton.Text = "Dodaj plik do biblioteki";
+            this.dodajDoBibliotekiButton.Click += new System.EventHandler(this.dodajDoBibliotekiButton_Click);
+            // 
+            // pokazBibliotekeButton
+            // 
+            this.pokazBibliotekeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.pokazBibliotekeButton.Image = ((System.Drawing.Image)(resources.GetObject("pokazBibliotekeButton.Image")));
+            this.pokazBibliotekeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.pokazBibliotekeButton.Name = "pokazBibliotekeButton";
+            this.pokazBibliotekeButton.Size = new System.Drawing.Size(29, 29);
+            this.pokazBibliotekeButton.Text = "Pokaż bibliotekę";
+            this.pokazBibliotekeButton.Click += new System.EventHandler(this.pokazBibliotekeButton_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -283,7 +303,7 @@
             this.pictureBox1.Image = global::MuseSort.Properties.Resources.logo1;
             this.pictureBox1.InitialImage = global::MuseSort.Properties.Resources.logo1;
             this.pictureBox1.Location = new System.Drawing.Point(1044, 78);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(259, 270);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -297,7 +317,7 @@
             this.rozszerzenie,
             this.rozmiar});
             this.aktualnyFolder.Location = new System.Drawing.Point(347, 78);
-            this.aktualnyFolder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.aktualnyFolder.Margin = new System.Windows.Forms.Padding(4);
             this.aktualnyFolder.Name = "aktualnyFolder";
             this.aktualnyFolder.Size = new System.Drawing.Size(675, 486);
             this.aktualnyFolder.TabIndex = 5;
@@ -330,7 +350,7 @@
             this.dodajPanel.Controls.Add(this.sourceFolderTextBox);
             this.dodajPanel.Controls.Add(this.label1);
             this.dodajPanel.Location = new System.Drawing.Point(16, 574);
-            this.dodajPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dodajPanel.Margin = new System.Windows.Forms.Padding(4);
             this.dodajPanel.Name = "dodajPanel";
             this.dodajPanel.Size = new System.Drawing.Size(1007, 165);
             this.dodajPanel.TabIndex = 6;
@@ -340,7 +360,7 @@
             // 
             this.dodajButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dodajButton.Location = new System.Drawing.Point(748, 107);
-            this.dodajButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dodajButton.Margin = new System.Windows.Forms.Padding(4);
             this.dodajButton.Name = "dodajButton";
             this.dodajButton.Size = new System.Drawing.Size(205, 36);
             this.dodajButton.TabIndex = 6;
@@ -352,7 +372,7 @@
             // 
             this.ustalDestinationButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ustalDestinationButton.Location = new System.Drawing.Point(853, 57);
-            this.ustalDestinationButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ustalDestinationButton.Margin = new System.Windows.Forms.Padding(4);
             this.ustalDestinationButton.Name = "ustalDestinationButton";
             this.ustalDestinationButton.Size = new System.Drawing.Size(149, 32);
             this.ustalDestinationButton.TabIndex = 5;
@@ -364,7 +384,7 @@
             // 
             this.ustalSourceButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ustalSourceButton.Location = new System.Drawing.Point(853, 10);
-            this.ustalSourceButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ustalSourceButton.Margin = new System.Windows.Forms.Padding(4);
             this.ustalSourceButton.Name = "ustalSourceButton";
             this.ustalSourceButton.Size = new System.Drawing.Size(149, 32);
             this.ustalSourceButton.TabIndex = 4;
@@ -376,7 +396,7 @@
             // 
             this.destinationFolderTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.destinationFolderTextBox.Location = new System.Drawing.Point(244, 57);
-            this.destinationFolderTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.destinationFolderTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.destinationFolderTextBox.Name = "destinationFolderTextBox";
             this.destinationFolderTextBox.Size = new System.Drawing.Size(600, 30);
             this.destinationFolderTextBox.TabIndex = 3;
@@ -397,7 +417,7 @@
             // 
             this.sourceFolderTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.sourceFolderTextBox.Location = new System.Drawing.Point(244, 10);
-            this.sourceFolderTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sourceFolderTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.sourceFolderTextBox.Name = "sourceFolderTextBox";
             this.sourceFolderTextBox.Size = new System.Drawing.Size(600, 30);
             this.sourceFolderTextBox.TabIndex = 1;
@@ -508,31 +528,11 @@
             // logiTextBox
             // 
             this.logiTextBox.Location = new System.Drawing.Point(1044, 356);
-            this.logiTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.logiTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.logiTextBox.Multiline = true;
             this.logiTextBox.Name = "logiTextBox";
             this.logiTextBox.Size = new System.Drawing.Size(260, 208);
             this.logiTextBox.TabIndex = 8;
-            // 
-            // dodajDoBibliotekiButton
-            // 
-            this.dodajDoBibliotekiButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.dodajDoBibliotekiButton.Image = ((System.Drawing.Image)(resources.GetObject("dodajDoBibliotekiButton.Image")));
-            this.dodajDoBibliotekiButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.dodajDoBibliotekiButton.Name = "dodajDoBibliotekiButton";
-            this.dodajDoBibliotekiButton.Size = new System.Drawing.Size(29, 29);
-            this.dodajDoBibliotekiButton.Text = "Dodaj plik do biblioteki";
-            this.dodajDoBibliotekiButton.Click += new System.EventHandler(this.dodajDoBibliotekiButton_Click);
-            // 
-            // pokazBibliotekeButton
-            // 
-            this.pokazBibliotekeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.pokazBibliotekeButton.Image = ((System.Drawing.Image)(resources.GetObject("pokazBibliotekeButton.Image")));
-            this.pokazBibliotekeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.pokazBibliotekeButton.Name = "pokazBibliotekeButton";
-            this.pokazBibliotekeButton.Size = new System.Drawing.Size(29, 29);
-            this.pokazBibliotekeButton.Text = "Pokaż bibliotekę";
-            this.pokazBibliotekeButton.Click += new System.EventHandler(this.pokazBibliotekeButton_Click);
             // 
             // MainGUI
             // 
@@ -551,7 +551,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dodajPanel);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "MainGUI";
             this.Text = "MuseSort";
