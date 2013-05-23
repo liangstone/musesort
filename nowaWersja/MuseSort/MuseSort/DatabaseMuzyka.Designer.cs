@@ -143,6 +143,7 @@
             // 
             // tabela
             // 
+            this.tabela.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tabela.BackgroundColor = System.Drawing.SystemColors.MenuHighlight;
             this.tabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tabela.GridColor = System.Drawing.SystemColors.MenuHighlight;
