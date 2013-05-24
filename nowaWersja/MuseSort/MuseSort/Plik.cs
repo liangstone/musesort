@@ -2,7 +2,7 @@
 using System.IO;
 namespace MuseSort
 {
-    abstract class Plik
+    public abstract class Plik
     {
         #region Pola i properties
 

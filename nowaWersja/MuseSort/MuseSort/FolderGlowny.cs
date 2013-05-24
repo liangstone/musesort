@@ -4,7 +4,7 @@ using System.IO;
 
 namespace MuseSort
 {
-    class FolderGlowny
+    public class FolderGlowny
     {
         String sciezka;
         public String logi;

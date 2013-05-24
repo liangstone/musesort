@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 
 namespace MuseSort
 {
-    class Wzorzec
+    public class Wzorzec
     {
         public Regex regex;
         public String wzorzec;

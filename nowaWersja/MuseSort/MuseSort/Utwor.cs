@@ -6,7 +6,7 @@ using System.IO;
 
 namespace MuseSort
 {
-    partial class Utwor : Plik
+    public partial class Utwor : Plik
     {
         #region atrybuty klasy
         public DaneUtworu dane;

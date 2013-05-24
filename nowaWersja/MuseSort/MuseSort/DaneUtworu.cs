@@ -6,7 +6,7 @@ using TagLib;
 
 namespace MuseSort
 {
-    class DaneUtworu : Dane
+    public class DaneUtworu : Dane
     {
         public String[] wykonawca = { "" };
         public String[] wykonawcaAlbumu = { "" };

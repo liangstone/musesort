@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MuseSort
 {
-    class DaneFilmu: Dane
+    public class DaneFilmu : Dane
     {
         public String tytul = "";
         public String[] gatunki = { "" };

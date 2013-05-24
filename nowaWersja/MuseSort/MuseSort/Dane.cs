@@ -3,7 +3,7 @@ using System.IO;
 using System.Reflection;
 namespace MuseSort
 {
-    abstract class Dane
+    public abstract class Dane
     {
 
         /// <summary>Generuje ścieżkę dla katalogu na podstawie pól w sortowaniu.</summary>

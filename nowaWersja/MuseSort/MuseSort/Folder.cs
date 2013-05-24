@@ -6,7 +6,7 @@ using System.IO;
 
 namespace MuseSort
 {
-    class Folder
+    public class Folder
     {
 
         #region POLA KLASY
@@ -379,7 +379,7 @@ namespace MuseSort
         /// </summary>
         /// <param name="katalog">Katalog do przeszukania.</param>
         /// <returns></returns>
-        List<string> znajdz_wspierane_pliki(string katalog, IEnumerable<string> wspieraneRozszerzenia)
+        public static List<string> znajdz_wspierane_pliki(string katalog, IEnumerable<string> wspieraneRozszerzenia)
         {
             if (katalog == null)
                 throw new ArgumentNullException("Katalog jest null!");

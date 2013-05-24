@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MuseSort.Pomoce
 {
-    class ObslugaNapisy24
+    public class ObslugaNapisy24
     {
         public static void test01()
         {

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace MuseSort
 {
-    class FolderGlownyXML
+    public class FolderGlownyXML
     {
         String sciezka;      //przechowuje scieżkę do pliku XML
         XmlDocument plikXML;

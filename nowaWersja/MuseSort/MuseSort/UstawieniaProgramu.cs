@@ -7,7 +7,7 @@ using System.Xml;
 
 namespace MuseSort
 {
-    class UstawieniaProgramu
+    public class UstawieniaProgramu
     {
         private static volatile UstawieniaProgramu instancja;
         public String folderGlowny;

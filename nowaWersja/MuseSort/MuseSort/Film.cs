@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace MuseSort
 {
-    partial class Film : Plik
+    public partial class Film : Plik
     {
         public DaneFilmu dane;
         //<należy wybrać klasę źródłową> tagi;
