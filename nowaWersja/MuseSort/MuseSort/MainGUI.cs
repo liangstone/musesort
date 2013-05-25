@@ -388,8 +388,7 @@ namespace MuseSort
                 //sprawdzamy czy plik jest filmowy, czy tez muzyczny i wlaczamy odpowiednie okno
                 if (rozszerzeniePliku.Equals(".mkv") || rozszerzeniePliku.Equals(".mov") || rozszerzeniePliku.Equals(".avi"))
                 {
-                    new DodawanieFilmow(sciezka).ShowDialog();
-                    MessageBox.Show("Dodano do biblioteki filmowej");
+                    new InterakcjaFilmSerial(sciezka).ShowDialog();
                 }
                 else
                 {
