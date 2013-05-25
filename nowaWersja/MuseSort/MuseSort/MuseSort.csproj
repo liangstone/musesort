@@ -77,6 +77,7 @@
     <Compile Include="BazaDanych\BazaDanychSqlServerCE.cs" />
     <Compile Include="BazaDanych\IBazaDanych.cs" />
     <Compile Include="BazaDanych\WierszTabeli.cs" />
+    <Compile Include="Crawler.cs" />
     <Compile Include="Dane.cs" />
     <Compile Include="DaneUtworu.cs" />
     <Compile Include="DaneFilmu.cs" />
