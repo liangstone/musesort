@@ -17,7 +17,9 @@ namespace MuseSortTesting
         [TestMethod]
         public void PobierzDaneZeSciezki()
         {
-            var utwor = new Utwor(@"C:\Users\KrzysztofD\Documents\Visual Studio 2012\Projects\MuseSort\testowanie\muzyka\BlindGuardian\ANightAtTheOpera\4tUJmmHfC_la4-Ug2MO3BSf44s__bCCjL3F59MhwMvWc6K5yGvAOMe2Jc1i4r5P53nKkquPLgPQYnIv52VyTVjHQjkf4FQNR9SlQb6on4PY=.mp3");
+            var utwor =
+                new Utwor(SetAbsolutePath(@"muzyka\BlindGuardian\ANightAtTheOpera\") +
+                          "07 Kristin Chenoweth-Popular.mp3");
             utwor.pobierzTagiZeSciezki();
             Assert.AreEqual("ANightAtTheOpera", utwor.dane.album, "Album się nie zgadza.");
             Assert.AreEqual("BlindGuardian", utwor.dane.wykonawca[0], "Wykonawca się nie zgadza.");
@@ -32,7 +34,9 @@ namespace MuseSortTesting
         [TestMethod]
         public void PobierzDaneZNazwy()
         {
-            var utwor = new Utwor(@"C:\Users\KrzysztofD\Documents\Visual Studio 2012\Projects\MuseSort\testowanie\muzyka\07 Kristin Chenoweth-Popular.mp3")
+            var utwor =
+                new Utwor(SetAbsolutePath(@"muzyka\BlindGuardian\ANightAtTheOpera\") +
+                          "07 Kristin Chenoweth-Popular.mp3")
                 {
                     dane = {numer = 0, wykonawca = new[] {string.Empty}, tytul = string.Empty}
                 };
@@ -40,6 +44,14 @@ namespace MuseSortTesting
             Assert.AreEqual("Popular", utwor.dane.tytul, "Nie zgadza się tytuł.");
             Assert.AreEqual(7, utwor.dane.numer, "Nie zgadza się numer.");
             Assert.AreEqual("Kristin Chenoweth", utwor.dane.wykonawca[0], "Nie zgadza się wykonawca.");
+        }
+
+        private static string SetAbsolutePath(string sciezka)
+        {
+            while (!Directory.Exists(sciezka))
+                sciezka = @"..\" + sciezka;
+            sciezka = Path.GetFullPath(sciezka);
+            return sciezka;
         }
     }
 }

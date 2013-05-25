@@ -15,8 +15,15 @@ namespace MuseSortTesting
     [TestClass]
     public class TestFolder
     {
-        private const string SciezkaTestowa = "Ścieżka testowa";
+        private string _sciezkaMuzyka = @"muzyka";
+        private string _sciezkaFilmy = @"filmy";
 
+        [ClassInitialize]
+        public void UstalSciezki()
+        {
+            _sciezkaMuzyka = SetAbsolutePath(_sciezkaMuzyka);
+            _sciezkaFilmy = SetAbsolutePath(_sciezkaFilmy);
+        }
         [TestMethod]
         public void KonstruktorTest()
         {
@@ -25,10 +32,10 @@ namespace MuseSortTesting
                 ShimFolderXML.ConstructorString = (@this, path) => { };
                 ShimFolderXML.AllInstances.analizuj = @this => false;
 
-                ShimDirectory.ExistsString = path => path == SciezkaTestowa;
+                ShimDirectory.ExistsString = path => path == _sciezkaMuzyka;
 
-                var folder = new Folder(SciezkaTestowa);
-                Assert.AreEqual(SciezkaTestowa, folder.Sciezka);
+                var folder = new Folder(_sciezkaMuzyka);
+                Assert.AreEqual(_sciezkaMuzyka, folder.Sciezka);
                 Assert.AreEqual("", folder.logi);
             }
         }
@@ -42,7 +49,7 @@ namespace MuseSortTesting
                 ShimFolderXML.ConstructorString = (@this, path) => { };
                 ShimFolderXML.AllInstances.analizuj = @this => false;
 
-                ShimDirectory.ExistsString = path => path == SciezkaTestowa;
+                ShimDirectory.ExistsString = path => path == _sciezkaMuzyka;
 
                 new Folder("Nieprawidłowa ścieżka");
             }
@@ -56,9 +63,9 @@ namespace MuseSortTesting
                 ShimFolderXML.ConstructorString = (@this, path) => { };
                 ShimFolderXML.AllInstances.analizuj = @this => false;
 
-                ShimFile.ExistsString = path => path == SciezkaTestowa;
+                ShimFile.ExistsString = path => path == _sciezkaMuzyka;
 
-                var folder = new Folder(SciezkaTestowa);
+                var folder = new Folder(_sciezkaMuzyka);
                 Assert.IsFalse(folder.analizuj());
 
                 ShimFolderXML.AllInstances.analizuj = @this => true;
@@ -76,8 +83,8 @@ namespace MuseSortTesting
                 ShimMessageBox.ShowString = message => DialogResult.OK;
 
 
-                const string sciezkaTestowa = @"C:\Users\KrzysztofD\Documents\Visual Studio 2012\Projects\MuseSort\testowanie\muzyka";
-                var folder = new Folder(sciezkaTestowa);
+                //const string sciezkaTestowa = @"C:\Users\KrzysztofD\Documents\Visual Studio 2012\Projects\MuseSort\testowanie\muzyka";
+                var folder = new Folder(_sciezkaMuzyka);
                 var progressBar = new ProgressBar();
                 folder.progressBar2 = progressBar;
                 folder.ustalSchemat(@"Wykonawca\Album\Piosenki");
@@ -89,19 +96,19 @@ namespace MuseSortTesting
         [TestMethod]
         public void SortujFilmyTest()
         {
-            const string sciezkaTestowa = @"C:\Users\KrzysztofD\Documents\Visual Studio 2012\Projects\MuseSort\testowanie\filmy";
+            //const string sciezkaTestowa = @"C:\Users\KrzysztofD\Documents\Visual Studio 2012\Projects\MuseSort\testowanie\filmy";
             const int liczbaPlikow = 10;
             const string schemat = "Dyrektorzy\\Tytul";
 
             UstawieniaProgramu.getInstance().wczytajUstawienia();
             UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo.Add("mov");
-            if(Directory.Exists(sciezkaTestowa + "\\Musesort"))
-                Directory.Delete(sciezkaTestowa + "\\Musesort", true);
+            if(Directory.Exists(_sciezkaFilmy + "\\Musesort"))
+                Directory.Delete(_sciezkaFilmy + "\\Musesort", true);
 
-            var inList = Folder.znajdz_wspierane_pliki(sciezkaTestowa, UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo);
+            var inList = Folder.znajdz_wspierane_pliki(_sciezkaFilmy, UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo);
             var expectedInList= new List<string>();
             for (var i = 1; i <= liczbaPlikow; i++)
-                expectedInList.Add(sciezkaTestowa + @"\Film" + i + ".mov");
+                expectedInList.Add(_sciezkaFilmy + @"\Film" + i + ".mov");
             var expectedOutList = new List<string>();
 
 
@@ -148,7 +155,7 @@ namespace MuseSortTesting
                     testData.Add(Path.GetFileName(path), tmp);
                     //expectedOutList.Add(sciezkatestowa + '\\' + @"\Musesort\Filmy\Posegregowane\"
                     //    + testFile.dane.dyrektorzy[0] + '\\' + testFile.dane.tytul + '\\' + Path.GetFileName(path)); //Przypominam: schemat to "Dyrektorzy/Tytul"
-                    expectedOutList.Add(sciezkaTestowa + '\\' + @"\Musesort\Filmy\Posegregowane\"
+                    expectedOutList.Add(_sciezkaFilmy + '\\' + @"\Musesort\Filmy\Posegregowane\"
                         + tmp.dyrektorzy[0] + '\\' + tmp.tytul + '\\' + Path.GetFileName(path));
                     i++;
                 }
@@ -168,14 +175,14 @@ namespace MuseSortTesting
                 //ShimPlik.AllInstances.kopiujPlikString = (@this, path) => { @this.sciezka = path};
                 ShimMessageBox.ShowString = (message) => DialogResult.OK;
 
-                var testFolder = new Folder(sciezkaTestowa);
+                var testFolder = new Folder(_sciezkaFilmy);
                 var progressBar = new ProgressBar();
                 testFolder.progressBar2 = progressBar;
                 testFolder.ustalSchemat(schemat);
                 testFolder.sortuj(UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo);
             }
 
-            var outList = Folder.znajdz_wspierane_pliki(sciezkaTestowa + "\\Musesort", UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo);
+            var outList = Folder.znajdz_wspierane_pliki(_sciezkaFilmy + "\\Musesort", UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo);
 
             outList.Sort();
             expectedOutList.Sort();
@@ -190,5 +197,14 @@ namespace MuseSortTesting
             Assert.IsTrue(inList.Count == expectedOutList.Count && outList.TrueForAll(expectedInList.Contains),
                 "Lista posortowanych plików nie zgadza się z przewidywaną: zawartość folderu testowego nie zgadza się z przewidywaną.");
         }
+
+        private static string SetAbsolutePath(string sciezka)
+        {
+            while (!Directory.Exists(sciezka))
+                sciezka = @"..\" + sciezka;
+            sciezka = Path.GetFullPath(sciezka);
+            return sciezka;
+        }
+
     }
 }
