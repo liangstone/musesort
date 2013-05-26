@@ -18,6 +18,9 @@ namespace MuseSort
         public DatabaseMuzyka()
         {
             InitializeComponent();
+            usunButton.Hide();
+            dodajButton.Hide();
+            edytujButton.Hide();
             muzykaPanel.Visible = false;
         }
 
@@ -30,6 +33,9 @@ namespace MuseSort
         private void button1_Click(object sender, EventArgs e)
         {
             muzykaPanel.Visible = true;
+            usunButton.Show();
+            dodajButton.Show();
+            edytujButton.Show();
             refresh();
         }
 
@@ -63,8 +69,9 @@ namespace MuseSort
         {
             muzykaPanel.Visible = true;
             //WierszTabeli x = new WierszTabeli("Muzyka");
-
-
+            dodajButton.Hide();
+            usunButton.Hide();
+            edytujButton.Hide();
             try
             {
                 string connectionString = @"Data Source=|DataDirectory|\MyDatabase#1.sdf; Password = Projekt&4";
@@ -90,6 +97,9 @@ namespace MuseSort
         private void wykonawcyButton_Click(object sender, EventArgs e)
         {
             muzykaPanel.Visible = true;
+            usunButton.Hide();
+            dodajButton.Hide();
+            edytujButton.Hide();
             try
             {
                 string connectionString = @"Data Source=|DataDirectory|\MyDatabase#1.sdf; Password = Projekt&4";
@@ -151,41 +161,34 @@ namespace MuseSort
             {
                  
                 String sciezka = explorer.FileName;
-                Utwor x = new Utwor(sciezka);
-                String album = "";
-                album = x.dane.album;
-                String[] wykonawca = {""};
-                wykonawca = x.dane.wykonawca;
-                uint rok = x.dane.rok;
-                String tytul = "";
-                tytul = x.dane.tytul;
-                String[] gatunek = { "" };
-                gatunek = x.dane.gatunek;
-                string connectionString = @"Data Source=|DataDirectory|\MyDatabase#1.sdf; Password = Projekt&4";
-                conn = new SqlCeConnection(connectionString);
-                conn.Open();
-                try
-                {
-                    SqlCeCommand Query = new SqlCeCommand("INSERT INTO Muzyka " +
-                                "(Wykonawca, Tytul, Album, Rok, Gatunek, Sciezka) " +
-                                "VALUES (@Wykonawca, @Tytul, @Album, @Rok, @Gatunek, @Sciezka)", conn);
-
-                    Query.Parameters.AddWithValue("@Wykonawca", wykonawca[0]);
-                    Query.Parameters.AddWithValue("@Tytul", tytul);
-                    Query.Parameters.AddWithValue("@Album", album);
-                    Query.Parameters.AddWithValue("@Rok", rok);
-                    Query.Parameters.AddWithValue("@Gatunek", gatunek[0]);
-                    Query.Parameters.AddWithValue("@Sciezka", sciezka);
-                    Query.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Wysypalo sie");
-                    MessageBox.Show(ex.Message);
-                }
-                 conn.Close();
+                new DodawanieMuzyki(sciezka).ShowDialog();
+                
                  refresh();
             }
+        }
+
+        private void edytujButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                DataGridViewRow wiersz = tabela.SelectedRows[0];
+                int id = Convert.ToInt32(wiersz.Cells[0].Value.ToString());
+                String wyk = wiersz.Cells[1].Value.ToString();
+                String tytul = wiersz.Cells[2].Value.ToString();
+                String album = wiersz.Cells[3].Value.ToString();
+                int rok = Convert.ToInt32(wiersz.Cells[4].Value.ToString());
+                String gatunek = wiersz.Cells[5].Value.ToString();
+                String sciezka = wiersz.Cells[6].Value.ToString();
+
+                new DodawanieMuzyki(id, wyk, tytul, album, rok, gatunek, sciezka).ShowDialog();
+                refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Kliknij w pole po lewej stronie wiersza, aby go zaznaczyc do edycji");
+            }
+            
         }
     }
 }

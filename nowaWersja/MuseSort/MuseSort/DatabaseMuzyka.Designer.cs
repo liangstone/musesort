@@ -38,6 +38,7 @@
             this.muzykaPanel = new System.Windows.Forms.Panel();
             this.tabela = new System.Windows.Forms.DataGridView();
             this.explorer = new System.Windows.Forms.OpenFileDialog();
+            this.edytujButton = new System.Windows.Forms.Button();
             this.muzykaPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabela)).BeginInit();
             this.SuspendLayout();
@@ -153,6 +154,19 @@
             this.tabela.Size = new System.Drawing.Size(747, 330);
             this.tabela.TabIndex = 1;
             // 
+            // edytujButton
+            // 
+            this.edytujButton.BackColor = System.Drawing.Color.MediumBlue;
+            this.edytujButton.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.edytujButton.ForeColor = System.Drawing.Color.White;
+            this.edytujButton.Location = new System.Drawing.Point(820, 344);
+            this.edytujButton.Name = "edytujButton";
+            this.edytujButton.Size = new System.Drawing.Size(121, 43);
+            this.edytujButton.TabIndex = 13;
+            this.edytujButton.Text = "Edytuj";
+            this.edytujButton.UseVisualStyleBackColor = false;
+            this.edytujButton.Click += new System.EventHandler(this.edytujButton_Click);
+            // 
             // DatabaseMuzyka
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -160,6 +174,7 @@
             this.BackgroundImage = global::MuseSort.Properties.Resources.tlo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(953, 541);
+            this.Controls.Add(this.edytujButton);
             this.Controls.Add(this.muzykaPanel);
             this.Controls.Add(this.dodajButton);
             this.Controls.Add(this.usunButton);
@@ -189,5 +204,6 @@
         private System.Windows.Forms.Panel muzykaPanel;
         private System.Windows.Forms.DataGridView tabela;
         private System.Windows.Forms.OpenFileDialog explorer;
+        private System.Windows.Forms.Button edytujButton;
     }
 }

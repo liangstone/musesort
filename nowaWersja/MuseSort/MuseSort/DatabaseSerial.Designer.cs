@@ -38,6 +38,7 @@
             this.usunButton = new System.Windows.Forms.Button();
             this.serialePanel = new System.Windows.Forms.Panel();
             this.tabela = new System.Windows.Forms.DataGridView();
+            this.edytujButton = new System.Windows.Forms.Button();
             this.serialePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabela)).BeginInit();
             this.SuspendLayout();
@@ -166,6 +167,19 @@
             this.tabela.Size = new System.Drawing.Size(747, 331);
             this.tabela.TabIndex = 1;
             // 
+            // edytujButton
+            // 
+            this.edytujButton.BackColor = System.Drawing.Color.MediumBlue;
+            this.edytujButton.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.edytujButton.ForeColor = System.Drawing.Color.White;
+            this.edytujButton.Location = new System.Drawing.Point(802, 393);
+            this.edytujButton.Name = "edytujButton";
+            this.edytujButton.Size = new System.Drawing.Size(121, 48);
+            this.edytujButton.TabIndex = 14;
+            this.edytujButton.Text = "Edytuj";
+            this.edytujButton.UseVisualStyleBackColor = false;
+            this.edytujButton.Click += new System.EventHandler(this.edytujButton_Click);
+            // 
             // DatabaseSerial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -173,6 +187,7 @@
             this.BackgroundImage = global::MuseSort.Properties.Resources.tlo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(991, 520);
+            this.Controls.Add(this.edytujButton);
             this.Controls.Add(this.serialePanel);
             this.Controls.Add(this.dodajButton);
             this.Controls.Add(this.usunButton);
@@ -203,5 +218,6 @@
         private System.Windows.Forms.Button usunButton;
         private System.Windows.Forms.Panel serialePanel;
         private System.Windows.Forms.DataGridView tabela;
+        private System.Windows.Forms.Button edytujButton;
     }
 }

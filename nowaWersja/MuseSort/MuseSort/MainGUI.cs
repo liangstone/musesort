@@ -392,42 +392,7 @@ namespace MuseSort
                 }
                 else
                 {
-                        Utwor x = new Utwor(sciezka);
-                        String album = "";
-                        album = x.dane.album;
-                        String[] wykonawca = {""};
-                        wykonawca = x.dane.wykonawca;
-                        uint rok = x.dane.rok;
-                        String tytul = "";
-                        tytul = x.dane.tytul;
-                        String[] gatunek = { "" };
-                        gatunek = x.dane.gatunek;
-                        string connectionString = @"Data Source=|DataDirectory|\MyDatabase#1.sdf; Password = Projekt&4";
-                        SqlCeConnection conn;
-                        conn = new SqlCeConnection(connectionString);
-                        conn.Open();
-                        try
-                        {
-                            SqlCeCommand Query = new SqlCeCommand("INSERT INTO Muzyka " +
-                                        "(Wykonawca, Tytul, Album, Rok, Gatunek, Sciezka) " +
-                                        "VALUES (@Wykonawca, @Tytul, @Album, @Rok, @Gatunek, @Sciezka)", conn);
-
-                            Query.Parameters.AddWithValue("@Wykonawca", wykonawca[0]);
-                            Query.Parameters.AddWithValue("@Tytul", tytul);
-                            Query.Parameters.AddWithValue("@Album", album);
-                            Query.Parameters.AddWithValue("@Rok", rok);
-                            Query.Parameters.AddWithValue("@Gatunek", gatunek[0]);
-                            Query.Parameters.AddWithValue("@Sciezka", sciezka);
-                            Query.ExecuteNonQuery();
-                            MessageBox.Show("Dodano do biblioteki muzycznej");
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Wysypalo sie");
-                            MessageBox.Show(ex.Message);
-                        }
-                         conn.Close();
-                    
+                    new DodawanieMuzyki(sciezka).ShowDialog();
                 }
             }
         }//end private void dodajDoBibliotekiButton_Click(object sender, EventArgs e)
