@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Folder główny");
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Foldery", new System.Windows.Forms.TreeNode[] {
-            treeNode29});
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Domyślne ustawienia");
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Sortowanie", new System.Windows.Forms.TreeNode[] {
-            treeNode31});
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Wspierane rozszerzenia");
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Rozszerzenia", new System.Windows.Forms.TreeNode[] {
-            treeNode33});
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Zewnętrzne bazy danych");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Folder główny");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Foldery", new System.Windows.Forms.TreeNode[] {
+            treeNode9});
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Domyślne ustawienia");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Sortowanie", new System.Windows.Forms.TreeNode[] {
+            treeNode11});
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Wspierane rozszerzenia");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Rozszerzenia", new System.Windows.Forms.TreeNode[] {
+            treeNode13});
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Zewnętrzne bazy danych");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Napisy24");
             this.drzewoUstawien = new System.Windows.Forms.TreeView();
             this.przywrocDomyslneButton = new System.Windows.Forms.Button();
             this.zapiszButton = new System.Windows.Forms.Button();
@@ -66,6 +67,8 @@
             this.rozszerzeniaBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.wspieranieRozszerzeniaPanel = new System.Windows.Forms.Panel();
+            this.flacCheckBox = new System.Windows.Forms.CheckBox();
+            this.mp3CheckBox = new System.Windows.Forms.CheckBox();
             this.dodajRozszerzenieButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -74,8 +77,12 @@
             this.dataBaseListBox = new System.Windows.Forms.ListBox();
             this.label10 = new System.Windows.Forms.Label();
             this.explorer = new System.Windows.Forms.FolderBrowserDialog();
-            this.mp3CheckBox = new System.Windows.Forms.CheckBox();
-            this.flacCheckBox = new System.Windows.Forms.CheckBox();
+            this.Napisy24Panel = new System.Windows.Forms.Panel();
+            this.napisy24HasloTB = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.zapiszNapisy24UstawieniaButton = new System.Windows.Forms.Button();
+            this.napisy24LoginTB = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.folderyPanel.SuspendLayout();
             this.folderGlownyPanel.SuspendLayout();
             this.sortowaniaPanel.SuspendLayout();
@@ -83,6 +90,7 @@
             this.rozszerzeniaPanel.SuspendLayout();
             this.wspieranieRozszerzeniaPanel.SuspendLayout();
             this.zewnetrzneBazyDanychPanel.SuspendLayout();
+            this.Napisy24Panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // drzewoUstawien
@@ -92,25 +100,28 @@
             this.drzewoUstawien.Location = new System.Drawing.Point(10, 11);
             this.drzewoUstawien.Margin = new System.Windows.Forms.Padding(2);
             this.drzewoUstawien.Name = "drzewoUstawien";
-            treeNode29.Name = "folderGlownyNode";
-            treeNode29.Text = "Folder główny";
-            treeNode30.Name = "folderyNode";
-            treeNode30.Text = "Foldery";
-            treeNode31.Name = "domyslneSortowanieNode";
-            treeNode31.Text = "Domyślne ustawienia";
-            treeNode32.Name = "sortowaniaNode";
-            treeNode32.Text = "Sortowanie";
-            treeNode33.Name = "wspieraneRozszerzeniaNode";
-            treeNode33.Text = "Wspierane rozszerzenia";
-            treeNode34.Name = "rozszerzeniaNode";
-            treeNode34.Text = "Rozszerzenia";
-            treeNode35.Name = "bazyDanychNode";
-            treeNode35.Text = "Zewnętrzne bazy danych";
+            treeNode9.Name = "folderGlownyNode";
+            treeNode9.Text = "Folder główny";
+            treeNode10.Name = "folderyNode";
+            treeNode10.Text = "Foldery";
+            treeNode11.Name = "domyslneSortowanieNode";
+            treeNode11.Text = "Domyślne ustawienia";
+            treeNode12.Name = "sortowaniaNode";
+            treeNode12.Text = "Sortowanie";
+            treeNode13.Name = "wspieraneRozszerzeniaNode";
+            treeNode13.Text = "Wspierane rozszerzenia";
+            treeNode14.Name = "rozszerzeniaNode";
+            treeNode14.Text = "Rozszerzenia";
+            treeNode15.Name = "bazyDanychNode";
+            treeNode15.Text = "Zewnętrzne bazy danych";
+            treeNode16.Name = "Napisy24node";
+            treeNode16.Text = "Napisy24";
             this.drzewoUstawien.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode30,
-            treeNode32,
-            treeNode34,
-            treeNode35});
+            treeNode10,
+            treeNode12,
+            treeNode14,
+            treeNode15,
+            treeNode16});
             this.drzewoUstawien.Size = new System.Drawing.Size(188, 311);
             this.drzewoUstawien.TabIndex = 0;
             // 
@@ -463,6 +474,28 @@
             this.wspieranieRozszerzeniaPanel.Size = new System.Drawing.Size(271, 276);
             this.wspieranieRozszerzeniaPanel.TabIndex = 8;
             // 
+            // flacCheckBox
+            // 
+            this.flacCheckBox.AutoSize = true;
+            this.flacCheckBox.ForeColor = System.Drawing.Color.White;
+            this.flacCheckBox.Location = new System.Drawing.Point(152, 84);
+            this.flacCheckBox.Name = "flacCheckBox";
+            this.flacCheckBox.Size = new System.Drawing.Size(50, 17);
+            this.flacCheckBox.TabIndex = 12;
+            this.flacCheckBox.Text = "*.flac";
+            this.flacCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // mp3CheckBox
+            // 
+            this.mp3CheckBox.AutoSize = true;
+            this.mp3CheckBox.ForeColor = System.Drawing.Color.White;
+            this.mp3CheckBox.Location = new System.Drawing.Point(39, 85);
+            this.mp3CheckBox.Name = "mp3CheckBox";
+            this.mp3CheckBox.Size = new System.Drawing.Size(53, 17);
+            this.mp3CheckBox.TabIndex = 11;
+            this.mp3CheckBox.Text = "*.mp3";
+            this.mp3CheckBox.UseVisualStyleBackColor = true;
+            // 
             // dodajRozszerzenieButton
             // 
             this.dodajRozszerzenieButton.BackColor = System.Drawing.Color.LightSkyBlue;
@@ -550,40 +583,93 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Wybierz bazę danych:";
             // 
-            // mp3CheckBox
+            // Napisy24Panel
             // 
-            this.mp3CheckBox.AutoSize = true;
-            this.mp3CheckBox.ForeColor = System.Drawing.Color.White;
-            this.mp3CheckBox.Location = new System.Drawing.Point(39, 85);
-            this.mp3CheckBox.Name = "mp3CheckBox";
-            this.mp3CheckBox.Size = new System.Drawing.Size(53, 17);
-            this.mp3CheckBox.TabIndex = 11;
-            this.mp3CheckBox.Text = "*.mp3";
-            this.mp3CheckBox.UseVisualStyleBackColor = true;
+            this.Napisy24Panel.BackColor = System.Drawing.Color.Transparent;
+            this.Napisy24Panel.Controls.Add(this.napisy24HasloTB);
+            this.Napisy24Panel.Controls.Add(this.label11);
+            this.Napisy24Panel.Controls.Add(this.zapiszNapisy24UstawieniaButton);
+            this.Napisy24Panel.Controls.Add(this.napisy24LoginTB);
+            this.Napisy24Panel.Controls.Add(this.label9);
+            this.Napisy24Panel.Location = new System.Drawing.Point(202, 4);
+            this.Napisy24Panel.Margin = new System.Windows.Forms.Padding(2);
+            this.Napisy24Panel.Name = "Napisy24Panel";
+            this.Napisy24Panel.Size = new System.Drawing.Size(271, 276);
+            this.Napisy24Panel.TabIndex = 13;
             // 
-            // flacCheckBox
+            // napisy24HasloTB
             // 
-            this.flacCheckBox.AutoSize = true;
-            this.flacCheckBox.ForeColor = System.Drawing.Color.White;
-            this.flacCheckBox.Location = new System.Drawing.Point(152, 84);
-            this.flacCheckBox.Name = "flacCheckBox";
-            this.flacCheckBox.Size = new System.Drawing.Size(50, 17);
-            this.flacCheckBox.TabIndex = 12;
-            this.flacCheckBox.Text = "*.flac";
-            this.flacCheckBox.UseVisualStyleBackColor = true;
+            this.napisy24HasloTB.BackColor = System.Drawing.Color.Gray;
+            this.napisy24HasloTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.napisy24HasloTB.ForeColor = System.Drawing.Color.Black;
+            this.napisy24HasloTB.Location = new System.Drawing.Point(26, 81);
+            this.napisy24HasloTB.Margin = new System.Windows.Forms.Padding(2);
+            this.napisy24HasloTB.Name = "napisy24HasloTB";
+            this.napisy24HasloTB.Size = new System.Drawing.Size(207, 21);
+            this.napisy24HasloTB.TabIndex = 14;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(14, 64);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(39, 15);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "Hasło";
+            // 
+            // zapiszNapisy24UstawieniaButton
+            // 
+            this.zapiszNapisy24UstawieniaButton.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.zapiszNapisy24UstawieniaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic);
+            this.zapiszNapisy24UstawieniaButton.ForeColor = System.Drawing.Color.DarkBlue;
+            this.zapiszNapisy24UstawieniaButton.Location = new System.Drawing.Point(43, 160);
+            this.zapiszNapisy24UstawieniaButton.Margin = new System.Windows.Forms.Padding(2);
+            this.zapiszNapisy24UstawieniaButton.Name = "zapiszNapisy24UstawieniaButton";
+            this.zapiszNapisy24UstawieniaButton.Size = new System.Drawing.Size(171, 32);
+            this.zapiszNapisy24UstawieniaButton.TabIndex = 10;
+            this.zapiszNapisy24UstawieniaButton.Text = "Zapisz Napisy24";
+            this.zapiszNapisy24UstawieniaButton.UseVisualStyleBackColor = false;
+            this.zapiszNapisy24UstawieniaButton.Click += new System.EventHandler(this.zapiszNapisy24UstawieniaButton_Click);
+            // 
+            // napisy24LoginTB
+            // 
+            this.napisy24LoginTB.BackColor = System.Drawing.Color.Gray;
+            this.napisy24LoginTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.napisy24LoginTB.ForeColor = System.Drawing.Color.Black;
+            this.napisy24LoginTB.Location = new System.Drawing.Point(26, 37);
+            this.napisy24LoginTB.Margin = new System.Windows.Forms.Padding(2);
+            this.napisy24LoginTB.Name = "napisy24LoginTB";
+            this.napisy24LoginTB.Size = new System.Drawing.Size(207, 21);
+            this.napisy24LoginTB.TabIndex = 7;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(14, 16);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(38, 15);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Login";
             // 
             // OknoUstawien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::MuseSort.Properties.Resources.tlo;
-            this.ClientSize = new System.Drawing.Size(494, 344);
+            this.ClientSize = new System.Drawing.Size(507, 344);
             this.Controls.Add(this.anulujButton);
             this.Controls.Add(this.zapiszButton);
             this.Controls.Add(this.przywrocDomyslneButton);
             this.Controls.Add(this.drzewoUstawien);
             this.Controls.Add(this.wspieranieRozszerzeniaPanel);
             this.Controls.Add(this.rozszerzeniaPanel);
+            this.Controls.Add(this.Napisy24Panel);
             this.Controls.Add(this.folderGlownyPanel);
             this.Controls.Add(this.domyslneSortowaniaPanel);
             this.Controls.Add(this.folderyPanel);
@@ -606,6 +692,8 @@
             this.wspieranieRozszerzeniaPanel.PerformLayout();
             this.zewnetrzneBazyDanychPanel.ResumeLayout(false);
             this.zewnetrzneBazyDanychPanel.PerformLayout();
+            this.Napisy24Panel.ResumeLayout(false);
+            this.Napisy24Panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -650,5 +738,11 @@
         private System.Windows.Forms.ListBox sortowaniaListBox;
         private System.Windows.Forms.CheckBox flacCheckBox;
         private System.Windows.Forms.CheckBox mp3CheckBox;
+        private System.Windows.Forms.Panel Napisy24Panel;
+        private System.Windows.Forms.TextBox napisy24HasloTB;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button zapiszNapisy24UstawieniaButton;
+        private System.Windows.Forms.TextBox napisy24LoginTB;
+        private System.Windows.Forms.Label label9;
     }
 }

@@ -13,6 +13,8 @@ namespace MuseSort
         public String folderGlowny;
         public String domyslneSortowanie;
         public String domyslnaBazaDanych;
+        public String Napisy24Login;
+        public String Napisy24Haslo;
         public List<String> wspieraneRozszerzeniaAudio;
         public List<String> wspieraneRozszerzeniaVideo;
 
@@ -23,6 +25,8 @@ namespace MuseSort
             domyslnaBazaDanych = "";
             domyslneSortowanie = "";
             folderGlowny = "";
+            Napisy24Haslo = "";
+            Napisy24Login = "";
         }
 
         public static UstawieniaProgramu getInstance()
@@ -57,6 +61,15 @@ namespace MuseSort
             wartosc = plikXML.CreateTextNode(domyslnaBazaDanych);
             defaultDateBase.AppendChild(wartosc);
             main.AppendChild(defaultDateBase);
+
+            XmlElement defaultNapisy24Login = plikXML.CreateElement("Napisy24Login");
+            wartosc = plikXML.CreateTextNode(Napisy24Login);
+            defaultNapisy24Login.AppendChild(wartosc);
+            main.AppendChild(defaultNapisy24Login);
+            XmlElement defaultNapisy24Haslo = plikXML.CreateElement("Napisy24Haslo");
+            wartosc = plikXML.CreateTextNode(Napisy24Haslo);
+            defaultNapisy24Haslo.AppendChild(wartosc);
+            main.AppendChild(defaultNapisy24Haslo);
 
             foreach(String s in wspieraneRozszerzeniaAudio)
             {
@@ -131,6 +144,12 @@ namespace MuseSort
             domyslneSortowanie = node.InnerText;
             node = plikXML.GetElementsByTagName("domyslnaBazaDanych").Item(0);
             domyslnaBazaDanych = node.InnerText;
+
+            node = plikXML.GetElementsByTagName("Napisy24Login").Item(0);
+            Napisy24Login = node.InnerText;
+            node = plikXML.GetElementsByTagName("Napisy24Haslo").Item(0);
+            Napisy24Haslo = node.InnerText;
+
             XmlNodeList lista = plikXML.GetElementsByTagName("rozszerzenieAudio");
             foreach (XmlNode x in lista)
             {

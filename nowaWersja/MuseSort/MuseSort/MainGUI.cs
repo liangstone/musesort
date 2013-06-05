@@ -147,7 +147,7 @@ namespace MuseSort
             {
                 logiTextBox.Text += "Brak pliku konfiguracyjnego." + Environment.NewLine;
                 MessageBox.Show("Nie instnieje plik konfiguracyjny programu!");
-                new UtworzUstawienia().Show();
+                new UtworzUstawienia().ShowDialog();
                 //Wywołanie okna pierwszego uruchomienia
             }
             else
