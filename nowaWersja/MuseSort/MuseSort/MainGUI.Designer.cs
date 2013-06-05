@@ -74,6 +74,7 @@
             this.logiTextBox = new System.Windows.Forms.TextBox();
             this.dodajDoBibliotekiButton = new System.Windows.Forms.ToolStripButton();
             this.pokazBibliotekeButton = new System.Windows.Forms.ToolStripButton();
+            this.PobierzNapisyButton = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -166,6 +167,7 @@
             this.dodajDoBibliotekiButton,
             this.pokazBibliotekeButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 28);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1317, 32);
             this.toolStrip1.TabIndex = 2;
@@ -533,6 +535,16 @@
             this.pokazBibliotekeButton.Size = new System.Drawing.Size(29, 29);
             this.pokazBibliotekeButton.Text = "Pokaż bibliotekę";
             this.pokazBibliotekeButton.Click += new System.EventHandler(this.pokazBibliotekeButton_Click);
+            // PobierzNapisyButton
+            // 
+            this.PobierzNapisyButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.PobierzNapisyButton.Image = ((System.Drawing.Image)(resources.GetObject("PobierzNapisyButton.Image")));
+            this.PobierzNapisyButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.PobierzNapisyButton.Name = "PobierzNapisyButton";
+            this.PobierzNapisyButton.Size = new System.Drawing.Size(29, 29);
+            this.PobierzNapisyButton.Text = "toolStripButton1";
+            this.PobierzNapisyButton.ToolTipText = "Pobierz napisy";
+            this.PobierzNapisyButton.Click += new System.EventHandler(this.PobierzNapisyButton_Click);
             // 
             // MainGUI
             // 
@@ -618,6 +630,6 @@
         private System.Windows.Forms.ToolStripButton dodajDoBibliotekiButton;
         private System.Windows.Forms.ToolStripButton pokazBibliotekeButton;
         private System.Windows.Forms.ToolStripMenuItem wzorcePlikówVideoToolStripMenuItem;
-
+        private System.Windows.Forms.ToolStripButton PobierzNapisyButton;
     }
 }
