@@ -165,7 +165,7 @@ namespace MuseSort
                     logiTextBox.Text += "Błąd wczytywania ustawień programu: " + e.Message + "." + Environment.NewLine;
                     MessageBox.Show("Nastapil blad we wczytywaniu ustawien programu" + e.Message + Environment.NewLine + "Nacisnij OK, aby utworzyc nowy plik konfiguracyjny");
                     //Wyswietlanie okna tworzenia ustawień
-                    zaladujUstawienia();
+//                    zaladujUstawienia();
                 }
             }
         }
