@@ -117,13 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>237, 17</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>34</value>
-  </metadata>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Sortuj pliki - po zaznaczeniu odpowiedniego folderu do sortowania w widoku folderu, program sortuje pliki w tym folderze według schematu wybranego przez Ciebie w konfiguracji, którą możesz zmienić w ustawieniach</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Dodaj plik do folderu glównego - odpowiada za dodanie pliku do głównego folderu, który ustalamy na początku w konfiguracji i który możemy potem zmienić w ustawieniach. Dodajemy go tak, aby folder był nadal posortowany</value>
+  </data>
 </root>
