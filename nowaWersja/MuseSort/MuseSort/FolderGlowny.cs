@@ -24,7 +24,7 @@ namespace MuseSort
         /// <exception cref="DirectoryNotFoundException">Rzucane jeśli podany folder nie istnieje.</exception>
         public FolderGlowny(String path)
         {
-            if (!File.Exists(path))
+            if (!Directory.Exists(path))
                 throw new DirectoryNotFoundException(path);
             xml = new FolderGlownyXML(path);
             logi = "";
