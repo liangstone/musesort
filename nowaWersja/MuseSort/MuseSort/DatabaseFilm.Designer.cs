@@ -38,6 +38,7 @@
             this.tabela = new System.Windows.Forms.DataGridView();
             this.usunButton = new System.Windows.Forms.Button();
             this.dodajButton = new System.Windows.Forms.Button();
+            this.edytujButton = new System.Windows.Forms.Button();
             this.filmyPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabela)).BeginInit();
             this.SuspendLayout();
@@ -166,6 +167,19 @@
             this.dodajButton.UseVisualStyleBackColor = false;
             this.dodajButton.Click += new System.EventHandler(this.dodajButton_Click);
             // 
+            // edytujButton
+            // 
+            this.edytujButton.BackColor = System.Drawing.Color.MediumBlue;
+            this.edytujButton.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.edytujButton.ForeColor = System.Drawing.Color.White;
+            this.edytujButton.Location = new System.Drawing.Point(855, 317);
+            this.edytujButton.Name = "edytujButton";
+            this.edytujButton.Size = new System.Drawing.Size(120, 41);
+            this.edytujButton.TabIndex = 10;
+            this.edytujButton.Text = "Edytuj";
+            this.edytujButton.UseVisualStyleBackColor = false;
+            this.edytujButton.Click += new System.EventHandler(this.edytujButton_Click);
+            // 
             // DatabaseFilm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -173,6 +187,7 @@
             this.BackgroundImage = global::MuseSort.Properties.Resources.tlo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(987, 514);
+            this.Controls.Add(this.edytujButton);
             this.Controls.Add(this.dodajButton);
             this.Controls.Add(this.usunButton);
             this.Controls.Add(this.filmyPanel);
@@ -203,5 +218,6 @@
         private System.Windows.Forms.DataGridView tabela;
         private System.Windows.Forms.Button usunButton;
         private System.Windows.Forms.Button dodajButton;
+        private System.Windows.Forms.Button edytujButton;
     }
 }

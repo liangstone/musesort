@@ -48,6 +48,7 @@
             this.zapisz = new System.Windows.Forms.Button();
             this.anuluj = new System.Windows.Forms.Button();
             this.explorer = new System.Windows.Forms.OpenFileDialog();
+            this.updateButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -247,6 +248,19 @@
             this.anuluj.UseVisualStyleBackColor = false;
             this.anuluj.Click += new System.EventHandler(this.anuluj_Click);
             // 
+            // updateButton
+            // 
+            this.updateButton.BackColor = System.Drawing.Color.Blue;
+            this.updateButton.Font = new System.Drawing.Font("Tw Cen MT", 12F);
+            this.updateButton.ForeColor = System.Drawing.Color.White;
+            this.updateButton.Location = new System.Drawing.Point(751, 531);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(143, 42);
+            this.updateButton.TabIndex = 19;
+            this.updateButton.Text = "Zapisz zmiany";
+            this.updateButton.UseVisualStyleBackColor = false;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+            // 
             // DodawanieFilmow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -254,6 +268,7 @@
             this.BackgroundImage = global::MuseSort.Properties.Resources.tlo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1153, 585);
+            this.Controls.Add(this.updateButton);
             this.Controls.Add(this.anuluj);
             this.Controls.Add(this.zapisz);
             this.Controls.Add(this.sciezka);
@@ -302,5 +317,6 @@
         private System.Windows.Forms.Button zapisz;
         private System.Windows.Forms.Button anuluj;
         private System.Windows.Forms.OpenFileDialog explorer;
+        private System.Windows.Forms.Button updateButton;
     }
 }
