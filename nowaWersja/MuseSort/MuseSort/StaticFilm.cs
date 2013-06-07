@@ -30,7 +30,6 @@ namespace MuseSort
 
             if (!sprawdzWzorzec(wzorzec, wzorceNazwy)) return false; //Jeden z wzorców na liście rozpoznaje string jako poprawną nazwę/ścieżkę.
             lista.Add(WzorzecFactory.GetWzorzec(wzorzec));
-            UstawieniaProgramu.getInstance().zapiszUstawienia();
             return true;
         }
 
