@@ -15,27 +15,30 @@ namespace MuseSort
         #region publiczne metody klas
         //#############################PUBLICZNE METODY KLASY############################################
 
-        //Konstruktor standardowy
-        public Film()
-        {
-            dane = new DaneFilmu();
-            //tagi = null;
-            //stareTagi = null;
-        }
-
-        //Konstruktor dowolnego pliku
+        /// <summary>Tworzy obiekt Utwór odpowiedający danemu plikowi filmowemu.</summary>
+        /// <param name="path">Ścieżka pliku.</param>
+        /// <exception cref="FileNotFoundException">Rzucane jeśli podany plik nie istnieje</exception>
         public Film(String path)
         {
+            if (!File.Exists(path))
+                throw new FileNotFoundException(path);
             Sciezka = SciezkaZrodlowa = path;
-            Nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
+            Nazwa = Path.GetFileNameWithoutExtension(path);
             dane = new DaneFilmu();
             resetujTagi();
             pobierzTagi();
         }
 
-        //Konstruktor dla pliku, który został skopiowany w ramach działania programu
+        /// <summary>Konstruktor dla pliku, który został skopiowany w ramach działania programu</summary>
+        /// <param name="path">Ścieżka pliku skopiowanego</param>
+        /// <param name="source">Ścieżka pliku oryginalnego</param>
+        /// <exception cref="FileNotFoundException">Rzucane jeśli któryś z podanych plików nie istnieje</exception>
         public Film(String path, String source)
         {
+            if (!File.Exists(path))
+                throw new FileNotFoundException(path);
+            if (!File.Exists(source))
+                throw new FileNotFoundException(source);
             SciezkaZrodlowa = source;
             Sciezka = path;
             Nazwa = System.IO.Path.GetFileNameWithoutExtension(path);

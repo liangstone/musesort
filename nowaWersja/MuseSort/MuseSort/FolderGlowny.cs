@@ -21,8 +21,11 @@ namespace MuseSort
         /// <summary>Powiązanie nowego obiektu z folderem ze zmiennej path.
         /// </summary>
         /// <param name="path">Ścieżka folderu.</param>
+        /// <exception cref="DirectoryNotFoundException">Rzucane jeśli podany folder nie istnieje.</exception>
         public FolderGlowny(String path)
         {
+            if (!File.Exists(path))
+                throw new DirectoryNotFoundException(path);
             xml = new FolderGlownyXML(path);
             logi = "";
             sciezka = path;
