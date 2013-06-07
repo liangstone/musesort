@@ -1,14 +1,17 @@
 C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : warning : Cannot generate stub for MuseSort.BazaDanychMuzyka: type is not visible to exported or assembly(MuseSort.Fakes).
 C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : warning : Cannot generate stub for MuseSort.IBazaDanych: type is not visible to exported or assembly(MuseSort.Fakes).
+C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : warning : Cannot generate stub for MuseSort.Crawler: type is not visible to exported or assembly(MuseSort.Fakes).
 C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : warning : Cannot generate stub for MuseSort.Program: type is sealed.
 C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : warning : Cannot generate stub for MuseSort.UstawieniaProgramu: type has no family visible contructors.
 C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : warning : Cannot generate stub for MuseSort.WzorzecFactory: type is not visible to exported or assembly(MuseSort.Fakes).
 C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : warning : Cannot generate stub for MuseSort.Properties.Resources: type is not visible to exported or assembly(MuseSort.Fakes).
 C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : warning : Cannot generate stub for MuseSort.Properties.Settings: type is sealed.
-C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : warning : Cannot generate stub for <PrivateImplementationDetails>{E510480A-7F11-4034-AB45-14A3DE32E33F}: type is not supported because of internal limitations.
+C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : warning : Cannot generate stub for <>f__AnonymousType0`2: type is sealed.
+C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : warning : Cannot generate stub for <PrivateImplementationDetails>{D7CE3A76-8D4C-4C53-99B3-50EF95CE36AA}: type is not supported because of internal limitations.
 C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : warning : Cannot generate shim for MuseSort.BazaDanychMuzyka: type is an interface.
 C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : warning : Cannot generate shim for MuseSort.IBazaDanych: type is an interface.
 C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : warning : Cannot generate shim for MuseSort.WierszTabeli+SchemaInfo: type is not visible to exported or assembly(MuseSort.Fakes).
+C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : warning : Cannot generate shim for MuseSort.Crawler: type is not visible to exported or assembly(MuseSort.Fakes).
 C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : warning : Cannot generate shim for MuseSort.Film+<>c__DisplayClass3: type is not supported because of internal limitations.
 C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : warning : Cannot generate shim for MuseSort.Program: type is not visible to exported or assembly(MuseSort.Fakes).
 C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : warning : Cannot generate shim for MuseSort.Utwor+<>c__DisplayClass1: type is not supported because of internal limitations.
@@ -16,4 +19,5 @@ C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : w
 C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : warning : Cannot generate shim for MuseSort.WzorzecFactory: type is not visible to exported or assembly(MuseSort.Fakes).
 C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : warning : Cannot generate shim for MuseSort.Properties.Resources: type is not visible to exported or assembly(MuseSort.Fakes).
 C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : warning : Cannot generate shim for MuseSort.Properties.Settings: type is not visible to exported or assembly(MuseSort.Fakes).
-C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : warning : Cannot generate shim for <PrivateImplementationDetails>{E510480A-7F11-4034-AB45-14A3DE32E33F}: type is not supported because of internal limitations.
+C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : warning : Cannot generate shim for <>f__AnonymousType0`2: type is not supported because of internal limitations.
+C:\Users\KrzysztofD\musesort\nowaWersja\MuseSortTesting\Fakes\MuseSort.fakes : warning : Cannot generate shim for <PrivateImplementationDetails>{D7CE3A76-8D4C-4C53-99B3-50EF95CE36AA}: type is not supported because of internal limitations.
