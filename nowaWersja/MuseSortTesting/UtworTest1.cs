@@ -17,9 +17,15 @@ namespace MuseSortTesting
         [TestMethod]
         public void PobierzDaneZeSciezki()
         {
+            const string wzorzecTestowy = @"<source>\<wykonawca>\<album>\<tytul>";
+            Utwor.wzorceSciezki.Clear();
+            Utwor.dodajWzorzecSciezki(wzorzecTestowy);
             var utwor =
                 new Utwor(SetAbsolutePath(@"muzyka\BlindGuardian\ANightAtTheOpera\") +
-                          "07 Kristin Chenoweth-Popular.mp3");
+                          "07 Kristin Chenoweth-Popular.mp3")
+                {
+                    dane = { numer = 0, wykonawca = new[] { string.Empty }, tytul = string.Empty, album = string.Empty}
+                };
             utwor.pobierzTagiZeSciezki();
             Assert.AreEqual("ANightAtTheOpera", utwor.dane.album, "Album się nie zgadza.");
             Assert.AreEqual("BlindGuardian", utwor.dane.wykonawca[0], "Wykonawca się nie zgadza.");
@@ -29,8 +35,8 @@ namespace MuseSortTesting
         public void PobierzDaneZNazwy()
         {
             const string wzorzecTestowy = "<numer> <wykonawca>-<tytul>";
-            if (Utwor.wzorceNazwy.Find(wzorzec => wzorzec.wzorzec == wzorzecTestowy)==null)
-                Utwor.dodajWzorzecNazwy(wzorzecTestowy);
+            Utwor.wzorceNazwy.Clear();
+            Utwor.dodajWzorzecNazwy(wzorzecTestowy);
             var utwor =
                 new Utwor(SetAbsolutePath(@"muzyka\BlindGuardian\ANightAtTheOpera\") +
                           "07 Kristin Chenoweth-Popular.mp3")
@@ -39,7 +45,7 @@ namespace MuseSortTesting
                 };
             utwor.pobierzTagiZNazwy();
             Assert.AreEqual("Popular", utwor.dane.tytul, "Nie zgadza się tytuł.");
-            Assert.AreEqual(7, utwor.dane.numer, "Nie zgadza się numer.");
+            Assert.AreEqual((uint)7, utwor.dane.numer, "Nie zgadza się numer.");
             Assert.AreEqual("Kristin Chenoweth", utwor.dane.wykonawca[0], "Nie zgadza się wykonawca.");
         }
 

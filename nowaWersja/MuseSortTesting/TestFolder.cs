@@ -15,11 +15,10 @@ namespace MuseSortTesting
     [TestClass]
     public class TestFolder
     {
-        private string _sciezkaMuzyka = @"muzyka";
-        private string _sciezkaFilmy = @"filmy";
+        private readonly string _sciezkaMuzyka = @"muzyka";
+        private readonly string _sciezkaFilmy = @"filmy";
 
-        [ClassInitialize]
-        public void UstalSciezki()
+        public TestFolder()
         {
             _sciezkaMuzyka = SetAbsolutePath(_sciezkaMuzyka);
             _sciezkaFilmy = SetAbsolutePath(_sciezkaFilmy);

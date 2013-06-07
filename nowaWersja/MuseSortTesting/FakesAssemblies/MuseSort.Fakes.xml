@@ -676,11 +676,23 @@
         <member name="P:MuseSort.Fakes.ShimFilm.ConstructorStringString">
             <summary>Sets the shim of Film.Film(String path, String source)</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimFilm.DodajWzorzecStringListOfWzorzec">
+            <summary>Sets the shim of Film.DodajWzorzec(String wzorzec, List`1&lt;Wzorzec&gt; lista)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimFilm.StaticConstructor">
             <summary>Sets the shim of Film.Film()</summary>
         </member>
-        <member name="P:MuseSort.Fakes.ShimFilm.dodajWzorzecStringString">
-            <summary>Sets the shim of Film.dodajWzorzec(String wzorzec, String regex)</summary>
+        <member name="P:MuseSort.Fakes.ShimFilm.ZapiszDopasowaneDaneDictionaryOfStringString">
+            <summary>Sets the shim of Film.ZapiszDopasowaneDane(Dictionary`2&lt;String,String&gt; dopasowanie)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimFilm._pobierzTagiZNazwyb__0Wzorzec">
+            <summary>Sets the shim of Film.&lt;pobierzTagiZNazwy&gt;b__0(Wzorzec w)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimFilm._pobierzTagiZeSciezkib__1Wzorzec">
+            <summary>Sets the shim of Film.&lt;pobierzTagiZeSciezki&gt;b__1(Wzorzec w)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimFilm.dodajWzorzecNazwyString">
+            <summary>Sets the shim of Film.dodajWzorzecNazwy(String wzorzec)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimFilm.generujNazwePlikuZTagow">
             <summary>Sets the shim of Film.generujNazwePlikuZTagow()</summary>
@@ -690,6 +702,9 @@
         </member>
         <member name="P:MuseSort.Fakes.ShimFilm.pobierzTagiZNazwy">
             <summary>Sets the shim of Film.pobierzTagiZNazwy()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimFilm.pobierzTagiZeSciezki">
+            <summary>Sets the shim of Film.pobierzTagiZeSciezki()</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimFilm.porownajPlik">
             <summary>Sets the shim of Film.porownaj(Plik plik2)</summary>
@@ -703,8 +718,8 @@
         <member name="P:MuseSort.Fakes.ShimFilm.sciezka_katalogu_z_polStringArrayBoolean">
             <summary>Sets the shim of Film.sciezka_katalogu_z_pol(String[] kategorie, Boolean duplikat)</summary>
         </member>
-        <member name="P:MuseSort.Fakes.ShimFilm.sprawdzWzorzecString">
-            <summary>Sets the shim of Film.sprawdzWzorzec(String wzorzec)</summary>
+        <member name="P:MuseSort.Fakes.ShimFilm.sprawdzWzorzecStringListOfWzorzec">
+            <summary>Sets the shim of Film.sprawdzWzorzec(String wzorzec, List`1&lt;Wzorzec&gt; lista)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimFilm.wczytajWzorceZPlikuString">
             <summary>Sets the shim of Film.wczytajWzorceZPliku(String path)</summary>
@@ -715,6 +730,15 @@
         <member name="T:MuseSort.Fakes.ShimFilm.AllInstances">
             <summary>Define shims for all instances members</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimFilm.AllInstances.ZapiszDopasowaneDaneDictionaryOfStringString">
+            <summary>Sets the shim of Film.ZapiszDopasowaneDane(Dictionary`2&lt;String,String&gt; dopasowanie)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimFilm.AllInstances._pobierzTagiZNazwyb__0Wzorzec">
+            <summary>Sets the shim of Film.&lt;pobierzTagiZNazwy&gt;b__0(Wzorzec w)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimFilm.AllInstances._pobierzTagiZeSciezkib__1Wzorzec">
+            <summary>Sets the shim of Film.&lt;pobierzTagiZeSciezki&gt;b__1(Wzorzec w)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimFilm.AllInstances.generujNazwePlikuZTagow">
             <summary>Sets the shim of Film.generujNazwePlikuZTagow()</summary>
         </member>
@@ -723,6 +747,9 @@
         </member>
         <member name="P:MuseSort.Fakes.ShimFilm.AllInstances.pobierzTagiZNazwy">
             <summary>Sets the shim of Film.pobierzTagiZNazwy()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimFilm.AllInstances.pobierzTagiZeSciezki">
+            <summary>Sets the shim of Film.pobierzTagiZeSciezki()</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimFilm.AllInstances.porownajPlik">
             <summary>Sets the shim of Film.porownaj(Plik plik2)</summary>
@@ -1744,11 +1771,29 @@
         <member name="P:MuseSort.Fakes.ShimUtwor.ConstructorStringString">
             <summary>Sets the shim of Utwor.Utwor(String path, String source)</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimUtwor.DodajWzorzecStringListOfWzorzec">
+            <summary>Sets the shim of Utwor.DodajWzorzec(String wzorzec, List`1&lt;Wzorzec&gt; lista)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimUtwor.SprawdzWzorzecStringListOfWzorzec">
+            <summary>Sets the shim of Utwor.SprawdzWzorzec(String wzorzec, List`1&lt;Wzorzec&gt; wzorce)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimUtwor.StaticConstructor">
             <summary>Sets the shim of Utwor.Utwor()</summary>
         </member>
-        <member name="P:MuseSort.Fakes.ShimUtwor.dodajWzorzecStringStringString">
-            <summary>Sets the shim of Utwor.dodajWzorzec(String wzorzec, String regex, String rodzaj)</summary>
+        <member name="P:MuseSort.Fakes.ShimUtwor.ZapiszDopasowaneDaneDictionaryOfStringString">
+            <summary>Sets the shim of Utwor.ZapiszDopasowaneDane(Dictionary`2&lt;String,String&gt; dopasowanie)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimUtwor._pobierzTagiZNazwyb__3Wzorzec">
+            <summary>Sets the shim of Utwor.&lt;pobierzTagiZNazwy&gt;b__3(Wzorzec w)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimUtwor._pobierzTagiZeSciezkib__4Wzorzec">
+            <summary>Sets the shim of Utwor.&lt;pobierzTagiZeSciezki&gt;b__4(Wzorzec w)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimUtwor.dodajWzorzecNazwyString">
+            <summary>Sets the shim of Utwor.dodajWzorzecNazwy(String wzorzec)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimUtwor.dodajWzorzecSciezkiString">
+            <summary>Sets the shim of Utwor.dodajWzorzecSciezki(String wzorzec)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimUtwor.generujNazwePlikuZTagow">
             <summary>Sets the shim of Utwor.generujNazwePlikuZTagow()</summary>
@@ -1774,9 +1819,6 @@
         <member name="P:MuseSort.Fakes.ShimUtwor.sciezka_katalogu_z_polStringArrayBoolean">
             <summary>Sets the shim of Utwor.sciezka_katalogu_z_pol(String[] kategorie, Boolean duplikat)</summary>
         </member>
-        <member name="P:MuseSort.Fakes.ShimUtwor.sprawdzWzorzecStringString">
-            <summary>Sets the shim of Utwor.sprawdzWzorzec(String wzorzec, String rodzaj)</summary>
-        </member>
         <member name="P:MuseSort.Fakes.ShimUtwor.wczytajWzorceZPlikuString">
             <summary>Sets the shim of Utwor.wczytajWzorceZPliku(String path)</summary>
         </member>
@@ -1785,6 +1827,15 @@
         </member>
         <member name="T:MuseSort.Fakes.ShimUtwor.AllInstances">
             <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimUtwor.AllInstances.ZapiszDopasowaneDaneDictionaryOfStringString">
+            <summary>Sets the shim of Utwor.ZapiszDopasowaneDane(Dictionary`2&lt;String,String&gt; dopasowanie)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimUtwor.AllInstances._pobierzTagiZNazwyb__3Wzorzec">
+            <summary>Sets the shim of Utwor.&lt;pobierzTagiZNazwy&gt;b__3(Wzorzec w)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimUtwor.AllInstances._pobierzTagiZeSciezkib__4Wzorzec">
+            <summary>Sets the shim of Utwor.&lt;pobierzTagiZeSciezki&gt;b__4(Wzorzec w)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimUtwor.AllInstances.generujNazwePlikuZTagow">
             <summary>Sets the shim of Utwor.generujNazwePlikuZTagow()</summary>
@@ -2371,17 +2422,26 @@
         <member name="P:MuseSort.Fakes.ShimWzorzec.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="P:MuseSort.Fakes.ShimWzorzec.Constructor">
-            <summary>Sets the shim of Wzorzec.Wzorzec()</summary>
-        </member>
         <member name="P:MuseSort.Fakes.ShimWzorzec.ConstructorStringString">
             <summary>Sets the shim of Wzorzec.Wzorzec(String nowyRegex, String nowyWzorzec)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimWzorzec.DopasujString">
+            <summary>Sets the shim of Wzorzec.Dopasuj(String sciezkaLubNazwa)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimWzorzec._Dopasujb__0String">
+            <summary>Sets the shim of Wzorzec.&lt;Dopasuj&gt;b__0(String nazwagrupy)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimWzorzec._Dopasujb__1String">
+            <summary>Sets the shim of Wzorzec.&lt;Dopasuj&gt;b__1(String nazwaGrupy)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimWzorzec.czyPasujeString">
             <summary>Sets the shim of Wzorzec.czyPasuje(String lancuch)</summary>
         </member>
         <member name="T:MuseSort.Fakes.ShimWzorzec.AllInstances">
             <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimWzorzec.AllInstances.DopasujString">
+            <summary>Sets the shim of Wzorzec.Dopasuj(String sciezkaLubNazwa)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimWzorzec.AllInstances.czyPasujeString">
             <summary>Sets the shim of Wzorzec.czyPasuje(String lancuch)</summary>
@@ -8977,6 +9037,9 @@
         <member name="F:MuseSort.Fakes.StubFilm.PobierzTagiZNazwy">
             <summary>Sets the stub of Film.pobierzTagiZNazwy()</summary>
         </member>
+        <member name="F:MuseSort.Fakes.StubFilm.PobierzTagiZeSciezki">
+            <summary>Sets the stub of Film.pobierzTagiZeSciezki()</summary>
+        </member>
         <member name="F:MuseSort.Fakes.StubFilm.PorownajPlik">
             <summary>Sets the stub of Film.porownaj(Plik plik2)</summary>
         </member>
@@ -8997,6 +9060,9 @@
         </member>
         <member name="M:MuseSort.Fakes.StubFilm.pobierzTagiZNazwy">
             <summary>Sets the stub of Film.pobierzTagiZNazwy()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubFilm.pobierzTagiZeSciezki">
+            <summary>Sets the stub of Film.pobierzTagiZeSciezki()</summary>
         </member>
         <member name="M:MuseSort.Fakes.StubFilm.porownaj(MuseSort.Plik)">
             <summary>Sets the stub of Film.porownaj(Plik plik2)</summary>
@@ -13003,6 +13069,9 @@
         <member name="F:MuseSort.Fakes.StubPlik.PobierzTagiZNazwy">
             <summary>Sets the stub of Plik.pobierzTagiZNazwy()</summary>
         </member>
+        <member name="F:MuseSort.Fakes.StubPlik.PobierzTagiZeSciezki">
+            <summary>Sets the stub of Plik.pobierzTagiZeSciezki()</summary>
+        </member>
         <member name="F:MuseSort.Fakes.StubPlik.PorownajPlik">
             <summary>Sets the stub of Plik.porownaj(Plik plik2)</summary>
         </member>
@@ -13023,6 +13092,9 @@
         </member>
         <member name="M:MuseSort.Fakes.StubPlik.pobierzTagiZNazwy">
             <summary>Sets the stub of Plik.pobierzTagiZNazwy()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubPlik.pobierzTagiZeSciezki">
+            <summary>Sets the stub of Plik.pobierzTagiZeSciezki()</summary>
         </member>
         <member name="M:MuseSort.Fakes.StubPlik.porownaj(MuseSort.Plik)">
             <summary>Sets the stub of Plik.porownaj(Plik plik2)</summary>
@@ -15682,6 +15754,9 @@
         <member name="F:MuseSort.Fakes.StubUtwor.PobierzTagiZNazwy">
             <summary>Sets the stub of Utwor.pobierzTagiZNazwy()</summary>
         </member>
+        <member name="F:MuseSort.Fakes.StubUtwor.PobierzTagiZeSciezki">
+            <summary>Sets the stub of Utwor.pobierzTagiZeSciezki()</summary>
+        </member>
         <member name="F:MuseSort.Fakes.StubUtwor.PorownajPlik">
             <summary>Sets the stub of Utwor.porownaj(Plik plik2)</summary>
         </member>
@@ -15702,6 +15777,9 @@
         </member>
         <member name="M:MuseSort.Fakes.StubUtwor.pobierzTagiZNazwy">
             <summary>Sets the stub of Utwor.pobierzTagiZNazwy()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubUtwor.pobierzTagiZeSciezki">
+            <summary>Sets the stub of Utwor.pobierzTagiZeSciezki()</summary>
         </member>
         <member name="M:MuseSort.Fakes.StubUtwor.porownaj(MuseSort.Plik)">
             <summary>Sets the stub of Utwor.porownaj(Plik plik2)</summary>
@@ -22239,9 +22317,6 @@
         </member>
         <member name="T:MuseSort.Fakes.StubWzorzec">
             <summary>Stub type of MuseSort.Wzorzec</summary>
-        </member>
-        <member name="M:MuseSort.Fakes.StubWzorzec.#ctor">
-            <summary>Initializes a new instance</summary>
         </member>
         <member name="M:MuseSort.Fakes.StubWzorzec.#ctor(System.String,System.String)">
             <summary>Initializes a new instance</summary>
