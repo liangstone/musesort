@@ -100,7 +100,8 @@ namespace MuseSortTesting
             const string schemat = "Dyrektorzy\\Tytul";
 
             UstawieniaProgramu.getInstance().wczytajUstawienia();
-            UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo.Add("mov");
+            if(!UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo.Contains("mov"))
+                UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo.Add("mov");
             if(Directory.Exists(_sciezkaFilmy + "\\Musesort"))
                 Directory.Delete(_sciezkaFilmy + "\\Musesort", true);
 

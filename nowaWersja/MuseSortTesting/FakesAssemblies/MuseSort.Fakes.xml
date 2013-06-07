@@ -211,6 +211,9 @@
         <member name="P:MuseSort.Fakes.ShimDatabaseFilm.dodajButton_ClickObjectEventArgs">
             <summary>Sets the shim of DatabaseFilm.dodajButton_Click(Object sender, EventArgs e)</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimDatabaseFilm.edytujButton_ClickObjectEventArgs">
+            <summary>Sets the shim of DatabaseFilm.edytujButton_Click(Object sender, EventArgs e)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimDatabaseFilm.filmyButton_ClickObjectEventArgs">
             <summary>Sets the shim of DatabaseFilm.filmyButton_Click(Object sender, EventArgs e)</summary>
         </member>
@@ -243,6 +246,9 @@
         </member>
         <member name="P:MuseSort.Fakes.ShimDatabaseFilm.AllInstances.dodajButton_ClickObjectEventArgs">
             <summary>Sets the shim of DatabaseFilm.dodajButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDatabaseFilm.AllInstances.edytujButton_ClickObjectEventArgs">
+            <summary>Sets the shim of DatabaseFilm.edytujButton_Click(Object sender, EventArgs e)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimDatabaseFilm.AllInstances.filmyButton_ClickObjectEventArgs">
             <summary>Sets the shim of DatabaseFilm.filmyButton_Click(Object sender, EventArgs e)</summary>
@@ -319,6 +325,9 @@
         <member name="P:MuseSort.Fakes.ShimDatabaseMuzyka.dodajButton_ClickObjectEventArgs">
             <summary>Sets the shim of DatabaseMuzyka.dodajButton_Click(Object sender, EventArgs e)</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimDatabaseMuzyka.edytujButton_ClickObjectEventArgs">
+            <summary>Sets the shim of DatabaseMuzyka.edytujButton_Click(Object sender, EventArgs e)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimDatabaseMuzyka.gatunkiButton_ClickObjectEventArgs">
             <summary>Sets the shim of DatabaseMuzyka.gatunkiButton_Click(Object sender, EventArgs e)</summary>
         </member>
@@ -348,6 +357,9 @@
         </member>
         <member name="P:MuseSort.Fakes.ShimDatabaseMuzyka.AllInstances.dodajButton_ClickObjectEventArgs">
             <summary>Sets the shim of DatabaseMuzyka.dodajButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDatabaseMuzyka.AllInstances.edytujButton_ClickObjectEventArgs">
+            <summary>Sets the shim of DatabaseMuzyka.edytujButton_Click(Object sender, EventArgs e)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimDatabaseMuzyka.AllInstances.gatunkiButton_ClickObjectEventArgs">
             <summary>Sets the shim of DatabaseMuzyka.gatunkiButton_Click(Object sender, EventArgs e)</summary>
@@ -418,6 +430,9 @@
         <member name="P:MuseSort.Fakes.ShimDatabaseSerial.dodajButton_ClickObjectEventArgs">
             <summary>Sets the shim of DatabaseSerial.dodajButton_Click(Object sender, EventArgs e)</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimDatabaseSerial.edytujButton_ClickObjectEventArgs">
+            <summary>Sets the shim of DatabaseSerial.edytujButton_Click(Object sender, EventArgs e)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimDatabaseSerial.odcinkiButton_ClickObjectEventArgs">
             <summary>Sets the shim of DatabaseSerial.odcinkiButton_Click(Object sender, EventArgs e)</summary>
         </member>
@@ -450,6 +465,9 @@
         </member>
         <member name="P:MuseSort.Fakes.ShimDatabaseSerial.AllInstances.dodajButton_ClickObjectEventArgs">
             <summary>Sets the shim of DatabaseSerial.dodajButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDatabaseSerial.AllInstances.edytujButton_ClickObjectEventArgs">
+            <summary>Sets the shim of DatabaseSerial.edytujButton_Click(Object sender, EventArgs e)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimDatabaseSerial.AllInstances.odcinkiButton_ClickObjectEventArgs">
             <summary>Sets the shim of DatabaseSerial.odcinkiButton_Click(Object sender, EventArgs e)</summary>
@@ -550,6 +568,87 @@
         <member name="P:MuseSort.Fakes.ShimDatabaseStart.AllInstances.serialeButton_ClickObjectEventArgs">
             <summary>Sets the shim of DatabaseStart.serialeButton_Click(Object sender, EventArgs e)</summary>
         </member>
+        <member name="T:MuseSort.Fakes.ShimDatySeriali">
+            <summary>Shim type of MuseSort.DatySeriali</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimDatySeriali.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimDatySeriali.#ctor(MuseSort.DatySeriali)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimDatySeriali.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimDatySeriali.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimDatySeriali.Bind(System.ComponentModel.IComponent)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimDatySeriali.Bind(System.ComponentModel.ISynchronizeInvoke)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimDatySeriali.Bind(System.Windows.Forms.IBindableComponent)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimDatySeriali.Bind(System.Windows.Forms.IContainerControl)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimDatySeriali.Bind(System.Windows.Forms.IDropTarget)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimDatySeriali.Bind(System.Windows.Forms.IWin32Window)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimDatySeriali.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDatySeriali.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDatySeriali.Constructor">
+            <summary>Sets the shim of DatySeriali.DatySeriali()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDatySeriali.DisposeBoolean">
+            <summary>Sets the shim of DatySeriali.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDatySeriali.InitializeComponent">
+            <summary>Sets the shim of DatySeriali.InitializeComponent()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDatySeriali.anulujButton_ClickObjectEventArgs">
+            <summary>Sets the shim of DatySeriali.anulujButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDatySeriali.edytujButton_ClickObjectEventArgs">
+            <summary>Sets the shim of DatySeriali.edytujButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDatySeriali.okButton_ClickObjectEventArgs">
+            <summary>Sets the shim of DatySeriali.okButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDatySeriali.refresh">
+            <summary>Sets the shim of DatySeriali.refresh()</summary>
+        </member>
+        <member name="T:MuseSort.Fakes.ShimDatySeriali.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDatySeriali.AllInstances.DisposeBoolean">
+            <summary>Sets the shim of DatySeriali.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDatySeriali.AllInstances.InitializeComponent">
+            <summary>Sets the shim of DatySeriali.InitializeComponent()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDatySeriali.AllInstances.anulujButton_ClickObjectEventArgs">
+            <summary>Sets the shim of DatySeriali.anulujButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDatySeriali.AllInstances.edytujButton_ClickObjectEventArgs">
+            <summary>Sets the shim of DatySeriali.edytujButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDatySeriali.AllInstances.okButton_ClickObjectEventArgs">
+            <summary>Sets the shim of DatySeriali.okButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDatySeriali.AllInstances.refresh">
+            <summary>Sets the shim of DatySeriali.refresh()</summary>
+        </member>
         <member name="T:MuseSort.Fakes.ShimDodawanieFilmow">
             <summary>Shim type of MuseSort.DodawanieFilmow</summary>
         </member>
@@ -589,6 +688,9 @@
         <member name="P:MuseSort.Fakes.ShimDodawanieFilmow.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimDodawanieFilmow.ConstructorInt32StringStringStringInt32StringStringStringString">
+            <summary>Sets the shim of DodawanieFilmow.DodawanieFilmow(Int32 id, String tyt, String gat, String pro, Int32 rokPremiery, String rez, String opisFilmu, String ory, String sciezka)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimDodawanieFilmow.ConstructorString">
             <summary>Sets the shim of DodawanieFilmow.DodawanieFilmow(String sciezkaPliku)</summary>
         </member>
@@ -603,6 +705,9 @@
         </member>
         <member name="P:MuseSort.Fakes.ShimDodawanieFilmow.sciezka_ClickObjectEventArgs">
             <summary>Sets the shim of DodawanieFilmow.sciezka_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDodawanieFilmow.updateButton_ClickObjectEventArgs">
+            <summary>Sets the shim of DodawanieFilmow.updateButton_Click(Object sender, EventArgs e)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimDodawanieFilmow.zapisz_ClickObjectEventArgs">
             <summary>Sets the shim of DodawanieFilmow.zapisz_Click(Object sender, EventArgs e)</summary>
@@ -622,8 +727,98 @@
         <member name="P:MuseSort.Fakes.ShimDodawanieFilmow.AllInstances.sciezka_ClickObjectEventArgs">
             <summary>Sets the shim of DodawanieFilmow.sciezka_Click(Object sender, EventArgs e)</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimDodawanieFilmow.AllInstances.updateButton_ClickObjectEventArgs">
+            <summary>Sets the shim of DodawanieFilmow.updateButton_Click(Object sender, EventArgs e)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimDodawanieFilmow.AllInstances.zapisz_ClickObjectEventArgs">
             <summary>Sets the shim of DodawanieFilmow.zapisz_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="T:MuseSort.Fakes.ShimDodawanieMuzyki">
+            <summary>Shim type of MuseSort.DodawanieMuzyki</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimDodawanieMuzyki.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimDodawanieMuzyki.#ctor(MuseSort.DodawanieMuzyki)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimDodawanieMuzyki.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimDodawanieMuzyki.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimDodawanieMuzyki.Bind(System.ComponentModel.IComponent)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimDodawanieMuzyki.Bind(System.ComponentModel.ISynchronizeInvoke)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimDodawanieMuzyki.Bind(System.Windows.Forms.IBindableComponent)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimDodawanieMuzyki.Bind(System.Windows.Forms.IContainerControl)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimDodawanieMuzyki.Bind(System.Windows.Forms.IDropTarget)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimDodawanieMuzyki.Bind(System.Windows.Forms.IWin32Window)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimDodawanieMuzyki.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDodawanieMuzyki.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDodawanieMuzyki.Constructor">
+            <summary>Sets the shim of DodawanieMuzyki.DodawanieMuzyki()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDodawanieMuzyki.ConstructorInt32StringStringStringInt32StringString">
+            <summary>Sets the shim of DodawanieMuzyki.DodawanieMuzyki(Int32 id, String wyk, String tyt, String alb, Int32 rok, String gat, String sc)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDodawanieMuzyki.ConstructorString">
+            <summary>Sets the shim of DodawanieMuzyki.DodawanieMuzyki(String s)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDodawanieMuzyki.DisposeBoolean">
+            <summary>Sets the shim of DodawanieMuzyki.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDodawanieMuzyki.InitializeComponent">
+            <summary>Sets the shim of DodawanieMuzyki.InitializeComponent()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDodawanieMuzyki.anulujButton_ClickObjectEventArgs">
+            <summary>Sets the shim of DodawanieMuzyki.anulujButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDodawanieMuzyki.sciezkaButton_ClickObjectEventArgs">
+            <summary>Sets the shim of DodawanieMuzyki.sciezkaButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDodawanieMuzyki.updateButton_ClickObjectEventArgs">
+            <summary>Sets the shim of DodawanieMuzyki.updateButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDodawanieMuzyki.zapiszButton_ClickObjectEventArgs">
+            <summary>Sets the shim of DodawanieMuzyki.zapiszButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="T:MuseSort.Fakes.ShimDodawanieMuzyki.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDodawanieMuzyki.AllInstances.DisposeBoolean">
+            <summary>Sets the shim of DodawanieMuzyki.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDodawanieMuzyki.AllInstances.InitializeComponent">
+            <summary>Sets the shim of DodawanieMuzyki.InitializeComponent()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDodawanieMuzyki.AllInstances.anulujButton_ClickObjectEventArgs">
+            <summary>Sets the shim of DodawanieMuzyki.anulujButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDodawanieMuzyki.AllInstances.sciezkaButton_ClickObjectEventArgs">
+            <summary>Sets the shim of DodawanieMuzyki.sciezkaButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDodawanieMuzyki.AllInstances.updateButton_ClickObjectEventArgs">
+            <summary>Sets the shim of DodawanieMuzyki.updateButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDodawanieMuzyki.AllInstances.zapiszButton_ClickObjectEventArgs">
+            <summary>Sets the shim of DodawanieMuzyki.zapiszButton_Click(Object sender, EventArgs e)</summary>
         </member>
         <member name="T:MuseSort.Fakes.ShimDodawanieSeriali">
             <summary>Shim type of MuseSort.DodawanieSeriali</summary>
@@ -664,6 +859,9 @@
         <member name="P:MuseSort.Fakes.ShimDodawanieSeriali.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimDodawanieSeriali.ConstructorInt32StringStringStringStringStringInt32Int32Int32StringBoolean">
+            <summary>Sets the shim of DodawanieSeriali.DodawanieSeriali(Int32 id, String TytulOdcinka, String TytulSerialu, String Rezyser, String Prod, String Data, Int32 NumerSezonu, Int32 NumerOdcinka, Int32 Ogladalnosc, String Sciezka, Boolean czyOgl)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimDodawanieSeriali.ConstructorString">
             <summary>Sets the shim of DodawanieSeriali.DodawanieSeriali(String sciezkaPliku)</summary>
         </member>
@@ -678,6 +876,9 @@
         </member>
         <member name="P:MuseSort.Fakes.ShimDodawanieSeriali.sciezka_ClickObjectEventArgs">
             <summary>Sets the shim of DodawanieSeriali.sciezka_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDodawanieSeriali.updateButton_ClickObjectEventArgs">
+            <summary>Sets the shim of DodawanieSeriali.updateButton_Click(Object sender, EventArgs e)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimDodawanieSeriali.zapisz_ClickObjectEventArgs">
             <summary>Sets the shim of DodawanieSeriali.zapisz_Click(Object sender, EventArgs e)</summary>
@@ -696,6 +897,9 @@
         </member>
         <member name="P:MuseSort.Fakes.ShimDodawanieSeriali.AllInstances.sciezka_ClickObjectEventArgs">
             <summary>Sets the shim of DodawanieSeriali.sciezka_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDodawanieSeriali.AllInstances.updateButton_ClickObjectEventArgs">
+            <summary>Sets the shim of DodawanieSeriali.updateButton_Click(Object sender, EventArgs e)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimDodawanieSeriali.AllInstances.zapisz_ClickObjectEventArgs">
             <summary>Sets the shim of DodawanieSeriali.zapisz_Click(Object sender, EventArgs e)</summary>
@@ -7957,10 +8161,1309 @@
         <member name="P:MuseSort.Fakes.StubDatabaseStart.Text">
             <summary>Sets the stub of Form.get_Text()</summary>
         </member>
+        <member name="T:MuseSort.Fakes.StubDatySeriali">
+            <summary>Stub type of MuseSort.DatySeriali</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AdjustFormScrollbars(System.Boolean)">
+            <summary>Sets the stub of Form.AdjustFormScrollbars(Boolean displayScrollbars)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.AdjustFormScrollbarsBoolean">
+            <summary>Sets the stub of Form.AdjustFormScrollbars(Boolean displayScrollbars)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.AllowDropGet">
+            <summary>Sets the stub of Control.get_AllowDrop()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.AllowDropSetBoolean">
+            <summary>Sets the stub of Control.set_AllowDrop(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.AnchorGet">
+            <summary>Sets the stub of Control.get_Anchor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.AnchorSetAnchorStyles">
+            <summary>Sets the stub of Control.set_Anchor(AnchorStyles value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToAllowDrop">
+            <summary>Attaches delegates to emulate StubDatySeriali.AllowDrop as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToAnchor">
+            <summary>Attaches delegates to emulate StubDatySeriali.Anchor as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToAutoScaleBaseSize">
+            <summary>Attaches delegates to emulate StubDatySeriali.AutoScaleBaseSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToAutoScroll">
+            <summary>Attaches delegates to emulate StubDatySeriali.AutoScroll as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToAutoScrollOffset">
+            <summary>Attaches delegates to emulate StubDatySeriali.AutoScrollOffset as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToAutoSize">
+            <summary>Attaches delegates to emulate StubDatySeriali.AutoSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToAutoValidate">
+            <summary>Attaches delegates to emulate StubDatySeriali.AutoValidate as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToBackColor">
+            <summary>Attaches delegates to emulate StubDatySeriali.BackColor as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToBackgroundImage">
+            <summary>Attaches delegates to emulate StubDatySeriali.BackgroundImage as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToBackgroundImageLayout">
+            <summary>Attaches delegates to emulate StubDatySeriali.BackgroundImageLayout as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToBindingContext">
+            <summary>Attaches delegates to emulate StubDatySeriali.BindingContext as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToContextMenu">
+            <summary>Attaches delegates to emulate StubDatySeriali.ContextMenu as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToContextMenuStrip">
+            <summary>Attaches delegates to emulate StubDatySeriali.ContextMenuStrip as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToCursor">
+            <summary>Attaches delegates to emulate StubDatySeriali.Cursor as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToDock">
+            <summary>Attaches delegates to emulate StubDatySeriali.Dock as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToDoubleBuffered">
+            <summary>Attaches delegates to emulate StubDatySeriali.DoubleBuffered as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToFont">
+            <summary>Attaches delegates to emulate StubDatySeriali.Font as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToForeColor">
+            <summary>Attaches delegates to emulate StubDatySeriali.ForeColor as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToImeModeBase">
+            <summary>Attaches delegates to emulate StubDatySeriali.ImeModeBase as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToMaximumSize">
+            <summary>Attaches delegates to emulate StubDatySeriali.MaximumSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToMinimumSize">
+            <summary>Attaches delegates to emulate StubDatySeriali.MinimumSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToRightToLeft">
+            <summary>Attaches delegates to emulate StubDatySeriali.RightToLeft as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToRightToLeftLayout">
+            <summary>Attaches delegates to emulate StubDatySeriali.RightToLeftLayout as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToSite">
+            <summary>Attaches delegates to emulate StubDatySeriali.Site as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.AttachBackingFieldToText">
+            <summary>Attaches delegates to emulate StubDatySeriali.Text as a property with a backing field.</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.AutoScaleBaseSizeGet">
+            <summary>Sets the stub of Form.get_AutoScaleBaseSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.AutoScaleBaseSizeSetSize">
+            <summary>Sets the stub of Form.set_AutoScaleBaseSize(Size value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.AutoScrollGet">
+            <summary>Sets the stub of Form.get_AutoScroll()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.AutoScrollOffsetGet">
+            <summary>Sets the stub of Control.get_AutoScrollOffset()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.AutoScrollOffsetSetPoint">
+            <summary>Sets the stub of Control.set_AutoScrollOffset(Point value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.AutoScrollSetBoolean">
+            <summary>Sets the stub of Form.set_AutoScroll(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.AutoSizeGet">
+            <summary>Sets the stub of Form.get_AutoSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.AutoSizeSetBoolean">
+            <summary>Sets the stub of Form.set_AutoSize(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.AutoValidateGet">
+            <summary>Sets the stub of Form.get_AutoValidate()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.AutoValidateSetAutoValidate">
+            <summary>Sets the stub of Form.set_AutoValidate(AutoValidate value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.BackColorGet">
+            <summary>Sets the stub of Form.get_BackColor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.BackColorSetColor">
+            <summary>Sets the stub of Form.set_BackColor(Color value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.BackgroundImageGet">
+            <summary>Sets the stub of Control.get_BackgroundImage()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.BackgroundImageLayoutGet">
+            <summary>Sets the stub of Control.get_BackgroundImageLayout()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.BackgroundImageLayoutSetImageLayout">
+            <summary>Sets the stub of Control.set_BackgroundImageLayout(ImageLayout value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.BackgroundImageSetImage">
+            <summary>Sets the stub of Control.set_BackgroundImage(Image value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.BindingContextGet">
+            <summary>Sets the stub of ContainerControl.get_BindingContext()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.BindingContextSetBindingContext">
+            <summary>Sets the stub of ContainerControl.set_BindingContext(BindingContext value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.CanEnableImeGet">
+            <summary>Sets the stub of ContainerControl.get_CanEnableIme()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.CanRaiseEventsGet">
+            <summary>Sets the stub of Control.get_CanRaiseEvents()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ContextMenuGet">
+            <summary>Sets the stub of Control.get_ContextMenu()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ContextMenuSetContextMenu">
+            <summary>Sets the stub of Control.set_ContextMenu(ContextMenu value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ContextMenuStripGet">
+            <summary>Sets the stub of Control.get_ContextMenuStrip()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ContextMenuStripSetContextMenuStrip">
+            <summary>Sets the stub of Control.set_ContextMenuStrip(ContextMenuStrip value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.CreateAccessibilityInstance">
+            <summary>Sets the stub of Control.CreateAccessibilityInstance()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.CreateAccessibilityInstance01">
+            <summary>Sets the stub of Control.CreateAccessibilityInstance()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.CreateControlsInstance">
+            <summary>Sets the stub of Form.CreateControlsInstance()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.CreateControlsInstance01">
+            <summary>Sets the stub of Form.CreateControlsInstance()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.CreateHandle">
+            <summary>Sets the stub of Form.CreateHandle()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.CreateHandle01">
+            <summary>Sets the stub of Form.CreateHandle()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.CreateParamsGet">
+            <summary>Sets the stub of Form.get_CreateParams()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.CursorGet">
+            <summary>Sets the stub of Control.get_Cursor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.CursorSetCursor">
+            <summary>Sets the stub of Control.set_Cursor(Cursor value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.DefWndProc(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Form.DefWndProc(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.DefWndProcMessageRef">
+            <summary>Sets the stub of Form.DefWndProc(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.DefaultCursorGet">
+            <summary>Sets the stub of Control.get_DefaultCursor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.DefaultImeModeGet">
+            <summary>Sets the stub of Form.get_DefaultImeMode()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.DefaultMarginGet">
+            <summary>Sets the stub of Control.get_DefaultMargin()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.DefaultMaximumSizeGet">
+            <summary>Sets the stub of Control.get_DefaultMaximumSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.DefaultMinimumSizeGet">
+            <summary>Sets the stub of Control.get_DefaultMinimumSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.DefaultPaddingGet">
+            <summary>Sets the stub of Control.get_DefaultPadding()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.DefaultSizeGet">
+            <summary>Sets the stub of Form.get_DefaultSize()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.DestroyHandle">
+            <summary>Sets the stub of Control.DestroyHandle()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.DestroyHandle01">
+            <summary>Sets the stub of Control.DestroyHandle()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.DisplayRectangleGet">
+            <summary>Sets the stub of ScrollableControl.get_DisplayRectangle()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.Dispose(System.Boolean)">
+            <summary>Sets the stub of DatySeriali.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.DisposeBoolean">
+            <summary>Sets the stub of DatySeriali.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.DockGet">
+            <summary>Sets the stub of Control.get_Dock()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.DockSetDockStyle">
+            <summary>Sets the stub of Control.set_Dock(DockStyle value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.DoubleBufferedGet">
+            <summary>Sets the stub of Control.get_DoubleBuffered()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.DoubleBufferedSetBoolean">
+            <summary>Sets the stub of Control.set_DoubleBuffered(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.FocusedGet">
+            <summary>Sets the stub of Control.get_Focused()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.FontGet">
+            <summary>Sets the stub of Control.get_Font()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.FontSetFont">
+            <summary>Sets the stub of Control.set_Font(Font value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ForeColorGet">
+            <summary>Sets the stub of Control.get_ForeColor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ForeColorSetColor">
+            <summary>Sets the stub of Control.set_ForeColor(Color value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.GetAccessibilityObjectById(System.Int32)">
+            <summary>Sets the stub of Control.GetAccessibilityObjectById(Int32 objectId)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.GetAccessibilityObjectByIdInt32">
+            <summary>Sets the stub of Control.GetAccessibilityObjectById(Int32 objectId)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.GetPreferredSize(System.Drawing.Size)">
+            <summary>Sets the stub of Control.GetPreferredSize(Size proposedSize)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.GetPreferredSizeSize">
+            <summary>Sets the stub of Control.GetPreferredSize(Size proposedSize)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.GetScaledBounds(System.Drawing.Rectangle,System.Drawing.SizeF,System.Windows.Forms.BoundsSpecified)">
+            <summary>Sets the stub of Form.GetScaledBounds(Rectangle bounds, SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.GetScaledBoundsRectangleSizeFBoundsSpecified">
+            <summary>Sets the stub of Form.GetScaledBounds(Rectangle bounds, SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.GetService(System.Type)">
+            <summary>Sets the stub of Component.GetService(Type service)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.GetServiceType">
+            <summary>Sets the stub of Component.GetService(Type service)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ImeModeBaseGet">
+            <summary>Sets the stub of Control.get_ImeModeBase()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ImeModeBaseSetImeMode">
+            <summary>Sets the stub of Control.set_ImeModeBase(ImeMode value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.InitLayout">
+            <summary>Sets the stub of Control.InitLayout()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.InitLayout01">
+            <summary>Sets the stub of Control.InitLayout()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.InitializeStub">
+            <summary>Initializes a new instance of type StubDatySeriali</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.IsInputChar(System.Char)">
+            <summary>Sets the stub of Control.IsInputChar(Char charCode)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.IsInputCharChar">
+            <summary>Sets the stub of Control.IsInputChar(Char charCode)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.IsInputKey(System.Windows.Forms.Keys)">
+            <summary>Sets the stub of Control.IsInputKey(Keys keyData)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.IsInputKeyKeys">
+            <summary>Sets the stub of Control.IsInputKey(Keys keyData)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.LayoutEngineGet">
+            <summary>Sets the stub of Control.get_LayoutEngine()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.MaximumSizeGet">
+            <summary>Sets the stub of Form.get_MaximumSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.MaximumSizeSetSize">
+            <summary>Sets the stub of Form.set_MaximumSize(Size value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.MinimumSizeGet">
+            <summary>Sets the stub of Form.get_MinimumSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.MinimumSizeSetSize">
+            <summary>Sets the stub of Form.set_MinimumSize(Size value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.NotifyInvalidate(System.Drawing.Rectangle)">
+            <summary>Sets the stub of Control.NotifyInvalidate(Rectangle invalidatedArea)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.NotifyInvalidateRectangle">
+            <summary>Sets the stub of Control.NotifyInvalidate(Rectangle invalidatedArea)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnActivated(System.EventArgs)">
+            <summary>Sets the stub of Form.OnActivated(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnActivatedEventArgs">
+            <summary>Sets the stub of Form.OnActivated(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnAutoSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnAutoSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnAutoSizeChangedEventArgs">
+            <summary>Sets the stub of Control.OnAutoSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnAutoValidateChanged(System.EventArgs)">
+            <summary>Sets the stub of ContainerControl.OnAutoValidateChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnAutoValidateChangedEventArgs">
+            <summary>Sets the stub of ContainerControl.OnAutoValidateChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnBackColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnBackColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnBackgroundImageChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnBackgroundImageChangedEventArgs">
+            <summary>Sets the stub of Form.OnBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnBackgroundImageLayoutChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnBackgroundImageLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnBackgroundImageLayoutChangedEventArgs">
+            <summary>Sets the stub of Form.OnBackgroundImageLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnBindingContextChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnBindingContextChangedEventArgs">
+            <summary>Sets the stub of Control.OnBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnCausesValidationChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnCausesValidationChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnCausesValidationChangedEventArgs">
+            <summary>Sets the stub of Control.OnCausesValidationChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnChangeUICues(System.Windows.Forms.UICuesEventArgs)">
+            <summary>Sets the stub of Control.OnChangeUICues(UICuesEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnChangeUICuesUICuesEventArgs">
+            <summary>Sets the stub of Control.OnChangeUICues(UICuesEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnClick(System.EventArgs)">
+            <summary>Sets the stub of Control.OnClick(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnClickEventArgs">
+            <summary>Sets the stub of Control.OnClick(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnClientSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnClientSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnClientSizeChangedEventArgs">
+            <summary>Sets the stub of Control.OnClientSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnClosed(System.EventArgs)">
+            <summary>Sets the stub of Form.OnClosed(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnClosedEventArgs">
+            <summary>Sets the stub of Form.OnClosed(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnClosing(System.ComponentModel.CancelEventArgs)">
+            <summary>Sets the stub of Form.OnClosing(CancelEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnClosingCancelEventArgs">
+            <summary>Sets the stub of Form.OnClosing(CancelEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnContextMenuChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnContextMenuChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnContextMenuChangedEventArgs">
+            <summary>Sets the stub of Control.OnContextMenuChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnContextMenuStripChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnContextMenuStripChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnContextMenuStripChangedEventArgs">
+            <summary>Sets the stub of Control.OnContextMenuStripChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnControlAdded(System.Windows.Forms.ControlEventArgs)">
+            <summary>Sets the stub of Control.OnControlAdded(ControlEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnControlAddedControlEventArgs">
+            <summary>Sets the stub of Control.OnControlAdded(ControlEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnControlRemoved(System.Windows.Forms.ControlEventArgs)">
+            <summary>Sets the stub of Control.OnControlRemoved(ControlEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnControlRemovedControlEventArgs">
+            <summary>Sets the stub of Control.OnControlRemoved(ControlEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnCreateControl">
+            <summary>Sets the stub of Form.OnCreateControl()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnCreateControl01">
+            <summary>Sets the stub of Form.OnCreateControl()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnCursorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnCursorChangedEventArgs">
+            <summary>Sets the stub of Control.OnCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnDeactivate(System.EventArgs)">
+            <summary>Sets the stub of Form.OnDeactivate(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnDeactivateEventArgs">
+            <summary>Sets the stub of Form.OnDeactivate(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnDockChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnDockChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnDockChangedEventArgs">
+            <summary>Sets the stub of Control.OnDockChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnDoubleClick(System.EventArgs)">
+            <summary>Sets the stub of Control.OnDoubleClick(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnDoubleClickEventArgs">
+            <summary>Sets the stub of Control.OnDoubleClick(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnDragDrop(System.Windows.Forms.DragEventArgs)">
+            <summary>Sets the stub of Control.OnDragDrop(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnDragDropDragEventArgs">
+            <summary>Sets the stub of Control.OnDragDrop(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnDragEnter(System.Windows.Forms.DragEventArgs)">
+            <summary>Sets the stub of Control.OnDragEnter(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnDragEnterDragEventArgs">
+            <summary>Sets the stub of Control.OnDragEnter(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnDragLeave(System.EventArgs)">
+            <summary>Sets the stub of Control.OnDragLeave(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnDragLeaveEventArgs">
+            <summary>Sets the stub of Control.OnDragLeave(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnDragOver(System.Windows.Forms.DragEventArgs)">
+            <summary>Sets the stub of Control.OnDragOver(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnDragOverDragEventArgs">
+            <summary>Sets the stub of Control.OnDragOver(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnEnabledChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnEnabledChangedEventArgs">
+            <summary>Sets the stub of Form.OnEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnEnter(System.EventArgs)">
+            <summary>Sets the stub of Form.OnEnter(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnEnterEventArgs">
+            <summary>Sets the stub of Form.OnEnter(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnFontChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnFontChangedEventArgs">
+            <summary>Sets the stub of Form.OnFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnForeColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnForeColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnFormClosed(System.Windows.Forms.FormClosedEventArgs)">
+            <summary>Sets the stub of Form.OnFormClosed(FormClosedEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnFormClosedFormClosedEventArgs">
+            <summary>Sets the stub of Form.OnFormClosed(FormClosedEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnFormClosing(System.Windows.Forms.FormClosingEventArgs)">
+            <summary>Sets the stub of Form.OnFormClosing(FormClosingEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnFormClosingFormClosingEventArgs">
+            <summary>Sets the stub of Form.OnFormClosing(FormClosingEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnGiveFeedback(System.Windows.Forms.GiveFeedbackEventArgs)">
+            <summary>Sets the stub of Control.OnGiveFeedback(GiveFeedbackEventArgs gfbevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnGiveFeedbackGiveFeedbackEventArgs">
+            <summary>Sets the stub of Control.OnGiveFeedback(GiveFeedbackEventArgs gfbevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnGotFocus(System.EventArgs)">
+            <summary>Sets the stub of Control.OnGotFocus(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnGotFocusEventArgs">
+            <summary>Sets the stub of Control.OnGotFocus(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnHandleCreated(System.EventArgs)">
+            <summary>Sets the stub of Form.OnHandleCreated(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnHandleCreatedEventArgs">
+            <summary>Sets the stub of Form.OnHandleCreated(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnHandleDestroyed(System.EventArgs)">
+            <summary>Sets the stub of Form.OnHandleDestroyed(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnHandleDestroyedEventArgs">
+            <summary>Sets the stub of Form.OnHandleDestroyed(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnHelpButtonClicked(System.ComponentModel.CancelEventArgs)">
+            <summary>Sets the stub of Form.OnHelpButtonClicked(CancelEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnHelpButtonClickedCancelEventArgs">
+            <summary>Sets the stub of Form.OnHelpButtonClicked(CancelEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnHelpRequested(System.Windows.Forms.HelpEventArgs)">
+            <summary>Sets the stub of Control.OnHelpRequested(HelpEventArgs hevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnHelpRequestedHelpEventArgs">
+            <summary>Sets the stub of Control.OnHelpRequested(HelpEventArgs hevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnImeModeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnImeModeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnImeModeChangedEventArgs">
+            <summary>Sets the stub of Control.OnImeModeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnInputLanguageChanged(System.Windows.Forms.InputLanguageChangedEventArgs)">
+            <summary>Sets the stub of Form.OnInputLanguageChanged(InputLanguageChangedEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnInputLanguageChangedInputLanguageChangedEventArgs">
+            <summary>Sets the stub of Form.OnInputLanguageChanged(InputLanguageChangedEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnInputLanguageChanging(System.Windows.Forms.InputLanguageChangingEventArgs)">
+            <summary>Sets the stub of Form.OnInputLanguageChanging(InputLanguageChangingEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnInputLanguageChangingInputLanguageChangingEventArgs">
+            <summary>Sets the stub of Form.OnInputLanguageChanging(InputLanguageChangingEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnInvalidated(System.Windows.Forms.InvalidateEventArgs)">
+            <summary>Sets the stub of Control.OnInvalidated(InvalidateEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnInvalidatedInvalidateEventArgs">
+            <summary>Sets the stub of Control.OnInvalidated(InvalidateEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+            <summary>Sets the stub of Control.OnKeyDown(KeyEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnKeyDownKeyEventArgs">
+            <summary>Sets the stub of Control.OnKeyDown(KeyEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)">
+            <summary>Sets the stub of Control.OnKeyPress(KeyPressEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnKeyPressKeyPressEventArgs">
+            <summary>Sets the stub of Control.OnKeyPress(KeyPressEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnKeyUp(System.Windows.Forms.KeyEventArgs)">
+            <summary>Sets the stub of Control.OnKeyUp(KeyEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnKeyUpKeyEventArgs">
+            <summary>Sets the stub of Control.OnKeyUp(KeyEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnLayout(System.Windows.Forms.LayoutEventArgs)">
+            <summary>Sets the stub of Form.OnLayout(LayoutEventArgs levent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnLayoutLayoutEventArgs">
+            <summary>Sets the stub of Form.OnLayout(LayoutEventArgs levent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnLeave(System.EventArgs)">
+            <summary>Sets the stub of Control.OnLeave(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnLeaveEventArgs">
+            <summary>Sets the stub of Control.OnLeave(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnLoad(System.EventArgs)">
+            <summary>Sets the stub of Form.OnLoad(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnLoadEventArgs">
+            <summary>Sets the stub of Form.OnLoad(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnLocationChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnLocationChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnLocationChangedEventArgs">
+            <summary>Sets the stub of Control.OnLocationChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnLostFocus(System.EventArgs)">
+            <summary>Sets the stub of Control.OnLostFocus(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnLostFocusEventArgs">
+            <summary>Sets the stub of Control.OnLostFocus(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnMarginChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMarginChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnMarginChangedEventArgs">
+            <summary>Sets the stub of Control.OnMarginChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnMaximizedBoundsChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMaximizedBoundsChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnMaximizedBoundsChangedEventArgs">
+            <summary>Sets the stub of Form.OnMaximizedBoundsChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnMaximumSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMaximumSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnMaximumSizeChangedEventArgs">
+            <summary>Sets the stub of Form.OnMaximumSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnMdiChildActivate(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMdiChildActivate(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnMdiChildActivateEventArgs">
+            <summary>Sets the stub of Form.OnMdiChildActivate(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnMenuComplete(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMenuComplete(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnMenuCompleteEventArgs">
+            <summary>Sets the stub of Form.OnMenuComplete(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnMenuStart(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMenuStart(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnMenuStartEventArgs">
+            <summary>Sets the stub of Form.OnMenuStart(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnMinimumSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMinimumSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnMinimumSizeChangedEventArgs">
+            <summary>Sets the stub of Form.OnMinimumSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnMouseCaptureChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseCaptureChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnMouseCaptureChangedEventArgs">
+            <summary>Sets the stub of Control.OnMouseCaptureChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnMouseClick(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnMouseClickMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnMouseDoubleClick(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseDoubleClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnMouseDoubleClickMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseDoubleClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseDown(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnMouseDownMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseDown(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnMouseEnter(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseEnter(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnMouseEnterEventArgs">
+            <summary>Sets the stub of Control.OnMouseEnter(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnMouseHover(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseHover(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnMouseHoverEventArgs">
+            <summary>Sets the stub of Control.OnMouseHover(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnMouseLeave(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseLeave(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnMouseLeaveEventArgs">
+            <summary>Sets the stub of Control.OnMouseLeave(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseMove(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnMouseMoveMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseMove(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseUp(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnMouseUpMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseUp(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnMouseWheel(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnMouseWheel(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnMouseWheelMouseEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnMouseWheel(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnMove(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMove(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnMoveEventArgs">
+            <summary>Sets the stub of Control.OnMove(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnNotifyMessage(System.Windows.Forms.Message)">
+            <summary>Sets the stub of Control.OnNotifyMessage(Message m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnNotifyMessageMessage">
+            <summary>Sets the stub of Control.OnNotifyMessage(Message m)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnPaddingChanged(System.EventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnPaddingChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnPaddingChangedEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnPaddingChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>Sets the stub of Form.OnPaint(PaintEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnPaintBackground(PaintEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnPaintBackgroundPaintEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnPaintBackground(PaintEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnPaintPaintEventArgs">
+            <summary>Sets the stub of Form.OnPaint(PaintEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnParentBackColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnParentBackColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnParentBackgroundImageChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnParentBackgroundImageChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnParentBindingContextChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnParentBindingContextChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnParentChanged(System.EventArgs)">
+            <summary>Sets the stub of ContainerControl.OnParentChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnParentChangedEventArgs">
+            <summary>Sets the stub of ContainerControl.OnParentChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnParentCursorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnParentCursorChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnParentEnabledChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnParentEnabledChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnParentFontChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnParentFontChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnParentForeColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnParentForeColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnParentRightToLeftChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnParentRightToLeftChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnParentVisibleChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnParentVisibleChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnPreviewKeyDown(System.Windows.Forms.PreviewKeyDownEventArgs)">
+            <summary>Sets the stub of Control.OnPreviewKeyDown(PreviewKeyDownEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnPreviewKeyDownPreviewKeyDownEventArgs">
+            <summary>Sets the stub of Control.OnPreviewKeyDown(PreviewKeyDownEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnPrint(System.Windows.Forms.PaintEventArgs)">
+            <summary>Sets the stub of Control.OnPrint(PaintEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnPrintPaintEventArgs">
+            <summary>Sets the stub of Control.OnPrint(PaintEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnQueryContinueDrag(System.Windows.Forms.QueryContinueDragEventArgs)">
+            <summary>Sets the stub of Control.OnQueryContinueDrag(QueryContinueDragEventArgs qcdevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnQueryContinueDragQueryContinueDragEventArgs">
+            <summary>Sets the stub of Control.OnQueryContinueDrag(QueryContinueDragEventArgs qcdevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnRegionChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnRegionChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnRegionChangedEventArgs">
+            <summary>Sets the stub of Control.OnRegionChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnResize(System.EventArgs)">
+            <summary>Sets the stub of Form.OnResize(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnResizeBegin(System.EventArgs)">
+            <summary>Sets the stub of Form.OnResizeBegin(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnResizeBeginEventArgs">
+            <summary>Sets the stub of Form.OnResizeBegin(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnResizeEnd(System.EventArgs)">
+            <summary>Sets the stub of Form.OnResizeEnd(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnResizeEndEventArgs">
+            <summary>Sets the stub of Form.OnResizeEnd(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnResizeEventArgs">
+            <summary>Sets the stub of Form.OnResize(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnRightToLeftChanged(System.EventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnRightToLeftChangedEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnRightToLeftLayoutChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnRightToLeftLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnRightToLeftLayoutChangedEventArgs">
+            <summary>Sets the stub of Form.OnRightToLeftLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnScroll(System.Windows.Forms.ScrollEventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnScroll(ScrollEventArgs se)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnScrollScrollEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnScroll(ScrollEventArgs se)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnShown(System.EventArgs)">
+            <summary>Sets the stub of Form.OnShown(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnShownEventArgs">
+            <summary>Sets the stub of Form.OnShown(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnSizeChangedEventArgs">
+            <summary>Sets the stub of Control.OnSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnStyleChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnStyleChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnStyleChangedEventArgs">
+            <summary>Sets the stub of Form.OnStyleChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnSystemColorsChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnSystemColorsChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnSystemColorsChangedEventArgs">
+            <summary>Sets the stub of Control.OnSystemColorsChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnTabIndexChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnTabIndexChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnTabIndexChangedEventArgs">
+            <summary>Sets the stub of Control.OnTabIndexChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnTabStopChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnTabStopChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnTabStopChangedEventArgs">
+            <summary>Sets the stub of Control.OnTabStopChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnTextChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnTextChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnTextChangedEventArgs">
+            <summary>Sets the stub of Form.OnTextChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnValidated(System.EventArgs)">
+            <summary>Sets the stub of Control.OnValidated(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnValidatedEventArgs">
+            <summary>Sets the stub of Control.OnValidated(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnValidating(System.ComponentModel.CancelEventArgs)">
+            <summary>Sets the stub of Control.OnValidating(CancelEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnValidatingCancelEventArgs">
+            <summary>Sets the stub of Control.OnValidating(CancelEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.OnVisibleChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.OnVisibleChangedEventArgs">
+            <summary>Sets the stub of Form.OnVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.PreProcessMessage(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Control.PreProcessMessage(Message&amp; msg)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.PreProcessMessageMessageRef">
+            <summary>Sets the stub of Control.PreProcessMessage(Message&amp; msg)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
+            <summary>Sets the stub of Form.ProcessCmdKey(Message&amp; msg, Keys keyData)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ProcessCmdKeyMessageRefKeys">
+            <summary>Sets the stub of Form.ProcessCmdKey(Message&amp; msg, Keys keyData)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.ProcessDialogChar(System.Char)">
+            <summary>Sets the stub of Form.ProcessDialogChar(Char charCode)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ProcessDialogCharChar">
+            <summary>Sets the stub of Form.ProcessDialogChar(Char charCode)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.ProcessDialogKey(System.Windows.Forms.Keys)">
+            <summary>Sets the stub of Form.ProcessDialogKey(Keys keyData)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ProcessDialogKeyKeys">
+            <summary>Sets the stub of Form.ProcessDialogKey(Keys keyData)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.ProcessKeyEventArgs(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Control.ProcessKeyEventArgs(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ProcessKeyEventArgsMessageRef">
+            <summary>Sets the stub of Control.ProcessKeyEventArgs(Message&amp; m)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.ProcessKeyMessage(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Control.ProcessKeyMessage(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ProcessKeyMessageMessageRef">
+            <summary>Sets the stub of Control.ProcessKeyMessage(Message&amp; m)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.ProcessKeyPreview(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Form.ProcessKeyPreview(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ProcessKeyPreviewMessageRef">
+            <summary>Sets the stub of Form.ProcessKeyPreview(Message&amp; m)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.ProcessMnemonic(System.Char)">
+            <summary>Sets the stub of Form.ProcessMnemonic(Char charCode)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ProcessMnemonicChar">
+            <summary>Sets the stub of Form.ProcessMnemonic(Char charCode)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.ProcessTabKey(System.Boolean)">
+            <summary>Sets the stub of Form.ProcessTabKey(Boolean forward)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ProcessTabKeyBoolean">
+            <summary>Sets the stub of Form.ProcessTabKey(Boolean forward)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.Refresh">
+            <summary>Sets the stub of Control.Refresh()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.Refresh01">
+            <summary>Sets the stub of Control.Refresh()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.ResetBackColor">
+            <summary>Sets the stub of Control.ResetBackColor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ResetBackColor01">
+            <summary>Sets the stub of Control.ResetBackColor()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.ResetCursor">
+            <summary>Sets the stub of Control.ResetCursor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ResetCursor01">
+            <summary>Sets the stub of Control.ResetCursor()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.ResetFont">
+            <summary>Sets the stub of Control.ResetFont()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ResetFont01">
+            <summary>Sets the stub of Control.ResetFont()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.ResetForeColor">
+            <summary>Sets the stub of Control.ResetForeColor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ResetForeColor01">
+            <summary>Sets the stub of Control.ResetForeColor()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.ResetRightToLeft">
+            <summary>Sets the stub of Control.ResetRightToLeft()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ResetRightToLeft01">
+            <summary>Sets the stub of Control.ResetRightToLeft()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.ResetText">
+            <summary>Sets the stub of Control.ResetText()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ResetText01">
+            <summary>Sets the stub of Control.ResetText()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.RightToLeftGet">
+            <summary>Sets the stub of Control.get_RightToLeft()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.RightToLeftLayoutGet">
+            <summary>Sets the stub of Form.get_RightToLeftLayout()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.RightToLeftLayoutSetBoolean">
+            <summary>Sets the stub of Form.set_RightToLeftLayout(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.RightToLeftSetRightToLeft">
+            <summary>Sets the stub of Control.set_RightToLeft(RightToLeft value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ScaleChildrenGet">
+            <summary>Sets the stub of Control.get_ScaleChildren()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.ScaleControl(System.Drawing.SizeF,System.Windows.Forms.BoundsSpecified)">
+            <summary>Sets the stub of Form.ScaleControl(SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ScaleControlSizeFBoundsSpecified">
+            <summary>Sets the stub of Form.ScaleControl(SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.ScaleCore(System.Single,System.Single)">
+            <summary>Sets the stub of Form.ScaleCore(Single x, Single y)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ScaleCoreSingleSingle">
+            <summary>Sets the stub of Form.ScaleCore(Single x, Single y)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.ScrollToControl(System.Windows.Forms.Control)">
+            <summary>Sets the stub of ScrollableControl.ScrollToControl(Control activeControl)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ScrollToControlControl">
+            <summary>Sets the stub of ScrollableControl.ScrollToControl(Control activeControl)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.Select(System.Boolean,System.Boolean)">
+            <summary>Sets the stub of Form.Select(Boolean directed, Boolean forward)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.SelectBooleanBoolean">
+            <summary>Sets the stub of Form.Select(Boolean directed, Boolean forward)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.SetBoundsCore(System.Int32,System.Int32,System.Int32,System.Int32,System.Windows.Forms.BoundsSpecified)">
+            <summary>Sets the stub of Form.SetBoundsCore(Int32 x, Int32 y, Int32 width, Int32 height, BoundsSpecified specified)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.SetBoundsCoreInt32Int32Int32Int32BoundsSpecified">
+            <summary>Sets the stub of Form.SetBoundsCore(Int32 x, Int32 y, Int32 width, Int32 height, BoundsSpecified specified)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.SetClientSizeCore(System.Int32,System.Int32)">
+            <summary>Sets the stub of Form.SetClientSizeCore(Int32 x, Int32 y)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.SetClientSizeCoreInt32Int32">
+            <summary>Sets the stub of Form.SetClientSizeCore(Int32 x, Int32 y)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.SetVisibleCore(System.Boolean)">
+            <summary>Sets the stub of Form.SetVisibleCore(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.SetVisibleCoreBoolean">
+            <summary>Sets the stub of Form.SetVisibleCore(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ShowFocusCuesGet">
+            <summary>Sets the stub of Control.get_ShowFocusCues()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ShowKeyboardCuesGet">
+            <summary>Sets the stub of Control.get_ShowKeyboardCues()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ShowWithoutActivationGet">
+            <summary>Sets the stub of Form.get_ShowWithoutActivation()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.SiteGet">
+            <summary>Sets the stub of Control.get_Site()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.SiteSetISite">
+            <summary>Sets the stub of Control.set_Site(ISite value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.SizeFromClientSize(System.Drawing.Size)">
+            <summary>Sets the stub of Control.SizeFromClientSize(Size clientSize)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.SizeFromClientSizeSize">
+            <summary>Sets the stub of Control.SizeFromClientSize(Size clientSize)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.TextGet">
+            <summary>Sets the stub of Form.get_Text()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.TextSetString">
+            <summary>Sets the stub of Form.set_Text(String value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.ToString">
+            <summary>Sets the stub of Form.ToString()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ToString01">
+            <summary>Sets the stub of Form.ToString()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.UpdateDefaultButton">
+            <summary>Sets the stub of Form.UpdateDefaultButton()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.UpdateDefaultButton01">
+            <summary>Sets the stub of Form.UpdateDefaultButton()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.ValidateChildren">
+            <summary>Sets the stub of Form.ValidateChildren()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.ValidateChildren(System.Windows.Forms.ValidationConstraints)">
+            <summary>Sets the stub of Form.ValidateChildren(ValidationConstraints validationConstraints)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ValidateChildren01">
+            <summary>Sets the stub of Form.ValidateChildren()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.ValidateChildrenValidationConstraints">
+            <summary>Sets the stub of Form.ValidateChildren(ValidationConstraints validationConstraints)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDatySeriali.WndProc(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Form.WndProc(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDatySeriali.WndProcMessageRef">
+            <summary>Sets the stub of Form.WndProc(Message&amp; m)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.AllowDrop">
+            <summary>Sets the stub of Control.get_AllowDrop()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.Anchor">
+            <summary>Sets the stub of Control.get_Anchor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.AutoScaleBaseSize">
+            <summary>Sets the stub of Form.get_AutoScaleBaseSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.AutoScroll">
+            <summary>Sets the stub of Form.get_AutoScroll()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.AutoScrollOffset">
+            <summary>Sets the stub of Control.get_AutoScrollOffset()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.AutoSize">
+            <summary>Sets the stub of Form.get_AutoSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.AutoValidate">
+            <summary>Sets the stub of Form.get_AutoValidate()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.BackColor">
+            <summary>Sets the stub of Form.get_BackColor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.BackgroundImage">
+            <summary>Sets the stub of Control.get_BackgroundImage()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.BackgroundImageLayout">
+            <summary>Sets the stub of Control.get_BackgroundImageLayout()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.BindingContext">
+            <summary>Sets the stub of ContainerControl.get_BindingContext()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.CanEnableIme">
+            <summary>Sets the stub of ContainerControl.get_CanEnableIme()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.CanRaiseEvents">
+            <summary>Sets the stub of Control.get_CanRaiseEvents()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.ContextMenu">
+            <summary>Sets the stub of Control.get_ContextMenu()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.ContextMenuStrip">
+            <summary>Sets the stub of Control.get_ContextMenuStrip()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.CreateParams">
+            <summary>Sets the stub of Form.get_CreateParams()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.Cursor">
+            <summary>Sets the stub of Control.get_Cursor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.DefaultCursor">
+            <summary>Sets the stub of Control.get_DefaultCursor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.DefaultImeMode">
+            <summary>Sets the stub of Form.get_DefaultImeMode()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.DefaultMargin">
+            <summary>Sets the stub of Control.get_DefaultMargin()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.DefaultMaximumSize">
+            <summary>Sets the stub of Control.get_DefaultMaximumSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.DefaultMinimumSize">
+            <summary>Sets the stub of Control.get_DefaultMinimumSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.DefaultPadding">
+            <summary>Sets the stub of Control.get_DefaultPadding()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.DefaultSize">
+            <summary>Sets the stub of Form.get_DefaultSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.DisplayRectangle">
+            <summary>Sets the stub of ScrollableControl.get_DisplayRectangle()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.Dock">
+            <summary>Sets the stub of Control.get_Dock()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.DoubleBuffered">
+            <summary>Sets the stub of Control.get_DoubleBuffered()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.Focused">
+            <summary>Sets the stub of Control.get_Focused()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.Font">
+            <summary>Sets the stub of Control.get_Font()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.ForeColor">
+            <summary>Sets the stub of Control.get_ForeColor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.ImeModeBase">
+            <summary>Sets the stub of Control.get_ImeModeBase()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.LayoutEngine">
+            <summary>Sets the stub of Control.get_LayoutEngine()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.MaximumSize">
+            <summary>Sets the stub of Form.get_MaximumSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.MinimumSize">
+            <summary>Sets the stub of Form.get_MinimumSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.RightToLeft">
+            <summary>Sets the stub of Control.get_RightToLeft()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.RightToLeftLayout">
+            <summary>Sets the stub of Form.get_RightToLeftLayout()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.ScaleChildren">
+            <summary>Sets the stub of Control.get_ScaleChildren()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.ShowFocusCues">
+            <summary>Sets the stub of Control.get_ShowFocusCues()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.ShowKeyboardCues">
+            <summary>Sets the stub of Control.get_ShowKeyboardCues()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.ShowWithoutActivation">
+            <summary>Sets the stub of Form.get_ShowWithoutActivation()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.Site">
+            <summary>Sets the stub of Control.get_Site()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDatySeriali.Text">
+            <summary>Sets the stub of Form.get_Text()</summary>
+        </member>
         <member name="T:MuseSort.Fakes.StubDodawanieFilmow">
             <summary>Stub type of MuseSort.DodawanieFilmow</summary>
         </member>
         <member name="M:MuseSort.Fakes.StubDodawanieFilmow.#ctor(System.String)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieFilmow.#ctor(System.Int32,System.String,System.String,System.String,System.Int32,System.String,System.String,System.String,System.String)">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="M:MuseSort.Fakes.StubDodawanieFilmow.AdjustFormScrollbars(System.Boolean)">
@@ -9253,10 +10756,1315 @@
         <member name="P:MuseSort.Fakes.StubDodawanieFilmow.Text">
             <summary>Sets the stub of Form.get_Text()</summary>
         </member>
+        <member name="T:MuseSort.Fakes.StubDodawanieMuzyki">
+            <summary>Stub type of MuseSort.DodawanieMuzyki</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.#ctor(System.String)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.#ctor(System.Int32,System.String,System.String,System.String,System.Int32,System.String,System.String)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AdjustFormScrollbars(System.Boolean)">
+            <summary>Sets the stub of Form.AdjustFormScrollbars(Boolean displayScrollbars)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.AdjustFormScrollbarsBoolean">
+            <summary>Sets the stub of Form.AdjustFormScrollbars(Boolean displayScrollbars)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.AllowDropGet">
+            <summary>Sets the stub of Control.get_AllowDrop()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.AllowDropSetBoolean">
+            <summary>Sets the stub of Control.set_AllowDrop(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.AnchorGet">
+            <summary>Sets the stub of Control.get_Anchor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.AnchorSetAnchorStyles">
+            <summary>Sets the stub of Control.set_Anchor(AnchorStyles value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToAllowDrop">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.AllowDrop as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToAnchor">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.Anchor as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToAutoScaleBaseSize">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.AutoScaleBaseSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToAutoScroll">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.AutoScroll as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToAutoScrollOffset">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.AutoScrollOffset as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToAutoSize">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.AutoSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToAutoValidate">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.AutoValidate as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToBackColor">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.BackColor as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToBackgroundImage">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.BackgroundImage as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToBackgroundImageLayout">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.BackgroundImageLayout as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToBindingContext">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.BindingContext as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToContextMenu">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.ContextMenu as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToContextMenuStrip">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.ContextMenuStrip as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToCursor">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.Cursor as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToDock">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.Dock as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToDoubleBuffered">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.DoubleBuffered as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToFont">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.Font as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToForeColor">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.ForeColor as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToImeModeBase">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.ImeModeBase as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToMaximumSize">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.MaximumSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToMinimumSize">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.MinimumSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToRightToLeft">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.RightToLeft as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToRightToLeftLayout">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.RightToLeftLayout as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToSite">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.Site as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.AttachBackingFieldToText">
+            <summary>Attaches delegates to emulate StubDodawanieMuzyki.Text as a property with a backing field.</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.AutoScaleBaseSizeGet">
+            <summary>Sets the stub of Form.get_AutoScaleBaseSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.AutoScaleBaseSizeSetSize">
+            <summary>Sets the stub of Form.set_AutoScaleBaseSize(Size value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.AutoScrollGet">
+            <summary>Sets the stub of Form.get_AutoScroll()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.AutoScrollOffsetGet">
+            <summary>Sets the stub of Control.get_AutoScrollOffset()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.AutoScrollOffsetSetPoint">
+            <summary>Sets the stub of Control.set_AutoScrollOffset(Point value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.AutoScrollSetBoolean">
+            <summary>Sets the stub of Form.set_AutoScroll(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.AutoSizeGet">
+            <summary>Sets the stub of Form.get_AutoSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.AutoSizeSetBoolean">
+            <summary>Sets the stub of Form.set_AutoSize(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.AutoValidateGet">
+            <summary>Sets the stub of Form.get_AutoValidate()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.AutoValidateSetAutoValidate">
+            <summary>Sets the stub of Form.set_AutoValidate(AutoValidate value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.BackColorGet">
+            <summary>Sets the stub of Form.get_BackColor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.BackColorSetColor">
+            <summary>Sets the stub of Form.set_BackColor(Color value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.BackgroundImageGet">
+            <summary>Sets the stub of Control.get_BackgroundImage()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.BackgroundImageLayoutGet">
+            <summary>Sets the stub of Control.get_BackgroundImageLayout()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.BackgroundImageLayoutSetImageLayout">
+            <summary>Sets the stub of Control.set_BackgroundImageLayout(ImageLayout value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.BackgroundImageSetImage">
+            <summary>Sets the stub of Control.set_BackgroundImage(Image value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.BindingContextGet">
+            <summary>Sets the stub of ContainerControl.get_BindingContext()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.BindingContextSetBindingContext">
+            <summary>Sets the stub of ContainerControl.set_BindingContext(BindingContext value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.CanEnableImeGet">
+            <summary>Sets the stub of ContainerControl.get_CanEnableIme()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.CanRaiseEventsGet">
+            <summary>Sets the stub of Control.get_CanRaiseEvents()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ContextMenuGet">
+            <summary>Sets the stub of Control.get_ContextMenu()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ContextMenuSetContextMenu">
+            <summary>Sets the stub of Control.set_ContextMenu(ContextMenu value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ContextMenuStripGet">
+            <summary>Sets the stub of Control.get_ContextMenuStrip()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ContextMenuStripSetContextMenuStrip">
+            <summary>Sets the stub of Control.set_ContextMenuStrip(ContextMenuStrip value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.CreateAccessibilityInstance">
+            <summary>Sets the stub of Control.CreateAccessibilityInstance()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.CreateAccessibilityInstance01">
+            <summary>Sets the stub of Control.CreateAccessibilityInstance()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.CreateControlsInstance">
+            <summary>Sets the stub of Form.CreateControlsInstance()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.CreateControlsInstance01">
+            <summary>Sets the stub of Form.CreateControlsInstance()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.CreateHandle">
+            <summary>Sets the stub of Form.CreateHandle()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.CreateHandle01">
+            <summary>Sets the stub of Form.CreateHandle()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.CreateParamsGet">
+            <summary>Sets the stub of Form.get_CreateParams()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.CursorGet">
+            <summary>Sets the stub of Control.get_Cursor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.CursorSetCursor">
+            <summary>Sets the stub of Control.set_Cursor(Cursor value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.DefWndProc(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Form.DefWndProc(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.DefWndProcMessageRef">
+            <summary>Sets the stub of Form.DefWndProc(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.DefaultCursorGet">
+            <summary>Sets the stub of Control.get_DefaultCursor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.DefaultImeModeGet">
+            <summary>Sets the stub of Form.get_DefaultImeMode()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.DefaultMarginGet">
+            <summary>Sets the stub of Control.get_DefaultMargin()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.DefaultMaximumSizeGet">
+            <summary>Sets the stub of Control.get_DefaultMaximumSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.DefaultMinimumSizeGet">
+            <summary>Sets the stub of Control.get_DefaultMinimumSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.DefaultPaddingGet">
+            <summary>Sets the stub of Control.get_DefaultPadding()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.DefaultSizeGet">
+            <summary>Sets the stub of Form.get_DefaultSize()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.DestroyHandle">
+            <summary>Sets the stub of Control.DestroyHandle()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.DestroyHandle01">
+            <summary>Sets the stub of Control.DestroyHandle()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.DisplayRectangleGet">
+            <summary>Sets the stub of ScrollableControl.get_DisplayRectangle()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.Dispose(System.Boolean)">
+            <summary>Sets the stub of DodawanieMuzyki.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.DisposeBoolean">
+            <summary>Sets the stub of DodawanieMuzyki.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.DockGet">
+            <summary>Sets the stub of Control.get_Dock()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.DockSetDockStyle">
+            <summary>Sets the stub of Control.set_Dock(DockStyle value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.DoubleBufferedGet">
+            <summary>Sets the stub of Control.get_DoubleBuffered()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.DoubleBufferedSetBoolean">
+            <summary>Sets the stub of Control.set_DoubleBuffered(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.FocusedGet">
+            <summary>Sets the stub of Control.get_Focused()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.FontGet">
+            <summary>Sets the stub of Control.get_Font()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.FontSetFont">
+            <summary>Sets the stub of Control.set_Font(Font value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ForeColorGet">
+            <summary>Sets the stub of Control.get_ForeColor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ForeColorSetColor">
+            <summary>Sets the stub of Control.set_ForeColor(Color value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.GetAccessibilityObjectById(System.Int32)">
+            <summary>Sets the stub of Control.GetAccessibilityObjectById(Int32 objectId)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.GetAccessibilityObjectByIdInt32">
+            <summary>Sets the stub of Control.GetAccessibilityObjectById(Int32 objectId)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.GetPreferredSize(System.Drawing.Size)">
+            <summary>Sets the stub of Control.GetPreferredSize(Size proposedSize)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.GetPreferredSizeSize">
+            <summary>Sets the stub of Control.GetPreferredSize(Size proposedSize)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.GetScaledBounds(System.Drawing.Rectangle,System.Drawing.SizeF,System.Windows.Forms.BoundsSpecified)">
+            <summary>Sets the stub of Form.GetScaledBounds(Rectangle bounds, SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.GetScaledBoundsRectangleSizeFBoundsSpecified">
+            <summary>Sets the stub of Form.GetScaledBounds(Rectangle bounds, SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.GetService(System.Type)">
+            <summary>Sets the stub of Component.GetService(Type service)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.GetServiceType">
+            <summary>Sets the stub of Component.GetService(Type service)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ImeModeBaseGet">
+            <summary>Sets the stub of Control.get_ImeModeBase()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ImeModeBaseSetImeMode">
+            <summary>Sets the stub of Control.set_ImeModeBase(ImeMode value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.InitLayout">
+            <summary>Sets the stub of Control.InitLayout()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.InitLayout01">
+            <summary>Sets the stub of Control.InitLayout()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.InitializeStub">
+            <summary>Initializes a new instance of type StubDodawanieMuzyki</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.IsInputChar(System.Char)">
+            <summary>Sets the stub of Control.IsInputChar(Char charCode)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.IsInputCharChar">
+            <summary>Sets the stub of Control.IsInputChar(Char charCode)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.IsInputKey(System.Windows.Forms.Keys)">
+            <summary>Sets the stub of Control.IsInputKey(Keys keyData)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.IsInputKeyKeys">
+            <summary>Sets the stub of Control.IsInputKey(Keys keyData)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.LayoutEngineGet">
+            <summary>Sets the stub of Control.get_LayoutEngine()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.MaximumSizeGet">
+            <summary>Sets the stub of Form.get_MaximumSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.MaximumSizeSetSize">
+            <summary>Sets the stub of Form.set_MaximumSize(Size value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.MinimumSizeGet">
+            <summary>Sets the stub of Form.get_MinimumSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.MinimumSizeSetSize">
+            <summary>Sets the stub of Form.set_MinimumSize(Size value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.NotifyInvalidate(System.Drawing.Rectangle)">
+            <summary>Sets the stub of Control.NotifyInvalidate(Rectangle invalidatedArea)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.NotifyInvalidateRectangle">
+            <summary>Sets the stub of Control.NotifyInvalidate(Rectangle invalidatedArea)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnActivated(System.EventArgs)">
+            <summary>Sets the stub of Form.OnActivated(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnActivatedEventArgs">
+            <summary>Sets the stub of Form.OnActivated(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnAutoSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnAutoSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnAutoSizeChangedEventArgs">
+            <summary>Sets the stub of Control.OnAutoSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnAutoValidateChanged(System.EventArgs)">
+            <summary>Sets the stub of ContainerControl.OnAutoValidateChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnAutoValidateChangedEventArgs">
+            <summary>Sets the stub of ContainerControl.OnAutoValidateChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnBackColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnBackColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnBackgroundImageChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnBackgroundImageChangedEventArgs">
+            <summary>Sets the stub of Form.OnBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnBackgroundImageLayoutChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnBackgroundImageLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnBackgroundImageLayoutChangedEventArgs">
+            <summary>Sets the stub of Form.OnBackgroundImageLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnBindingContextChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnBindingContextChangedEventArgs">
+            <summary>Sets the stub of Control.OnBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnCausesValidationChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnCausesValidationChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnCausesValidationChangedEventArgs">
+            <summary>Sets the stub of Control.OnCausesValidationChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnChangeUICues(System.Windows.Forms.UICuesEventArgs)">
+            <summary>Sets the stub of Control.OnChangeUICues(UICuesEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnChangeUICuesUICuesEventArgs">
+            <summary>Sets the stub of Control.OnChangeUICues(UICuesEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnClick(System.EventArgs)">
+            <summary>Sets the stub of Control.OnClick(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnClickEventArgs">
+            <summary>Sets the stub of Control.OnClick(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnClientSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnClientSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnClientSizeChangedEventArgs">
+            <summary>Sets the stub of Control.OnClientSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnClosed(System.EventArgs)">
+            <summary>Sets the stub of Form.OnClosed(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnClosedEventArgs">
+            <summary>Sets the stub of Form.OnClosed(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnClosing(System.ComponentModel.CancelEventArgs)">
+            <summary>Sets the stub of Form.OnClosing(CancelEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnClosingCancelEventArgs">
+            <summary>Sets the stub of Form.OnClosing(CancelEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnContextMenuChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnContextMenuChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnContextMenuChangedEventArgs">
+            <summary>Sets the stub of Control.OnContextMenuChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnContextMenuStripChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnContextMenuStripChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnContextMenuStripChangedEventArgs">
+            <summary>Sets the stub of Control.OnContextMenuStripChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnControlAdded(System.Windows.Forms.ControlEventArgs)">
+            <summary>Sets the stub of Control.OnControlAdded(ControlEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnControlAddedControlEventArgs">
+            <summary>Sets the stub of Control.OnControlAdded(ControlEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnControlRemoved(System.Windows.Forms.ControlEventArgs)">
+            <summary>Sets the stub of Control.OnControlRemoved(ControlEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnControlRemovedControlEventArgs">
+            <summary>Sets the stub of Control.OnControlRemoved(ControlEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnCreateControl">
+            <summary>Sets the stub of Form.OnCreateControl()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnCreateControl01">
+            <summary>Sets the stub of Form.OnCreateControl()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnCursorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnCursorChangedEventArgs">
+            <summary>Sets the stub of Control.OnCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnDeactivate(System.EventArgs)">
+            <summary>Sets the stub of Form.OnDeactivate(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnDeactivateEventArgs">
+            <summary>Sets the stub of Form.OnDeactivate(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnDockChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnDockChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnDockChangedEventArgs">
+            <summary>Sets the stub of Control.OnDockChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnDoubleClick(System.EventArgs)">
+            <summary>Sets the stub of Control.OnDoubleClick(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnDoubleClickEventArgs">
+            <summary>Sets the stub of Control.OnDoubleClick(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnDragDrop(System.Windows.Forms.DragEventArgs)">
+            <summary>Sets the stub of Control.OnDragDrop(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnDragDropDragEventArgs">
+            <summary>Sets the stub of Control.OnDragDrop(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnDragEnter(System.Windows.Forms.DragEventArgs)">
+            <summary>Sets the stub of Control.OnDragEnter(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnDragEnterDragEventArgs">
+            <summary>Sets the stub of Control.OnDragEnter(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnDragLeave(System.EventArgs)">
+            <summary>Sets the stub of Control.OnDragLeave(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnDragLeaveEventArgs">
+            <summary>Sets the stub of Control.OnDragLeave(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnDragOver(System.Windows.Forms.DragEventArgs)">
+            <summary>Sets the stub of Control.OnDragOver(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnDragOverDragEventArgs">
+            <summary>Sets the stub of Control.OnDragOver(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnEnabledChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnEnabledChangedEventArgs">
+            <summary>Sets the stub of Form.OnEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnEnter(System.EventArgs)">
+            <summary>Sets the stub of Form.OnEnter(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnEnterEventArgs">
+            <summary>Sets the stub of Form.OnEnter(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnFontChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnFontChangedEventArgs">
+            <summary>Sets the stub of Form.OnFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnForeColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnForeColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnFormClosed(System.Windows.Forms.FormClosedEventArgs)">
+            <summary>Sets the stub of Form.OnFormClosed(FormClosedEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnFormClosedFormClosedEventArgs">
+            <summary>Sets the stub of Form.OnFormClosed(FormClosedEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnFormClosing(System.Windows.Forms.FormClosingEventArgs)">
+            <summary>Sets the stub of Form.OnFormClosing(FormClosingEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnFormClosingFormClosingEventArgs">
+            <summary>Sets the stub of Form.OnFormClosing(FormClosingEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnGiveFeedback(System.Windows.Forms.GiveFeedbackEventArgs)">
+            <summary>Sets the stub of Control.OnGiveFeedback(GiveFeedbackEventArgs gfbevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnGiveFeedbackGiveFeedbackEventArgs">
+            <summary>Sets the stub of Control.OnGiveFeedback(GiveFeedbackEventArgs gfbevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnGotFocus(System.EventArgs)">
+            <summary>Sets the stub of Control.OnGotFocus(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnGotFocusEventArgs">
+            <summary>Sets the stub of Control.OnGotFocus(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnHandleCreated(System.EventArgs)">
+            <summary>Sets the stub of Form.OnHandleCreated(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnHandleCreatedEventArgs">
+            <summary>Sets the stub of Form.OnHandleCreated(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnHandleDestroyed(System.EventArgs)">
+            <summary>Sets the stub of Form.OnHandleDestroyed(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnHandleDestroyedEventArgs">
+            <summary>Sets the stub of Form.OnHandleDestroyed(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnHelpButtonClicked(System.ComponentModel.CancelEventArgs)">
+            <summary>Sets the stub of Form.OnHelpButtonClicked(CancelEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnHelpButtonClickedCancelEventArgs">
+            <summary>Sets the stub of Form.OnHelpButtonClicked(CancelEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnHelpRequested(System.Windows.Forms.HelpEventArgs)">
+            <summary>Sets the stub of Control.OnHelpRequested(HelpEventArgs hevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnHelpRequestedHelpEventArgs">
+            <summary>Sets the stub of Control.OnHelpRequested(HelpEventArgs hevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnImeModeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnImeModeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnImeModeChangedEventArgs">
+            <summary>Sets the stub of Control.OnImeModeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnInputLanguageChanged(System.Windows.Forms.InputLanguageChangedEventArgs)">
+            <summary>Sets the stub of Form.OnInputLanguageChanged(InputLanguageChangedEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnInputLanguageChangedInputLanguageChangedEventArgs">
+            <summary>Sets the stub of Form.OnInputLanguageChanged(InputLanguageChangedEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnInputLanguageChanging(System.Windows.Forms.InputLanguageChangingEventArgs)">
+            <summary>Sets the stub of Form.OnInputLanguageChanging(InputLanguageChangingEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnInputLanguageChangingInputLanguageChangingEventArgs">
+            <summary>Sets the stub of Form.OnInputLanguageChanging(InputLanguageChangingEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnInvalidated(System.Windows.Forms.InvalidateEventArgs)">
+            <summary>Sets the stub of Control.OnInvalidated(InvalidateEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnInvalidatedInvalidateEventArgs">
+            <summary>Sets the stub of Control.OnInvalidated(InvalidateEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+            <summary>Sets the stub of Control.OnKeyDown(KeyEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnKeyDownKeyEventArgs">
+            <summary>Sets the stub of Control.OnKeyDown(KeyEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)">
+            <summary>Sets the stub of Control.OnKeyPress(KeyPressEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnKeyPressKeyPressEventArgs">
+            <summary>Sets the stub of Control.OnKeyPress(KeyPressEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnKeyUp(System.Windows.Forms.KeyEventArgs)">
+            <summary>Sets the stub of Control.OnKeyUp(KeyEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnKeyUpKeyEventArgs">
+            <summary>Sets the stub of Control.OnKeyUp(KeyEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnLayout(System.Windows.Forms.LayoutEventArgs)">
+            <summary>Sets the stub of Form.OnLayout(LayoutEventArgs levent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnLayoutLayoutEventArgs">
+            <summary>Sets the stub of Form.OnLayout(LayoutEventArgs levent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnLeave(System.EventArgs)">
+            <summary>Sets the stub of Control.OnLeave(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnLeaveEventArgs">
+            <summary>Sets the stub of Control.OnLeave(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnLoad(System.EventArgs)">
+            <summary>Sets the stub of Form.OnLoad(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnLoadEventArgs">
+            <summary>Sets the stub of Form.OnLoad(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnLocationChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnLocationChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnLocationChangedEventArgs">
+            <summary>Sets the stub of Control.OnLocationChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnLostFocus(System.EventArgs)">
+            <summary>Sets the stub of Control.OnLostFocus(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnLostFocusEventArgs">
+            <summary>Sets the stub of Control.OnLostFocus(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnMarginChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMarginChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnMarginChangedEventArgs">
+            <summary>Sets the stub of Control.OnMarginChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnMaximizedBoundsChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMaximizedBoundsChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnMaximizedBoundsChangedEventArgs">
+            <summary>Sets the stub of Form.OnMaximizedBoundsChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnMaximumSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMaximumSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnMaximumSizeChangedEventArgs">
+            <summary>Sets the stub of Form.OnMaximumSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnMdiChildActivate(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMdiChildActivate(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnMdiChildActivateEventArgs">
+            <summary>Sets the stub of Form.OnMdiChildActivate(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnMenuComplete(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMenuComplete(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnMenuCompleteEventArgs">
+            <summary>Sets the stub of Form.OnMenuComplete(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnMenuStart(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMenuStart(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnMenuStartEventArgs">
+            <summary>Sets the stub of Form.OnMenuStart(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnMinimumSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMinimumSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnMinimumSizeChangedEventArgs">
+            <summary>Sets the stub of Form.OnMinimumSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnMouseCaptureChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseCaptureChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnMouseCaptureChangedEventArgs">
+            <summary>Sets the stub of Control.OnMouseCaptureChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnMouseClick(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnMouseClickMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnMouseDoubleClick(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseDoubleClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnMouseDoubleClickMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseDoubleClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseDown(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnMouseDownMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseDown(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnMouseEnter(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseEnter(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnMouseEnterEventArgs">
+            <summary>Sets the stub of Control.OnMouseEnter(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnMouseHover(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseHover(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnMouseHoverEventArgs">
+            <summary>Sets the stub of Control.OnMouseHover(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnMouseLeave(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseLeave(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnMouseLeaveEventArgs">
+            <summary>Sets the stub of Control.OnMouseLeave(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseMove(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnMouseMoveMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseMove(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseUp(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnMouseUpMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseUp(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnMouseWheel(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnMouseWheel(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnMouseWheelMouseEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnMouseWheel(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnMove(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMove(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnMoveEventArgs">
+            <summary>Sets the stub of Control.OnMove(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnNotifyMessage(System.Windows.Forms.Message)">
+            <summary>Sets the stub of Control.OnNotifyMessage(Message m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnNotifyMessageMessage">
+            <summary>Sets the stub of Control.OnNotifyMessage(Message m)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnPaddingChanged(System.EventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnPaddingChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnPaddingChangedEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnPaddingChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>Sets the stub of Form.OnPaint(PaintEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnPaintBackground(PaintEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnPaintBackgroundPaintEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnPaintBackground(PaintEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnPaintPaintEventArgs">
+            <summary>Sets the stub of Form.OnPaint(PaintEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnParentBackColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnParentBackColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnParentBackgroundImageChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnParentBackgroundImageChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnParentBindingContextChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnParentBindingContextChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnParentChanged(System.EventArgs)">
+            <summary>Sets the stub of ContainerControl.OnParentChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnParentChangedEventArgs">
+            <summary>Sets the stub of ContainerControl.OnParentChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnParentCursorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnParentCursorChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnParentEnabledChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnParentEnabledChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnParentFontChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnParentFontChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnParentForeColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnParentForeColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnParentRightToLeftChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnParentRightToLeftChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnParentVisibleChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnParentVisibleChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnPreviewKeyDown(System.Windows.Forms.PreviewKeyDownEventArgs)">
+            <summary>Sets the stub of Control.OnPreviewKeyDown(PreviewKeyDownEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnPreviewKeyDownPreviewKeyDownEventArgs">
+            <summary>Sets the stub of Control.OnPreviewKeyDown(PreviewKeyDownEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnPrint(System.Windows.Forms.PaintEventArgs)">
+            <summary>Sets the stub of Control.OnPrint(PaintEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnPrintPaintEventArgs">
+            <summary>Sets the stub of Control.OnPrint(PaintEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnQueryContinueDrag(System.Windows.Forms.QueryContinueDragEventArgs)">
+            <summary>Sets the stub of Control.OnQueryContinueDrag(QueryContinueDragEventArgs qcdevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnQueryContinueDragQueryContinueDragEventArgs">
+            <summary>Sets the stub of Control.OnQueryContinueDrag(QueryContinueDragEventArgs qcdevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnRegionChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnRegionChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnRegionChangedEventArgs">
+            <summary>Sets the stub of Control.OnRegionChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnResize(System.EventArgs)">
+            <summary>Sets the stub of Form.OnResize(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnResizeBegin(System.EventArgs)">
+            <summary>Sets the stub of Form.OnResizeBegin(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnResizeBeginEventArgs">
+            <summary>Sets the stub of Form.OnResizeBegin(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnResizeEnd(System.EventArgs)">
+            <summary>Sets the stub of Form.OnResizeEnd(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnResizeEndEventArgs">
+            <summary>Sets the stub of Form.OnResizeEnd(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnResizeEventArgs">
+            <summary>Sets the stub of Form.OnResize(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnRightToLeftChanged(System.EventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnRightToLeftChangedEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnRightToLeftLayoutChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnRightToLeftLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnRightToLeftLayoutChangedEventArgs">
+            <summary>Sets the stub of Form.OnRightToLeftLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnScroll(System.Windows.Forms.ScrollEventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnScroll(ScrollEventArgs se)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnScrollScrollEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnScroll(ScrollEventArgs se)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnShown(System.EventArgs)">
+            <summary>Sets the stub of Form.OnShown(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnShownEventArgs">
+            <summary>Sets the stub of Form.OnShown(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnSizeChangedEventArgs">
+            <summary>Sets the stub of Control.OnSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnStyleChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnStyleChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnStyleChangedEventArgs">
+            <summary>Sets the stub of Form.OnStyleChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnSystemColorsChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnSystemColorsChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnSystemColorsChangedEventArgs">
+            <summary>Sets the stub of Control.OnSystemColorsChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnTabIndexChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnTabIndexChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnTabIndexChangedEventArgs">
+            <summary>Sets the stub of Control.OnTabIndexChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnTabStopChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnTabStopChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnTabStopChangedEventArgs">
+            <summary>Sets the stub of Control.OnTabStopChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnTextChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnTextChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnTextChangedEventArgs">
+            <summary>Sets the stub of Form.OnTextChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnValidated(System.EventArgs)">
+            <summary>Sets the stub of Control.OnValidated(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnValidatedEventArgs">
+            <summary>Sets the stub of Control.OnValidated(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnValidating(System.ComponentModel.CancelEventArgs)">
+            <summary>Sets the stub of Control.OnValidating(CancelEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnValidatingCancelEventArgs">
+            <summary>Sets the stub of Control.OnValidating(CancelEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.OnVisibleChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.OnVisibleChangedEventArgs">
+            <summary>Sets the stub of Form.OnVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.PreProcessMessage(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Control.PreProcessMessage(Message&amp; msg)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.PreProcessMessageMessageRef">
+            <summary>Sets the stub of Control.PreProcessMessage(Message&amp; msg)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
+            <summary>Sets the stub of Form.ProcessCmdKey(Message&amp; msg, Keys keyData)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ProcessCmdKeyMessageRefKeys">
+            <summary>Sets the stub of Form.ProcessCmdKey(Message&amp; msg, Keys keyData)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.ProcessDialogChar(System.Char)">
+            <summary>Sets the stub of Form.ProcessDialogChar(Char charCode)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ProcessDialogCharChar">
+            <summary>Sets the stub of Form.ProcessDialogChar(Char charCode)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.ProcessDialogKey(System.Windows.Forms.Keys)">
+            <summary>Sets the stub of Form.ProcessDialogKey(Keys keyData)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ProcessDialogKeyKeys">
+            <summary>Sets the stub of Form.ProcessDialogKey(Keys keyData)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.ProcessKeyEventArgs(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Control.ProcessKeyEventArgs(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ProcessKeyEventArgsMessageRef">
+            <summary>Sets the stub of Control.ProcessKeyEventArgs(Message&amp; m)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.ProcessKeyMessage(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Control.ProcessKeyMessage(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ProcessKeyMessageMessageRef">
+            <summary>Sets the stub of Control.ProcessKeyMessage(Message&amp; m)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.ProcessKeyPreview(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Form.ProcessKeyPreview(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ProcessKeyPreviewMessageRef">
+            <summary>Sets the stub of Form.ProcessKeyPreview(Message&amp; m)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.ProcessMnemonic(System.Char)">
+            <summary>Sets the stub of Form.ProcessMnemonic(Char charCode)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ProcessMnemonicChar">
+            <summary>Sets the stub of Form.ProcessMnemonic(Char charCode)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.ProcessTabKey(System.Boolean)">
+            <summary>Sets the stub of Form.ProcessTabKey(Boolean forward)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ProcessTabKeyBoolean">
+            <summary>Sets the stub of Form.ProcessTabKey(Boolean forward)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.Refresh">
+            <summary>Sets the stub of Control.Refresh()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.Refresh01">
+            <summary>Sets the stub of Control.Refresh()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.ResetBackColor">
+            <summary>Sets the stub of Control.ResetBackColor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ResetBackColor01">
+            <summary>Sets the stub of Control.ResetBackColor()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.ResetCursor">
+            <summary>Sets the stub of Control.ResetCursor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ResetCursor01">
+            <summary>Sets the stub of Control.ResetCursor()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.ResetFont">
+            <summary>Sets the stub of Control.ResetFont()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ResetFont01">
+            <summary>Sets the stub of Control.ResetFont()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.ResetForeColor">
+            <summary>Sets the stub of Control.ResetForeColor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ResetForeColor01">
+            <summary>Sets the stub of Control.ResetForeColor()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.ResetRightToLeft">
+            <summary>Sets the stub of Control.ResetRightToLeft()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ResetRightToLeft01">
+            <summary>Sets the stub of Control.ResetRightToLeft()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.ResetText">
+            <summary>Sets the stub of Control.ResetText()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ResetText01">
+            <summary>Sets the stub of Control.ResetText()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.RightToLeftGet">
+            <summary>Sets the stub of Control.get_RightToLeft()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.RightToLeftLayoutGet">
+            <summary>Sets the stub of Form.get_RightToLeftLayout()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.RightToLeftLayoutSetBoolean">
+            <summary>Sets the stub of Form.set_RightToLeftLayout(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.RightToLeftSetRightToLeft">
+            <summary>Sets the stub of Control.set_RightToLeft(RightToLeft value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ScaleChildrenGet">
+            <summary>Sets the stub of Control.get_ScaleChildren()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.ScaleControl(System.Drawing.SizeF,System.Windows.Forms.BoundsSpecified)">
+            <summary>Sets the stub of Form.ScaleControl(SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ScaleControlSizeFBoundsSpecified">
+            <summary>Sets the stub of Form.ScaleControl(SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.ScaleCore(System.Single,System.Single)">
+            <summary>Sets the stub of Form.ScaleCore(Single x, Single y)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ScaleCoreSingleSingle">
+            <summary>Sets the stub of Form.ScaleCore(Single x, Single y)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.ScrollToControl(System.Windows.Forms.Control)">
+            <summary>Sets the stub of ScrollableControl.ScrollToControl(Control activeControl)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ScrollToControlControl">
+            <summary>Sets the stub of ScrollableControl.ScrollToControl(Control activeControl)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.Select(System.Boolean,System.Boolean)">
+            <summary>Sets the stub of Form.Select(Boolean directed, Boolean forward)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.SelectBooleanBoolean">
+            <summary>Sets the stub of Form.Select(Boolean directed, Boolean forward)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.SetBoundsCore(System.Int32,System.Int32,System.Int32,System.Int32,System.Windows.Forms.BoundsSpecified)">
+            <summary>Sets the stub of Form.SetBoundsCore(Int32 x, Int32 y, Int32 width, Int32 height, BoundsSpecified specified)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.SetBoundsCoreInt32Int32Int32Int32BoundsSpecified">
+            <summary>Sets the stub of Form.SetBoundsCore(Int32 x, Int32 y, Int32 width, Int32 height, BoundsSpecified specified)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.SetClientSizeCore(System.Int32,System.Int32)">
+            <summary>Sets the stub of Form.SetClientSizeCore(Int32 x, Int32 y)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.SetClientSizeCoreInt32Int32">
+            <summary>Sets the stub of Form.SetClientSizeCore(Int32 x, Int32 y)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.SetVisibleCore(System.Boolean)">
+            <summary>Sets the stub of Form.SetVisibleCore(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.SetVisibleCoreBoolean">
+            <summary>Sets the stub of Form.SetVisibleCore(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ShowFocusCuesGet">
+            <summary>Sets the stub of Control.get_ShowFocusCues()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ShowKeyboardCuesGet">
+            <summary>Sets the stub of Control.get_ShowKeyboardCues()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ShowWithoutActivationGet">
+            <summary>Sets the stub of Form.get_ShowWithoutActivation()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.SiteGet">
+            <summary>Sets the stub of Control.get_Site()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.SiteSetISite">
+            <summary>Sets the stub of Control.set_Site(ISite value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.SizeFromClientSize(System.Drawing.Size)">
+            <summary>Sets the stub of Control.SizeFromClientSize(Size clientSize)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.SizeFromClientSizeSize">
+            <summary>Sets the stub of Control.SizeFromClientSize(Size clientSize)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.TextGet">
+            <summary>Sets the stub of Form.get_Text()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.TextSetString">
+            <summary>Sets the stub of Form.set_Text(String value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.ToString">
+            <summary>Sets the stub of Form.ToString()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ToString01">
+            <summary>Sets the stub of Form.ToString()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.UpdateDefaultButton">
+            <summary>Sets the stub of Form.UpdateDefaultButton()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.UpdateDefaultButton01">
+            <summary>Sets the stub of Form.UpdateDefaultButton()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.ValidateChildren">
+            <summary>Sets the stub of Form.ValidateChildren()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.ValidateChildren(System.Windows.Forms.ValidationConstraints)">
+            <summary>Sets the stub of Form.ValidateChildren(ValidationConstraints validationConstraints)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ValidateChildren01">
+            <summary>Sets the stub of Form.ValidateChildren()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.ValidateChildrenValidationConstraints">
+            <summary>Sets the stub of Form.ValidateChildren(ValidationConstraints validationConstraints)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieMuzyki.WndProc(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Form.WndProc(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubDodawanieMuzyki.WndProcMessageRef">
+            <summary>Sets the stub of Form.WndProc(Message&amp; m)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.AllowDrop">
+            <summary>Sets the stub of Control.get_AllowDrop()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.Anchor">
+            <summary>Sets the stub of Control.get_Anchor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.AutoScaleBaseSize">
+            <summary>Sets the stub of Form.get_AutoScaleBaseSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.AutoScroll">
+            <summary>Sets the stub of Form.get_AutoScroll()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.AutoScrollOffset">
+            <summary>Sets the stub of Control.get_AutoScrollOffset()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.AutoSize">
+            <summary>Sets the stub of Form.get_AutoSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.AutoValidate">
+            <summary>Sets the stub of Form.get_AutoValidate()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.BackColor">
+            <summary>Sets the stub of Form.get_BackColor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.BackgroundImage">
+            <summary>Sets the stub of Control.get_BackgroundImage()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.BackgroundImageLayout">
+            <summary>Sets the stub of Control.get_BackgroundImageLayout()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.BindingContext">
+            <summary>Sets the stub of ContainerControl.get_BindingContext()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.CanEnableIme">
+            <summary>Sets the stub of ContainerControl.get_CanEnableIme()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.CanRaiseEvents">
+            <summary>Sets the stub of Control.get_CanRaiseEvents()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.ContextMenu">
+            <summary>Sets the stub of Control.get_ContextMenu()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.ContextMenuStrip">
+            <summary>Sets the stub of Control.get_ContextMenuStrip()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.CreateParams">
+            <summary>Sets the stub of Form.get_CreateParams()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.Cursor">
+            <summary>Sets the stub of Control.get_Cursor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.DefaultCursor">
+            <summary>Sets the stub of Control.get_DefaultCursor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.DefaultImeMode">
+            <summary>Sets the stub of Form.get_DefaultImeMode()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.DefaultMargin">
+            <summary>Sets the stub of Control.get_DefaultMargin()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.DefaultMaximumSize">
+            <summary>Sets the stub of Control.get_DefaultMaximumSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.DefaultMinimumSize">
+            <summary>Sets the stub of Control.get_DefaultMinimumSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.DefaultPadding">
+            <summary>Sets the stub of Control.get_DefaultPadding()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.DefaultSize">
+            <summary>Sets the stub of Form.get_DefaultSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.DisplayRectangle">
+            <summary>Sets the stub of ScrollableControl.get_DisplayRectangle()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.Dock">
+            <summary>Sets the stub of Control.get_Dock()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.DoubleBuffered">
+            <summary>Sets the stub of Control.get_DoubleBuffered()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.Focused">
+            <summary>Sets the stub of Control.get_Focused()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.Font">
+            <summary>Sets the stub of Control.get_Font()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.ForeColor">
+            <summary>Sets the stub of Control.get_ForeColor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.ImeModeBase">
+            <summary>Sets the stub of Control.get_ImeModeBase()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.LayoutEngine">
+            <summary>Sets the stub of Control.get_LayoutEngine()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.MaximumSize">
+            <summary>Sets the stub of Form.get_MaximumSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.MinimumSize">
+            <summary>Sets the stub of Form.get_MinimumSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.RightToLeft">
+            <summary>Sets the stub of Control.get_RightToLeft()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.RightToLeftLayout">
+            <summary>Sets the stub of Form.get_RightToLeftLayout()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.ScaleChildren">
+            <summary>Sets the stub of Control.get_ScaleChildren()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.ShowFocusCues">
+            <summary>Sets the stub of Control.get_ShowFocusCues()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.ShowKeyboardCues">
+            <summary>Sets the stub of Control.get_ShowKeyboardCues()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.ShowWithoutActivation">
+            <summary>Sets the stub of Form.get_ShowWithoutActivation()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.Site">
+            <summary>Sets the stub of Control.get_Site()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubDodawanieMuzyki.Text">
+            <summary>Sets the stub of Form.get_Text()</summary>
+        </member>
         <member name="T:MuseSort.Fakes.StubDodawanieSeriali">
             <summary>Stub type of MuseSort.DodawanieSeriali</summary>
         </member>
         <member name="M:MuseSort.Fakes.StubDodawanieSeriali.#ctor(System.String)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieSeriali.#ctor(System.Int32,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.String,System.Boolean)">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="M:MuseSort.Fakes.StubDodawanieSeriali.AdjustFormScrollbars(System.Boolean)">
