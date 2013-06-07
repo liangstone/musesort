@@ -66,7 +66,6 @@ namespace MuseSort
         /// <returns>Sukces operacji.</returns>
         public bool sortuj(IEnumerable<string> wspieraneRozszerzenia)
         {
-            bool sukces = false;
             //System.Windows.Forms.MessageBox.Show("Rozpoczynam sortowanie.");
             //Powinno być sprawdzenie czy folder jest posortowany.
             if (schemat == null || schemat.Equals(""))
@@ -102,7 +101,7 @@ namespace MuseSort
 
             List<string> listaPlikow = znajdz_wspierane_pliki(Sciezka, wspieraneRozszerzenia);
 
-            sukces = sortujListePlikow(listaPlikow);
+            bool sukces = sortujListePlikow(listaPlikow);
             logi += "Posortowano folder: " + this.sciezka + Environment.NewLine;
             System.Windows.Forms.MessageBox.Show("Sortowanie zakończone.");
             return sukces;
