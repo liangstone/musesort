@@ -9,6 +9,7 @@ namespace MuseSort
     {
         public static List<Wzorzec> wzorceNazwy = new List<Wzorzec>();
         private static readonly WzorzecFactory WzorzecFactory = new WzorzecFactory(WzorzecFactory.SlownikRegexowDlaFilmow);
+        private List<Wzorzec> wzorceSciezki = new List<Wzorzec>();
 
         public static Boolean dodajWzorzecNazwy(String wzorzec)
         {

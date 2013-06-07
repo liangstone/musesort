@@ -145,6 +145,7 @@ namespace MuseSort
         #region Deklaracje metod abstrakcyjnych
         public abstract string generujNazwePlikuZTagow();
         public abstract void pobierzTagiZNazwy();
+        public abstract void pobierzTagiZeSciezki();
         public abstract void przywrocDomyslneTagi();
         public abstract void zapiszTagi();
         protected abstract void resetujTagi();

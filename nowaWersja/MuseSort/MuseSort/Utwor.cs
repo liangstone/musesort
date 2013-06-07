@@ -85,6 +85,8 @@ namespace MuseSort
             logi += "Anulowano modyfikowanie tagów." + Environment.NewLine;
         }
 
+        
+
         //Generuje tagi z nazwy pliku i zapisuje w obiekcie dane
         public override void pobierzTagiZNazwy()
         {
@@ -197,7 +199,7 @@ namespace MuseSort
 
         //Generuje tagi ze ścieżki do pliku i zapisuje w obiekcie dane
         //Zakładamy, że ta metoda jest wywoływana po metodzie pobierzTagiZNazwy
-        public void pobierzTagiZeSciezki()
+        public override void pobierzTagiZeSciezki()
         {
             var wzorzec = wzorceSciezki.Find(w => w.czyPasuje(SciezkaZrodlowa));
             if (wzorzec == null) return;

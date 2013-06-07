@@ -66,8 +66,14 @@ namespace MuseSort
             if (wzorzec == null) return;
             var dopasowanie = wzorzec.Dopasuj(Nazwa);
             ZapiszDopasowaneDane(dopasowanie);
+        }
 
-
+        public override void pobierzTagiZeSciezki()
+        {
+            var wzorzec = wzorceSciezki.Find(w => w.czyPasuje(SciezkaZrodlowa));
+            if (wzorzec == null) return;
+            var dopasowanie = wzorzec.Dopasuj(SciezkaZrodlowa);
+            ZapiszDopasowaneDane(dopasowanie);
         }
 
         private void ZapiszDopasowaneDane(Dictionary<string, string> dopasowanie)
