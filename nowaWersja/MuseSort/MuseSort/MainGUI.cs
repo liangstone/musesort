@@ -165,7 +165,12 @@ namespace MuseSort
                     logiTextBox.Text += "Błąd wczytywania ustawień programu: " + e.Message + "." + Environment.NewLine;
                     MessageBox.Show("Nastapil blad we wczytywaniu ustawien programu" + e.Message + Environment.NewLine + "Nacisnij OK, aby utworzyc nowy plik konfiguracyjny");
                     //Wyswietlanie okna tworzenia ustawień
-                    zaladujUstawienia();
+                    UtworzUstawienia dialog = new UtworzUstawienia();
+                    dialog.Show();
+                    if (dialog.DialogResult.Equals(DialogResult.OK))
+                    {
+                        zaladujUstawienia();
+                    }
                 }
             }
         }
@@ -340,26 +345,16 @@ namespace MuseSort
                 if (rozszerzeniePliku.Equals(".mkv") || rozszerzeniePliku.Equals(".mov") || rozszerzeniePliku.Equals(".avi"))
                 {
                     sciezka = Path.GetFileNameWithoutExtension(sciezka);
-                    try
-                    {
+                   
                         new SzczegolyFilmu(sciezka).ShowDialog();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Blad! Sprawdz polaczenie z Internetem!" + Environment.NewLine + ex.Message);
-                    }
+                    
                 }
                 else
                 {
-                    try
-                    {
+                   
 
                         new SzczegolyMuzyki(sciezka).ShowDialog();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Blad! Sprawdz polaczenie z Internetem!" + Environment.NewLine + ex.Message);
-                    }
+                   
                 }
             }
         }//end private void SzczegolyPliku_Click(object sender, EventArgs e)
