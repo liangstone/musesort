@@ -69,7 +69,7 @@ namespace MuseSort
             var wzorzec = wzorceNazwy.Find(w => w.czyPasuje(Nazwa));
             if (wzorzec == null) return;
             var dopasowanie = wzorzec.Dopasuj(Nazwa);
-            ZapiszDopasowaneDane(dopasowanie);
+            dane.ZapiszDopasowaneDane(dopasowanie);
         }
 
         public override void pobierzTagiZeSciezki()
@@ -77,34 +77,7 @@ namespace MuseSort
             var wzorzec = wzorceSciezki.Find(w => w.czyPasuje(SciezkaZrodlowa));
             if (wzorzec == null) return;
             var dopasowanie = wzorzec.Dopasuj(SciezkaZrodlowa);
-            ZapiszDopasowaneDane(dopasowanie);
-        }
-
-        private void ZapiszDopasowaneDane(Dictionary<string, string> dopasowanie)
-        {
-            foreach (var tag in dopasowanie.Keys)
-            {
-                var wartosc = dopasowanie[tag];
-                switch (tag)
-                {
-                    case "rok":
-                        if (dane.rok == 0)
-                            dane.rok = uint.Parse(wartosc);
-                        break;
-                    case "tytul":
-                        if (dane.tytul == "")
-                            dane.tytul = wartosc;
-                        break;
-                    case "dyrektor":
-                        if (dane.dyrektorzy[0] == "")
-                            dane.dyrektorzy[0] = wartosc;
-                        break;
-                    case "gatunek":
-                        if (dane.gatunki[0] == "")
-                            dane.gatunki[0] = wartosc;
-                        break;
-                }
-            }
+            dane.ZapiszDopasowaneDane(dopasowanie);
         }
 
         //Na podstawie danych w obiekcie dane tworzy nową nazwę pliku

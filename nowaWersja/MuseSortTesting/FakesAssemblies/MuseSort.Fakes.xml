@@ -127,8 +127,14 @@
         <member name="P:MuseSort.Fakes.ShimDaneFilmu.Constructor">
             <summary>Sets the shim of DaneFilmu.DaneFilmu()</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimDaneFilmu.ZapiszDopasowaneDaneDictionaryOfStringString">
+            <summary>Sets the shim of DaneFilmu.ZapiszDopasowaneDane(Dictionary`2&lt;String,String&gt; dopasowanie)</summary>
+        </member>
         <member name="T:MuseSort.Fakes.ShimDaneFilmu.AllInstances">
             <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDaneFilmu.AllInstances.ZapiszDopasowaneDaneDictionaryOfStringString">
+            <summary>Sets the shim of DaneFilmu.ZapiszDopasowaneDane(Dictionary`2&lt;String,String&gt; dopasowanie)</summary>
         </member>
         <member name="T:MuseSort.Fakes.ShimDaneUtworu">
             <summary>Shim type of MuseSort.DaneUtworu</summary>
@@ -151,11 +157,17 @@
         <member name="P:MuseSort.Fakes.ShimDaneUtworu.Constructor">
             <summary>Sets the shim of DaneUtworu.DaneUtworu()</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimDaneUtworu.ZapiszDopasowaneDaneDictionaryOfStringString">
+            <summary>Sets the shim of DaneUtworu.ZapiszDopasowaneDane(Dictionary`2&lt;String,String&gt; dopasowanie)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimDaneUtworu.czyDaneWypelnione">
             <summary>Sets the shim of DaneUtworu.czyDaneWypelnione()</summary>
         </member>
         <member name="T:MuseSort.Fakes.ShimDaneUtworu.AllInstances">
             <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDaneUtworu.AllInstances.ZapiszDopasowaneDaneDictionaryOfStringString">
+            <summary>Sets the shim of DaneUtworu.ZapiszDopasowaneDane(Dictionary`2&lt;String,String&gt; dopasowanie)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimDaneUtworu.AllInstances.czyDaneWypelnione">
             <summary>Sets the shim of DaneUtworu.czyDaneWypelnione()</summary>
@@ -1051,9 +1063,6 @@
         <member name="P:MuseSort.Fakes.ShimFilm.StaticConstructor">
             <summary>Sets the shim of Film.Film()</summary>
         </member>
-        <member name="P:MuseSort.Fakes.ShimFilm.ZapiszDopasowaneDaneDictionaryOfStringString">
-            <summary>Sets the shim of Film.ZapiszDopasowaneDane(Dictionary`2&lt;String,String&gt; dopasowanie)</summary>
-        </member>
         <member name="P:MuseSort.Fakes.ShimFilm._pobierzTagiZNazwyb__0Wzorzec">
             <summary>Sets the shim of Film.&lt;pobierzTagiZNazwy&gt;b__0(Wzorzec w)</summary>
         </member>
@@ -1098,9 +1107,6 @@
         </member>
         <member name="T:MuseSort.Fakes.ShimFilm.AllInstances">
             <summary>Define shims for all instances members</summary>
-        </member>
-        <member name="P:MuseSort.Fakes.ShimFilm.AllInstances.ZapiszDopasowaneDaneDictionaryOfStringString">
-            <summary>Sets the shim of Film.ZapiszDopasowaneDane(Dictionary`2&lt;String,String&gt; dopasowanie)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimFilm.AllInstances._pobierzTagiZNazwyb__0Wzorzec">
             <summary>Sets the shim of Film.&lt;pobierzTagiZNazwy&gt;b__0(Wzorzec w)</summary>
@@ -1612,6 +1618,9 @@
         <member name="P:MuseSort.Fakes.ShimMainGUI.InitializeComponent">
             <summary>Sets the shim of MainGUI.InitializeComponent()</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimMainGUI.MainGUI_LoadObjectEventArgs">
+            <summary>Sets the shim of MainGUI.MainGUI_Load(Object sender, EventArgs e)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimMainGUI.SzczegolyPliku_ClickObjectEventArgs">
             <summary>Sets the shim of MainGUI.SzczegolyPliku_Click(Object sender, EventArgs e)</summary>
         </member>
@@ -1627,20 +1636,50 @@
         <member name="P:MuseSort.Fakes.ShimMainGUI.dodajPiosenkiButton_ClickObjectEventArgs">
             <summary>Sets the shim of MainGUI.dodajPiosenkiButton_Click(Object sender, EventArgs e)</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimMainGUI.dodajPiosenkiDoFoldeuButton_ClickObjectEventArgs">
+            <summary>Sets the shim of MainGUI.dodajPiosenkiDoFoldeuButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimMainGUI.dodajPlikDoBiblitekiButton_ClickObjectEventArgs">
+            <summary>Sets the shim of MainGUI.dodajPlikDoBiblitekiButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimMainGUI.dodajPlikDoGlownegoFolderuButton_ClickObjectEventArgs">
+            <summary>Sets the shim of MainGUI.dodajPlikDoGlownegoFolderuButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimMainGUI.folderLabel_ClickObjectEventArgs">
+            <summary>Sets the shim of MainGUI.folderLabel_Click(Object sender, EventArgs e)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimMainGUI.listaSciezekTreeViewString">
             <summary>Sets the shim of MainGUI.listaSciezek(TreeView treeView, String path)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimMainGUI.modyfikujButton_ClickObjectEventArgs">
             <summary>Sets the shim of MainGUI.modyfikujButton_Click(Object sender, EventArgs e)</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimMainGUI.modyfikujTagiButton_ClickObjectEventArgs">
+            <summary>Sets the shim of MainGUI.modyfikujTagiButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimMainGUI.otworzBibliotekeButton_ClickObjectEventArgs">
+            <summary>Sets the shim of MainGUI.otworzBibliotekeButton_Click(Object sender, EventArgs e)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimMainGUI.pokazBibliotekeButton_ClickObjectEventArgs">
             <summary>Sets the shim of MainGUI.pokazBibliotekeButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimMainGUI.pokazSzczegolyPlikuButton_ClickObjectEventArgs">
+            <summary>Sets the shim of MainGUI.pokazSzczegolyPlikuButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimMainGUI.samouczekToolStripMenuItem_ClickObjectEventArgs">
+            <summary>Sets the shim of MainGUI.samouczekToolStripMenuItem_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimMainGUI.sortowanieNiestanradoweButton_ClickObjectEventArgs">
+            <summary>Sets the shim of MainGUI.sortowanieNiestanradoweButton_Click(Object sender, EventArgs e)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimMainGUI.sortujButton_ClickObjectEventArgs">
             <summary>Sets the shim of MainGUI.sortujButton_Click(Object sender, EventArgs e)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimMainGUI.sortujCustom_ClickObjectEventArgs">
             <summary>Sets the shim of MainGUI.sortujCustom_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimMainGUI.sortujPlikiButton_ClickObjectEventArgs">
+            <summary>Sets the shim of MainGUI.sortujPlikiButton_Click(Object sender, EventArgs e)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimMainGUI.ustalDestinationButton_ClickObjectEventArgs">
             <summary>Sets the shim of MainGUI.ustalDestinationButton_Click(Object sender, EventArgs e)</summary>
@@ -1678,6 +1717,9 @@
         <member name="P:MuseSort.Fakes.ShimMainGUI.AllInstances.InitializeComponent">
             <summary>Sets the shim of MainGUI.InitializeComponent()</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimMainGUI.AllInstances.MainGUI_LoadObjectEventArgs">
+            <summary>Sets the shim of MainGUI.MainGUI_Load(Object sender, EventArgs e)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimMainGUI.AllInstances.SzczegolyPliku_ClickObjectEventArgs">
             <summary>Sets the shim of MainGUI.SzczegolyPliku_Click(Object sender, EventArgs e)</summary>
         </member>
@@ -1693,20 +1735,50 @@
         <member name="P:MuseSort.Fakes.ShimMainGUI.AllInstances.dodajPiosenkiButton_ClickObjectEventArgs">
             <summary>Sets the shim of MainGUI.dodajPiosenkiButton_Click(Object sender, EventArgs e)</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimMainGUI.AllInstances.dodajPiosenkiDoFoldeuButton_ClickObjectEventArgs">
+            <summary>Sets the shim of MainGUI.dodajPiosenkiDoFoldeuButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimMainGUI.AllInstances.dodajPlikDoBiblitekiButton_ClickObjectEventArgs">
+            <summary>Sets the shim of MainGUI.dodajPlikDoBiblitekiButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimMainGUI.AllInstances.dodajPlikDoGlownegoFolderuButton_ClickObjectEventArgs">
+            <summary>Sets the shim of MainGUI.dodajPlikDoGlownegoFolderuButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimMainGUI.AllInstances.folderLabel_ClickObjectEventArgs">
+            <summary>Sets the shim of MainGUI.folderLabel_Click(Object sender, EventArgs e)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimMainGUI.AllInstances.listaSciezekTreeViewString">
             <summary>Sets the shim of MainGUI.listaSciezek(TreeView treeView, String path)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimMainGUI.AllInstances.modyfikujButton_ClickObjectEventArgs">
             <summary>Sets the shim of MainGUI.modyfikujButton_Click(Object sender, EventArgs e)</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimMainGUI.AllInstances.modyfikujTagiButton_ClickObjectEventArgs">
+            <summary>Sets the shim of MainGUI.modyfikujTagiButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimMainGUI.AllInstances.otworzBibliotekeButton_ClickObjectEventArgs">
+            <summary>Sets the shim of MainGUI.otworzBibliotekeButton_Click(Object sender, EventArgs e)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimMainGUI.AllInstances.pokazBibliotekeButton_ClickObjectEventArgs">
             <summary>Sets the shim of MainGUI.pokazBibliotekeButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimMainGUI.AllInstances.pokazSzczegolyPlikuButton_ClickObjectEventArgs">
+            <summary>Sets the shim of MainGUI.pokazSzczegolyPlikuButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimMainGUI.AllInstances.samouczekToolStripMenuItem_ClickObjectEventArgs">
+            <summary>Sets the shim of MainGUI.samouczekToolStripMenuItem_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimMainGUI.AllInstances.sortowanieNiestanradoweButton_ClickObjectEventArgs">
+            <summary>Sets the shim of MainGUI.sortowanieNiestanradoweButton_Click(Object sender, EventArgs e)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimMainGUI.AllInstances.sortujButton_ClickObjectEventArgs">
             <summary>Sets the shim of MainGUI.sortujButton_Click(Object sender, EventArgs e)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimMainGUI.AllInstances.sortujCustom_ClickObjectEventArgs">
             <summary>Sets the shim of MainGUI.sortujCustom_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimMainGUI.AllInstances.sortujPlikiButton_ClickObjectEventArgs">
+            <summary>Sets the shim of MainGUI.sortujPlikiButton_Click(Object sender, EventArgs e)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimMainGUI.AllInstances.ustalDestinationButton_ClickObjectEventArgs">
             <summary>Sets the shim of MainGUI.ustalDestinationButton_Click(Object sender, EventArgs e)</summary>
@@ -1944,6 +2016,63 @@
         </member>
         <member name="P:MuseSort.Fakes.ShimPlik.AllInstances.zmienNazwePlikuString">
             <summary>Sets the shim of Plik.zmienNazwePliku(String nowaNazwa)</summary>
+        </member>
+        <member name="T:MuseSort.Fakes.ShimSamouczek">
+            <summary>Shim type of MuseSort.Samouczek</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimSamouczek.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimSamouczek.#ctor(MuseSort.Samouczek)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimSamouczek.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimSamouczek.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimSamouczek.Bind(System.ComponentModel.IComponent)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimSamouczek.Bind(System.ComponentModel.ISynchronizeInvoke)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimSamouczek.Bind(System.Windows.Forms.IBindableComponent)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimSamouczek.Bind(System.Windows.Forms.IContainerControl)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimSamouczek.Bind(System.Windows.Forms.IDropTarget)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimSamouczek.Bind(System.Windows.Forms.IWin32Window)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimSamouczek.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimSamouczek.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimSamouczek.Constructor">
+            <summary>Sets the shim of Samouczek.Samouczek()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimSamouczek.DisposeBoolean">
+            <summary>Sets the shim of Samouczek.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimSamouczek.InitializeComponent">
+            <summary>Sets the shim of Samouczek.InitializeComponent()</summary>
+        </member>
+        <member name="T:MuseSort.Fakes.ShimSamouczek.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimSamouczek.AllInstances.DisposeBoolean">
+            <summary>Sets the shim of Samouczek.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimSamouczek.AllInstances.InitializeComponent">
+            <summary>Sets the shim of Samouczek.InitializeComponent()</summary>
         </member>
         <member name="T:MuseSort.Fakes.ShimSzczegolyFilmu">
             <summary>Shim type of MuseSort.SzczegolyFilmu</summary>
@@ -2221,9 +2350,6 @@
         <member name="P:MuseSort.Fakes.ShimUtwor.StaticConstructor">
             <summary>Sets the shim of Utwor.Utwor()</summary>
         </member>
-        <member name="P:MuseSort.Fakes.ShimUtwor.ZapiszDopasowaneDaneDictionaryOfStringString">
-            <summary>Sets the shim of Utwor.ZapiszDopasowaneDane(Dictionary`2&lt;String,String&gt; dopasowanie)</summary>
-        </member>
         <member name="P:MuseSort.Fakes.ShimUtwor._pobierzTagiZNazwyb__3Wzorzec">
             <summary>Sets the shim of Utwor.&lt;pobierzTagiZNazwy&gt;b__3(Wzorzec w)</summary>
         </member>
@@ -2268,9 +2394,6 @@
         </member>
         <member name="T:MuseSort.Fakes.ShimUtwor.AllInstances">
             <summary>Define shims for all instances members</summary>
-        </member>
-        <member name="P:MuseSort.Fakes.ShimUtwor.AllInstances.ZapiszDopasowaneDaneDictionaryOfStringString">
-            <summary>Sets the shim of Utwor.ZapiszDopasowaneDane(Dictionary`2&lt;String,String&gt; dopasowanie)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimUtwor.AllInstances._pobierzTagiZNazwyb__3Wzorzec">
             <summary>Sets the shim of Utwor.&lt;pobierzTagiZNazwy&gt;b__3(Wzorzec w)</summary>
@@ -20049,6 +20172,1302 @@
         </member>
         <member name="P:MuseSort.Fakes.StubPlik.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:MuseSort.Fakes.StubSamouczek">
+            <summary>Stub type of MuseSort.Samouczek</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AdjustFormScrollbars(System.Boolean)">
+            <summary>Sets the stub of Form.AdjustFormScrollbars(Boolean displayScrollbars)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.AdjustFormScrollbarsBoolean">
+            <summary>Sets the stub of Form.AdjustFormScrollbars(Boolean displayScrollbars)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.AllowDropGet">
+            <summary>Sets the stub of Control.get_AllowDrop()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.AllowDropSetBoolean">
+            <summary>Sets the stub of Control.set_AllowDrop(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.AnchorGet">
+            <summary>Sets the stub of Control.get_Anchor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.AnchorSetAnchorStyles">
+            <summary>Sets the stub of Control.set_Anchor(AnchorStyles value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToAllowDrop">
+            <summary>Attaches delegates to emulate StubSamouczek.AllowDrop as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToAnchor">
+            <summary>Attaches delegates to emulate StubSamouczek.Anchor as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToAutoScaleBaseSize">
+            <summary>Attaches delegates to emulate StubSamouczek.AutoScaleBaseSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToAutoScroll">
+            <summary>Attaches delegates to emulate StubSamouczek.AutoScroll as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToAutoScrollOffset">
+            <summary>Attaches delegates to emulate StubSamouczek.AutoScrollOffset as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToAutoSize">
+            <summary>Attaches delegates to emulate StubSamouczek.AutoSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToAutoValidate">
+            <summary>Attaches delegates to emulate StubSamouczek.AutoValidate as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToBackColor">
+            <summary>Attaches delegates to emulate StubSamouczek.BackColor as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToBackgroundImage">
+            <summary>Attaches delegates to emulate StubSamouczek.BackgroundImage as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToBackgroundImageLayout">
+            <summary>Attaches delegates to emulate StubSamouczek.BackgroundImageLayout as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToBindingContext">
+            <summary>Attaches delegates to emulate StubSamouczek.BindingContext as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToContextMenu">
+            <summary>Attaches delegates to emulate StubSamouczek.ContextMenu as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToContextMenuStrip">
+            <summary>Attaches delegates to emulate StubSamouczek.ContextMenuStrip as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToCursor">
+            <summary>Attaches delegates to emulate StubSamouczek.Cursor as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToDock">
+            <summary>Attaches delegates to emulate StubSamouczek.Dock as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToDoubleBuffered">
+            <summary>Attaches delegates to emulate StubSamouczek.DoubleBuffered as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToFont">
+            <summary>Attaches delegates to emulate StubSamouczek.Font as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToForeColor">
+            <summary>Attaches delegates to emulate StubSamouczek.ForeColor as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToImeModeBase">
+            <summary>Attaches delegates to emulate StubSamouczek.ImeModeBase as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToMaximumSize">
+            <summary>Attaches delegates to emulate StubSamouczek.MaximumSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToMinimumSize">
+            <summary>Attaches delegates to emulate StubSamouczek.MinimumSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToRightToLeft">
+            <summary>Attaches delegates to emulate StubSamouczek.RightToLeft as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToRightToLeftLayout">
+            <summary>Attaches delegates to emulate StubSamouczek.RightToLeftLayout as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToSite">
+            <summary>Attaches delegates to emulate StubSamouczek.Site as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.AttachBackingFieldToText">
+            <summary>Attaches delegates to emulate StubSamouczek.Text as a property with a backing field.</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.AutoScaleBaseSizeGet">
+            <summary>Sets the stub of Form.get_AutoScaleBaseSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.AutoScaleBaseSizeSetSize">
+            <summary>Sets the stub of Form.set_AutoScaleBaseSize(Size value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.AutoScrollGet">
+            <summary>Sets the stub of Form.get_AutoScroll()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.AutoScrollOffsetGet">
+            <summary>Sets the stub of Control.get_AutoScrollOffset()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.AutoScrollOffsetSetPoint">
+            <summary>Sets the stub of Control.set_AutoScrollOffset(Point value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.AutoScrollSetBoolean">
+            <summary>Sets the stub of Form.set_AutoScroll(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.AutoSizeGet">
+            <summary>Sets the stub of Form.get_AutoSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.AutoSizeSetBoolean">
+            <summary>Sets the stub of Form.set_AutoSize(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.AutoValidateGet">
+            <summary>Sets the stub of Form.get_AutoValidate()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.AutoValidateSetAutoValidate">
+            <summary>Sets the stub of Form.set_AutoValidate(AutoValidate value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.BackColorGet">
+            <summary>Sets the stub of Form.get_BackColor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.BackColorSetColor">
+            <summary>Sets the stub of Form.set_BackColor(Color value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.BackgroundImageGet">
+            <summary>Sets the stub of Control.get_BackgroundImage()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.BackgroundImageLayoutGet">
+            <summary>Sets the stub of Control.get_BackgroundImageLayout()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.BackgroundImageLayoutSetImageLayout">
+            <summary>Sets the stub of Control.set_BackgroundImageLayout(ImageLayout value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.BackgroundImageSetImage">
+            <summary>Sets the stub of Control.set_BackgroundImage(Image value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.BindingContextGet">
+            <summary>Sets the stub of ContainerControl.get_BindingContext()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.BindingContextSetBindingContext">
+            <summary>Sets the stub of ContainerControl.set_BindingContext(BindingContext value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.CanEnableImeGet">
+            <summary>Sets the stub of ContainerControl.get_CanEnableIme()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.CanRaiseEventsGet">
+            <summary>Sets the stub of Control.get_CanRaiseEvents()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ContextMenuGet">
+            <summary>Sets the stub of Control.get_ContextMenu()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ContextMenuSetContextMenu">
+            <summary>Sets the stub of Control.set_ContextMenu(ContextMenu value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ContextMenuStripGet">
+            <summary>Sets the stub of Control.get_ContextMenuStrip()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ContextMenuStripSetContextMenuStrip">
+            <summary>Sets the stub of Control.set_ContextMenuStrip(ContextMenuStrip value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.CreateAccessibilityInstance">
+            <summary>Sets the stub of Control.CreateAccessibilityInstance()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.CreateAccessibilityInstance01">
+            <summary>Sets the stub of Control.CreateAccessibilityInstance()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.CreateControlsInstance">
+            <summary>Sets the stub of Form.CreateControlsInstance()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.CreateControlsInstance01">
+            <summary>Sets the stub of Form.CreateControlsInstance()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.CreateHandle">
+            <summary>Sets the stub of Form.CreateHandle()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.CreateHandle01">
+            <summary>Sets the stub of Form.CreateHandle()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.CreateParamsGet">
+            <summary>Sets the stub of Form.get_CreateParams()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.CursorGet">
+            <summary>Sets the stub of Control.get_Cursor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.CursorSetCursor">
+            <summary>Sets the stub of Control.set_Cursor(Cursor value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.DefWndProc(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Form.DefWndProc(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.DefWndProcMessageRef">
+            <summary>Sets the stub of Form.DefWndProc(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.DefaultCursorGet">
+            <summary>Sets the stub of Control.get_DefaultCursor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.DefaultImeModeGet">
+            <summary>Sets the stub of Form.get_DefaultImeMode()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.DefaultMarginGet">
+            <summary>Sets the stub of Control.get_DefaultMargin()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.DefaultMaximumSizeGet">
+            <summary>Sets the stub of Control.get_DefaultMaximumSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.DefaultMinimumSizeGet">
+            <summary>Sets the stub of Control.get_DefaultMinimumSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.DefaultPaddingGet">
+            <summary>Sets the stub of Control.get_DefaultPadding()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.DefaultSizeGet">
+            <summary>Sets the stub of Form.get_DefaultSize()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.DestroyHandle">
+            <summary>Sets the stub of Control.DestroyHandle()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.DestroyHandle01">
+            <summary>Sets the stub of Control.DestroyHandle()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.DisplayRectangleGet">
+            <summary>Sets the stub of ScrollableControl.get_DisplayRectangle()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.Dispose(System.Boolean)">
+            <summary>Sets the stub of Samouczek.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.DisposeBoolean">
+            <summary>Sets the stub of Samouczek.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.DockGet">
+            <summary>Sets the stub of Control.get_Dock()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.DockSetDockStyle">
+            <summary>Sets the stub of Control.set_Dock(DockStyle value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.DoubleBufferedGet">
+            <summary>Sets the stub of Control.get_DoubleBuffered()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.DoubleBufferedSetBoolean">
+            <summary>Sets the stub of Control.set_DoubleBuffered(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.FocusedGet">
+            <summary>Sets the stub of Control.get_Focused()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.FontGet">
+            <summary>Sets the stub of Control.get_Font()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.FontSetFont">
+            <summary>Sets the stub of Control.set_Font(Font value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ForeColorGet">
+            <summary>Sets the stub of Control.get_ForeColor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ForeColorSetColor">
+            <summary>Sets the stub of Control.set_ForeColor(Color value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.GetAccessibilityObjectById(System.Int32)">
+            <summary>Sets the stub of Control.GetAccessibilityObjectById(Int32 objectId)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.GetAccessibilityObjectByIdInt32">
+            <summary>Sets the stub of Control.GetAccessibilityObjectById(Int32 objectId)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.GetPreferredSize(System.Drawing.Size)">
+            <summary>Sets the stub of Control.GetPreferredSize(Size proposedSize)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.GetPreferredSizeSize">
+            <summary>Sets the stub of Control.GetPreferredSize(Size proposedSize)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.GetScaledBounds(System.Drawing.Rectangle,System.Drawing.SizeF,System.Windows.Forms.BoundsSpecified)">
+            <summary>Sets the stub of Form.GetScaledBounds(Rectangle bounds, SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.GetScaledBoundsRectangleSizeFBoundsSpecified">
+            <summary>Sets the stub of Form.GetScaledBounds(Rectangle bounds, SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.GetService(System.Type)">
+            <summary>Sets the stub of Component.GetService(Type service)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.GetServiceType">
+            <summary>Sets the stub of Component.GetService(Type service)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ImeModeBaseGet">
+            <summary>Sets the stub of Control.get_ImeModeBase()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ImeModeBaseSetImeMode">
+            <summary>Sets the stub of Control.set_ImeModeBase(ImeMode value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.InitLayout">
+            <summary>Sets the stub of Control.InitLayout()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.InitLayout01">
+            <summary>Sets the stub of Control.InitLayout()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.InitializeStub">
+            <summary>Initializes a new instance of type StubSamouczek</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.IsInputChar(System.Char)">
+            <summary>Sets the stub of Control.IsInputChar(Char charCode)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.IsInputCharChar">
+            <summary>Sets the stub of Control.IsInputChar(Char charCode)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.IsInputKey(System.Windows.Forms.Keys)">
+            <summary>Sets the stub of Control.IsInputKey(Keys keyData)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.IsInputKeyKeys">
+            <summary>Sets the stub of Control.IsInputKey(Keys keyData)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.LayoutEngineGet">
+            <summary>Sets the stub of Control.get_LayoutEngine()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.MaximumSizeGet">
+            <summary>Sets the stub of Form.get_MaximumSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.MaximumSizeSetSize">
+            <summary>Sets the stub of Form.set_MaximumSize(Size value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.MinimumSizeGet">
+            <summary>Sets the stub of Form.get_MinimumSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.MinimumSizeSetSize">
+            <summary>Sets the stub of Form.set_MinimumSize(Size value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.NotifyInvalidate(System.Drawing.Rectangle)">
+            <summary>Sets the stub of Control.NotifyInvalidate(Rectangle invalidatedArea)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.NotifyInvalidateRectangle">
+            <summary>Sets the stub of Control.NotifyInvalidate(Rectangle invalidatedArea)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnActivated(System.EventArgs)">
+            <summary>Sets the stub of Form.OnActivated(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnActivatedEventArgs">
+            <summary>Sets the stub of Form.OnActivated(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnAutoSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnAutoSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnAutoSizeChangedEventArgs">
+            <summary>Sets the stub of Control.OnAutoSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnAutoValidateChanged(System.EventArgs)">
+            <summary>Sets the stub of ContainerControl.OnAutoValidateChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnAutoValidateChangedEventArgs">
+            <summary>Sets the stub of ContainerControl.OnAutoValidateChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnBackColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnBackColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnBackgroundImageChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnBackgroundImageChangedEventArgs">
+            <summary>Sets the stub of Form.OnBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnBackgroundImageLayoutChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnBackgroundImageLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnBackgroundImageLayoutChangedEventArgs">
+            <summary>Sets the stub of Form.OnBackgroundImageLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnBindingContextChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnBindingContextChangedEventArgs">
+            <summary>Sets the stub of Control.OnBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnCausesValidationChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnCausesValidationChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnCausesValidationChangedEventArgs">
+            <summary>Sets the stub of Control.OnCausesValidationChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnChangeUICues(System.Windows.Forms.UICuesEventArgs)">
+            <summary>Sets the stub of Control.OnChangeUICues(UICuesEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnChangeUICuesUICuesEventArgs">
+            <summary>Sets the stub of Control.OnChangeUICues(UICuesEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnClick(System.EventArgs)">
+            <summary>Sets the stub of Control.OnClick(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnClickEventArgs">
+            <summary>Sets the stub of Control.OnClick(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnClientSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnClientSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnClientSizeChangedEventArgs">
+            <summary>Sets the stub of Control.OnClientSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnClosed(System.EventArgs)">
+            <summary>Sets the stub of Form.OnClosed(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnClosedEventArgs">
+            <summary>Sets the stub of Form.OnClosed(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnClosing(System.ComponentModel.CancelEventArgs)">
+            <summary>Sets the stub of Form.OnClosing(CancelEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnClosingCancelEventArgs">
+            <summary>Sets the stub of Form.OnClosing(CancelEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnContextMenuChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnContextMenuChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnContextMenuChangedEventArgs">
+            <summary>Sets the stub of Control.OnContextMenuChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnContextMenuStripChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnContextMenuStripChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnContextMenuStripChangedEventArgs">
+            <summary>Sets the stub of Control.OnContextMenuStripChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnControlAdded(System.Windows.Forms.ControlEventArgs)">
+            <summary>Sets the stub of Control.OnControlAdded(ControlEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnControlAddedControlEventArgs">
+            <summary>Sets the stub of Control.OnControlAdded(ControlEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnControlRemoved(System.Windows.Forms.ControlEventArgs)">
+            <summary>Sets the stub of Control.OnControlRemoved(ControlEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnControlRemovedControlEventArgs">
+            <summary>Sets the stub of Control.OnControlRemoved(ControlEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnCreateControl">
+            <summary>Sets the stub of Form.OnCreateControl()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnCreateControl01">
+            <summary>Sets the stub of Form.OnCreateControl()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnCursorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnCursorChangedEventArgs">
+            <summary>Sets the stub of Control.OnCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnDeactivate(System.EventArgs)">
+            <summary>Sets the stub of Form.OnDeactivate(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnDeactivateEventArgs">
+            <summary>Sets the stub of Form.OnDeactivate(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnDockChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnDockChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnDockChangedEventArgs">
+            <summary>Sets the stub of Control.OnDockChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnDoubleClick(System.EventArgs)">
+            <summary>Sets the stub of Control.OnDoubleClick(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnDoubleClickEventArgs">
+            <summary>Sets the stub of Control.OnDoubleClick(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnDragDrop(System.Windows.Forms.DragEventArgs)">
+            <summary>Sets the stub of Control.OnDragDrop(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnDragDropDragEventArgs">
+            <summary>Sets the stub of Control.OnDragDrop(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnDragEnter(System.Windows.Forms.DragEventArgs)">
+            <summary>Sets the stub of Control.OnDragEnter(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnDragEnterDragEventArgs">
+            <summary>Sets the stub of Control.OnDragEnter(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnDragLeave(System.EventArgs)">
+            <summary>Sets the stub of Control.OnDragLeave(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnDragLeaveEventArgs">
+            <summary>Sets the stub of Control.OnDragLeave(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnDragOver(System.Windows.Forms.DragEventArgs)">
+            <summary>Sets the stub of Control.OnDragOver(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnDragOverDragEventArgs">
+            <summary>Sets the stub of Control.OnDragOver(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnEnabledChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnEnabledChangedEventArgs">
+            <summary>Sets the stub of Form.OnEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnEnter(System.EventArgs)">
+            <summary>Sets the stub of Form.OnEnter(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnEnterEventArgs">
+            <summary>Sets the stub of Form.OnEnter(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnFontChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnFontChangedEventArgs">
+            <summary>Sets the stub of Form.OnFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnForeColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnForeColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnFormClosed(System.Windows.Forms.FormClosedEventArgs)">
+            <summary>Sets the stub of Form.OnFormClosed(FormClosedEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnFormClosedFormClosedEventArgs">
+            <summary>Sets the stub of Form.OnFormClosed(FormClosedEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnFormClosing(System.Windows.Forms.FormClosingEventArgs)">
+            <summary>Sets the stub of Form.OnFormClosing(FormClosingEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnFormClosingFormClosingEventArgs">
+            <summary>Sets the stub of Form.OnFormClosing(FormClosingEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnGiveFeedback(System.Windows.Forms.GiveFeedbackEventArgs)">
+            <summary>Sets the stub of Control.OnGiveFeedback(GiveFeedbackEventArgs gfbevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnGiveFeedbackGiveFeedbackEventArgs">
+            <summary>Sets the stub of Control.OnGiveFeedback(GiveFeedbackEventArgs gfbevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnGotFocus(System.EventArgs)">
+            <summary>Sets the stub of Control.OnGotFocus(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnGotFocusEventArgs">
+            <summary>Sets the stub of Control.OnGotFocus(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnHandleCreated(System.EventArgs)">
+            <summary>Sets the stub of Form.OnHandleCreated(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnHandleCreatedEventArgs">
+            <summary>Sets the stub of Form.OnHandleCreated(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnHandleDestroyed(System.EventArgs)">
+            <summary>Sets the stub of Form.OnHandleDestroyed(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnHandleDestroyedEventArgs">
+            <summary>Sets the stub of Form.OnHandleDestroyed(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnHelpButtonClicked(System.ComponentModel.CancelEventArgs)">
+            <summary>Sets the stub of Form.OnHelpButtonClicked(CancelEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnHelpButtonClickedCancelEventArgs">
+            <summary>Sets the stub of Form.OnHelpButtonClicked(CancelEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnHelpRequested(System.Windows.Forms.HelpEventArgs)">
+            <summary>Sets the stub of Control.OnHelpRequested(HelpEventArgs hevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnHelpRequestedHelpEventArgs">
+            <summary>Sets the stub of Control.OnHelpRequested(HelpEventArgs hevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnImeModeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnImeModeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnImeModeChangedEventArgs">
+            <summary>Sets the stub of Control.OnImeModeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnInputLanguageChanged(System.Windows.Forms.InputLanguageChangedEventArgs)">
+            <summary>Sets the stub of Form.OnInputLanguageChanged(InputLanguageChangedEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnInputLanguageChangedInputLanguageChangedEventArgs">
+            <summary>Sets the stub of Form.OnInputLanguageChanged(InputLanguageChangedEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnInputLanguageChanging(System.Windows.Forms.InputLanguageChangingEventArgs)">
+            <summary>Sets the stub of Form.OnInputLanguageChanging(InputLanguageChangingEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnInputLanguageChangingInputLanguageChangingEventArgs">
+            <summary>Sets the stub of Form.OnInputLanguageChanging(InputLanguageChangingEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnInvalidated(System.Windows.Forms.InvalidateEventArgs)">
+            <summary>Sets the stub of Control.OnInvalidated(InvalidateEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnInvalidatedInvalidateEventArgs">
+            <summary>Sets the stub of Control.OnInvalidated(InvalidateEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+            <summary>Sets the stub of Control.OnKeyDown(KeyEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnKeyDownKeyEventArgs">
+            <summary>Sets the stub of Control.OnKeyDown(KeyEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)">
+            <summary>Sets the stub of Control.OnKeyPress(KeyPressEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnKeyPressKeyPressEventArgs">
+            <summary>Sets the stub of Control.OnKeyPress(KeyPressEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnKeyUp(System.Windows.Forms.KeyEventArgs)">
+            <summary>Sets the stub of Control.OnKeyUp(KeyEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnKeyUpKeyEventArgs">
+            <summary>Sets the stub of Control.OnKeyUp(KeyEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnLayout(System.Windows.Forms.LayoutEventArgs)">
+            <summary>Sets the stub of Form.OnLayout(LayoutEventArgs levent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnLayoutLayoutEventArgs">
+            <summary>Sets the stub of Form.OnLayout(LayoutEventArgs levent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnLeave(System.EventArgs)">
+            <summary>Sets the stub of Control.OnLeave(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnLeaveEventArgs">
+            <summary>Sets the stub of Control.OnLeave(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnLoad(System.EventArgs)">
+            <summary>Sets the stub of Form.OnLoad(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnLoadEventArgs">
+            <summary>Sets the stub of Form.OnLoad(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnLocationChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnLocationChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnLocationChangedEventArgs">
+            <summary>Sets the stub of Control.OnLocationChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnLostFocus(System.EventArgs)">
+            <summary>Sets the stub of Control.OnLostFocus(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnLostFocusEventArgs">
+            <summary>Sets the stub of Control.OnLostFocus(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnMarginChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMarginChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnMarginChangedEventArgs">
+            <summary>Sets the stub of Control.OnMarginChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnMaximizedBoundsChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMaximizedBoundsChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnMaximizedBoundsChangedEventArgs">
+            <summary>Sets the stub of Form.OnMaximizedBoundsChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnMaximumSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMaximumSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnMaximumSizeChangedEventArgs">
+            <summary>Sets the stub of Form.OnMaximumSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnMdiChildActivate(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMdiChildActivate(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnMdiChildActivateEventArgs">
+            <summary>Sets the stub of Form.OnMdiChildActivate(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnMenuComplete(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMenuComplete(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnMenuCompleteEventArgs">
+            <summary>Sets the stub of Form.OnMenuComplete(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnMenuStart(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMenuStart(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnMenuStartEventArgs">
+            <summary>Sets the stub of Form.OnMenuStart(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnMinimumSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMinimumSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnMinimumSizeChangedEventArgs">
+            <summary>Sets the stub of Form.OnMinimumSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnMouseCaptureChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseCaptureChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnMouseCaptureChangedEventArgs">
+            <summary>Sets the stub of Control.OnMouseCaptureChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnMouseClick(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnMouseClickMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnMouseDoubleClick(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseDoubleClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnMouseDoubleClickMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseDoubleClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseDown(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnMouseDownMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseDown(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnMouseEnter(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseEnter(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnMouseEnterEventArgs">
+            <summary>Sets the stub of Control.OnMouseEnter(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnMouseHover(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseHover(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnMouseHoverEventArgs">
+            <summary>Sets the stub of Control.OnMouseHover(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnMouseLeave(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseLeave(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnMouseLeaveEventArgs">
+            <summary>Sets the stub of Control.OnMouseLeave(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseMove(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnMouseMoveMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseMove(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseUp(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnMouseUpMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseUp(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnMouseWheel(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnMouseWheel(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnMouseWheelMouseEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnMouseWheel(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnMove(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMove(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnMoveEventArgs">
+            <summary>Sets the stub of Control.OnMove(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnNotifyMessage(System.Windows.Forms.Message)">
+            <summary>Sets the stub of Control.OnNotifyMessage(Message m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnNotifyMessageMessage">
+            <summary>Sets the stub of Control.OnNotifyMessage(Message m)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnPaddingChanged(System.EventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnPaddingChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnPaddingChangedEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnPaddingChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>Sets the stub of Form.OnPaint(PaintEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnPaintBackground(PaintEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnPaintBackgroundPaintEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnPaintBackground(PaintEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnPaintPaintEventArgs">
+            <summary>Sets the stub of Form.OnPaint(PaintEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnParentBackColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnParentBackColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnParentBackgroundImageChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnParentBackgroundImageChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnParentBindingContextChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnParentBindingContextChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnParentChanged(System.EventArgs)">
+            <summary>Sets the stub of ContainerControl.OnParentChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnParentChangedEventArgs">
+            <summary>Sets the stub of ContainerControl.OnParentChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnParentCursorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnParentCursorChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnParentEnabledChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnParentEnabledChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnParentFontChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnParentFontChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnParentForeColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnParentForeColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnParentRightToLeftChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnParentRightToLeftChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnParentVisibleChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnParentVisibleChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnPreviewKeyDown(System.Windows.Forms.PreviewKeyDownEventArgs)">
+            <summary>Sets the stub of Control.OnPreviewKeyDown(PreviewKeyDownEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnPreviewKeyDownPreviewKeyDownEventArgs">
+            <summary>Sets the stub of Control.OnPreviewKeyDown(PreviewKeyDownEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnPrint(System.Windows.Forms.PaintEventArgs)">
+            <summary>Sets the stub of Control.OnPrint(PaintEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnPrintPaintEventArgs">
+            <summary>Sets the stub of Control.OnPrint(PaintEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnQueryContinueDrag(System.Windows.Forms.QueryContinueDragEventArgs)">
+            <summary>Sets the stub of Control.OnQueryContinueDrag(QueryContinueDragEventArgs qcdevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnQueryContinueDragQueryContinueDragEventArgs">
+            <summary>Sets the stub of Control.OnQueryContinueDrag(QueryContinueDragEventArgs qcdevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnRegionChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnRegionChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnRegionChangedEventArgs">
+            <summary>Sets the stub of Control.OnRegionChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnResize(System.EventArgs)">
+            <summary>Sets the stub of Form.OnResize(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnResizeBegin(System.EventArgs)">
+            <summary>Sets the stub of Form.OnResizeBegin(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnResizeBeginEventArgs">
+            <summary>Sets the stub of Form.OnResizeBegin(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnResizeEnd(System.EventArgs)">
+            <summary>Sets the stub of Form.OnResizeEnd(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnResizeEndEventArgs">
+            <summary>Sets the stub of Form.OnResizeEnd(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnResizeEventArgs">
+            <summary>Sets the stub of Form.OnResize(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnRightToLeftChanged(System.EventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnRightToLeftChangedEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnRightToLeftLayoutChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnRightToLeftLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnRightToLeftLayoutChangedEventArgs">
+            <summary>Sets the stub of Form.OnRightToLeftLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnScroll(System.Windows.Forms.ScrollEventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnScroll(ScrollEventArgs se)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnScrollScrollEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnScroll(ScrollEventArgs se)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnShown(System.EventArgs)">
+            <summary>Sets the stub of Form.OnShown(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnShownEventArgs">
+            <summary>Sets the stub of Form.OnShown(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnSizeChangedEventArgs">
+            <summary>Sets the stub of Control.OnSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnStyleChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnStyleChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnStyleChangedEventArgs">
+            <summary>Sets the stub of Form.OnStyleChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnSystemColorsChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnSystemColorsChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnSystemColorsChangedEventArgs">
+            <summary>Sets the stub of Control.OnSystemColorsChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnTabIndexChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnTabIndexChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnTabIndexChangedEventArgs">
+            <summary>Sets the stub of Control.OnTabIndexChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnTabStopChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnTabStopChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnTabStopChangedEventArgs">
+            <summary>Sets the stub of Control.OnTabStopChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnTextChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnTextChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnTextChangedEventArgs">
+            <summary>Sets the stub of Form.OnTextChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnValidated(System.EventArgs)">
+            <summary>Sets the stub of Control.OnValidated(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnValidatedEventArgs">
+            <summary>Sets the stub of Control.OnValidated(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnValidating(System.ComponentModel.CancelEventArgs)">
+            <summary>Sets the stub of Control.OnValidating(CancelEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnValidatingCancelEventArgs">
+            <summary>Sets the stub of Control.OnValidating(CancelEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.OnVisibleChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.OnVisibleChangedEventArgs">
+            <summary>Sets the stub of Form.OnVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.PreProcessMessage(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Control.PreProcessMessage(Message&amp; msg)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.PreProcessMessageMessageRef">
+            <summary>Sets the stub of Control.PreProcessMessage(Message&amp; msg)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
+            <summary>Sets the stub of Form.ProcessCmdKey(Message&amp; msg, Keys keyData)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ProcessCmdKeyMessageRefKeys">
+            <summary>Sets the stub of Form.ProcessCmdKey(Message&amp; msg, Keys keyData)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.ProcessDialogChar(System.Char)">
+            <summary>Sets the stub of Form.ProcessDialogChar(Char charCode)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ProcessDialogCharChar">
+            <summary>Sets the stub of Form.ProcessDialogChar(Char charCode)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.ProcessDialogKey(System.Windows.Forms.Keys)">
+            <summary>Sets the stub of Form.ProcessDialogKey(Keys keyData)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ProcessDialogKeyKeys">
+            <summary>Sets the stub of Form.ProcessDialogKey(Keys keyData)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.ProcessKeyEventArgs(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Control.ProcessKeyEventArgs(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ProcessKeyEventArgsMessageRef">
+            <summary>Sets the stub of Control.ProcessKeyEventArgs(Message&amp; m)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.ProcessKeyMessage(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Control.ProcessKeyMessage(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ProcessKeyMessageMessageRef">
+            <summary>Sets the stub of Control.ProcessKeyMessage(Message&amp; m)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.ProcessKeyPreview(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Form.ProcessKeyPreview(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ProcessKeyPreviewMessageRef">
+            <summary>Sets the stub of Form.ProcessKeyPreview(Message&amp; m)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.ProcessMnemonic(System.Char)">
+            <summary>Sets the stub of Form.ProcessMnemonic(Char charCode)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ProcessMnemonicChar">
+            <summary>Sets the stub of Form.ProcessMnemonic(Char charCode)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.ProcessTabKey(System.Boolean)">
+            <summary>Sets the stub of Form.ProcessTabKey(Boolean forward)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ProcessTabKeyBoolean">
+            <summary>Sets the stub of Form.ProcessTabKey(Boolean forward)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.Refresh">
+            <summary>Sets the stub of Control.Refresh()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.Refresh01">
+            <summary>Sets the stub of Control.Refresh()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.ResetBackColor">
+            <summary>Sets the stub of Control.ResetBackColor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ResetBackColor01">
+            <summary>Sets the stub of Control.ResetBackColor()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.ResetCursor">
+            <summary>Sets the stub of Control.ResetCursor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ResetCursor01">
+            <summary>Sets the stub of Control.ResetCursor()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.ResetFont">
+            <summary>Sets the stub of Control.ResetFont()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ResetFont01">
+            <summary>Sets the stub of Control.ResetFont()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.ResetForeColor">
+            <summary>Sets the stub of Control.ResetForeColor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ResetForeColor01">
+            <summary>Sets the stub of Control.ResetForeColor()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.ResetRightToLeft">
+            <summary>Sets the stub of Control.ResetRightToLeft()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ResetRightToLeft01">
+            <summary>Sets the stub of Control.ResetRightToLeft()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.ResetText">
+            <summary>Sets the stub of Control.ResetText()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ResetText01">
+            <summary>Sets the stub of Control.ResetText()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.RightToLeftGet">
+            <summary>Sets the stub of Control.get_RightToLeft()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.RightToLeftLayoutGet">
+            <summary>Sets the stub of Form.get_RightToLeftLayout()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.RightToLeftLayoutSetBoolean">
+            <summary>Sets the stub of Form.set_RightToLeftLayout(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.RightToLeftSetRightToLeft">
+            <summary>Sets the stub of Control.set_RightToLeft(RightToLeft value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ScaleChildrenGet">
+            <summary>Sets the stub of Control.get_ScaleChildren()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.ScaleControl(System.Drawing.SizeF,System.Windows.Forms.BoundsSpecified)">
+            <summary>Sets the stub of Form.ScaleControl(SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ScaleControlSizeFBoundsSpecified">
+            <summary>Sets the stub of Form.ScaleControl(SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.ScaleCore(System.Single,System.Single)">
+            <summary>Sets the stub of Form.ScaleCore(Single x, Single y)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ScaleCoreSingleSingle">
+            <summary>Sets the stub of Form.ScaleCore(Single x, Single y)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.ScrollToControl(System.Windows.Forms.Control)">
+            <summary>Sets the stub of ScrollableControl.ScrollToControl(Control activeControl)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ScrollToControlControl">
+            <summary>Sets the stub of ScrollableControl.ScrollToControl(Control activeControl)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.Select(System.Boolean,System.Boolean)">
+            <summary>Sets the stub of Form.Select(Boolean directed, Boolean forward)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.SelectBooleanBoolean">
+            <summary>Sets the stub of Form.Select(Boolean directed, Boolean forward)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.SetBoundsCore(System.Int32,System.Int32,System.Int32,System.Int32,System.Windows.Forms.BoundsSpecified)">
+            <summary>Sets the stub of Form.SetBoundsCore(Int32 x, Int32 y, Int32 width, Int32 height, BoundsSpecified specified)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.SetBoundsCoreInt32Int32Int32Int32BoundsSpecified">
+            <summary>Sets the stub of Form.SetBoundsCore(Int32 x, Int32 y, Int32 width, Int32 height, BoundsSpecified specified)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.SetClientSizeCore(System.Int32,System.Int32)">
+            <summary>Sets the stub of Form.SetClientSizeCore(Int32 x, Int32 y)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.SetClientSizeCoreInt32Int32">
+            <summary>Sets the stub of Form.SetClientSizeCore(Int32 x, Int32 y)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.SetVisibleCore(System.Boolean)">
+            <summary>Sets the stub of Form.SetVisibleCore(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.SetVisibleCoreBoolean">
+            <summary>Sets the stub of Form.SetVisibleCore(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ShowFocusCuesGet">
+            <summary>Sets the stub of Control.get_ShowFocusCues()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ShowKeyboardCuesGet">
+            <summary>Sets the stub of Control.get_ShowKeyboardCues()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ShowWithoutActivationGet">
+            <summary>Sets the stub of Form.get_ShowWithoutActivation()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.SiteGet">
+            <summary>Sets the stub of Control.get_Site()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.SiteSetISite">
+            <summary>Sets the stub of Control.set_Site(ISite value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.SizeFromClientSize(System.Drawing.Size)">
+            <summary>Sets the stub of Control.SizeFromClientSize(Size clientSize)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.SizeFromClientSizeSize">
+            <summary>Sets the stub of Control.SizeFromClientSize(Size clientSize)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.TextGet">
+            <summary>Sets the stub of Form.get_Text()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.TextSetString">
+            <summary>Sets the stub of Form.set_Text(String value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.ToString">
+            <summary>Sets the stub of Form.ToString()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ToString01">
+            <summary>Sets the stub of Form.ToString()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.UpdateDefaultButton">
+            <summary>Sets the stub of Form.UpdateDefaultButton()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.UpdateDefaultButton01">
+            <summary>Sets the stub of Form.UpdateDefaultButton()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.ValidateChildren">
+            <summary>Sets the stub of Form.ValidateChildren()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.ValidateChildren(System.Windows.Forms.ValidationConstraints)">
+            <summary>Sets the stub of Form.ValidateChildren(ValidationConstraints validationConstraints)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ValidateChildren01">
+            <summary>Sets the stub of Form.ValidateChildren()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.ValidateChildrenValidationConstraints">
+            <summary>Sets the stub of Form.ValidateChildren(ValidationConstraints validationConstraints)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubSamouczek.WndProc(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Form.WndProc(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubSamouczek.WndProcMessageRef">
+            <summary>Sets the stub of Form.WndProc(Message&amp; m)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.AllowDrop">
+            <summary>Sets the stub of Control.get_AllowDrop()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.Anchor">
+            <summary>Sets the stub of Control.get_Anchor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.AutoScaleBaseSize">
+            <summary>Sets the stub of Form.get_AutoScaleBaseSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.AutoScroll">
+            <summary>Sets the stub of Form.get_AutoScroll()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.AutoScrollOffset">
+            <summary>Sets the stub of Control.get_AutoScrollOffset()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.AutoSize">
+            <summary>Sets the stub of Form.get_AutoSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.AutoValidate">
+            <summary>Sets the stub of Form.get_AutoValidate()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.BackColor">
+            <summary>Sets the stub of Form.get_BackColor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.BackgroundImage">
+            <summary>Sets the stub of Control.get_BackgroundImage()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.BackgroundImageLayout">
+            <summary>Sets the stub of Control.get_BackgroundImageLayout()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.BindingContext">
+            <summary>Sets the stub of ContainerControl.get_BindingContext()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.CanEnableIme">
+            <summary>Sets the stub of ContainerControl.get_CanEnableIme()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.CanRaiseEvents">
+            <summary>Sets the stub of Control.get_CanRaiseEvents()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.ContextMenu">
+            <summary>Sets the stub of Control.get_ContextMenu()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.ContextMenuStrip">
+            <summary>Sets the stub of Control.get_ContextMenuStrip()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.CreateParams">
+            <summary>Sets the stub of Form.get_CreateParams()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.Cursor">
+            <summary>Sets the stub of Control.get_Cursor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.DefaultCursor">
+            <summary>Sets the stub of Control.get_DefaultCursor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.DefaultImeMode">
+            <summary>Sets the stub of Form.get_DefaultImeMode()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.DefaultMargin">
+            <summary>Sets the stub of Control.get_DefaultMargin()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.DefaultMaximumSize">
+            <summary>Sets the stub of Control.get_DefaultMaximumSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.DefaultMinimumSize">
+            <summary>Sets the stub of Control.get_DefaultMinimumSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.DefaultPadding">
+            <summary>Sets the stub of Control.get_DefaultPadding()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.DefaultSize">
+            <summary>Sets the stub of Form.get_DefaultSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.DisplayRectangle">
+            <summary>Sets the stub of ScrollableControl.get_DisplayRectangle()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.Dock">
+            <summary>Sets the stub of Control.get_Dock()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.DoubleBuffered">
+            <summary>Sets the stub of Control.get_DoubleBuffered()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.Focused">
+            <summary>Sets the stub of Control.get_Focused()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.Font">
+            <summary>Sets the stub of Control.get_Font()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.ForeColor">
+            <summary>Sets the stub of Control.get_ForeColor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.ImeModeBase">
+            <summary>Sets the stub of Control.get_ImeModeBase()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.LayoutEngine">
+            <summary>Sets the stub of Control.get_LayoutEngine()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.MaximumSize">
+            <summary>Sets the stub of Form.get_MaximumSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.MinimumSize">
+            <summary>Sets the stub of Form.get_MinimumSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.RightToLeft">
+            <summary>Sets the stub of Control.get_RightToLeft()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.RightToLeftLayout">
+            <summary>Sets the stub of Form.get_RightToLeftLayout()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.ScaleChildren">
+            <summary>Sets the stub of Control.get_ScaleChildren()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.ShowFocusCues">
+            <summary>Sets the stub of Control.get_ShowFocusCues()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.ShowKeyboardCues">
+            <summary>Sets the stub of Control.get_ShowKeyboardCues()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.ShowWithoutActivation">
+            <summary>Sets the stub of Form.get_ShowWithoutActivation()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.Site">
+            <summary>Sets the stub of Control.get_Site()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubSamouczek.Text">
+            <summary>Sets the stub of Form.get_Text()</summary>
         </member>
         <member name="T:MuseSort.Fakes.StubSzczegolyFilmu">
             <summary>Stub type of MuseSort.SzczegolyFilmu</summary>

@@ -97,7 +97,7 @@ namespace MuseSort
             var wzorzec = wzorceNazwy.Find(w => w.czyPasuje(Nazwa));
             if(wzorzec==null) return;
             var dopasowanie = wzorzec.Dopasuj(Nazwa);
-            ZapiszDopasowaneDane(dopasowanie);
+            dane.ZapiszDopasowaneDane(dopasowanie);
 
             #region Stary kod
 
@@ -170,37 +170,6 @@ namespace MuseSort
 
         }
 
-        private void ZapiszDopasowaneDane(Dictionary<string, string> dopasowanie)
-        {
-            foreach (var tag in dopasowanie.Keys)
-            {
-                var wartosc = dopasowanie[tag];
-                switch (tag)
-                {
-                    case "numer":
-                        if (dane.numer == 0)
-                            dane.numer = uint.Parse(wartosc);
-                        break;
-                    case "rok":
-                        if (dane.rok == 0)
-                            dane.rok = uint.Parse(wartosc);
-                        break;
-                    case "wykonawca":
-                        if (dane.wykonawca[0] == "")
-                            dane.wykonawca[0] = wartosc;
-                        break;
-                    case "tytul":
-                        if (dane.tytul == "")
-                            dane.tytul = wartosc;
-                        break;
-                    case "album":
-                        if (dane.album == "")
-                            dane.album = wartosc;
-                        break;
-                }
-            }
-        }
-
         //Generuje tagi ze ścieżki do pliku i zapisuje w obiekcie dane
         //Zakładamy, że ta metoda jest wywoływana po metodzie pobierzTagiZNazwy
         public override void pobierzTagiZeSciezki()
@@ -208,7 +177,7 @@ namespace MuseSort
             var wzorzec = wzorceSciezki.Find(w => w.czyPasuje(SciezkaZrodlowa));
             if (wzorzec == null) return;
             var dopasowanie = wzorzec.Dopasuj(SciezkaZrodlowa);
-            ZapiszDopasowaneDane(dopasowanie);
+            dane.ZapiszDopasowaneDane(dopasowanie);
 
             #region Stary kod
 
