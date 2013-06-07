@@ -29,7 +29,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainGUI));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.programToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zamknijToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,19 +36,8 @@
             this.ustawieniaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wzorcePlikówAudioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wzorcePlikówVideoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.samouczekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drzewoFolderow = new System.Windows.Forms.TreeView();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.modyfikujButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.dodajDoGlownegoFolderuButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.dodajPiosenkiButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.sortujButton = new System.Windows.Forms.ToolStripButton();
-            this.SzczegolyPliku = new System.Windows.Forms.ToolStripButton();
-            this.sortujCustom = new System.Windows.Forms.ToolStripButton();
-            this.dodajDoBibliotekiButton = new System.Windows.Forms.ToolStripButton();
-            this.pokazBibliotekeButton = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -75,8 +63,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.logiTextBox = new System.Windows.Forms.TextBox();
+            this.otworzBibliotekeButton = new System.Windows.Forms.Button();
+            this.dodajPlikDoBiblitekiButton = new System.Windows.Forms.Button();
+            this.sortowanieNiestanradoweButton = new System.Windows.Forms.Button();
+            this.pokazSzczegolyPlikuButton = new System.Windows.Forms.Button();
+            this.sortujPlikiButton = new System.Windows.Forms.Button();
+            this.dodajPiosenkiDoFoldeuButton = new System.Windows.Forms.Button();
+            this.dodajPlikDoGlownegoFolderuButton = new System.Windows.Forms.Button();
+            this.modyfikujTagiButton = new System.Windows.Forms.Button();
+            this.drzewoLabel = new System.Windows.Forms.Label();
+            this.folderLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.dodajPanel.SuspendLayout();
@@ -92,7 +89,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1317, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1479, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -116,7 +113,8 @@
             this.opcjeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ustawieniaToolStripMenuItem,
             this.wzorcePlikówAudioToolStripMenuItem,
-            this.wzorcePlikówVideoToolStripMenuItem});
+            this.wzorcePlikówVideoToolStripMenuItem,
+            this.samouczekToolStripMenuItem});
             this.opcjeToolStripMenuItem.Name = "opcjeToolStripMenuItem";
             this.opcjeToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.opcjeToolStripMenuItem.Text = "Opcje";
@@ -142,132 +140,22 @@
             this.wzorcePlikówVideoToolStripMenuItem.Text = "Wzorce plików video";
             this.wzorcePlikówVideoToolStripMenuItem.Click += new System.EventHandler(this.wzorcePlikówVideoToolStripMenuItem_Click);
             // 
+            // samouczekToolStripMenuItem
+            // 
+            this.samouczekToolStripMenuItem.Name = "samouczekToolStripMenuItem";
+            this.samouczekToolStripMenuItem.Size = new System.Drawing.Size(218, 24);
+            this.samouczekToolStripMenuItem.Text = "Samouczek";
+            this.samouczekToolStripMenuItem.Click += new System.EventHandler(this.samouczekToolStripMenuItem_Click);
+            // 
             // drzewoFolderow
             // 
-            this.drzewoFolderow.Location = new System.Drawing.Point(16, 78);
+            this.drzewoFolderow.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.drzewoFolderow.Font = new System.Drawing.Font("Lucida Bright", 10.8F);
+            this.drzewoFolderow.Location = new System.Drawing.Point(16, 115);
             this.drzewoFolderow.Margin = new System.Windows.Forms.Padding(4);
             this.drzewoFolderow.Name = "drzewoFolderow";
-            this.drzewoFolderow.Size = new System.Drawing.Size(309, 486);
+            this.drzewoFolderow.Size = new System.Drawing.Size(378, 449);
             this.drzewoFolderow.TabIndex = 1;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(25, 25);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.modyfikujButton,
-            this.toolStripSeparator1,
-            this.dodajDoGlownegoFolderuButton,
-            this.toolStripSeparator2,
-            this.dodajPiosenkiButton,
-            this.toolStripSeparator3,
-            this.sortujButton,
-            this.SzczegolyPliku,
-            this.sortujCustom,
-            this.dodajDoBibliotekiButton,
-            this.pokazBibliotekeButton});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1317, 32);
-            this.toolStrip1.TabIndex = 2;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // modyfikujButton
-            // 
-            this.modyfikujButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.modyfikujButton.Image = ((System.Drawing.Image)(resources.GetObject("modyfikujButton.Image")));
-            this.modyfikujButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.modyfikujButton.Name = "modyfikujButton";
-            this.modyfikujButton.Size = new System.Drawing.Size(29, 29);
-            this.modyfikujButton.Text = "Modyfikuj tagi";
-            this.modyfikujButton.Click += new System.EventHandler(this.modyfikujButton_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 32);
-            // 
-            // dodajDoGlownegoFolderuButton
-            // 
-            this.dodajDoGlownegoFolderuButton.BackColor = System.Drawing.Color.Transparent;
-            this.dodajDoGlownegoFolderuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.dodajDoGlownegoFolderuButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.dodajDoGlownegoFolderuButton.Image = ((System.Drawing.Image)(resources.GetObject("dodajDoGlownegoFolderuButton.Image")));
-            this.dodajDoGlownegoFolderuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.dodajDoGlownegoFolderuButton.Name = "dodajDoGlownegoFolderuButton";
-            this.dodajDoGlownegoFolderuButton.Size = new System.Drawing.Size(29, 29);
-            this.dodajDoGlownegoFolderuButton.Text = "Dodaj do głównego folderu";
-            this.dodajDoGlownegoFolderuButton.Click += new System.EventHandler(this.dodajDoGlownegoFolderuButton_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 32);
-            // 
-            // dodajPiosenkiButton
-            // 
-            this.dodajPiosenkiButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.dodajPiosenkiButton.Image = ((System.Drawing.Image)(resources.GetObject("dodajPiosenkiButton.Image")));
-            this.dodajPiosenkiButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.dodajPiosenkiButton.Name = "dodajPiosenkiButton";
-            this.dodajPiosenkiButton.Size = new System.Drawing.Size(29, 29);
-            this.dodajPiosenkiButton.Text = "Dodaj piosenki";
-            this.dodajPiosenkiButton.Click += new System.EventHandler(this.dodajPiosenkiButton_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 32);
-            // 
-            // sortujButton
-            // 
-            this.sortujButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.sortujButton.Image = ((System.Drawing.Image)(resources.GetObject("sortujButton.Image")));
-            this.sortujButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.sortujButton.Name = "sortujButton";
-            this.sortujButton.Size = new System.Drawing.Size(29, 29);
-            this.sortujButton.Text = "Sortuj";
-            this.sortujButton.Click += new System.EventHandler(this.sortujButton_Click);
-            // 
-            // SzczegolyPliku
-            // 
-            this.SzczegolyPliku.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SzczegolyPliku.Image = ((System.Drawing.Image)(resources.GetObject("SzczegolyPliku.Image")));
-            this.SzczegolyPliku.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.SzczegolyPliku.Name = "SzczegolyPliku";
-            this.SzczegolyPliku.Size = new System.Drawing.Size(29, 29);
-            this.SzczegolyPliku.Text = "Szczegoly";
-            this.SzczegolyPliku.Click += new System.EventHandler(this.SzczegolyPliku_Click);
-            // 
-            // sortujCustom
-            // 
-            this.sortujCustom.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.sortujCustom.Image = ((System.Drawing.Image)(resources.GetObject("sortujCustom.Image")));
-            this.sortujCustom.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.sortujCustom.Name = "sortujCustom";
-            this.sortujCustom.Size = new System.Drawing.Size(29, 29);
-            this.sortujCustom.Text = "Sortowanie niestandardowe";
-            this.sortujCustom.Click += new System.EventHandler(this.sortujCustom_Click);
-            // 
-            // dodajDoBibliotekiButton
-            // 
-            this.dodajDoBibliotekiButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.dodajDoBibliotekiButton.Image = ((System.Drawing.Image)(resources.GetObject("dodajDoBibliotekiButton.Image")));
-            this.dodajDoBibliotekiButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.dodajDoBibliotekiButton.Name = "dodajDoBibliotekiButton";
-            this.dodajDoBibliotekiButton.Size = new System.Drawing.Size(29, 29);
-            this.dodajDoBibliotekiButton.Text = "Dodaj plik do biblioteki";
-            this.dodajDoBibliotekiButton.Click += new System.EventHandler(this.dodajDoBibliotekiButton_Click);
-            // 
-            // pokazBibliotekeButton
-            // 
-            this.pokazBibliotekeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.pokazBibliotekeButton.Image = ((System.Drawing.Image)(resources.GetObject("pokazBibliotekeButton.Image")));
-            this.pokazBibliotekeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.pokazBibliotekeButton.Name = "pokazBibliotekeButton";
-            this.pokazBibliotekeButton.Size = new System.Drawing.Size(29, 29);
-            this.pokazBibliotekeButton.Text = "Pokaż bibliotekę";
-            this.pokazBibliotekeButton.Click += new System.EventHandler(this.pokazBibliotekeButton_Click);
             // 
             // statusStrip1
             // 
@@ -278,7 +166,7 @@
             this.statusStrip1.Location = new System.Drawing.Point(0, 724);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1317, 26);
+            this.statusStrip1.Size = new System.Drawing.Size(1479, 26);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -303,24 +191,26 @@
             // 
             this.pictureBox1.Image = global::MuseSort.Properties.Resources.logo1;
             this.pictureBox1.InitialImage = global::MuseSort.Properties.Resources.logo1;
-            this.pictureBox1.Location = new System.Drawing.Point(1044, 78);
+            this.pictureBox1.Location = new System.Drawing.Point(1333, 32);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(259, 270);
+            this.pictureBox1.Size = new System.Drawing.Size(146, 152);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
             // aktualnyFolder
             // 
+            this.aktualnyFolder.BackColor = System.Drawing.Color.LightSteelBlue;
             this.aktualnyFolder.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.nazwa,
             this.rozszerzenie,
             this.rozmiar});
-            this.aktualnyFolder.Location = new System.Drawing.Point(347, 78);
+            this.aktualnyFolder.Font = new System.Drawing.Font("Lucida Bright", 10.8F);
+            this.aktualnyFolder.Location = new System.Drawing.Point(426, 115);
             this.aktualnyFolder.Margin = new System.Windows.Forms.Padding(4);
             this.aktualnyFolder.Name = "aktualnyFolder";
-            this.aktualnyFolder.Size = new System.Drawing.Size(675, 486);
+            this.aktualnyFolder.Size = new System.Drawing.Size(879, 449);
             this.aktualnyFolder.TabIndex = 5;
             this.aktualnyFolder.UseCompatibleStateImageBehavior = false;
             this.aktualnyFolder.View = System.Windows.Forms.View.Details;
@@ -333,12 +223,12 @@
             // rozszerzenie
             // 
             this.rozszerzenie.Text = "Rozszerzenie";
-            this.rozszerzenie.Width = 92;
+            this.rozszerzenie.Width = 152;
             // 
             // rozmiar
             // 
             this.rozmiar.Text = "Rozmiar";
-            this.rozmiar.Width = 81;
+            this.rozmiar.Width = 134;
             // 
             // dodajPanel
             // 
@@ -528,12 +418,139 @@
             // 
             // logiTextBox
             // 
-            this.logiTextBox.Location = new System.Drawing.Point(1044, 356);
+            this.logiTextBox.BackColor = System.Drawing.Color.DodgerBlue;
+            this.logiTextBox.Font = new System.Drawing.Font("Lucida Bright", 10.8F);
+            this.logiTextBox.ForeColor = System.Drawing.Color.Navy;
+            this.logiTextBox.Location = new System.Drawing.Point(1333, 192);
             this.logiTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.logiTextBox.Multiline = true;
             this.logiTextBox.Name = "logiTextBox";
-            this.logiTextBox.Size = new System.Drawing.Size(260, 208);
+            this.logiTextBox.Size = new System.Drawing.Size(145, 372);
             this.logiTextBox.TabIndex = 8;
+            // 
+            // otworzBibliotekeButton
+            // 
+            this.otworzBibliotekeButton.BackColor = System.Drawing.Color.MediumBlue;
+            this.otworzBibliotekeButton.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.otworzBibliotekeButton.ForeColor = System.Drawing.Color.White;
+            this.otworzBibliotekeButton.Location = new System.Drawing.Point(1198, 42);
+            this.otworzBibliotekeButton.Name = "otworzBibliotekeButton";
+            this.otworzBibliotekeButton.Size = new System.Drawing.Size(99, 55);
+            this.otworzBibliotekeButton.TabIndex = 24;
+            this.otworzBibliotekeButton.Text = "Otwórz bibliotekę";
+            this.otworzBibliotekeButton.UseVisualStyleBackColor = false;
+            this.otworzBibliotekeButton.Click += new System.EventHandler(this.otworzBibliotekeButton_Click);
+            // 
+            // dodajPlikDoBiblitekiButton
+            // 
+            this.dodajPlikDoBiblitekiButton.BackColor = System.Drawing.Color.MediumBlue;
+            this.dodajPlikDoBiblitekiButton.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dodajPlikDoBiblitekiButton.ForeColor = System.Drawing.Color.White;
+            this.dodajPlikDoBiblitekiButton.Location = new System.Drawing.Point(1052, 42);
+            this.dodajPlikDoBiblitekiButton.Name = "dodajPlikDoBiblitekiButton";
+            this.dodajPlikDoBiblitekiButton.Size = new System.Drawing.Size(125, 55);
+            this.dodajPlikDoBiblitekiButton.TabIndex = 23;
+            this.dodajPlikDoBiblitekiButton.Text = "Dodaj plik do biblioteki";
+            this.dodajPlikDoBiblitekiButton.UseVisualStyleBackColor = false;
+            this.dodajPlikDoBiblitekiButton.Click += new System.EventHandler(this.dodajPlikDoBiblitekiButton_Click);
+            // 
+            // sortowanieNiestanradoweButton
+            // 
+            this.sortowanieNiestanradoweButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.sortowanieNiestanradoweButton.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sortowanieNiestanradoweButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.sortowanieNiestanradoweButton.Location = new System.Drawing.Point(845, 42);
+            this.sortowanieNiestanradoweButton.Name = "sortowanieNiestanradoweButton";
+            this.sortowanieNiestanradoweButton.Size = new System.Drawing.Size(144, 55);
+            this.sortowanieNiestanradoweButton.TabIndex = 22;
+            this.sortowanieNiestanradoweButton.Text = "Sortowanie niestandardowe";
+            this.sortowanieNiestanradoweButton.UseVisualStyleBackColor = false;
+            this.sortowanieNiestanradoweButton.Click += new System.EventHandler(this.sortowanieNiestanradoweButton_Click);
+            // 
+            // pokazSzczegolyPlikuButton
+            // 
+            this.pokazSzczegolyPlikuButton.BackColor = System.Drawing.SystemColors.Highlight;
+            this.pokazSzczegolyPlikuButton.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pokazSzczegolyPlikuButton.Location = new System.Drawing.Point(481, 42);
+            this.pokazSzczegolyPlikuButton.Name = "pokazSzczegolyPlikuButton";
+            this.pokazSzczegolyPlikuButton.Size = new System.Drawing.Size(148, 55);
+            this.pokazSzczegolyPlikuButton.TabIndex = 21;
+            this.pokazSzczegolyPlikuButton.Text = "Przeczytaj szczegóły pliku";
+            this.pokazSzczegolyPlikuButton.UseVisualStyleBackColor = false;
+            this.pokazSzczegolyPlikuButton.Click += new System.EventHandler(this.pokazSzczegolyPlikuButton_Click);
+            // 
+            // sortujPlikiButton
+            // 
+            this.sortujPlikiButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.sortujPlikiButton.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sortujPlikiButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.sortujPlikiButton.Location = new System.Drawing.Point(710, 42);
+            this.sortujPlikiButton.Name = "sortujPlikiButton";
+            this.sortujPlikiButton.Size = new System.Drawing.Size(129, 55);
+            this.sortujPlikiButton.TabIndex = 20;
+            this.sortujPlikiButton.Text = "Sortuj pliki";
+            this.sortujPlikiButton.UseVisualStyleBackColor = false;
+            this.sortujPlikiButton.Click += new System.EventHandler(this.sortujPlikiButton_Click);
+            // 
+            // dodajPiosenkiDoFoldeuButton
+            // 
+            this.dodajPiosenkiDoFoldeuButton.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.dodajPiosenkiDoFoldeuButton.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dodajPiosenkiDoFoldeuButton.Location = new System.Drawing.Point(282, 42);
+            this.dodajPiosenkiDoFoldeuButton.Name = "dodajPiosenkiDoFoldeuButton";
+            this.dodajPiosenkiDoFoldeuButton.Size = new System.Drawing.Size(112, 55);
+            this.dodajPiosenkiDoFoldeuButton.TabIndex = 19;
+            this.dodajPiosenkiDoFoldeuButton.Text = "Dodaj plik do folderu";
+            this.dodajPiosenkiDoFoldeuButton.UseVisualStyleBackColor = false;
+            this.dodajPiosenkiDoFoldeuButton.Click += new System.EventHandler(this.dodajPiosenkiDoFoldeuButton_Click);
+            // 
+            // dodajPlikDoGlownegoFolderuButton
+            // 
+            this.dodajPlikDoGlownegoFolderuButton.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.dodajPlikDoGlownegoFolderuButton.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dodajPlikDoGlownegoFolderuButton.Location = new System.Drawing.Point(123, 42);
+            this.dodajPlikDoGlownegoFolderuButton.Name = "dodajPlikDoGlownegoFolderuButton";
+            this.dodajPlikDoGlownegoFolderuButton.Size = new System.Drawing.Size(153, 55);
+            this.dodajPlikDoGlownegoFolderuButton.TabIndex = 18;
+            this.dodajPlikDoGlownegoFolderuButton.Text = "Dodaj plik do folderu głównego";
+            this.dodajPlikDoGlownegoFolderuButton.UseVisualStyleBackColor = false;
+            this.dodajPlikDoGlownegoFolderuButton.Click += new System.EventHandler(this.dodajPlikDoGlownegoFolderuButton_Click);
+            // 
+            // modyfikujTagiButton
+            // 
+            this.modyfikujTagiButton.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.modyfikujTagiButton.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modyfikujTagiButton.Location = new System.Drawing.Point(7, 42);
+            this.modyfikujTagiButton.Name = "modyfikujTagiButton";
+            this.modyfikujTagiButton.Size = new System.Drawing.Size(105, 55);
+            this.modyfikujTagiButton.TabIndex = 17;
+            this.modyfikujTagiButton.Text = "Modyfikuj tagi pliku";
+            this.modyfikujTagiButton.UseVisualStyleBackColor = false;
+            this.modyfikujTagiButton.Click += new System.EventHandler(this.modyfikujTagiButton_Click);
+            // 
+            // drzewoLabel
+            // 
+            this.drzewoLabel.AutoSize = true;
+            this.drzewoLabel.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.drzewoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.drzewoLabel.ForeColor = System.Drawing.Color.Black;
+            this.drzewoLabel.Location = new System.Drawing.Point(111, 124);
+            this.drzewoLabel.Name = "drzewoLabel";
+            this.drzewoLabel.Size = new System.Drawing.Size(270, 17);
+            this.drzewoLabel.TabIndex = 25;
+            this.drzewoLabel.Text = "Tu wyświetlane jest drzewo folderów";
+            // 
+            // folderLabel
+            // 
+            this.folderLabel.AutoSize = true;
+            this.folderLabel.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.folderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.folderLabel.ForeColor = System.Drawing.Color.Black;
+            this.folderLabel.Location = new System.Drawing.Point(920, 154);
+            this.folderLabel.Name = "folderLabel";
+            this.folderLabel.Size = new System.Drawing.Size(371, 17);
+            this.folderLabel.TabIndex = 26;
+            this.folderLabel.Text = "Tu widoczna jest zawartość zaznaczonego folderu";
             // 
             // MainGUI
             // 
@@ -541,13 +558,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::MuseSort.Properties.Resources.tlo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1317, 750);
+            this.ClientSize = new System.Drawing.Size(1479, 750);
+            this.Controls.Add(this.folderLabel);
+            this.Controls.Add(this.drzewoLabel);
+            this.Controls.Add(this.otworzBibliotekeButton);
+            this.Controls.Add(this.dodajPlikDoBiblitekiButton);
+            this.Controls.Add(this.sortowanieNiestanradoweButton);
+            this.Controls.Add(this.pokazSzczegolyPlikuButton);
+            this.Controls.Add(this.sortujPlikiButton);
+            this.Controls.Add(this.dodajPiosenkiDoFoldeuButton);
+            this.Controls.Add(this.dodajPlikDoGlownegoFolderuButton);
+            this.Controls.Add(this.modyfikujTagiButton);
             this.Controls.Add(this.logiTextBox);
             this.Controls.Add(this.niestandardoweSortowaniePanel);
             this.Controls.Add(this.aktualnyFolder);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.drzewoFolderow);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dodajPanel);
@@ -558,8 +584,6 @@
             this.Text = "MuseSort";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -580,14 +604,6 @@
         private System.Windows.Forms.ToolStripMenuItem opcjeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ustawieniaToolStripMenuItem;
         private System.Windows.Forms.TreeView drzewoFolderow;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton modyfikujButton;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton dodajDoGlownegoFolderuButton;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton dodajPiosenkiButton;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripButton sortujButton;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
@@ -605,7 +621,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox sourceFolderTextBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ToolStripButton sortujCustom;
         private System.Windows.Forms.ToolStripMenuItem wzorcePlikówAudioToolStripMenuItem;
         private System.Windows.Forms.Panel niestandardoweSortowaniePanel;
         private System.Windows.Forms.Button sortujNiestandardowoButton;
@@ -614,11 +629,19 @@
         private System.Windows.Forms.ListBox sortowanieNiestandardoweListBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ToolStripButton SzczegolyPliku;
         private System.Windows.Forms.TextBox logiTextBox;
-        private System.Windows.Forms.ToolStripButton dodajDoBibliotekiButton;
-        private System.Windows.Forms.ToolStripButton pokazBibliotekeButton;
         private System.Windows.Forms.ToolStripMenuItem wzorcePlikówVideoToolStripMenuItem;
+        private System.Windows.Forms.Button otworzBibliotekeButton;
+        private System.Windows.Forms.Button dodajPlikDoBiblitekiButton;
+        private System.Windows.Forms.Button sortowanieNiestanradoweButton;
+        private System.Windows.Forms.Button pokazSzczegolyPlikuButton;
+        private System.Windows.Forms.Button sortujPlikiButton;
+        private System.Windows.Forms.Button dodajPiosenkiDoFoldeuButton;
+        private System.Windows.Forms.Button dodajPlikDoGlownegoFolderuButton;
+        private System.Windows.Forms.Button modyfikujTagiButton;
+        private System.Windows.Forms.Label drzewoLabel;
+        private System.Windows.Forms.Label folderLabel;
+        private System.Windows.Forms.ToolStripMenuItem samouczekToolStripMenuItem;
 
     }
 }
