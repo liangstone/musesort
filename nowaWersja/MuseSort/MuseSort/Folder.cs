@@ -34,7 +34,7 @@ namespace MuseSort
         /// <param name="path">Ścieżka katalogu</param>
         public Folder(String path)
         {
-            if (!File.Exists(path))
+            if (!Directory.Exists(path))
                 throw new DirectoryNotFoundException(path);
             xml = new FolderXML(path);
             sciezka = path;
