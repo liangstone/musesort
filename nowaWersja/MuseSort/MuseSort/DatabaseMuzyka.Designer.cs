@@ -37,9 +37,7 @@
             this.usunButton = new System.Windows.Forms.Button();
             this.muzykaPanel = new System.Windows.Forms.Panel();
             this.tabela = new System.Windows.Forms.DataGridView();
-            this.Tytuł = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rok = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Produkcja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.explorer = new System.Windows.Forms.OpenFileDialog();
             this.muzykaPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabela)).BeginInit();
             this.SuspendLayout();
@@ -113,7 +111,7 @@
             this.dodajButton.BackColor = System.Drawing.Color.MediumBlue;
             this.dodajButton.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.dodajButton.ForeColor = System.Drawing.Color.Snow;
-            this.dodajButton.Location = new System.Drawing.Point(773, 314);
+            this.dodajButton.Location = new System.Drawing.Point(820, 277);
             this.dodajButton.Name = "dodajButton";
             this.dodajButton.Size = new System.Drawing.Size(121, 48);
             this.dodajButton.TabIndex = 11;
@@ -126,7 +124,7 @@
             this.usunButton.BackColor = System.Drawing.Color.MediumBlue;
             this.usunButton.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.usunButton.ForeColor = System.Drawing.Color.Snow;
-            this.usunButton.Location = new System.Drawing.Point(773, 252);
+            this.usunButton.Location = new System.Drawing.Point(820, 205);
             this.usunButton.Name = "usunButton";
             this.usunButton.Size = new System.Drawing.Size(121, 48);
             this.usunButton.TabIndex = 10;
@@ -140,36 +138,20 @@
             this.muzykaPanel.Controls.Add(this.tabela);
             this.muzykaPanel.Location = new System.Drawing.Point(22, 193);
             this.muzykaPanel.Name = "muzykaPanel";
-            this.muzykaPanel.Size = new System.Drawing.Size(722, 324);
+            this.muzykaPanel.Size = new System.Drawing.Size(764, 336);
             this.muzykaPanel.TabIndex = 12;
             // 
             // tabela
             // 
+            this.tabela.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tabela.BackgroundColor = System.Drawing.SystemColors.MenuHighlight;
             this.tabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tabela.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Tytuł,
-            this.rok,
-            this.Produkcja});
-            this.tabela.Location = new System.Drawing.Point(172, 86);
+            this.tabela.GridColor = System.Drawing.SystemColors.MenuHighlight;
+            this.tabela.Location = new System.Drawing.Point(3, 3);
             this.tabela.Name = "tabela";
             this.tabela.RowTemplate.Height = 24;
-            this.tabela.Size = new System.Drawing.Size(379, 152);
+            this.tabela.Size = new System.Drawing.Size(747, 330);
             this.tabela.TabIndex = 1;
-            // 
-            // Tytuł
-            // 
-            this.Tytuł.HeaderText = "Column1";
-            this.Tytuł.Name = "Tytuł";
-            // 
-            // rok
-            // 
-            this.rok.HeaderText = "Column1";
-            this.rok.Name = "rok";
-            // 
-            // Produkcja
-            // 
-            this.Produkcja.HeaderText = "Column1";
-            this.Produkcja.Name = "Produkcja";
             // 
             // DatabaseMuzyka
             // 
@@ -206,8 +188,6 @@
         private System.Windows.Forms.Button usunButton;
         private System.Windows.Forms.Panel muzykaPanel;
         private System.Windows.Forms.DataGridView tabela;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tytuł;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rok;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Produkcja;
+        private System.Windows.Forms.OpenFileDialog explorer;
     }
 }

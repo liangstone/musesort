@@ -77,6 +77,7 @@
     <Compile Include="BazaDanych\BazaDanychSqlServerCE.cs" />
     <Compile Include="BazaDanych\IBazaDanych.cs" />
     <Compile Include="BazaDanych\WierszTabeli.cs" />
+    <Compile Include="Crawler.cs" />
     <Compile Include="Dane.cs" />
     <Compile Include="DaneUtworu.cs" />
     <Compile Include="DaneFilmu.cs" />
@@ -104,6 +105,18 @@
     <Compile Include="DatabaseStart.Designer.cs">
       <DependentUpon>DatabaseStart.cs</DependentUpon>
     </Compile>
+    <Compile Include="DodawanieFilmow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodawanieFilmow.Designer.cs">
+      <DependentUpon>DodawanieFilmow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodawanieSeriali.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodawanieSeriali.Designer.cs">
+      <DependentUpon>DodawanieSeriali.cs</DependentUpon>
+    </Compile>
     <Compile Include="EdycjaPliku.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +134,12 @@
     <Compile Include="FolderGlowny.cs" />
     <Compile Include="FolderGlownyXML.cs" />
     <Compile Include="FolderXML.cs" />
+    <Compile Include="InterakcjaFilmSerial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterakcjaFilmSerial.Designer.cs">
+      <DependentUpon>InterakcjaFilmSerial.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,11 +217,20 @@
     <EmbeddedResource Include="DatabaseStart.resx">
       <DependentUpon>DatabaseStart.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DodawanieFilmow.resx">
+      <DependentUpon>DodawanieFilmow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodawanieSeriali.resx">
+      <DependentUpon>DodawanieSeriali.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EdycjaPliku.resx">
       <DependentUpon>EdycjaPliku.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FilmNowyWzorzecNazwy.resx">
       <DependentUpon>FilmNowyWzorzecNazwy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterakcjaFilmSerial.resx">
+      <DependentUpon>InterakcjaFilmSerial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainGUI.resx">
       <DependentUpon>MainGUI.cs</DependentUpon>
