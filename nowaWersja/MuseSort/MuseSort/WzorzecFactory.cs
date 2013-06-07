@@ -27,6 +27,7 @@ namespace MuseSort
         {
             SlownikRegexowDlaFilmow = new Dictionary<string, string>
                 {
+                    {"source",      ".*?"}, //Zawartośc będzie ignorowana - folder nadrzędny 
                     {"<tytul>",     @"[\w\s\(\)\&\'\!\`\~\$\.\+\-]+"},
                     {"<dyrektor>",  @"[\w\s\(\)\&\'\!\`\~\$\.\+\-]+"},
                     {"<gatunek>",   @"[\w\s\(\)\&\'\!\`\~\$\.\+\-]+"},
@@ -34,6 +35,7 @@ namespace MuseSort
                 };
             SlownikRegexowDlaUtowrow = new Dictionary<string, string>
                 {
+                    {"source",      ".*?"}, //Zawartośc będzie ignorowana - folder nadrzędny 
                     {"rok",         @"[\d]{4}"},
                     {"numer",       @"[\d]+"}
                 };
