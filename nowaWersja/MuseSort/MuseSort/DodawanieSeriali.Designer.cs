@@ -2,6 +2,7 @@
 {
     partial class DodawanieSeriali
     {
+        //do ponownego merga
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -50,6 +51,8 @@
             this.zapisz = new System.Windows.Forms.Button();
             this.sciezka = new System.Windows.Forms.Button();
             this.explorer = new System.Windows.Forms.OpenFileDialog();
+            this.updateButton = new System.Windows.Forms.Button();
+            this.watchCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -60,7 +63,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(210, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(537, 45);
+            this.label1.Size = new System.Drawing.Size(514, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "Dodawanie Seriali do Bazy Danych";
             // 
@@ -269,6 +272,32 @@
             this.sciezka.UseVisualStyleBackColor = false;
             this.sciezka.Click += new System.EventHandler(this.sciezka_Click);
             // 
+            // updateButton
+            // 
+            this.updateButton.BackColor = System.Drawing.Color.Blue;
+            this.updateButton.Font = new System.Drawing.Font("Tw Cen MT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.updateButton.ForeColor = System.Drawing.Color.White;
+            this.updateButton.Location = new System.Drawing.Point(664, 498);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(117, 43);
+            this.updateButton.TabIndex = 22;
+            this.updateButton.Text = "Zapisz zmiany";
+            this.updateButton.UseVisualStyleBackColor = false;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+            // 
+            // watchCheckBox
+            // 
+            this.watchCheckBox.AutoSize = true;
+            this.watchCheckBox.BackColor = System.Drawing.Color.Transparent;
+            this.watchCheckBox.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.watchCheckBox.ForeColor = System.Drawing.Color.White;
+            this.watchCheckBox.Location = new System.Drawing.Point(664, 357);
+            this.watchCheckBox.Name = "watchCheckBox";
+            this.watchCheckBox.Size = new System.Drawing.Size(103, 27);
+            this.watchCheckBox.TabIndex = 23;
+            this.watchCheckBox.Text = "Obejrzane";
+            this.watchCheckBox.UseVisualStyleBackColor = false;
+            // 
             // DodawanieSeriali
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -276,6 +305,8 @@
             this.BackgroundImage = global::MuseSort.Properties.Resources.tlo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1055, 564);
+            this.Controls.Add(this.watchCheckBox);
+            this.Controls.Add(this.updateButton);
             this.Controls.Add(this.sciezka);
             this.Controls.Add(this.anuluj);
             this.Controls.Add(this.zapisz);
@@ -316,7 +347,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox tytulOdcinkaTextBox;
         private System.Windows.Forms.TextBox tytulSerialuTextBox;
         private System.Windows.Forms.TextBox rezyserTextBox;
         private System.Windows.Forms.TextBox produkcjaTextBox;
@@ -328,5 +358,8 @@
         private System.Windows.Forms.Button zapisz;
         private System.Windows.Forms.Button sciezka;
         private System.Windows.Forms.OpenFileDialog explorer;
+        public System.Windows.Forms.TextBox tytulOdcinkaTextBox;
+        private System.Windows.Forms.Button updateButton;
+        private System.Windows.Forms.CheckBox watchCheckBox;
     }
 }

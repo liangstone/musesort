@@ -8,6 +8,7 @@ namespace MuseSort.Pomoce
 {
     public class ObslugaNapisy24
     {
+        //do ponownego merga
         public static void test01()
         {
             WebClient wc = new WebClient();

@@ -11,6 +11,7 @@ namespace MuseSort
 {
     public partial class WzorcePlikowVideo : Form
     {
+        //do ponownego merga
         public WzorcePlikowVideo()
         {
             InitializeComponent();

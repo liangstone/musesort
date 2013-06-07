@@ -7,6 +7,7 @@ namespace MuseSort
 {
     public class DaneFilmu : Dane
     {
+        //do ponownego merga
         public String tytul = "";
         public String[] gatunki = { "" };
         public String[] dyrektorzy = { "" };

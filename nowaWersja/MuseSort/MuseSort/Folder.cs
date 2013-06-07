@@ -8,7 +8,7 @@ namespace MuseSort
 {
     public class Folder
     {
-
+        //do ponownego merga
         #region POLA KLASY
 
         /// <summary>Ścieżka folderu.</summary>

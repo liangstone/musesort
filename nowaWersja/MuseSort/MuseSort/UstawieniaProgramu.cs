@@ -9,6 +9,7 @@ namespace MuseSort
 {
     public class UstawieniaProgramu
     {
+        //do ponownego merga
         private static volatile UstawieniaProgramu instancja;
         public String folderGlowny;
         public String domyslneSortowanie;

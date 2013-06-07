@@ -105,11 +105,23 @@
     <Compile Include="DatabaseStart.Designer.cs">
       <DependentUpon>DatabaseStart.cs</DependentUpon>
     </Compile>
+    <Compile Include="DatySeriali.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatySeriali.Designer.cs">
+      <DependentUpon>DatySeriali.cs</DependentUpon>
+    </Compile>
     <Compile Include="DodawanieFilmow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DodawanieFilmow.Designer.cs">
       <DependentUpon>DodawanieFilmow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodawanieMuzyki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodawanieMuzyki.Designer.cs">
+      <DependentUpon>DodawanieMuzyki.cs</DependentUpon>
     </Compile>
     <Compile Include="DodawanieSeriali.cs">
       <SubType>Form</SubType>
@@ -217,8 +229,14 @@
     <EmbeddedResource Include="DatabaseStart.resx">
       <DependentUpon>DatabaseStart.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DatySeriali.resx">
+      <DependentUpon>DatySeriali.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DodawanieFilmow.resx">
       <DependentUpon>DodawanieFilmow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodawanieMuzyki.resx">
+      <DependentUpon>DodawanieMuzyki.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DodawanieSeriali.resx">
       <DependentUpon>DodawanieSeriali.cs</DependentUpon>

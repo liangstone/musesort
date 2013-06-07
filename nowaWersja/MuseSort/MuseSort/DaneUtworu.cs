@@ -8,6 +8,7 @@ namespace MuseSort
 {
     public class DaneUtworu : Dane
     {
+        //do ponownego merga
         public String[] wykonawca = { "" };
         public String[] wykonawcaAlbumu = { "" };
         public String tytul = "";

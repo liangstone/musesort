@@ -4,6 +4,7 @@ namespace MuseSort
 {
     public abstract class Plik
     {
+        //do ponownego merga
         #region Pola i properties
 
         String sciezka = "";

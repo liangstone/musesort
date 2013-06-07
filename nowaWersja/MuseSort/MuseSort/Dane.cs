@@ -5,7 +5,7 @@ namespace MuseSort
 {
     public abstract class Dane
     {
-
+        //do ponownego merga
         /// <summary>Generuje ścieżkę dla katalogu na podstawie pól w sortowaniu.</summary>
         /// <param name="plik">Plik, dla którego ma być wygenerowana ścieżka.</param>
         /// <returns>Szukana ścieżka katalogu.</returns>

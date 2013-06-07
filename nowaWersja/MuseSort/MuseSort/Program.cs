@@ -5,6 +5,7 @@ namespace MuseSort
 {
     static class Program
     {
+        //do ponownego merga
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

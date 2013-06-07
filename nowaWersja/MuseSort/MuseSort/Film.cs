@@ -10,6 +10,7 @@ namespace MuseSort
         public DaneFilmu dane;
         //<należy wybrać klasę źródłową> tagi;
         //<należy wybrać klasę źródłową> stareTagi;
+        //do ponownego merga
         Boolean pobranoZNazwy = false;
 
         #region publiczne metody klas

@@ -10,6 +10,7 @@ namespace MuseSort
 {
     public class FolderXML
     {
+        //do ponownego merga
         String sciezka;
         XmlDocument plikXML;
         public String schemat;

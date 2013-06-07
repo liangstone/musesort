@@ -7,6 +7,7 @@ namespace MuseSort
 {
     public partial class Film
     {
+        //do ponownego merga
         public static List<Wzorzec> wzorceNazwy = new List<Wzorzec>();
         private static readonly WzorzecFactory WzorzecFactory = new WzorzecFactory(WzorzecFactory.SlownikRegexowDlaFilmow);
         private List<Wzorzec> wzorceSciezki = new List<Wzorzec>();
@@ -30,7 +31,6 @@ namespace MuseSort
 
             if (!sprawdzWzorzec(wzorzec, wzorceNazwy)) return false; //Jeden z wzorców na liście rozpoznaje string jako poprawną nazwę/ścieżkę.
             lista.Add(WzorzecFactory.GetWzorzec(wzorzec));
-            UstawieniaProgramu.getInstance().zapiszUstawienia();
             return true;
         }
 

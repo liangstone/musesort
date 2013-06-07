@@ -14,11 +14,32 @@ namespace MuseSort
 {
     public partial class DodawanieFilmow : Form
     {
+        //do ponownego merga
+        SqlCeConnection conn;
         public String sciezkaFilmu = "";
+        public int idFilmu;
         public DodawanieFilmow(String sciezkaPliku="")
         {
             InitializeComponent();
+            zapisz.Show();
+            updateButton.Dispose();
             sciezkaFilmu = sciezkaPliku;
+        }
+        public DodawanieFilmow(int id, String tyt, String gat, String pro, int rokPremiery, String rez, String opisFilmu,
+            String ory, String sciezka)
+        {
+            InitializeComponent();
+            zapisz.Dispose();
+            updateButton.Show();
+            idFilmu = id;
+            tytul.Text = tyt;
+            gatunek.Text = gat;
+            produkcja.Text = pro;
+            rok.Text = rokPremiery.ToString();
+            rezyseria.Text = rez;
+            opis.Text = opisFilmu;
+            tytul_ory.Text = ory;
+            sciezkaFilmu = sciezka;
         }
 
         private void anuluj_Click(object sender, EventArgs e)
@@ -28,7 +49,7 @@ namespace MuseSort
 
         private void zapisz_Click(object sender, EventArgs e)
         {
-            SqlCeConnection conn;
+            
             String tytulFilmu = tytul.Text;
             String gatunekFilmu = gatunek.Text;
             String produkcjaFilmu = produkcja.Text;
@@ -69,11 +90,46 @@ namespace MuseSort
 
         private void sciezka_Click(object sender, EventArgs e)
         {
+            explorer.FileName = sciezkaFilmu;
             DialogResult result = explorer.ShowDialog();
             if (result == DialogResult.OK)
             {
                 sciezkaFilmu = explorer.FileName;
             }
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            string connectionString = @"Data Source=|DataDirectory|\MyDatabase#1.sdf; Password = Projekt&4";
+            conn = new SqlCeConnection(connectionString);
+            conn.Open();
+            try
+            {
+
+                SqlCeCommand Query = new SqlCeCommand("UPDATE Filmy SET " +
+                            "Tytul = @Tytul, Gatunek = @Gatunek," +
+                            "Produkcja = @Produkcja, Rok = @Rok, Rezyseria = @Rezyseria," +
+                            "Opis = @Opis, Tytul_Oryginalu = @Tytul_Oryginalu, Sciezka = @Sciezka WHERE ID = @ID", conn);
+
+                Query.Parameters.AddWithValue("@Tytul", tytul.Text);
+                Query.Parameters.AddWithValue("@Gatunek", gatunek.Text);
+                Query.Parameters.AddWithValue("@Produkcja", produkcja.Text);
+                Query.Parameters.AddWithValue("@Rok", rok.Text);
+                Query.Parameters.AddWithValue("@Rezyseria", rezyseria.Text);
+                Query.Parameters.AddWithValue("@Opis", opis.Text);
+                Query.Parameters.AddWithValue("@Tytul_Oryginalu", tytul_ory.Text);
+                Query.Parameters.AddWithValue("@Sciezka", sciezkaFilmu);
+                Query.Parameters.AddWithValue("@ID", idFilmu);
+                Query.ExecuteNonQuery();
+                MessageBox.Show("Pomyslnie edytowany film w bazie danych");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Wysypalo sie");
+                MessageBox.Show(ex.Message);
+            }
+            conn.Close();
+            this.Dispose();
         }
     }
 }
