@@ -15,6 +15,7 @@ namespace MuseSort
 {
     public partial class MainGUI : Form
     {
+        //do ponownego merga
         FolderGlowny folderGlowny;
         #region publiczne metody klas
         //#############################PUBLICZNE METODY KLASY############################################

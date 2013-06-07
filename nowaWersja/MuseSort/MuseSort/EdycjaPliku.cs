@@ -11,6 +11,7 @@ namespace MuseSort
 {
     public partial class EdycjaPliku : Form
     {
+        //do ponownego merga
         Utwor daneWejsciowe;
         Utwor dane;
         Boolean zapisane;

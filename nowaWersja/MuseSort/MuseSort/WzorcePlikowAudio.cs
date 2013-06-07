@@ -11,6 +11,7 @@ namespace MuseSort
 {
     public partial class WzorcePlikowAudio : Form
     {
+        //do ponownego merga
         public WzorcePlikowAudio()
         {
             InitializeComponent();

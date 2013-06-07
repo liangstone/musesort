@@ -2,6 +2,7 @@
 {
     partial class OknoUstawien
     {
+        //do ponownego merga
         /// <summary>
         /// Required designer variable.
         /// </summary>

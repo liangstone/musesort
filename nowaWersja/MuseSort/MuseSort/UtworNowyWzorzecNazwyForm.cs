@@ -12,6 +12,7 @@ namespace MuseSort
 {
     public partial class UtworNowyWzorzecNazwyForm : Form
     {
+        //do ponownego merga
         String nazwa;
         public UtworNowyWzorzecNazwyForm(String name)
         {

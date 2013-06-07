@@ -19,5 +19,6 @@ namespace MuseSort
         //private void PrzygotujPlikDowyslania()
         //Metoda przetwarzająca zapytania do bazy danych, jeśli potrzebne, należy zdefiniować klasę przechowującą wyniki zapytań
         //private <<klasa metadanych dla bazy>> query(String tresc);
+        //do ponownego merga
     }
 }

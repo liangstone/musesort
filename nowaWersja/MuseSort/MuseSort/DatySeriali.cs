@@ -13,6 +13,7 @@ namespace MuseSort
 {
     public partial class DatySeriali : Form
     {
+        //do ponownego merga
         SqlCeConnection conn;
         String odData = "";
         String doData = "";

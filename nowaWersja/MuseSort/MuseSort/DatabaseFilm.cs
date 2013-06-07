@@ -13,6 +13,7 @@ namespace MuseSort
 {
     public partial class DatabaseFilm : Form
     {
+        //do ponownego merga
         SqlCeConnection conn;
         public DatabaseFilm()
         {

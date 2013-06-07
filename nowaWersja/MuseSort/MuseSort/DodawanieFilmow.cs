@@ -14,6 +14,7 @@ namespace MuseSort
 {
     public partial class DodawanieFilmow : Form
     {
+        //do ponownego merga
         SqlCeConnection conn;
         public String sciezkaFilmu = "";
         public int idFilmu;

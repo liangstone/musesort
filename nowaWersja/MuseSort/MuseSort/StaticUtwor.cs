@@ -7,6 +7,7 @@ namespace MuseSort
 {
     partial class Utwor
     {
+        //do ponownego merga
         public static List<Wzorzec> wzorceNazwy = new List<Wzorzec>();
         public static List<Wzorzec> wzorceSciezki = new List<Wzorzec>();
         private static readonly WzorzecFactory WzorzecFactory = new WzorzecFactory(WzorzecFactory.SlownikRegexowDlaUtowrow);

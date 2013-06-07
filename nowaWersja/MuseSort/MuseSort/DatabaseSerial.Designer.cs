@@ -2,6 +2,7 @@
 {
     partial class DatabaseSerial
     {
+        //do ponownego merga
         /// <summary>
         /// Required designer variable.
         /// </summary>

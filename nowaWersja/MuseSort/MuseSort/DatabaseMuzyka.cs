@@ -13,6 +13,7 @@ namespace MuseSort
 {
     public partial class DatabaseMuzyka : Form
     {
+        //do ponownego merga
         SqlCeConnection conn;
 
         public DatabaseMuzyka()

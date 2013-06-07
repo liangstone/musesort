@@ -2,6 +2,7 @@
 {
     partial class DatabaseFilm
     {
+        //do ponownego merga
         /// <summary>
         /// Required designer variable.
         /// </summary>
