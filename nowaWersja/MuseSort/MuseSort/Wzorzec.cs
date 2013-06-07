@@ -8,6 +8,7 @@ namespace MuseSort
 {
     class Wzorzec
     {
+        //do ponownego merga
         public Regex regex;
         public String wzorzec;
         #region publiczne metody klasy

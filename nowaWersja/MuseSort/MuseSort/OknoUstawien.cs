@@ -11,6 +11,7 @@ namespace MuseSort
 {
     public partial class OknoUstawien : Form
     {
+        //do ponownego merga
         List<IComponent> rozszerzenia;
         #region publiczne metody klas
         //#############################PUBLICZNE METODY KLASY############################################

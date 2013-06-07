@@ -2,6 +2,7 @@
 {
     partial class DatySeriali
     {
+        //do ponownego merga
         /// <summary>
         /// Required designer variable.
         /// </summary>

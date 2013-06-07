@@ -12,6 +12,7 @@ namespace MuseSort
 {
     public partial class FilmNowyWzorzecNazwy : Form
     {
+        //do ponownego merga
         String nazwa;
         public FilmNowyWzorzecNazwy(String name)
         {

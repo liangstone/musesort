@@ -13,6 +13,7 @@ namespace MuseSort
 {
     public partial class DodawanieSeriali : Form
     {
+        //do ponownego merga
         String sciezkaOdcinka = "";
         SqlCeConnection conn;
         int idOdcinka;

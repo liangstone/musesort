@@ -2,6 +2,7 @@
 {
     partial class DodawanieSeriali
     {
+        //do ponownego merga
         /// <summary>
         /// Required designer variable.
         /// </summary>

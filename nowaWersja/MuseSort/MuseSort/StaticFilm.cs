@@ -8,6 +8,7 @@ namespace MuseSort
 {
     partial class Film
     {
+        //do ponownego merga
         public static List<Wzorzec> wzorceNazwy = new List<Wzorzec>();
 
         public static Boolean dodajWzorzec(String wzorzec, String regex)

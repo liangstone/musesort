@@ -11,6 +11,7 @@ namespace MuseSort
 {
     public partial class InterakcjaFilmSerial : Form
     {
+        //do ponownego merga
         String sciezkaPliku;
         public InterakcjaFilmSerial(String sciezka)
         {

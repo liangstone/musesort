@@ -2,6 +2,7 @@
 {
     partial class MainGUI
     {
+        //do ponownego merga
         /// <summary>
         /// Required designer variable.
         /// </summary>

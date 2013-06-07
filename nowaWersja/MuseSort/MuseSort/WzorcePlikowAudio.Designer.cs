@@ -2,6 +2,7 @@
 {
     partial class WzorcePlikowAudio
     {
+        //do ponownego merga
         /// <summary>
         /// Required designer variable.
         /// </summary>

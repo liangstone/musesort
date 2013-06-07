@@ -11,6 +11,7 @@ namespace MuseSort
 {
     public partial class DatabaseStart : Form
     {
+        //do ponownego merga
         public DatabaseStart()
         {
             InitializeComponent();

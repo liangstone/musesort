@@ -6,6 +6,7 @@ namespace MuseSort
 {
     class FolderGlowny
     {
+        //do ponownego merga
         String sciezka;
         public String logi;
 

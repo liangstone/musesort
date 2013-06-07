@@ -13,6 +13,7 @@ namespace MuseSort
 {
     public partial class DatabaseSerial : Form
     {
+        //do ponownego merga
         SqlCeConnection conn;
         public DatabaseSerial()
         {
