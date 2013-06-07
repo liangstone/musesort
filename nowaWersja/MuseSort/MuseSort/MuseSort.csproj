@@ -216,6 +216,7 @@
       <DependentUpon>WzorcePlikowVideo.cs</DependentUpon>
     </Compile>
     <Compile Include="Wzorzec.cs" />
+    <Compile Include="WzorzecFactory.cs" />
     <EmbeddedResource Include="DatabaseFilm.resx">
       <DependentUpon>DatabaseFilm.cs</DependentUpon>
     </EmbeddedResource>

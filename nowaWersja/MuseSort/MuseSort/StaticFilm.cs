@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Xml;
 
 namespace MuseSort
@@ -9,10 +8,13 @@ namespace MuseSort
     partial class Film
     {
         public static List<Wzorzec> wzorceNazwy = new List<Wzorzec>();
+        private static readonly WzorzecFactory WzorzecFactory = new WzorzecFactory(WzorzecFactory.SlownikRegexowDlaFilmow);
+        private List<Wzorzec> wzorceSciezki = new List<Wzorzec>();
 
-        public static Boolean dodajWzorzec(String wzorzec, String regex)
+        public static Boolean dodajWzorzecNazwy(String wzorzec)
         {
-            Boolean sukces = sprawdzWzorzec(wzorzec);
+            return DodajWzorzec(wzorzec, wzorceNazwy);
+            /*Boolean sukces = sprawdzWzorzec(wzorzec);
 
             if (sukces)
             {
@@ -20,21 +22,24 @@ namespace MuseSort
                 wzorceNazwy.Add(nowy);
                 
             }
-            return sukces;
+            return sukces;*/
         }
 
-        public static Boolean sprawdzWzorzec(String wzorzec)
+        private static bool DodajWzorzec(string wzorzec, List<Wzorzec> lista)
         {
-            foreach (Wzorzec wzor in wzorceNazwy)
-            {
-                if (wzor.czyPasuje(wzorzec))
-                {
-                    return false;
-                }
-            }
 
+            if (!sprawdzWzorzec(wzorzec, wzorceNazwy)) return false; //Jeden z wzorców na liście rozpoznaje string jako poprawną nazwę/ścieżkę.
+            lista.Add(WzorzecFactory.GetWzorzec(wzorzec));
+            UstawieniaProgramu.getInstance().zapiszUstawienia();
             return true;
-        }//end  Boolean sprawdzWzorzec(String wzorzec)
+        }
+
+        private static Boolean sprawdzWzorzec(String wzorzec, List<Wzorzec> lista)
+        {
+            return lista.All(wzor => !wzor.czyPasuje(wzorzec));
+        }
+
+//end  Boolean sprawdzWzorzec(String wzorzec)
 
         public static void wczytajWzorceZPliku(String path)
         {
@@ -48,9 +53,10 @@ namespace MuseSort
             {
 
                 String nazwa = wzorceList.Item(i).FirstChild.InnerText;
-                String regex = wzorceList.Item(i).LastChild.InnerText;
+                dodajWzorzecNazwy(nazwa);
+                /*String regex = wzorceList.Item(i).LastChild.InnerText;
                 Wzorzec wz = new Wzorzec(regex, nazwa);
-                wzorceNazwy.Add(wz);
+                wzorceNazwy.Add(wz);*/
             }
 
 

@@ -85,10 +85,19 @@ namespace MuseSort
             logi += "Anulowano modyfikowanie tagów." + Environment.NewLine;
         }
 
+        
+
         //Generuje tagi z nazwy pliku i zapisuje w obiekcie dane
         public override void pobierzTagiZNazwy()
         {
-            //Generuje tagi z nazwy pliku i zapisuje w obiekcie dane
+            var wzorzec = wzorceNazwy.Find(w => w.czyPasuje(Nazwa));
+            if(wzorzec==null) return;
+            var dopasowanie = wzorzec.Dopasuj(Nazwa);
+            ZapiszDopasowaneDane(dopasowanie);
+
+            #region Stary kod
+
+/*//Generuje tagi z nazwy pliku i zapisuje w obiekcie dane
             //Zmienia wartość zmiennej pobranoZNazwy na true
             //Do wykonania tej metody wykorzystujemy listę wzorców z obiektu wzorceNazwy
             foreach (Wzorzec wzor in wzorceNazwy)
@@ -151,38 +160,81 @@ namespace MuseSort
                         }
                     }
                 }
+            }*/
+
+            #endregion
+
+        }
+
+        private void ZapiszDopasowaneDane(Dictionary<string, string> dopasowanie)
+        {
+            foreach (var tag in dopasowanie.Keys)
+            {
+                var wartosc = dopasowanie[tag];
+                switch (tag)
+                {
+                    case "numer":
+                        if (dane.numer == 0)
+                            dane.numer = uint.Parse(wartosc);
+                        break;
+                    case "rok":
+                        if (dane.rok == 0)
+                            dane.rok = uint.Parse(wartosc);
+                        break;
+                    case "wykonawca":
+                        if (dane.wykonawca[0] == "")
+                            dane.wykonawca[0] = wartosc;
+                        break;
+                    case "tytul":
+                        if (dane.tytul == "")
+                            dane.tytul = wartosc;
+                        break;
+                    case "album":
+                        if (dane.album == "")
+                            dane.album = wartosc;
+                        break;
+                }
             }
         }
 
         //Generuje tagi ze ścieżki do pliku i zapisuje w obiekcie dane
         //Zakładamy, że ta metoda jest wywoływana po metodzie pobierzTagiZNazwy
-        public void pobierzTagiZeSciezki()
+        public override void pobierzTagiZeSciezki()
         {
-            //narazie wyszukuje po  autor, album
-            if (!dane.czyDaneWypelnione())    //tu należy umieścić wyszukiwane informacje jeśli zostaną jakieś dodane
-            {                                 //oraz należy dodać ifa na koncu funkcji
+            var wzorzec = wzorceSciezki.Find(w => w.czyPasuje(SciezkaZrodlowa));
+            if (wzorzec == null) return;
+            var dopasowanie = wzorzec.Dopasuj(SciezkaZrodlowa);
+            ZapiszDopasowaneDane(dopasowanie);
+
+            #region Stary kod
+
+//narazie wyszukuje po  autor, album
+           /* if (!dane.czyDaneWypelnione()) //tu należy umieścić wyszukiwane informacje jeśli zostaną jakieś dodane
+            {
+                //oraz należy dodać ifa na koncu funkcji
                 Wzorzec wzr = null;
                 foreach (Wzorzec w in wzorceSciezki)
                 {
-                    if (w.czyPasuje(Nazwa))     //wybranie pasującego wzorcu
+                    if (w.czyPasuje(Nazwa)) //wybranie pasującego wzorcu
                     {
                         pobranoZeSciezki = true;
                         wzr = w;
                         break;
                     }
                 }
-                if (pobranoZeSciezki == true)      //jeśli mamy pasujący wzorzec
+                if (pobranoZeSciezki == true) //jeśli mamy pasujący wzorzec
                 {
-                    char[] wzrSep = { '<', '>' };
-                    String[] wzrSp = wzr.wzorzec.Split(wzrSep);    //podział wzorcu na elementy
-                    String[] nazwaSp = Nazwa.Split('\\');                   //podział nazwy na oczekiwane informacje
-                                                                            //zakładam że wzorzec do scieżki wygląda <Autor><Album>
-                    int nazwaLen = nazwaSp.Length;                          //a to odpowiada scieżce ...\\Autor\\Album\\plik.ext
+                    char[] wzrSep = {'<', '>'};
+                    String[] wzrSp = wzr.wzorzec.Split(wzrSep); //podział wzorcu na elementy
+                    String[] nazwaSp = Nazwa.Split('\\'); //podział nazwy na oczekiwane informacje
+                    //zakładam że wzorzec do scieżki wygląda <Autor><Album>
+                    int nazwaLen = nazwaSp.Length; //a to odpowiada scieżce ...\\Autor\\Album\\plik.ext
                     int wzrLen = wzrSp.Length;
-                    int nazwaIndex = nazwaLen - wzrLen - 1;                 //-1 ponieważ ścieżka zawiera nazwę pliku
+                    int nazwaIndex = nazwaLen - wzrLen - 1; //-1 ponieważ ścieżka zawiera nazwę pliku
                     String s = "";
-                    for (int i = 0; i < wzrSp.Length; i--)              //sprawdzenie pokolei zawartości wzorca
-                    {                                                   //wypełnienie pustych pól
+                    for (int i = 0; i < wzrSp.Length; i--) //sprawdzenie pokolei zawartości wzorca
+                    {
+                        //wypełnienie pustych pól
                         if (!(dane.wykonawca.Length > 0 && dane.wykonawca[0] != "") && s.Equals("wykonawca"))
                         {
                             dane.wykonawca = new String[1];
@@ -196,7 +248,10 @@ namespace MuseSort
                         }
                     }
                 }
-            }
+            }*/
+
+            #endregion
+
         }
 
         ///<summary>Na podstawie danych w obiekcie dane tworzy nową nazwę pliku.</summary>
