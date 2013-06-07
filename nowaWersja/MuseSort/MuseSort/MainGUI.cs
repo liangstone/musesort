@@ -624,5 +624,15 @@ namespace MuseSort
             new Samouczek().ShowDialog();
         }
 
+        private void MainGUI_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void folderLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

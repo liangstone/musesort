@@ -89,7 +89,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1479, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1208, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -154,7 +154,7 @@
             this.drzewoFolderow.Location = new System.Drawing.Point(16, 115);
             this.drzewoFolderow.Margin = new System.Windows.Forms.Padding(4);
             this.drzewoFolderow.Name = "drzewoFolderow";
-            this.drzewoFolderow.Size = new System.Drawing.Size(378, 449);
+            this.drzewoFolderow.Size = new System.Drawing.Size(282, 380);
             this.drzewoFolderow.TabIndex = 1;
             // 
             // statusStrip1
@@ -163,10 +163,10 @@
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2,
             this.toolStripProgressBar1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 724);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 673);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1479, 26);
+            this.statusStrip1.Size = new System.Drawing.Size(1208, 26);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -191,10 +191,10 @@
             // 
             this.pictureBox1.Image = global::MuseSort.Properties.Resources.logo1;
             this.pictureBox1.InitialImage = global::MuseSort.Properties.Resources.logo1;
-            this.pictureBox1.Location = new System.Drawing.Point(1333, 32);
+            this.pictureBox1.Location = new System.Drawing.Point(1032, 115);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(146, 152);
+            this.pictureBox1.Size = new System.Drawing.Size(147, 162);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -207,10 +207,10 @@
             this.rozszerzenie,
             this.rozmiar});
             this.aktualnyFolder.Font = new System.Drawing.Font("Lucida Bright", 10.8F);
-            this.aktualnyFolder.Location = new System.Drawing.Point(426, 115);
+            this.aktualnyFolder.Location = new System.Drawing.Point(329, 115);
             this.aktualnyFolder.Margin = new System.Windows.Forms.Padding(4);
             this.aktualnyFolder.Name = "aktualnyFolder";
-            this.aktualnyFolder.Size = new System.Drawing.Size(879, 449);
+            this.aktualnyFolder.Size = new System.Drawing.Size(666, 380);
             this.aktualnyFolder.TabIndex = 5;
             this.aktualnyFolder.UseCompatibleStateImageBehavior = false;
             this.aktualnyFolder.View = System.Windows.Forms.View.Details;
@@ -240,7 +240,7 @@
             this.dodajPanel.Controls.Add(this.label2);
             this.dodajPanel.Controls.Add(this.sourceFolderTextBox);
             this.dodajPanel.Controls.Add(this.label1);
-            this.dodajPanel.Location = new System.Drawing.Point(16, 574);
+            this.dodajPanel.Location = new System.Drawing.Point(12, 504);
             this.dodajPanel.Margin = new System.Windows.Forms.Padding(4);
             this.dodajPanel.Name = "dodajPanel";
             this.dodajPanel.Size = new System.Drawing.Size(1007, 165);
@@ -334,17 +334,17 @@
             this.niestandardoweSortowaniePanel.Controls.Add(this.sortowanieNiestandardoweListBox);
             this.niestandardoweSortowaniePanel.Controls.Add(this.label4);
             this.niestandardoweSortowaniePanel.Controls.Add(this.label3);
-            this.niestandardoweSortowaniePanel.Location = new System.Drawing.Point(0, 571);
+            this.niestandardoweSortowaniePanel.Location = new System.Drawing.Point(12, 517);
             this.niestandardoweSortowaniePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.niestandardoweSortowaniePanel.Name = "niestandardoweSortowaniePanel";
-            this.niestandardoweSortowaniePanel.Size = new System.Drawing.Size(1305, 146);
+            this.niestandardoweSortowaniePanel.Size = new System.Drawing.Size(1194, 146);
             this.niestandardoweSortowaniePanel.TabIndex = 7;
             this.niestandardoweSortowaniePanel.Visible = false;
             // 
             // sortujNiestandardowoButton
             // 
             this.sortujNiestandardowoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.sortujNiestandardowoButton.Location = new System.Drawing.Point(1131, 82);
+            this.sortujNiestandardowoButton.Location = new System.Drawing.Point(1025, 86);
             this.sortujNiestandardowoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sortujNiestandardowoButton.Name = "sortujNiestandardowoButton";
             this.sortujNiestandardowoButton.Size = new System.Drawing.Size(160, 39);
@@ -421,19 +421,19 @@
             this.logiTextBox.BackColor = System.Drawing.Color.DodgerBlue;
             this.logiTextBox.Font = new System.Drawing.Font("Lucida Bright", 10.8F);
             this.logiTextBox.ForeColor = System.Drawing.Color.Navy;
-            this.logiTextBox.Location = new System.Drawing.Point(1333, 192);
+            this.logiTextBox.Location = new System.Drawing.Point(1032, 285);
             this.logiTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.logiTextBox.Multiline = true;
             this.logiTextBox.Name = "logiTextBox";
-            this.logiTextBox.Size = new System.Drawing.Size(145, 372);
+            this.logiTextBox.Size = new System.Drawing.Size(147, 210);
             this.logiTextBox.TabIndex = 8;
             // 
             // otworzBibliotekeButton
             // 
             this.otworzBibliotekeButton.BackColor = System.Drawing.Color.MediumBlue;
-            this.otworzBibliotekeButton.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.otworzBibliotekeButton.Font = new System.Drawing.Font("Modern No. 20", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.otworzBibliotekeButton.ForeColor = System.Drawing.Color.White;
-            this.otworzBibliotekeButton.Location = new System.Drawing.Point(1198, 42);
+            this.otworzBibliotekeButton.Location = new System.Drawing.Point(1081, 42);
             this.otworzBibliotekeButton.Name = "otworzBibliotekeButton";
             this.otworzBibliotekeButton.Size = new System.Drawing.Size(99, 55);
             this.otworzBibliotekeButton.TabIndex = 24;
@@ -444,9 +444,9 @@
             // dodajPlikDoBiblitekiButton
             // 
             this.dodajPlikDoBiblitekiButton.BackColor = System.Drawing.Color.MediumBlue;
-            this.dodajPlikDoBiblitekiButton.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dodajPlikDoBiblitekiButton.Font = new System.Drawing.Font("Modern No. 20", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dodajPlikDoBiblitekiButton.ForeColor = System.Drawing.Color.White;
-            this.dodajPlikDoBiblitekiButton.Location = new System.Drawing.Point(1052, 42);
+            this.dodajPlikDoBiblitekiButton.Location = new System.Drawing.Point(950, 42);
             this.dodajPlikDoBiblitekiButton.Name = "dodajPlikDoBiblitekiButton";
             this.dodajPlikDoBiblitekiButton.Size = new System.Drawing.Size(125, 55);
             this.dodajPlikDoBiblitekiButton.TabIndex = 23;
@@ -457,9 +457,9 @@
             // sortowanieNiestanradoweButton
             // 
             this.sortowanieNiestanradoweButton.BackColor = System.Drawing.Color.RoyalBlue;
-            this.sortowanieNiestanradoweButton.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sortowanieNiestanradoweButton.Font = new System.Drawing.Font("Modern No. 20", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sortowanieNiestanradoweButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.sortowanieNiestanradoweButton.Location = new System.Drawing.Point(845, 42);
+            this.sortowanieNiestanradoweButton.Location = new System.Drawing.Point(768, 42);
             this.sortowanieNiestanradoweButton.Name = "sortowanieNiestanradoweButton";
             this.sortowanieNiestanradoweButton.Size = new System.Drawing.Size(144, 55);
             this.sortowanieNiestanradoweButton.TabIndex = 22;
@@ -470,8 +470,8 @@
             // pokazSzczegolyPlikuButton
             // 
             this.pokazSzczegolyPlikuButton.BackColor = System.Drawing.SystemColors.Highlight;
-            this.pokazSzczegolyPlikuButton.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pokazSzczegolyPlikuButton.Location = new System.Drawing.Point(481, 42);
+            this.pokazSzczegolyPlikuButton.Font = new System.Drawing.Font("Modern No. 20", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pokazSzczegolyPlikuButton.Location = new System.Drawing.Point(433, 42);
             this.pokazSzczegolyPlikuButton.Name = "pokazSzczegolyPlikuButton";
             this.pokazSzczegolyPlikuButton.Size = new System.Drawing.Size(148, 55);
             this.pokazSzczegolyPlikuButton.TabIndex = 21;
@@ -482,9 +482,9 @@
             // sortujPlikiButton
             // 
             this.sortujPlikiButton.BackColor = System.Drawing.Color.RoyalBlue;
-            this.sortujPlikiButton.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sortujPlikiButton.Font = new System.Drawing.Font("Modern No. 20", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sortujPlikiButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.sortujPlikiButton.Location = new System.Drawing.Point(710, 42);
+            this.sortujPlikiButton.Location = new System.Drawing.Point(633, 42);
             this.sortujPlikiButton.Name = "sortujPlikiButton";
             this.sortujPlikiButton.Size = new System.Drawing.Size(129, 55);
             this.sortujPlikiButton.TabIndex = 20;
@@ -495,7 +495,7 @@
             // dodajPiosenkiDoFoldeuButton
             // 
             this.dodajPiosenkiDoFoldeuButton.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.dodajPiosenkiDoFoldeuButton.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dodajPiosenkiDoFoldeuButton.Font = new System.Drawing.Font("Modern No. 20", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dodajPiosenkiDoFoldeuButton.Location = new System.Drawing.Point(282, 42);
             this.dodajPiosenkiDoFoldeuButton.Name = "dodajPiosenkiDoFoldeuButton";
             this.dodajPiosenkiDoFoldeuButton.Size = new System.Drawing.Size(112, 55);
@@ -507,7 +507,7 @@
             // dodajPlikDoGlownegoFolderuButton
             // 
             this.dodajPlikDoGlownegoFolderuButton.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.dodajPlikDoGlownegoFolderuButton.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dodajPlikDoGlownegoFolderuButton.Font = new System.Drawing.Font("Modern No. 20", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dodajPlikDoGlownegoFolderuButton.Location = new System.Drawing.Point(123, 42);
             this.dodajPlikDoGlownegoFolderuButton.Name = "dodajPlikDoGlownegoFolderuButton";
             this.dodajPlikDoGlownegoFolderuButton.Size = new System.Drawing.Size(153, 55);
@@ -519,7 +519,7 @@
             // modyfikujTagiButton
             // 
             this.modyfikujTagiButton.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.modyfikujTagiButton.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modyfikujTagiButton.Font = new System.Drawing.Font("Modern No. 20", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.modyfikujTagiButton.Location = new System.Drawing.Point(7, 42);
             this.modyfikujTagiButton.Name = "modyfikujTagiButton";
             this.modyfikujTagiButton.Size = new System.Drawing.Size(105, 55);
@@ -530,27 +530,26 @@
             // 
             // drzewoLabel
             // 
-            this.drzewoLabel.AutoSize = true;
             this.drzewoLabel.BackColor = System.Drawing.Color.LightSteelBlue;
             this.drzewoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.drzewoLabel.ForeColor = System.Drawing.Color.Black;
-            this.drzewoLabel.Location = new System.Drawing.Point(111, 124);
+            this.drzewoLabel.Location = new System.Drawing.Point(142, 125);
             this.drzewoLabel.Name = "drzewoLabel";
-            this.drzewoLabel.Size = new System.Drawing.Size(270, 17);
+            this.drzewoLabel.Size = new System.Drawing.Size(156, 47);
             this.drzewoLabel.TabIndex = 25;
             this.drzewoLabel.Text = "Tu wyświetlane jest drzewo folderów";
             // 
             // folderLabel
             // 
-            this.folderLabel.AutoSize = true;
             this.folderLabel.BackColor = System.Drawing.Color.LightSteelBlue;
             this.folderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.folderLabel.ForeColor = System.Drawing.Color.Black;
-            this.folderLabel.Location = new System.Drawing.Point(920, 154);
+            this.folderLabel.Location = new System.Drawing.Point(844, 151);
             this.folderLabel.Name = "folderLabel";
-            this.folderLabel.Size = new System.Drawing.Size(371, 17);
+            this.folderLabel.Size = new System.Drawing.Size(138, 78);
             this.folderLabel.TabIndex = 26;
             this.folderLabel.Text = "Tu widoczna jest zawartość zaznaczonego folderu";
+            this.folderLabel.Click += new System.EventHandler(this.folderLabel_Click);
             // 
             // MainGUI
             // 
@@ -558,7 +557,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::MuseSort.Properties.Resources.tlo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1479, 750);
+            this.ClientSize = new System.Drawing.Size(1208, 699);
             this.Controls.Add(this.folderLabel);
             this.Controls.Add(this.drzewoLabel);
             this.Controls.Add(this.otworzBibliotekeButton);
@@ -582,6 +581,7 @@
             this.MaximizeBox = false;
             this.Name = "MainGUI";
             this.Text = "MuseSort";
+            this.Load += new System.EventHandler(this.MainGUI_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
