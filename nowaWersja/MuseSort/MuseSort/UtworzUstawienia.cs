@@ -11,7 +11,7 @@ namespace MuseSort
 {
     public partial class UtworzUstawienia : Form
     {
-
+        //do ponownego merga
         String visiblePanel;
         List<IComponent> rozszerzenia;
         public UtworzUstawienia()

@@ -2,6 +2,7 @@
 {
     partial class SzczegolyFilmu
     {
+        //do ponownego merga
         /// <summary>
         /// Required designer variable.
         /// </summary>

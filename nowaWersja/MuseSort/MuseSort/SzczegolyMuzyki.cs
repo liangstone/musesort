@@ -16,6 +16,7 @@ namespace MuseSort
 {
     public partial class SzczegolyMuzyki : Form
     {
+        //do ponownego merga
         public SzczegolyMuzyki(String x)
         {
             InitializeComponent();

@@ -2,6 +2,7 @@
 {
     partial class FilmNowyWzorzecNazwy
     {
+        //do ponownego merga
         /// <summary>
         /// Required designer variable.
         /// </summary>

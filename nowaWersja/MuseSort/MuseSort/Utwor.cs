@@ -7,6 +7,7 @@ namespace MuseSort
 {
     partial class Utwor : Plik
     {
+        //do ponownego merga
         #region atrybuty klasy
         public DaneUtworu dane;
 

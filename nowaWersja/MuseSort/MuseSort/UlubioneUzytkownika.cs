@@ -8,6 +8,7 @@ namespace MuseSort
     [Serializable()]
     public class UlubioneUzytkownika
     {
+        //do ponownego merga
         public List<string> filmy;
         public List<string> seriale;
         public List<string> muzyka;

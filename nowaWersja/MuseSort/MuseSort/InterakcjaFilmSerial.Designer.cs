@@ -2,6 +2,7 @@
 {
     partial class InterakcjaFilmSerial
     {
+        //do ponownego merga
         /// <summary>
         /// Required designer variable.
         /// </summary>
