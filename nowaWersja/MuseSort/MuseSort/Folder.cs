@@ -29,27 +29,23 @@ namespace MuseSort
 
         #region PUBLICZNE METODY KLASY
 
-        //Tworzenie powiązania folderu z obiektem
+        /// <summary>Tworzy nowy obiekt Folder odpowiadający danemu katalogowi.</summary>
+        /// <exception cref="DirectoryNotFoundException">Rzucane jeśli podany folder nie istnieje.</exception>
+        /// <param name="path">Ścieżka katalogu</param>
         public Folder(String path)
         {
+            if (!File.Exists(path))
+                throw new DirectoryNotFoundException(path);
             xml = new FolderXML(path);
             sciezka = path;
             logi = "";
-            if (xml.analizuj())
-            {
-                schemat = xml.schemat;
-            }
-            else
-            {
-                schemat = "";
-            }
+            schemat = xml.analizuj() ? xml.schemat : "";
         }
 
         //Analizowanie folderu pod względem wcześniejszego sortowania, obecności wymaganych obiektów oraz zgodności struktury logicznej zapisanej w pliku XML
         public Boolean analizuj()
         {
-            Boolean result = xml.analizuj();
-            return result;
+            return xml.analizuj();
         }
 
         //Ustalanie schematu sortowania folderu

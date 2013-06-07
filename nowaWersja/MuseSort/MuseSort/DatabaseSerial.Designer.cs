@@ -38,9 +38,6 @@
             this.usunButton = new System.Windows.Forms.Button();
             this.serialePanel = new System.Windows.Forms.Panel();
             this.tabela = new System.Windows.Forms.DataGridView();
-            this.Tytuł = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rok = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Produkcja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serialePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabela)).BeginInit();
             this.SuspendLayout();
@@ -152,38 +149,22 @@
             // 
             this.serialePanel.BackColor = System.Drawing.Color.Transparent;
             this.serialePanel.Controls.Add(this.tabela);
-            this.serialePanel.Location = new System.Drawing.Point(52, 208);
+            this.serialePanel.Location = new System.Drawing.Point(0, 163);
             this.serialePanel.Name = "serialePanel";
-            this.serialePanel.Size = new System.Drawing.Size(640, 268);
+            this.serialePanel.Size = new System.Drawing.Size(785, 354);
             this.serialePanel.TabIndex = 13;
             // 
             // tabela
             // 
+            this.tabela.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tabela.BackgroundColor = System.Drawing.SystemColors.Highlight;
             this.tabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tabela.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Tytuł,
-            this.rok,
-            this.Produkcja});
-            this.tabela.Location = new System.Drawing.Point(131, 58);
+            this.tabela.GridColor = System.Drawing.SystemColors.Highlight;
+            this.tabela.Location = new System.Drawing.Point(3, 3);
             this.tabela.Name = "tabela";
             this.tabela.RowTemplate.Height = 24;
-            this.tabela.Size = new System.Drawing.Size(379, 152);
+            this.tabela.Size = new System.Drawing.Size(747, 331);
             this.tabela.TabIndex = 1;
-            // 
-            // Tytuł
-            // 
-            this.Tytuł.HeaderText = "Column1";
-            this.Tytuł.Name = "Tytuł";
-            // 
-            // rok
-            // 
-            this.rok.HeaderText = "Column1";
-            this.rok.Name = "rok";
-            // 
-            // Produkcja
-            // 
-            this.Produkcja.HeaderText = "Column1";
-            this.Produkcja.Name = "Produkcja";
             // 
             // DatabaseSerial
             // 
@@ -222,8 +203,5 @@
         private System.Windows.Forms.Button usunButton;
         private System.Windows.Forms.Panel serialePanel;
         private System.Windows.Forms.DataGridView tabela;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tytuł;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rok;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Produkcja;
     }
 }
