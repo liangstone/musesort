@@ -25,15 +25,12 @@ namespace MuseSortTesting
             Assert.AreEqual("BlindGuardian", utwor.dane.wykonawca[0], "Wykonawca się nie zgadza.");
         }
 
-        [TestInitialize]
-        public void SetUp()
-        {
-            UstawieniaProgramu.getInstance().wczytajUstawienia();
-        }
-
         [TestMethod]
         public void PobierzDaneZNazwy()
         {
+            const string wzorzecTestowy = "<numer> <wykonawca>-<tytul>";
+            if (Utwor.wzorceNazwy.Find(wzorzec => wzorzec.wzorzec == wzorzecTestowy)==null)
+                Utwor.dodajWzorzecNazwy(wzorzecTestowy);
             var utwor =
                 new Utwor(SetAbsolutePath(@"muzyka\BlindGuardian\ANightAtTheOpera\") +
                           "07 Kristin Chenoweth-Popular.mp3")
