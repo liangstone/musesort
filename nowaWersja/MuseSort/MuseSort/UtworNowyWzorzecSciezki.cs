@@ -50,7 +50,7 @@ namespace MuseSort
 
         private void saveAndCloseButton_Click(object sender, EventArgs e)
         {
-            String regex = wzorzecTextBox.Text;
+            /*String regex = wzorzecTextBox.Text;
             regex = regex.Replace("[", @"\[");
             regex = regex.Replace("]", @"\]");
             regex = regex.Replace("{", @"\{");
@@ -66,9 +66,10 @@ namespace MuseSort
             regex = regex.Replace("<rok>", @"[\d]{4}");
             regex = regex = "^" + regex + "$";
             Regex rx = new Regex(regex);
-            Utwor.dodajWzorzec(wzorzecTextBox.Text, regex, "wzorceSciezki");
+            Utwor.dodajWzorzec(wzorzecTextBox.Text, regex, "wzorceSciezki");*/
+            Utwor.dodajWzorzecSciezki(wzorzecTextBox.Text);
             UstawieniaProgramu.getInstance().zapiszUstawienia();
-            this.Dispose();
+            Dispose();
         }
 
         private void anulujButton_Click(object sender, EventArgs e)

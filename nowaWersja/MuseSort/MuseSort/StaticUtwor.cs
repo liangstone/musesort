@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Xml;
 
 namespace MuseSort
@@ -10,49 +9,14 @@ namespace MuseSort
     {
         public static List<Wzorzec> wzorceNazwy = new List<Wzorzec>();
         public static List<Wzorzec> wzorceSciezki = new List<Wzorzec>();
+        private static readonly WzorzecFactory WzorzecFactory = new WzorzecFactory(WzorzecFactory.SlownikRegexowDlaUtowrow);
 
-        public static Boolean dodajWzorzec(String wzorzec, String regex, String rodzaj)
+        private static Boolean SprawdzWzorzec(String wzorzec, List<Wzorzec> wzorce)
         {
-            Boolean sukces = sprawdzWzorzec(wzorzec, rodzaj);
-
-            if (sukces)
-            {
-                Wzorzec nowy = new Wzorzec(regex, wzorzec);
-                if (rodzaj == "wzorceNazwy")
-                {
-                    wzorceNazwy.Add(nowy);
-                }
-                else if (rodzaj == "wzorceSciezki")
-                {
-                    wzorceSciezki.Add(nowy);
-                }
-            }
-
-            return sukces;
+            return wzorce.All(wzorzecNaLiscie => !wzorzecNaLiscie.czyPasuje(wzorzec));
         }
 
-        public static Boolean sprawdzWzorzec(String wzorzec, String rodzaj)
-        {
-            List<Wzorzec> wzorce;
-            if (rodzaj == "WzorceNazwy")
-            {
-                wzorce = wzorceNazwy;
-            }
-            else
-            {
-                wzorce = wzorceSciezki;
-            }
-
-            foreach (Wzorzec wzor in wzorce)
-            {
-                if (wzor.czyPasuje(wzorzec))
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }//end  Boolean sprawdzWzorzec(String wzorzec, String rodzaj)
+//end  Boolean sprawdzWzorzec(String wzorzec, String rodzaj)
 
         public static void wczytajWzorceZPliku(String path)
         {
@@ -65,9 +29,10 @@ namespace MuseSort
             {
                 
                 String nazwa = wzorceList.Item(i).FirstChild.InnerText;
-                String regex = wzorceList.Item(i).LastChild.InnerText;
+                dodajWzorzecNazwy(nazwa);
+                /*String regex = wzorceList.Item(i).LastChild.InnerText;
                 Wzorzec wz = new Wzorzec(regex, nazwa);
-                wzorceNazwy.Add(wz);
+                wzorceNazwy.Add(wz);*/
             }
 
             wzorceList = plikXML.GetElementsByTagName("utworWzorzecSciezki");
@@ -75,12 +40,31 @@ namespace MuseSort
             {
 
                 String nazwa = wzorceList.Item(i).FirstChild.InnerText;
-                String regex = wzorceList.Item(i).LastChild.InnerText;
+                dodajWzorzecSciezki(nazwa);
+                /*String regex = wzorceList.Item(i).LastChild.InnerText;
                 Wzorzec wz = new Wzorzec(regex, nazwa);
-                wzorceSciezki.Add(wz);
+                wzorceSciezki.Add(wz);*/
             }
 
         }//end void wczytajWzorceZPliku(String path)
 
+        public static bool dodajWzorzecNazwy(string wzorzec)
+        {
+            return DodajWzorzec(wzorzec, wzorceNazwy);
+        }
+
+        public static bool dodajWzorzecSciezki(string wzorzec)
+        {
+            return DodajWzorzec(wzorzec, wzorceSciezki);
+        }
+
+        private static bool DodajWzorzec(string wzorzec, List<Wzorzec> lista)
+        {
+            if (!SprawdzWzorzec(wzorzec, lista)) return false; //Jeden z wzorców na liście rozpoznaje string jako poprawną nazwę/ścieżkę.
+            lista.Add(WzorzecFactory.GetWzorzec(wzorzec));
+            UstawieniaProgramu.getInstance().zapiszUstawienia();
+            return true;
+            
+        }
     }
 }

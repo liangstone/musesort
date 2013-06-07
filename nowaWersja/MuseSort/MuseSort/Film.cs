@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -61,17 +62,39 @@ namespace MuseSort
 
         public override void pobierzTagiZNazwy()
         {
-            //Generuje tagi z nazwy pliku i zapisuje w obiekcie dane
-            //Zmienia wartość zmiennej pobranoZNazwy na true
-            //Do wykonania tej metody wykorzystujemy listę wzorców z obiektu wzorceNazwy
-            foreach (Wzorzec wzor in wzorceNazwy)
+            var wzorzec = wzorceNazwy.Find(w => w.czyPasuje(Nazwa));
+            if (wzorzec == null) return;
+            var dopasowanie = wzorzec.Dopasuj(Nazwa);
+            ZapiszDopasowaneDane(dopasowanie);
+
+
+        }
+
+        private void ZapiszDopasowaneDane(Dictionary<string, string> dopasowanie)
+        {
+            foreach (var tag in dopasowanie.Keys)
             {
-                if (wzor.czyPasuje(Nazwa))
+                var wartosc = dopasowanie[tag];
+                switch (tag)
                 {
-                    pobranoZNazwy = true;
+                    case "rok":
+                        if (dane.rok == 0)
+                            dane.rok = uint.Parse(wartosc);
+                        break;
+                    case "tytul":
+                        if (dane.tytul == "")
+                            dane.tytul = wartosc;
+                        break;
+                    case "dyrektor":
+                        if (dane.dyrektorzy[0] == "")
+                            dane.dyrektorzy[0] = wartosc;
+                        break;
+                    case "gatunek":
+                        if (dane.gatunki[0] == "")
+                            dane.gatunki[0] = wartosc;
+                        break;
                 }
             }
-            pobranoZNazwy = false;
         }
 
         //Na podstawie danych w obiekcie dane tworzy nową nazwę pliku
