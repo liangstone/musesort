@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace MuseSort
 {
-    class FolderXML
+    public class FolderXML
     {
         //do ponownego merga
         String sciezka;

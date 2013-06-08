@@ -345,16 +345,26 @@ namespace MuseSort
                 if (rozszerzeniePliku.Equals(".mkv") || rozszerzeniePliku.Equals(".mov") || rozszerzeniePliku.Equals(".avi"))
                 {
                     sciezka = Path.GetFileNameWithoutExtension(sciezka);
-                   
+                    try
+                    {
                         new SzczegolyFilmu(sciezka).ShowDialog();
-                    
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Blad! Sprawdz polaczenie z Internetem!" + Environment.NewLine + ex.Message);
+                    }
                 }
                 else
                 {
-                   
+                    try
+                    {
 
                         new SzczegolyMuzyki(sciezka).ShowDialog();
-                   
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Blad! Sprawdz polaczenie z Internetem!" + Environment.NewLine + ex.Message);
+                    }
                 }
             }
         }//end private void SzczegolyPliku_Click(object sender, EventArgs e)
@@ -410,6 +420,208 @@ namespace MuseSort
         {
             WzorcePlikowAudio okno = new WzorcePlikowAudio();
             okno.Show();
+        }
+
+        private void modyfikujTagiButton_Click(object sender, EventArgs e)
+        {
+            niestandardoweSortowaniePanel.Visible = false;
+            if (drzewoFolderow.SelectedNode == null || aktualnyFolder.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Nie został wybrany plik do otwarcia!");
+                return;
+            }
+            String sciezka = drzewoFolderow.SelectedNode.Name + "\\" + aktualnyFolder.SelectedItems[0].Text;
+            if (System.IO.File.Exists(sciezka))
+            {
+                new EdycjaPliku(sciezka).ShowDialog();
+            }
+        }
+
+        private void dodajPlikDoGlownegoFolderuButton_Click(object sender, EventArgs e)
+        {
+            niestandardoweSortowaniePanel.Visible = false;
+            if (folderGlowny == null || folderGlowny.Sciezka == "")
+            {
+                MessageBox.Show("Nie został ustawiony folder główny!");
+                return;
+            }
+
+            if (drzewoFolderow.SelectedNode == null || aktualnyFolder.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Nie został wybrany folder do dodania!");
+                return;
+            }
+            String sciezka = drzewoFolderow.SelectedNode.Name + "\\" + aktualnyFolder.SelectedItems[0].Text;
+
+            if (sciezka == folderGlowny.Sciezka)
+            {
+                MessageBox.Show("Próba dodania folderu głównego do folderu głównego!");
+                return;
+            }
+
+            if (System.IO.Directory.Exists(sciezka))
+            {
+                Folder temp = new Folder(sciezka);
+                if (temp.analizuj())
+                {
+                    folderGlowny.dodajFolder(sciezka);
+                    logiTextBox.Text += folderGlowny.logi;
+                }
+                else
+                {
+                    MessageBox.Show("Folder nie został posortowany!");
+                    return;
+                }
+            }
+        }
+
+        private void dodajPiosenkiDoFoldeuButton_Click(object sender, EventArgs e)
+        {
+            niestandardoweSortowaniePanel.Visible = false;
+            dodajPanel.Visible = true;
+        }
+
+        private void pokazSzczegolyPlikuButton_Click(object sender, EventArgs e)
+        {
+            //sprawdzam, czy plik jest zaznaczony przez uzytkownika
+            if (drzewoFolderow.SelectedNode == null || aktualnyFolder.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Nie został wybrany plik do otwarcia!");
+                return;
+            }
+
+            //sciezka pliku
+            String sciezka = drzewoFolderow.SelectedNode.Name + "\\" + aktualnyFolder.SelectedItems[0].Text;
+            //MessageBox.Show(Path.GetExtension(sciezka));
+
+            if (System.IO.File.Exists(sciezka))
+            {
+                //rozszerzenie pliku
+                String rozszerzeniePliku = Path.GetExtension(sciezka);
+                //sprawdzamy czy plik jest filmowy, czy tez muzyczny i wlaczamy odpowiednie okno
+                if (rozszerzeniePliku.Equals(".mkv") || rozszerzeniePliku.Equals(".mov") || rozszerzeniePliku.Equals(".avi"))
+                {
+                    sciezka = Path.GetFileNameWithoutExtension(sciezka);
+
+                    new SzczegolyFilmu(sciezka).ShowDialog();
+
+                }
+                else
+                {
+
+
+                    new SzczegolyMuzyki(sciezka).ShowDialog();
+
+                }
+            }
+        }
+
+        private void sortujPlikiButton_Click(object sender, EventArgs e)
+        {
+            niestandardoweSortowaniePanel.Visible = false;
+            if (drzewoFolderow.SelectedNode == null || aktualnyFolder.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Nie został wybrany folder do posortowania!");
+                return;
+            }
+            String sciezka = drzewoFolderow.SelectedNode.Name + "\\" + aktualnyFolder.SelectedItems[0].Text;
+            if (System.IO.Directory.Exists(sciezka))
+            {
+                Folder folder = new Folder(sciezka);
+                folder.ustalSchemat(@"Wykonawca\Album\Piosenki");
+                folder.progressBar2 = toolStripProgressBar1.ProgressBar;
+                folder.sortuj(UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio);
+                logiTextBox.Text += folder.logi;
+            }
+        }
+
+        private void sortowanieNiestanradoweButton_Click(object sender, EventArgs e)
+        {
+            niestandardoweSortowaniePanel.Visible = true;
+        }
+
+        private void dodajPlikDoBiblitekiButton_Click(object sender, EventArgs e)
+        {
+            //sprawdzam, czy plik jest zaznaczony przez uzytkownika
+            if (drzewoFolderow.SelectedNode == null || aktualnyFolder.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Nie został wybrany plik do otwarcia!");
+                return;
+            }
+
+            //sciezka pliku
+            String sciezka = drzewoFolderow.SelectedNode.Name + "\\" + aktualnyFolder.SelectedItems[0].Text;
+            //MessageBox.Show(Path.GetExtension(sciezka));
+
+            if (System.IO.File.Exists(sciezka))
+            {
+                //rozszerzenie pliku
+                String rozszerzeniePliku = Path.GetExtension(sciezka);
+                //sprawdzamy czy plik jest filmowy, czy tez muzyczny i wlaczamy odpowiednie okno
+                if (rozszerzeniePliku.Equals(".mkv") || rozszerzeniePliku.Equals(".mov") || rozszerzeniePliku.Equals(".avi"))
+                {
+                    new InterakcjaFilmSerial(sciezka).ShowDialog();
+                }
+                else
+                {
+                    Utwor x = new Utwor(sciezka);
+                    String album = "";
+                    album = x.dane.album;
+                    String[] wykonawca = { "" };
+                    wykonawca = x.dane.wykonawca;
+                    uint rok = x.dane.rok;
+                    String tytul = "";
+                    tytul = x.dane.tytul;
+                    String[] gatunek = { "" };
+                    gatunek = x.dane.gatunek;
+                    string connectionString = @"Data Source=|DataDirectory|\MyDatabase#1.sdf; Password = Projekt&4";
+                    SqlCeConnection conn;
+                    conn = new SqlCeConnection(connectionString);
+                    conn.Open();
+                    try
+                    {
+                        SqlCeCommand Query = new SqlCeCommand("INSERT INTO Muzyka " +
+                                    "(Wykonawca, Tytul, Album, Rok, Gatunek, Sciezka) " +
+                                    "VALUES (@Wykonawca, @Tytul, @Album, @Rok, @Gatunek, @Sciezka)", conn);
+
+                        Query.Parameters.AddWithValue("@Wykonawca", wykonawca[0]);
+                        Query.Parameters.AddWithValue("@Tytul", tytul);
+                        Query.Parameters.AddWithValue("@Album", album);
+                        Query.Parameters.AddWithValue("@Rok", rok);
+                        Query.Parameters.AddWithValue("@Gatunek", gatunek[0]);
+                        Query.Parameters.AddWithValue("@Sciezka", sciezka);
+                        Query.ExecuteNonQuery();
+                        MessageBox.Show("Dodano do biblioteki muzycznej");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Wysypalo sie");
+                        MessageBox.Show(ex.Message);
+                    }
+                    conn.Close();
+
+                }
+            }
+        }
+
+        private void otworzBibliotekeButton_Click(object sender, EventArgs e)
+        {
+            new DatabaseStart().ShowDialog();
+        }
+
+        private void samouczekToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Samouczek().ShowDialog();
+        }
+
+        private void MainGUI_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void folderLabel_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.IO;
 
 namespace MuseSort
 {
-    partial class Utwor : Plik
+    public partial class Utwor : Plik
     {
         //do ponownego merga
         #region atrybuty klasy
@@ -21,28 +20,32 @@ namespace MuseSort
         #region publiczne metody klas
         //#############################PUBLICZNE METODY KLASY############################################
 
-        //Konstruktor standardowy
-        public Utwor()
-        {
-            dane = new DaneUtworu();
-            tagi = null;
-            stareTagi = null;
-        }
 
-        //Konstruktor dowolnego pliku
+        /// <summary>Tworzy obiekt Utwór odpowiedający danemu plikowi muzycznemu.</summary>
+        /// <param name="path">Ścieżka pliku.</param>
+        /// <exception cref="FileNotFoundException">Rzucane jeśli podany plik nie istnieje</exception>
         public Utwor(String path)
         {
+            if(!File.Exists(path))
+                throw new FileNotFoundException(path);
             Sciezka = SciezkaZrodlowa = path;
-            Nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
+            Nazwa = Path.GetFileNameWithoutExtension(path);
             dane = new DaneUtworu();
             tagi = TagLib.File.Create(path);
             stareTagi = TagLib.File.Create(path);
             pobierzTagi();
         }
 
-        //Konstruktor dla pliku, który został skopiowany w ramach działania programu
+        /// <summary>Konstruktor dla pliku, który został skopiowany w ramach działania programu</summary>
+        /// <param name="path">Ścieżka pliku skopiowanego</param>
+        /// <param name="source">Ścieżka pliku oryginalnego</param>
+        /// <exception cref="FileNotFoundException">Rzucane jeśli któryś z podanych plików nie istnieje</exception>
         public Utwor(String path, String source)
         {
+            if (!File.Exists(path))
+                throw new FileNotFoundException(path);
+            if(!File.Exists(source))
+                throw new FileNotFoundException(source);
             SciezkaZrodlowa = source;
             Sciezka = path;
             Nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
@@ -94,7 +97,7 @@ namespace MuseSort
             var wzorzec = wzorceNazwy.Find(w => w.czyPasuje(Nazwa));
             if(wzorzec==null) return;
             var dopasowanie = wzorzec.Dopasuj(Nazwa);
-            ZapiszDopasowaneDane(dopasowanie);
+            dane.ZapiszDopasowaneDane(dopasowanie);
 
             #region Stary kod
 
@@ -167,37 +170,6 @@ namespace MuseSort
 
         }
 
-        private void ZapiszDopasowaneDane(Dictionary<string, string> dopasowanie)
-        {
-            foreach (var tag in dopasowanie.Keys)
-            {
-                var wartosc = dopasowanie[tag];
-                switch (tag)
-                {
-                    case "numer":
-                        if (dane.numer == 0)
-                            dane.numer = uint.Parse(wartosc);
-                        break;
-                    case "rok":
-                        if (dane.rok == 0)
-                            dane.rok = uint.Parse(wartosc);
-                        break;
-                    case "wykonawca":
-                        if (dane.wykonawca[0] == "")
-                            dane.wykonawca[0] = wartosc;
-                        break;
-                    case "tytul":
-                        if (dane.tytul == "")
-                            dane.tytul = wartosc;
-                        break;
-                    case "album":
-                        if (dane.album == "")
-                            dane.album = wartosc;
-                        break;
-                }
-            }
-        }
-
         //Generuje tagi ze ścieżki do pliku i zapisuje w obiekcie dane
         //Zakładamy, że ta metoda jest wywoływana po metodzie pobierzTagiZNazwy
         public override void pobierzTagiZeSciezki()
@@ -205,7 +177,7 @@ namespace MuseSort
             var wzorzec = wzorceSciezki.Find(w => w.czyPasuje(SciezkaZrodlowa));
             if (wzorzec == null) return;
             var dopasowanie = wzorzec.Dopasuj(SciezkaZrodlowa);
-            ZapiszDopasowaneDane(dopasowanie);
+            dane.ZapiszDopasowaneDane(dopasowanie);
 
             #region Stary kod
 

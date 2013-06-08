@@ -7,7 +7,7 @@ using System.Xml;
 
 namespace MuseSort
 {
-    class UstawieniaProgramu
+    public class UstawieniaProgramu
     {
         //do ponownego merga
         private static volatile UstawieniaProgramu instancja;
@@ -16,6 +16,7 @@ namespace MuseSort
         public String domyslnaBazaDanych;
         public List<String> wspieraneRozszerzeniaAudio;
         public List<String> wspieraneRozszerzeniaVideo;
+        private bool _ustawieniaWczytane = false;
 
         private UstawieniaProgramu()
         {
@@ -123,7 +124,9 @@ namespace MuseSort
 
         public void wczytajUstawienia()
         {
-            
+            if(_ustawieniaWczytane)
+                return;
+            _ustawieniaWczytane = true;
             XmlDocument plikXML = new XmlDocument();
             plikXML.Load(@"C:\museSort\config.xml");
             XmlNode node = plikXML.GetElementsByTagName("folderGlowny").Item(0);

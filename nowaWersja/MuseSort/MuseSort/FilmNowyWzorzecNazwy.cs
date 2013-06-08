@@ -58,7 +58,7 @@ namespace MuseSort
             regex = regex = "^" + regex + "$";
             Regex rx = new Regex(regex);*/
             Film.dodajWzorzecNazwy(wzorzecTextBox.Text);
-//            UstawieniaProgramu.getInstance().zapiszUstawienia();//Przeniesione do metody dodajWzorzecNazwy
+            UstawieniaProgramu.getInstance().zapiszUstawienia();
             Dispose();
         }
 

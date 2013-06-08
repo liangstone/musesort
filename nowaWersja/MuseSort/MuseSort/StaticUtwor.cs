@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace MuseSort
 {
-    partial class Utwor
+    public partial class Utwor
     {
         //do ponownego merga
         public static List<Wzorzec> wzorceNazwy = new List<Wzorzec>();
@@ -63,7 +63,6 @@ namespace MuseSort
         {
             if (!SprawdzWzorzec(wzorzec, lista)) return false; //Jeden z wzorców na liście rozpoznaje string jako poprawną nazwę/ścieżkę.
             lista.Add(WzorzecFactory.GetWzorzec(wzorzec));
-            UstawieniaProgramu.getInstance().zapiszUstawienia();
             return true;
             
         }

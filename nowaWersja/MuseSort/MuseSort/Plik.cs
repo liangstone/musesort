@@ -2,7 +2,7 @@
 using System.IO;
 namespace MuseSort
 {
-    abstract class Plik
+    public abstract class Plik
     {
         //do ponownego merga
         #region Pola i properties

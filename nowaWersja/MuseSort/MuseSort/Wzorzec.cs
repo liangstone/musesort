@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace MuseSort
 {
-    class Wzorzec
+    public class Wzorzec
     {
         //do ponownego merga
         public Regex regex;

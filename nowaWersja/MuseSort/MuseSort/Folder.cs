@@ -6,7 +6,7 @@ using System.IO;
 
 namespace MuseSort
 {
-    class Folder
+    public class Folder
     {
         //do ponownego merga
         #region POLA KLASY
@@ -29,27 +29,23 @@ namespace MuseSort
 
         #region PUBLICZNE METODY KLASY
 
-        //Tworzenie powiązania folderu z obiektem
+        /// <summary>Tworzy nowy obiekt Folder odpowiadający danemu katalogowi.</summary>
+        /// <exception cref="DirectoryNotFoundException">Rzucane jeśli podany folder nie istnieje.</exception>
+        /// <param name="path">Ścieżka katalogu</param>
         public Folder(String path)
         {
+            if (!Directory.Exists(path))
+                throw new DirectoryNotFoundException(path);
             xml = new FolderXML(path);
             sciezka = path;
             logi = "";
-            if (xml.analizuj())
-            {
-                schemat = xml.schemat;
-            }
-            else
-            {
-                schemat = "";
-            }
+            schemat = xml.analizuj() ? xml.schemat : "";
         }
 
         //Analizowanie folderu pod względem wcześniejszego sortowania, obecności wymaganych obiektów oraz zgodności struktury logicznej zapisanej w pliku XML
         public Boolean analizuj()
         {
-            Boolean result = xml.analizuj();
-            return result;
+            return xml.analizuj();
         }
 
         //Ustalanie schematu sortowania folderu
@@ -378,7 +374,7 @@ namespace MuseSort
         /// </summary>
         /// <param name="katalog">Katalog do przeszukania.</param>
         /// <returns></returns>
-        List<string> znajdz_wspierane_pliki(string katalog, IEnumerable<string> wspieraneRozszerzenia)
+        public static List<string> znajdz_wspierane_pliki(string katalog, IEnumerable<string> wspieraneRozszerzenia)
         {
             if (katalog == null)
                 throw new ArgumentNullException("Katalog jest null!");
