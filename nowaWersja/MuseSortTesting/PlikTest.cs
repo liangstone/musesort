@@ -1,4 +1,8 @@
 ﻿using System;
+using System.IO;
+using System.IO.Fakes;
+using System.Text;
+using Microsoft.QualityTools.Testing.Fakes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MuseSort;
 
@@ -31,6 +35,25 @@ namespace MuseSortTesting
         public void CreateArgumentNull()
         {
             Plik.Create(null);
+        }
+
+        [TestMethod]
+        public void KopiujTest()
+        {
+            var log = new StringBuilder();
+            var docelowy = Util.SetAbsoluteDirectoryPath(@"muzyka\BlindGuardian");
+            var nazwa = Path.GetFileName(_muzyka);
+            var expected = string.Format("{0} => {1}\\{2}", _muzyka, docelowy, nazwa);
+            var plik = Plik.Create(_muzyka);
+
+
+            using (ShimsContext.Create())
+            {
+                ShimFile.CopyStringString = (s, s1) => log.Append(s + " => " + s1);
+                plik.kopiujPlik(docelowy);
+            }
+            
+            Assert.AreEqual(expected, log.ToString());
         }
     }
 }
