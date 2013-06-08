@@ -127,6 +127,9 @@
         <member name="P:MuseSort.Fakes.ShimDaneFilmu.Constructor">
             <summary>Sets the shim of DaneFilmu.DaneFilmu()</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimDaneFilmu.ConstructorDictionaryOfStringString">
+            <summary>Sets the shim of DaneFilmu.DaneFilmu(Dictionary`2&lt;String,String&gt; dictionary)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimDaneFilmu.ZapiszDopasowaneDaneDictionaryOfStringString">
             <summary>Sets the shim of DaneFilmu.ZapiszDopasowaneDane(Dictionary`2&lt;String,String&gt; dopasowanie)</summary>
         </member>
@@ -156,6 +159,9 @@
         </member>
         <member name="P:MuseSort.Fakes.ShimDaneUtworu.Constructor">
             <summary>Sets the shim of DaneUtworu.DaneUtworu()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimDaneUtworu.ConstructorDictionaryOfStringString">
+            <summary>Sets the shim of DaneUtworu.DaneUtworu(Dictionary`2&lt;String,String&gt; dane)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimDaneUtworu.ZapiszDopasowaneDaneDictionaryOfStringString">
             <summary>Sets the shim of DaneUtworu.ZapiszDopasowaneDane(Dictionary`2&lt;String,String&gt; dopasowanie)</summary>
@@ -3058,6 +3064,9 @@
         <member name="M:MuseSort.Fakes.StubDaneFilmu.#ctor">
             <summary>Initializes a new instance</summary>
         </member>
+        <member name="M:MuseSort.Fakes.StubDaneFilmu.#ctor(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>Initializes a new instance</summary>
+        </member>
         <member name="M:MuseSort.Fakes.StubDaneFilmu.InitializeStub">
             <summary>Initializes a new instance of type StubDaneFilmu</summary>
         </member>
@@ -3080,6 +3089,9 @@
             <summary>Stub type of MuseSort.DaneUtworu</summary>
         </member>
         <member name="M:MuseSort.Fakes.StubDaneUtworu.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubDaneUtworu.#ctor(System.Collections.Generic.Dictionary{System.String,System.String})">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="M:MuseSort.Fakes.StubDaneUtworu.InitializeStub">
