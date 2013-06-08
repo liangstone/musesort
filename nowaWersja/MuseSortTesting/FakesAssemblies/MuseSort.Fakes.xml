@@ -2299,11 +2299,29 @@
         <member name="M:MuseSort.Fakes.ShimUstawieniaProgramu.BehaveAsNotImplemented">
             <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimUstawieniaProgramu.AddListToXmlNodeXmlDocumentXmlNodeStringIEnumerableOfString">
+            <summary>Sets the shim of UstawieniaProgramu.AddListToXmlNode(XmlDocument document, XmlNode node, String nazwa, IEnumerable`1&lt;String&gt; lista)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimUstawieniaProgramu.AddListToXmlNodeXmlDocumentXmlNodeStringIEnumerableOfWzorzec">
+            <summary>Sets the shim of UstawieniaProgramu.AddListToXmlNode(XmlDocument document, XmlNode node, String nazwa, IEnumerable`1&lt;Wzorzec&gt; lista)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimUstawieniaProgramu.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimUstawieniaProgramu.Constructor">
             <summary>Sets the shim of UstawieniaProgramu.UstawieniaProgramu()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimUstawieniaProgramu.CreateMainNodeXmlDocument">
+            <summary>Sets the shim of UstawieniaProgramu.CreateMainNode(XmlDocument document)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimUstawieniaProgramu.GetXmlElementWithTextNodeXmlDocumentStringString">
+            <summary>Sets the shim of UstawieniaProgramu.GetXmlElementWithTextNode(XmlDocument document, String nazwa, String zawartosc)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimUstawieniaProgramu.KonwertujZawartoscDoXml">
+            <summary>Sets the shim of UstawieniaProgramu.KonwertujZawartoscDoXml()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimUstawieniaProgramu.WzorzecToXmlXmlDocumentStringWzorzec">
+            <summary>Sets the shim of UstawieniaProgramu.WzorzecToXml(XmlDocument document, String nazwa, Wzorzec wzorzec)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimUstawieniaProgramu.getInstance">
             <summary>Sets the shim of UstawieniaProgramu.getInstance()</summary>
@@ -2316,6 +2334,12 @@
         </member>
         <member name="T:MuseSort.Fakes.ShimUstawieniaProgramu.AllInstances">
             <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimUstawieniaProgramu.AllInstances.CreateMainNodeXmlDocument">
+            <summary>Sets the shim of UstawieniaProgramu.CreateMainNode(XmlDocument document)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimUstawieniaProgramu.AllInstances.KonwertujZawartoscDoXml">
+            <summary>Sets the shim of UstawieniaProgramu.KonwertujZawartoscDoXml()</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimUstawieniaProgramu.AllInstances.wczytajUstawienia">
             <summary>Sets the shim of UstawieniaProgramu.wczytajUstawienia()</summary>

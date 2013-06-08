@@ -43,83 +43,61 @@ namespace MuseSort
             {
                 System.IO.File.Delete(@"C:\museSort\config.xml");
             }
-            XmlDocument plikXML = new XmlDocument();
+            XmlDocument plikXML = KonwertujZawartoscDoXml();
+            plikXML.Save(@"C:\museSort\config.xml");
+        }
+
+        private XmlDocument KonwertujZawartoscDoXml()
+        {
+            XmlDocument plikXML= new XmlDocument();
             XmlDeclaration dec = plikXML.CreateXmlDeclaration("1.0", "UTF-8", null);
             plikXML.AppendChild(dec);
-            XmlElement main = plikXML.CreateElement("body");
-            XmlElement mainFolder = plikXML.CreateElement("folderGlowny");
-            XmlText wartosc = plikXML.CreateTextNode(folderGlowny);
-            mainFolder.AppendChild(wartosc);
-            main.AppendChild(mainFolder);
-            XmlElement defaultSort = plikXML.CreateElement("domyslneSortowanie");
-            wartosc = plikXML.CreateTextNode(domyslneSortowanie);
-            defaultSort.AppendChild(wartosc);
-            main.AppendChild(defaultSort);
-            XmlElement defaultDateBase = plikXML.CreateElement("domyslnaBazaDanych");
-            wartosc = plikXML.CreateTextNode(domyslnaBazaDanych);
-            defaultDateBase.AppendChild(wartosc);
-            main.AppendChild(defaultDateBase);
+            plikXML.AppendChild(CreateMainNode(plikXML));
+            return plikXML;
+        }
 
-            foreach(String s in wspieraneRozszerzeniaAudio)
-            {
-                XmlElement audio = plikXML.CreateElement("rozszerzenieAudio");
-                wartosc = plikXML.CreateTextNode(s);
-                audio.AppendChild(wartosc);
-                main.AppendChild(audio);
-            }
+        private XmlElement CreateMainNode(XmlDocument document)
+        {
+            var main = document.CreateElement("body");
 
-            foreach (String s in wspieraneRozszerzeniaVideo)
-            {
-                XmlElement video = plikXML.CreateElement("rozszerzenieVideo");
-                wartosc = plikXML.CreateTextNode(s);
-                video.AppendChild(wartosc);
-                main.AppendChild(video);
-            }
+            main.AppendChild(GetXmlElementWithTextNode(document, "folderGlowny", folderGlowny));
+            main.AppendChild(GetXmlElementWithTextNode(document, "domyslneSortowanie", domyslneSortowanie));
+            main.AppendChild(GetXmlElementWithTextNode(document, "domyslnaBazaDanych", domyslnaBazaDanych));
 
-            foreach (Wzorzec s in Utwor.wzorceNazwy)
-            {
-                XmlElement wzorzec = plikXML.CreateElement("utworWzorzecNazwy");
-                XmlElement wz = plikXML.CreateElement("wzorzec");
-                wartosc = plikXML.CreateTextNode(s.wzorzec);
-                wz.AppendChild(wartosc);
-                wzorzec.AppendChild(wz);
-                wz = plikXML.CreateElement("regex");
-                wartosc = plikXML.CreateTextNode(s.regex.ToString());
-                wz.AppendChild(wartosc);
-                wzorzec.AppendChild(wz);
-                main.AppendChild(wzorzec);
-            }
+            AddListToXmlNode(document, main, "rozszerzenieAudio", wspieraneRozszerzeniaAudio);
+            AddListToXmlNode(document, main, "rozszerzenieVideo", wspieraneRozszerzeniaVideo);
+            AddListToXmlNode(document, main, "utworWzorzecNazwy", Utwor.wzorceNazwy);
+            AddListToXmlNode(document, main, "utworWzorzecSciezki", Utwor.wzorceSciezki);
+            AddListToXmlNode(document, main, "filmWzorzecNazwy", Film.wzorceNazwy);
 
-            foreach (Wzorzec s in Utwor.wzorceSciezki)
-            {
-                XmlElement wzorzec = plikXML.CreateElement("utworWzorzecSciezki");
-                XmlElement wz = plikXML.CreateElement("wzorzec");
-                wartosc = plikXML.CreateTextNode(s.wzorzec);
-                wz.AppendChild(wartosc);
-                wzorzec.AppendChild(wz);
-                wz = plikXML.CreateElement("regex");
-                wartosc = plikXML.CreateTextNode(s.regex.ToString());
-                wz.AppendChild(wartosc);
-                wzorzec.AppendChild(wz);
-                main.AppendChild(wzorzec);
-            }
+            return main;
+        }
 
-            foreach (Wzorzec s in Film.wzorceNazwy)
-            {
-                XmlElement wzorzec = plikXML.CreateElement("filmWzorzecNazwy");
-                XmlElement wz = plikXML.CreateElement("wzorzec");
-                wartosc = plikXML.CreateTextNode(s.wzorzec);
-                wz.AppendChild(wartosc);
-                wzorzec.AppendChild(wz);
-                wz = plikXML.CreateElement("regex");
-                wartosc = plikXML.CreateTextNode(s.regex.ToString());
-                wz.AppendChild(wartosc);
-                wzorzec.AppendChild(wz);
-                main.AppendChild(wzorzec);
-            }
+        private static void AddListToXmlNode(XmlDocument document, XmlNode node, string nazwa, IEnumerable<string> lista)
+        {
+            foreach (var zawartosc in lista)
+                node.AppendChild(GetXmlElementWithTextNode(document, nazwa, zawartosc));
+        }
 
-            plikXML.AppendChild(main);
-            plikXML.Save(@"C:\museSort\config.xml");
+        private static void AddListToXmlNode(XmlDocument document, XmlNode node, string nazwa, IEnumerable<Wzorzec> lista)
+        {
+            foreach (var wzorzec in lista)
+                node.AppendChild(WzorzecToXml(document, nazwa, wzorzec));
+        }
+
+        private static XmlElement WzorzecToXml(XmlDocument document, string nazwa, Wzorzec wzorzec)
+        {
+            var xmlElement = document.CreateElement(nazwa);
+            xmlElement.AppendChild(GetXmlElementWithTextNode(document, "wzorzec", wzorzec.wzorzec));
+            xmlElement.AppendChild(GetXmlElementWithTextNode(document, "regex", wzorzec.regex.ToString()));
+            return xmlElement;
+        }
+
+        private static XmlElement GetXmlElementWithTextNode(XmlDocument document, string nazwa, string zawartosc)
+        {
+            var xmlElement = document.CreateElement(nazwa);
+            xmlElement.AppendChild(document.CreateTextNode(zawartosc));
+            return xmlElement;
         }
 
         public void wczytajUstawienia()

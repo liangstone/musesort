@@ -72,7 +72,7 @@ namespace MuseSortTesting
             }
             finally
             {
-                Utwor.wzorceSciezki = wzorce;
+                Utwor.wzorceNazwy = wzorce;
                 UstawieniaProgramu.getInstance().zapiszUstawienia();
             }
         }
