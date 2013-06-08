@@ -502,26 +502,16 @@ namespace MuseSort
                 if (rozszerzeniePliku.Equals(".mkv") || rozszerzeniePliku.Equals(".mov") || rozszerzeniePliku.Equals(".avi"))
                 {
                     sciezka = Path.GetFileNameWithoutExtension(sciezka);
-                    try
-                    {
-                        new SzczegolyFilmu(sciezka).ShowDialog();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Blad! Sprawdz polaczenie z Internetem!" + Environment.NewLine + ex.Message);
-                    }
+
+                    new SzczegolyFilmu(sciezka).ShowDialog();
+
                 }
                 else
                 {
-                    try
-                    {
 
-                        new SzczegolyMuzyki(sciezka).ShowDialog();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Blad! Sprawdz polaczenie z Internetem!" + Environment.NewLine + ex.Message);
-                    }
+
+                    new SzczegolyMuzyki(sciezka).ShowDialog();
+
                 }
             }
         }
