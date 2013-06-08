@@ -74,6 +74,7 @@
     <Compile Include="TestDane.cs" />
     <Compile Include="TestFolder.cs" />
     <Compile Include="TestWierszTabeli.cs" />
+    <Compile Include="TestowanieSortowania.cs" />
     <Compile Include="UtworTest1.cs" />
   </ItemGroup>
   <ItemGroup>
