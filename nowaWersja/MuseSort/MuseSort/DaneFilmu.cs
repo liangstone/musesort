@@ -13,6 +13,13 @@ namespace MuseSort
         public String[] dyrektorzy = { "" };
         public uint rok;
 
+        public DaneFilmu() {}
+
+        public DaneFilmu(Dictionary<string, string> dictionary)
+        {
+            ZapiszDopasowaneDane(dictionary);
+        }
+
         public void ZapiszDopasowaneDane(Dictionary<string, string> dopasowanie)
         {
             foreach (var tag in dopasowanie.Keys)

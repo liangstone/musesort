@@ -142,7 +142,7 @@ namespace MuseSortTesting
                 foreach (var path in inList)
                 {
                     //testFile = new Film(path);
-                    var tmp = new DaneFilmu { tytul = DaneFilmow[i]["tytul"], dyrektorzy = new[] { DaneFilmow[i]["dyrektor"] } };
+                    var tmp = new DaneFilmu (DaneFilmow[i]);
 //                    tmp = new DaneFilmu { tytul = dane[i, 0], dyrektorzy = new[] { dane[i, 1] } };
                     //testFile.dane.tytul = dane[i, 0];
                     //testFile.dane.dyrektorzy = new string[]{ dane[i,1], };
@@ -151,7 +151,7 @@ namespace MuseSortTesting
                     //expectedOutList.Add(sciezkatestowa + '\\' + @"\Musesort\Filmy\Posegregowane\"
                     //    + testFile.dane.dyrektorzy[0] + '\\' + testFile.dane.tytul + '\\' + Path.GetFileName(path)); //Przypominam: schemat to "Dyrektorzy/Tytul"
                     expectedOutList.Add(_sciezkaFilmy + '\\' + @"\Musesort\Filmy\Posegregowane\"
-                        + tmp.dyrektorzy[0] + '\\' + tmp.tytul + '\\' + Path.GetFileName(path));
+                        + DaneFilmow[i]["dyrektor"] + '\\' + DaneFilmow[i]["tytul"] + '\\' + Path.GetFileName(path));
                     i++;
                 }
 
