@@ -107,19 +107,14 @@ namespace MuseSort
             _ustawieniaWczytane = true;
             XmlDocument plikXML = new XmlDocument();
             plikXML.Load(@"C:\museSort\config.xml");
-            XmlNode node = plikXML.GetElementsByTagName("folderGlowny").Item(0);
-            folderGlowny = node.InnerText;
-            node = plikXML.GetElementsByTagName("domyslneSortowanie").Item(0);
-            domyslneSortowanie = node.InnerText;
-            node = plikXML.GetElementsByTagName("domyslnaBazaDanych").Item(0);
-            domyslnaBazaDanych = node.InnerText;
-            XmlNodeList lista = plikXML.GetElementsByTagName("rozszerzenieAudio");
-            foreach (XmlNode x in lista)
+            folderGlowny        = plikXML.GetElementsByTagName("folderGlowny")      .Item(0).InnerText;
+            domyslneSortowanie  = plikXML.GetElementsByTagName("domyslneSortowanie").Item(0).InnerText;
+            domyslnaBazaDanych  = plikXML.GetElementsByTagName("domyslnaBazaDanych").Item(0).InnerText;
+            foreach (XmlNode x in plikXML.GetElementsByTagName("rozszerzenieAudio"))
             {
                 wspieraneRozszerzeniaAudio.Add(x.InnerText);
             }
-            lista = plikXML.GetElementsByTagName("rozszerzenieVideo");
-            foreach (XmlNode x in lista)
+            foreach (XmlNode x in plikXML.GetElementsByTagName("rozszerzenieVideo"))
             {
                 wspieraneRozszerzeniaVideo.Add(x.InnerText);
             }
