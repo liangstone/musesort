@@ -9,9 +9,12 @@ namespace MuseSort
     {
         //do ponownego merga
         public String tytul = "";
-        public String[] gatunki = { "" };
-        public String[] dyrektorzy = { "" };
-        public uint rok;
+        public String gatunki = "";
+        public String opis = "";
+        public String jezyk = "";
+        public String rezyser = "";
+        public String aktorzy = "";
+        //public uint rok;
 
         public DaneFilmu() {}
 
@@ -27,21 +30,33 @@ namespace MuseSort
                 var wartosc = dopasowanie[tag];
                 switch (tag)
                 {
-                    case "rok":
+                    /*case "rok":
                         if (rok == 0)
                             rok = UInt32.Parse(wartosc);
-                        break;
+                        break;*/
                     case "tytul":
                         if (tytul == "")
                             tytul = wartosc;
                         break;
-                    case "dyrektor":
-                        if (dyrektorzy[0] == "")
-                            dyrektorzy[0] = wartosc;
-                        break;
                     case "gatunek":
-                        if (gatunki[0] == "")
-                            gatunki[0] = wartosc;
+                        if (gatunki == "")
+                            gatunki = wartosc;
+                        break;
+                    case "opis":
+                        if (opis == "")
+                            opis = wartosc;
+                        break;
+                    case "jezyk":
+                        if (jezyk == "")
+                            jezyk = wartosc;
+                        break;
+                    case "rezyser":
+                        if (rezyser == "")
+                            rezyser = wartosc;
+                        break;
+                    case "aktorzy":
+                        if (aktorzy == "")
+                            aktorzy = wartosc;
                         break;
                 }
             }

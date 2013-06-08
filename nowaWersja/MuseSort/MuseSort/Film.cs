@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace MuseSort
 {
@@ -11,6 +12,7 @@ namespace MuseSort
         //<należy wybrać klasę źródłową> tagi;
         //<należy wybrać klasę źródłową> stareTagi;
         //do ponownego merga
+        Vlc.DotNet.Core.Medias.PathMedia dataFile;
         Boolean pobranoZNazwy = false;
 
         #region publiczne metody klas
@@ -24,6 +26,7 @@ namespace MuseSort
             if (!File.Exists(path))
                 throw new FileNotFoundException(path);
             Sciezka = SciezkaZrodlowa = path;
+            dataFile = new Vlc.DotNet.Core.Medias.PathMedia(path);
             Nazwa = Path.GetFileNameWithoutExtension(path);
             dane = new DaneFilmu();
             resetujTagi();
@@ -43,6 +46,7 @@ namespace MuseSort
             SciezkaZrodlowa = source;
             Sciezka = path;
             Nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
+            dataFile = new Vlc.DotNet.Core.Medias.PathMedia(path);
             dane = new DaneFilmu();
             //tagi = 
             //stareTagi = 
@@ -54,13 +58,29 @@ namespace MuseSort
         {
             //Zapisuje dane z obiektu dane do obiektu tagi
             //Uaktualnia dane w obiekcie stareTagi
-            logi += "Zapisano nowe tagi." + Environment.NewLine;
+            try
+            {
+                dataFile.Metadatas.Title = dane.tytul;
+                dataFile.Metadatas.Description = dane.opis;
+                dataFile.Metadatas.Language = dane.jezyk;
+                dataFile.Metadatas.Copyright = dane.rezyser;
+                dataFile.Metadatas.Artist = dane.aktorzy;
+                dataFile.Metadatas.Genre = dane.gatunki;
+                dataFile.Metadatas.Save();
+                logi += "Zapisano nowe tagi." + Environment.NewLine;
+            }
+            catch (Exception e)
+            {
+                logi += "Nastąpił błąd zapisywania tagów: " + e.Message + Environment.NewLine;
+                MessageBox.Show("Nastąpił błąd zapisywania tagów: " + e.Message);
+            }
+            
         }
 
         //Przywraca do obiektu dane informacje z obiektu stareTagi
         public override void przywrocDomyslneTagi()
         {
-            
+            resetujTagi();
             logi += "Anulowano modyfikowanie tagów." + Environment.NewLine;
         }
 
@@ -96,7 +116,7 @@ namespace MuseSort
         /// <summary>Pobieranie tagów z obiektu tagi i zapisywanie w obiekcie dane</summary>
         private void pobierzTagi()
         {
-            
+            resetujTagi();
         }
 
         #endregion
@@ -106,7 +126,12 @@ namespace MuseSort
         /// Jeszcze nie zaimplementowane.</summary>
         protected override void resetujTagi()
         {
-            
+            dane.tytul = dataFile.Metadatas.Title;
+            dane.opis = dataFile.Metadatas.Description;
+            dane.jezyk = dataFile.Metadatas.Language;
+            dane.rezyser = dataFile.Metadatas.Copyright;
+            dane.aktorzy = dataFile.Metadatas.Artist;
+            dane.gatunki = dataFile.Metadatas.Genre;
         }
 
 
