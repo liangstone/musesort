@@ -27,6 +27,10 @@ namespace MuseSort
         public IPicture[] zdjecia = { };
         public uint numer;
 
+        public DaneUtworu() {}
+
+        public DaneUtworu(Dictionary<string,string> dane) { ZapiszDopasowaneDane(dane); }
+
         public Boolean czyDaneWypelnione()
         {
             return wykonawca.Length > 0 && wykonawca[0] != "" && tytul != "" && album != "";
