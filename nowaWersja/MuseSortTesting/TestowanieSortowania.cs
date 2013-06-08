@@ -93,8 +93,8 @@ namespace MuseSortTesting
 
         public TestowanieSortowania()
         {
-            _sciezkaMuzyka = Util.SetAbsolutePath(_sciezkaMuzyka);
-            _sciezkaFilmy = Util.SetAbsolutePath(_sciezkaFilmy);
+            _sciezkaMuzyka = Util.SetAbsoluteDirectoryPath(_sciezkaMuzyka);
+            _sciezkaFilmy = Util.SetAbsoluteDirectoryPath(_sciezkaFilmy);
         }
 
         #region Sortowanie muzyki

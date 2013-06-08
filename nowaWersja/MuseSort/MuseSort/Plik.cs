@@ -78,10 +78,12 @@ namespace MuseSort
         }
 
         /// <summary>Tworzy nową instancję Pliku.</summary>
-        /// <param name="sciezka"></param>
-        /// <returns></returns>
+        /// <param name="sciezka">Ścieżka do pliku</param>
+        /// <exception cref="ArgumentNullException">Jeśli podano null jako argument</exception>
         public static Plik Create(string sciezka)
         {
+            if(sciezka==null)
+                throw new ArgumentNullException();
             Plik wynik = null;
             string rozszerzenie = Path.GetExtension(sciezka).Substring(1);
 

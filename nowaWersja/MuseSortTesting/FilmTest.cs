@@ -13,7 +13,7 @@ namespace MuseSortTesting
 
         public FilmTest()
         {
-            _sciezka = Util.SetAbsolutePath(_sciezka);
+            _sciezka = Util.SetAbsoluteDirectoryPath(_sciezka);
         }
 
         [TestMethod]

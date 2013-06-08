@@ -4,15 +4,28 @@ namespace MuseSortTesting
 {
     public class Util
     {
-        public static string SetAbsolutePath(string sciezka)
+        public static string SetAbsoluteDirectoryPath(string sciezka)
         {
-            while (!Directory.Exists(sciezka))
+            var path = sciezka;
+            while (!Directory.Exists(path))
             {
-                sciezka = @"..\" + sciezka;
-                if(sciezka.Length>100)
-                    throw new FileNotFoundException();
+                path = @"..\" + path;
+                if(path.Length>100)
+                    throw new FileNotFoundException(sciezka);
             }
-            return Path.GetFullPath(sciezka);
+            return Path.GetFullPath(path);
+        }
+
+        public static string SetAbsoluteFilePath(string sciezka)
+        {
+            var path = sciezka;
+            while (!File.Exists(path))
+            {
+                path = @"..\" + path;
+                if (path.Length > 100)
+                    throw new FileNotFoundException(sciezka);
+            }
+            return Path.GetFullPath(path);
         }
     }
 }
