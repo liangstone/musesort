@@ -28,7 +28,7 @@ namespace MuseSort
 
             wypelnijPola(dane);
             rozszerzenieBox.Enabled = false;
-            zapiszButton.Enabled = false;
+            zapiszButton.Enabled = true;
             przwrocButton.Enabled = false;
             zapisane = true;
         }
@@ -47,7 +47,6 @@ namespace MuseSort
             dane.dane.gatunek = gatunekBox.Text.Split(new string[] { ", ","," }, StringSplitOptions.None);
 
             dane.zapiszTagi();
-            zapiszButton.Enabled = false;
             zapisane = true;
         }
 
@@ -72,7 +71,6 @@ namespace MuseSort
         {
             daneWejsciowe.zapiszTagi();
             wypelnijPola(daneWejsciowe);
-            zapiszButton.Enabled = false;
             przwrocButton.Enabled = false;
             zapisane = true;
         }
@@ -104,42 +102,36 @@ namespace MuseSort
         //Wykrywanie zmian w poalch tekstowych
         private void tytulTextChanged(object sender, EventArgs e)
         {
-            zapiszButton.Enabled = true;
             przwrocButton.Enabled = true;
             zapisane = false;
         }
 
         private void wykonawcaTextChanged(object sender, EventArgs e)
         {
-            zapiszButton.Enabled = true;
             przwrocButton.Enabled = true;
             zapisane = false;
         }
 
         private void albumTextChanged(object sender, EventArgs e)
         {
-            zapiszButton.Enabled = true;
             przwrocButton.Enabled = true;
             zapisane = false;
         }
 
         private void rokTextChanged(object sender, EventArgs e)
         {
-            zapiszButton.Enabled = true;
             przwrocButton.Enabled = true;
             zapisane = false;
         }
 
         private void gatunekTextChanged(object sender, EventArgs e)
         {
-            zapiszButton.Enabled = true;
             przwrocButton.Enabled = true;
             zapisane = false;
         }
 
         private void numerTextChanged(object sender, EventArgs e)
         {
-            zapiszButton.Enabled = true;
             przwrocButton.Enabled = true;
             zapisane = false;
         }

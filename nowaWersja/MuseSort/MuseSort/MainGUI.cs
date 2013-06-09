@@ -433,7 +433,21 @@ namespace MuseSort
             String sciezka = drzewoFolderow.SelectedNode.Name + "\\" + aktualnyFolder.SelectedItems[0].Text;
             if (System.IO.File.Exists(sciezka))
             {
-                new EdycjaPliku(sciezka).ShowDialog();
+                String ext = System.IO.Path.GetExtension(sciezka).Replace(".", "");
+                if (UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo.Contains(ext))
+                {
+                    new EdycjaPlikuFilmowego(sciezka).ShowDialog();
+                }
+                else if (UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio.Contains(ext))
+                {
+                    new EdycjaPliku(sciezka).ShowDialog();
+                }
+                else 
+                {
+                    MessageBox.Show("Nieobsługiwane rozszerzenie pliku: " + ext);
+                }
+
+                
             }
         }
 
@@ -499,19 +513,14 @@ namespace MuseSort
                 //rozszerzenie pliku
                 String rozszerzeniePliku = Path.GetExtension(sciezka);
                 //sprawdzamy czy plik jest filmowy, czy tez muzyczny i wlaczamy odpowiednie okno
-                if (rozszerzeniePliku.Equals(".mkv") || rozszerzeniePliku.Equals(".mov") || rozszerzeniePliku.Equals(".avi"))
+                if (rozszerzeniePliku.Equals(".mkv") || rozszerzeniePliku.Equals(".mov") || rozszerzeniePliku.Equals(".avi") || rozszerzeniePliku.Equals(".mp4") || rozszerzeniePliku.Equals(".wmv"))
                 {
                     sciezka = Path.GetFileNameWithoutExtension(sciezka);
-
                     new SzczegolyFilmu(sciezka).ShowDialog();
-
                 }
                 else
                 {
-
-
                     new SzczegolyMuzyki(sciezka).ShowDialog();
-
                 }
             }
         }
@@ -558,48 +567,13 @@ namespace MuseSort
                 //rozszerzenie pliku
                 String rozszerzeniePliku = Path.GetExtension(sciezka);
                 //sprawdzamy czy plik jest filmowy, czy tez muzyczny i wlaczamy odpowiednie okno
-                if (rozszerzeniePliku.Equals(".mkv") || rozszerzeniePliku.Equals(".mov") || rozszerzeniePliku.Equals(".avi"))
+                if (rozszerzeniePliku.Equals(".mkv") || rozszerzeniePliku.Equals(".mov") || rozszerzeniePliku.Equals(".avi") || rozszerzeniePliku.Equals(".mp4") || rozszerzeniePliku.Equals(".wmv"))
                 {
                     new InterakcjaFilmSerial(sciezka).ShowDialog();
                 }
                 else
                 {
-                    Utwor x = new Utwor(sciezka);
-                    String album = "";
-                    album = x.dane.album;
-                    String[] wykonawca = { "" };
-                    wykonawca = x.dane.wykonawca;
-                    uint rok = x.dane.rok;
-                    String tytul = "";
-                    tytul = x.dane.tytul;
-                    String[] gatunek = { "" };
-                    gatunek = x.dane.gatunek;
-                    string connectionString = @"Data Source=|DataDirectory|\MyDatabase#1.sdf; Password = Projekt&4";
-                    SqlCeConnection conn;
-                    conn = new SqlCeConnection(connectionString);
-                    conn.Open();
-                    try
-                    {
-                        SqlCeCommand Query = new SqlCeCommand("INSERT INTO Muzyka " +
-                                    "(Wykonawca, Tytul, Album, Rok, Gatunek, Sciezka) " +
-                                    "VALUES (@Wykonawca, @Tytul, @Album, @Rok, @Gatunek, @Sciezka)", conn);
-
-                        Query.Parameters.AddWithValue("@Wykonawca", wykonawca[0]);
-                        Query.Parameters.AddWithValue("@Tytul", tytul);
-                        Query.Parameters.AddWithValue("@Album", album);
-                        Query.Parameters.AddWithValue("@Rok", rok);
-                        Query.Parameters.AddWithValue("@Gatunek", gatunek[0]);
-                        Query.Parameters.AddWithValue("@Sciezka", sciezka);
-                        Query.ExecuteNonQuery();
-                        MessageBox.Show("Dodano do biblioteki muzycznej");
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Wysypalo sie");
-                        MessageBox.Show(ex.Message);
-                    }
-                    conn.Close();
-
+                    new DodawanieMuzyki(sciezka).ShowDialog();
                 }
             }
         }

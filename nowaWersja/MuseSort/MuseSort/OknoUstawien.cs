@@ -13,6 +13,7 @@ namespace MuseSort
     {
         //do ponownego merga
         List<IComponent> rozszerzenia;
+        List<IComponent> rozszerzeniaVideo;
         #region publiczne metody klas
         //#############################PUBLICZNE METODY KLASY############################################
         //konstruktor
@@ -23,13 +24,18 @@ namespace MuseSort
             folderyPanel.Hide();
             folderGlownyPanel.Hide();
             rozszerzeniaPanel.Hide();
+            rozszerzeniaVideoPanel.Hide();
             sortowaniaPanel.Hide();
             wspieranieRozszerzeniaPanel.Hide();
-            zewnetrzneBazyDanychPanel.Hide();
             drzewoUstawien.NodeMouseClick += wyswietl;
             rozszerzenia = new List<IComponent>();
+            rozszerzeniaVideo = new List<IComponent>();
             rozszerzenia.Add(mp3CheckBox);
             rozszerzenia.Add(flacCheckBox);
+            rozszerzeniaVideo.Add(mkvCheckBox);
+            rozszerzeniaVideo.Add(mp4CheckBox);
+            rozszerzeniaVideo.Add(aviCheckBox);
+            rozszerzeniaVideo.Add(wmvCheckBox);
         }
         #endregion
         #region metody pomocnicze klas
@@ -91,11 +97,22 @@ namespace MuseSort
                     }
                 }
             }
-            //Zewnętrzne Bazy Danych
-            else if (e.Node.Name == "bazyDanychNode")
+            else if (e.Node.Name == "wspieraneRozszerzeniaVideoNode")
             {
-                aktywujPanel("zewnetrzneBazyDanych");
-                dataBaseListBox.SelectedItem = UstawieniaProgramu.getInstance().domyslnaBazaDanych;
+                aktywujPanel("wspieraneRozszerzeniaVideo");
+                String extensions = "";
+                foreach (String x in UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo)
+                {
+                    extensions += x + "; ";
+                }
+                textBox2.Text = extensions;
+                foreach (CheckBox x in rozszerzeniaVideo)
+                {
+                    if (UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo.Contains(x.Name.Replace("CheckBox", "")))
+                    {
+                        x.Checked = true;
+                    }
+                }
             }
 
         }//end void wyswietl(object sender, TreeNodeMouseClickEventArgs e)
@@ -114,7 +131,7 @@ namespace MuseSort
             rozszerzeniaPanel.Hide();
             sortowaniaPanel.Hide();
             wspieranieRozszerzeniaPanel.Hide();
-            zewnetrzneBazyDanychPanel.Hide();
+            rozszerzeniaVideoPanel.Hide();
             switch(nazwa)
             {
                 case "foldery":
@@ -135,8 +152,8 @@ namespace MuseSort
                 case "wspieraneRozszerzenia":
                     wspieranieRozszerzeniaPanel.Show();
                     break;
-                case "zewnetrzneBazyDanych":
-                    zewnetrzneBazyDanychPanel.Show();
+                case "wspieraneRozszerzeniaVideo":
+                    rozszerzeniaVideoPanel.Show();
                     break;
                 default:
                     break;
@@ -196,11 +213,6 @@ namespace MuseSort
             }
         }
 
-        private void wybierzBazeButton_Click(object sender, EventArgs e)
-        {
-            UstawieniaProgramu.getInstance().domyslnaBazaDanych = dataBaseListBox.SelectedItem.ToString();
-        }
-
         private void przywrocDomyslneButton_Click(object sender, EventArgs e)
         {
             UstawieniaProgramu.getInstance().wczytajUstawienia();
@@ -221,5 +233,18 @@ namespace MuseSort
             }
         }
         #endregion
+
+        private void dodajRozszerzenieVideoButton_Click(object sender, EventArgs e)
+        {
+            UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo.Clear();
+            foreach (CheckBox x in rozszerzeniaVideo)
+            {
+                if (x.Checked)
+                {
+                    String temp = x.Name.Replace("CheckBox", "");
+                    UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo.Add(temp);
+                }
+            }
+        }
     }
 }

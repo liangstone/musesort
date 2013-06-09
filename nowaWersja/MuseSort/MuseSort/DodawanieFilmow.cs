@@ -18,11 +18,33 @@ namespace MuseSort
         SqlCeConnection conn;
         public String sciezkaFilmu = "";
         public int idFilmu;
-        public DodawanieFilmow(String sciezkaPliku="")
+        public DodawanieFilmow()
         {
             InitializeComponent();
             zapisz.Show();
             updateButton.Dispose();
+        }
+        public DodawanieFilmow(String sciezkaPliku)
+        {
+            InitializeComponent();
+            zapisz.Show();
+            updateButton.Dispose();
+            Film x = new Film(sciezkaPliku);
+            String title = "";
+            String gat = "";
+            String dir = "";
+            String op = "";
+            title = x.dane.tytul;
+            gat = x.dane.gatunki;
+            dir = x.dane.rezyser;
+            op = x.dane.opis;
+            tytul.Text = title;
+            gatunek.Text = gat;
+            produkcja.Text = "";
+            rok.Text = "";
+            rezyseria.Text = dir;
+            opis.Text = op;
+            tytul_ory.Text = "";
             sciezkaFilmu = sciezkaPliku;
         }
         public DodawanieFilmow(int id, String tyt, String gat, String pro, int rokPremiery, String rez, String opisFilmu,
