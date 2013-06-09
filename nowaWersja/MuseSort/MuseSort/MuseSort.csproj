@@ -141,6 +141,12 @@
     <Compile Include="EdycjaPliku.Designer.cs">
       <DependentUpon>EdycjaPliku.cs</DependentUpon>
     </Compile>
+    <Compile Include="EdycjaPlikuFilmowego.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EdycjaPlikuFilmowego.Designer.cs">
+      <DependentUpon>EdycjaPlikuFilmowego.cs</DependentUpon>
+    </Compile>
     <Compile Include="Film.cs" />
     <Compile Include="FilmNowyWzorzecNazwy.cs">
       <SubType>Form</SubType>
@@ -255,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EdycjaPliku.resx">
       <DependentUpon>EdycjaPliku.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EdycjaPlikuFilmowego.resx">
+      <DependentUpon>EdycjaPlikuFilmowego.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FilmNowyWzorzecNazwy.resx">
       <DependentUpon>FilmNowyWzorzecNazwy.cs</DependentUpon>

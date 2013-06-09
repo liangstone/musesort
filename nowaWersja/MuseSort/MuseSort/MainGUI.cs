@@ -433,7 +433,21 @@ namespace MuseSort
             String sciezka = drzewoFolderow.SelectedNode.Name + "\\" + aktualnyFolder.SelectedItems[0].Text;
             if (System.IO.File.Exists(sciezka))
             {
-                new EdycjaPliku(sciezka).ShowDialog();
+                String ext = System.IO.Path.GetExtension(sciezka).Replace(".", "");
+                if (UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo.Contains(ext))
+                {
+                    new EdycjaPlikuFilmowego(sciezka).ShowDialog();
+                }
+                else if (UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio.Contains(ext))
+                {
+                    new EdycjaPliku(sciezka).ShowDialog();
+                }
+                else 
+                {
+                    MessageBox.Show("Nieobsługiwane rozszerzenie pliku: " + ext);
+                }
+
+                
             }
         }
 

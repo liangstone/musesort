@@ -39,15 +39,18 @@
             this.rozszerzeniaPanel = new System.Windows.Forms.Panel();
             this.flacCheckBox = new System.Windows.Forms.CheckBox();
             this.mp3CheckBox = new System.Windows.Forms.CheckBox();
-            this.bazyDanychPanel = new System.Windows.Forms.Panel();
-            this.bazyDanychListBox = new System.Windows.Forms.ListBox();
             this.sortowaniaPanel = new System.Windows.Forms.Panel();
             this.sortowaniaListBox = new System.Windows.Forms.ListBox();
             this.explorer = new System.Windows.Forms.FolderBrowserDialog();
+            this.rozszerzeniaFilmowePanel = new System.Windows.Forms.Panel();
+            this.mkvCheckBox = new System.Windows.Forms.CheckBox();
+            this.wmvCheckBox = new System.Windows.Forms.CheckBox();
+            this.mp4CheckBox = new System.Windows.Forms.CheckBox();
+            this.aviCheckBox = new System.Windows.Forms.CheckBox();
             this.folderyPanel.SuspendLayout();
             this.rozszerzeniaPanel.SuspendLayout();
-            this.bazyDanychPanel.SuspendLayout();
             this.sortowaniaPanel.SuspendLayout();
+            this.rozszerzeniaFilmowePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -163,27 +166,6 @@
             this.mp3CheckBox.Text = "*.mp3\r\n";
             this.mp3CheckBox.UseVisualStyleBackColor = true;
             // 
-            // bazyDanychPanel
-            // 
-            this.bazyDanychPanel.BackColor = System.Drawing.Color.Transparent;
-            this.bazyDanychPanel.Controls.Add(this.bazyDanychListBox);
-            this.bazyDanychPanel.Location = new System.Drawing.Point(9, 100);
-            this.bazyDanychPanel.Margin = new System.Windows.Forms.Padding(2);
-            this.bazyDanychPanel.Name = "bazyDanychPanel";
-            this.bazyDanychPanel.Size = new System.Drawing.Size(320, 173);
-            this.bazyDanychPanel.TabIndex = 11;
-            // 
-            // bazyDanychListBox
-            // 
-            this.bazyDanychListBox.FormattingEnabled = true;
-            this.bazyDanychListBox.Items.AddRange(new object[] {
-            "MusicBrainz"});
-            this.bazyDanychListBox.Location = new System.Drawing.Point(58, 32);
-            this.bazyDanychListBox.Margin = new System.Windows.Forms.Padding(2);
-            this.bazyDanychListBox.Name = "bazyDanychListBox";
-            this.bazyDanychListBox.Size = new System.Drawing.Size(240, 69);
-            this.bazyDanychListBox.TabIndex = 0;
-            // 
             // sortowaniaPanel
             // 
             this.sortowaniaPanel.BackColor = System.Drawing.Color.Transparent;
@@ -212,19 +194,79 @@
             this.sortowaniaListBox.Size = new System.Drawing.Size(255, 121);
             this.sortowaniaListBox.TabIndex = 0;
             // 
+            // rozszerzeniaFilmowePanel
+            // 
+            this.rozszerzeniaFilmowePanel.BackColor = System.Drawing.Color.Transparent;
+            this.rozszerzeniaFilmowePanel.Controls.Add(this.aviCheckBox);
+            this.rozszerzeniaFilmowePanel.Controls.Add(this.mp4CheckBox);
+            this.rozszerzeniaFilmowePanel.Controls.Add(this.wmvCheckBox);
+            this.rozszerzeniaFilmowePanel.Controls.Add(this.mkvCheckBox);
+            this.rozszerzeniaFilmowePanel.Location = new System.Drawing.Point(9, 73);
+            this.rozszerzeniaFilmowePanel.Name = "rozszerzeniaFilmowePanel";
+            this.rozszerzeniaFilmowePanel.Size = new System.Drawing.Size(347, 200);
+            this.rozszerzeniaFilmowePanel.TabIndex = 13;
+            // 
+            // mkvCheckBox
+            // 
+            this.mkvCheckBox.AutoSize = true;
+            this.mkvCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.mkvCheckBox.ForeColor = System.Drawing.Color.White;
+            this.mkvCheckBox.Location = new System.Drawing.Point(58, 47);
+            this.mkvCheckBox.Name = "mkvCheckBox";
+            this.mkvCheckBox.Size = new System.Drawing.Size(58, 17);
+            this.mkvCheckBox.TabIndex = 0;
+            this.mkvCheckBox.Text = "*.mkv";
+            this.mkvCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // wmvCheckBox
+            // 
+            this.wmvCheckBox.AutoSize = true;
+            this.wmvCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.wmvCheckBox.ForeColor = System.Drawing.Color.White;
+            this.wmvCheckBox.Location = new System.Drawing.Point(199, 105);
+            this.wmvCheckBox.Name = "wmvCheckBox";
+            this.wmvCheckBox.Size = new System.Drawing.Size(60, 17);
+            this.wmvCheckBox.TabIndex = 1;
+            this.wmvCheckBox.Text = "*.wmv";
+            this.wmvCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // mp4CheckBox
+            // 
+            this.mp4CheckBox.AutoSize = true;
+            this.mp4CheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.mp4CheckBox.ForeColor = System.Drawing.Color.White;
+            this.mp4CheckBox.Location = new System.Drawing.Point(199, 47);
+            this.mp4CheckBox.Name = "mp4CheckBox";
+            this.mp4CheckBox.Size = new System.Drawing.Size(58, 17);
+            this.mp4CheckBox.TabIndex = 2;
+            this.mp4CheckBox.Text = "*.mp4";
+            this.mp4CheckBox.UseVisualStyleBackColor = true;
+            // 
+            // aviCheckBox
+            // 
+            this.aviCheckBox.AutoSize = true;
+            this.aviCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.aviCheckBox.ForeColor = System.Drawing.Color.White;
+            this.aviCheckBox.Location = new System.Drawing.Point(58, 105);
+            this.aviCheckBox.Name = "aviCheckBox";
+            this.aviCheckBox.Size = new System.Drawing.Size(52, 17);
+            this.aviCheckBox.TabIndex = 3;
+            this.aviCheckBox.Text = "*.avi";
+            this.aviCheckBox.UseVisualStyleBackColor = true;
+            // 
             // UtworzUstawienia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::MuseSort.Properties.Resources.tlo;
             this.ClientSize = new System.Drawing.Size(368, 325);
+            this.Controls.Add(this.rozszerzeniaFilmowePanel);
             this.Controls.Add(this.dalej);
             this.Controls.Add(this.infoLabel);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.folderyPanel);
-            this.Controls.Add(this.bazyDanychPanel);
-            this.Controls.Add(this.sortowaniaPanel);
             this.Controls.Add(this.rozszerzeniaPanel);
+            this.Controls.Add(this.folderyPanel);
+            this.Controls.Add(this.sortowaniaPanel);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UtworzUstawienia";
             this.Text = "UtworzUstawienia";
@@ -233,8 +275,9 @@
             this.folderyPanel.PerformLayout();
             this.rozszerzeniaPanel.ResumeLayout(false);
             this.rozszerzeniaPanel.PerformLayout();
-            this.bazyDanychPanel.ResumeLayout(false);
             this.sortowaniaPanel.ResumeLayout(false);
+            this.rozszerzeniaFilmowePanel.ResumeLayout(false);
+            this.rozszerzeniaFilmowePanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,12 +293,15 @@
         private System.Windows.Forms.Button dalej;
         private System.Windows.Forms.Panel folderyPanel;
         private System.Windows.Forms.Panel rozszerzeniaPanel;
-        private System.Windows.Forms.Panel bazyDanychPanel;
         private System.Windows.Forms.Panel sortowaniaPanel;
         private System.Windows.Forms.ListBox sortowaniaListBox;
         private System.Windows.Forms.CheckBox flacCheckBox;
         private System.Windows.Forms.CheckBox mp3CheckBox;
-        private System.Windows.Forms.ListBox bazyDanychListBox;
         private System.Windows.Forms.FolderBrowserDialog explorer;
+        private System.Windows.Forms.Panel rozszerzeniaFilmowePanel;
+        private System.Windows.Forms.CheckBox aviCheckBox;
+        private System.Windows.Forms.CheckBox mp4CheckBox;
+        private System.Windows.Forms.CheckBox wmvCheckBox;
+        private System.Windows.Forms.CheckBox mkvCheckBox;
     }
 }

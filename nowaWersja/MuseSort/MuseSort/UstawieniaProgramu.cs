@@ -14,7 +14,6 @@ namespace MuseSort
         private static volatile UstawieniaProgramu instancja;
         public String folderGlowny;
         public String domyslneSortowanie;
-        public String domyslnaBazaDanych;
         public List<String> wspieraneRozszerzeniaAudio;
         public List<String> wspieraneRozszerzeniaVideo;
         private bool _ustawieniaWczytane = false;
@@ -23,7 +22,6 @@ namespace MuseSort
         {
             wspieraneRozszerzeniaVideo = new List<String>();
             wspieraneRozszerzeniaAudio = new List<String>();
-            domyslnaBazaDanych = "";
             domyslneSortowanie = "";
             folderGlowny = "";
             loadLibVlc();
@@ -78,7 +76,6 @@ namespace MuseSort
 
             main.AppendChild(GetXmlElementWithTextNode(document, "folderGlowny", folderGlowny));
             main.AppendChild(GetXmlElementWithTextNode(document, "domyslneSortowanie", domyslneSortowanie));
-            main.AppendChild(GetXmlElementWithTextNode(document, "domyslnaBazaDanych", domyslnaBazaDanych));
 
             AddListToXmlNode(document, main, "rozszerzenieAudio", wspieraneRozszerzeniaAudio);
             AddListToXmlNode(document, main, "rozszerzenieVideo", wspieraneRozszerzeniaVideo);
@@ -125,7 +122,6 @@ namespace MuseSort
             plikXML.Load(@"C:\museSort\config.xml");
             folderGlowny        = plikXML.GetElementsByTagName("folderGlowny")      .Item(0).InnerText;
             domyslneSortowanie  = plikXML.GetElementsByTagName("domyslneSortowanie").Item(0).InnerText;
-            domyslnaBazaDanych  = plikXML.GetElementsByTagName("domyslnaBazaDanych").Item(0).InnerText;
             foreach (XmlNode x in plikXML.GetElementsByTagName("rozszerzenieAudio"))
             {
                 wspieraneRozszerzeniaAudio.Add(x.InnerText);
