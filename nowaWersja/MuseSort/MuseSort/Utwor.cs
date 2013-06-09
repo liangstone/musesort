@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
@@ -48,7 +48,7 @@ namespace MuseSort
                 throw new FileNotFoundException(source);
             SciezkaZrodlowa = source;
             Sciezka = path;
-            Nazwa = Path.GetFileNameWithoutExtension(path);
+            Nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
             dane = new DaneUtworu();
             tagi = TagLib.File.Create(path);
             stareTagi = TagLib.File.Create(path);
@@ -241,54 +241,46 @@ namespace MuseSort
                 nowaNazwa = usunZnakiSpecjalne(nowaNazwa);
             }
             logi += "Wygenerowano nową nazwę: " + nowaNazwa + Environment.NewLine;
+            nowaNazwa = normalizuj(nowaNazwa);
             return nowaNazwa;
         }
 
         public override string sciezka_katalogu_z_pol(string[] kategorie, bool duplikat = false)
         {
-            var sciezkaKatalogu = duplikat ? @"Musesort\Muzyka\Zduplikowane\Posegregowane\" : @"Musesort\Muzyka\Posegregowane\";
+            string sciezka_katalogu;
+            if (duplikat)
+                sciezka_katalogu = @"Musesort\Muzyka\Zduplikowane\Posegregowane\";
+            else
+                sciezka_katalogu = @"Musesort\Muzyka\Posegregowane\";
 
-            if (!(kategorie.Length == 1 && kategorie[0] == "alfabetycznie")) //Jeśli jedyną kategorią jest "alfabetycznie, ścieżka z danych zwróci puste nawet przy poprawnie wypełnionych danych
+            string sciezkaZDanych = dane.sciezkaKataloguZPol(kategorie);
+
+            if (sciezkaZDanych.Equals("")) //przenieś do "Nieprzydzielone
             {
-                var sciezkaZDanych =
-                    dane.sciezkaKataloguZPol(
-                        kategorie.SkipWhile(kategoria => kategoria.Equals("alfabetycznie")).ToArray());
-
-                if (string.IsNullOrEmpty(sciezkaZDanych)) 
-                {
-                    pobierzTagiZNazwy(); //pobierz tagi i spróbuj ponownie
-                    pobierzTagiZeSciezki();
-                    sciezkaZDanych = dane.sciezkaKataloguZPol(
-                        kategorie.SkipWhile(kategoria => kategoria.Equals("alfabetycznie")).ToArray());
-                    if (string.IsNullOrEmpty(sciezkaZDanych))  //przenieś do "Nieprzydzielone
-                    {
-                        sciezkaKatalogu = duplikat
-                                              ? @"Musesort\Muzyka\Zduplikowane\Posegregowane\Nieprzydzielone"
-                                              : @"Musesort\Muzyka\Posegregowane\Nieprzydzielone";
-                    }
-                    else
-                        sciezkaKatalogu += sciezkaZDanych;
-                }
+                if (duplikat)
+                    sciezka_katalogu = @"Musesort\Muzyka\Zduplikowane\Posegregowane\Nieprzydzielone";
                 else
-                    sciezkaKatalogu += sciezkaZDanych;
+                    sciezka_katalogu = @"Musesort\Muzyka\Posegregowane\Nieprzydzielone";
             }
+            else
+                sciezka_katalogu += sciezkaZDanych;
 
             if (kategorie.Last() == "alfabetycznie")
-                sciezkaKatalogu += dane.tytul.Substring(0, 1);
+                sciezka_katalogu += dane.tytul.Substring(0, 1);
 
-            if (duplikat && File.Exists(Path.Combine(sciezkaKatalogu, Path.GetFileName(Sciezka))))
+            if (duplikat && File.Exists(Path.Combine(sciezka_katalogu, Path.GetFileName(Sciezka))))
             {
-                var fullpath = Path.Combine(sciezkaKatalogu, Nazwa);
+                string fullpath = Path.Combine(sciezka_katalogu, Nazwa);
                 int i;
                 for (i = 1; File.Exists(fullpath); )
                 {
                     i++;
-                    fullpath = Path.Combine(sciezkaKatalogu + Convert.ToString(i), Nazwa);
+                    fullpath = Path.Combine(sciezka_katalogu + Convert.ToString(i), Nazwa);
                 }
-                sciezkaKatalogu += Convert.ToString(i);
+                sciezka_katalogu += Convert.ToString(i);
             }
 
-            return sciezkaKatalogu;
+            return sciezka_katalogu;
         }
 
         #endregion
@@ -304,36 +296,52 @@ namespace MuseSort
         //Pobieranie tagów z obiektu tagi i zapisywanie w obiekcie dane
         private void pobierzTagi()
         {
-            dane.album = tagi.Tag.Album ?? string.Empty;
-            dane.bityNaMinute = tagi.Tag.BeatsPerMinute;
-            dane.dyrygent = tagi.Tag.Conductor ?? string.Empty;
-            dane.gatunek = CheckEmpty(tagi.Tag.Genres);
-            dane.komentarz = tagi.Tag.Comment ?? "";
-            dane.liczbaCd = tagi.Tag.DiscCount;
-            dane.liczbaPiosenek = tagi.Tag.TrackCount;
-            dane.numer = tagi.Tag.Track;
-            dane.numerCd = tagi.Tag.Disc;
-            dane.prawaAutorskie = tagi.Tag.Copyright ?? "";
-            dane.puid = tagi.Tag.MusicIpId;
-            dane.rok = tagi.Tag.Year;
-            dane.tekstPiosenki = tagi.Tag.Lyrics ?? "";
-            dane.tytul = tagi.Tag.Title ?? "";
-            dane.wykonawca = CheckEmpty(tagi.Tag.Performers);
-            dane.wykonawcaAlbumu = CheckEmpty(tagi.Tag.AlbumArtists);
-            dane.zdjecia = tagi.Tag.Pictures;
-            logi += "Pobrano tagi z pliku." + Environment.NewLine;
-            if (dane.czyDaneWypelnione())
-            {
-                logi += "Pobrane tagi są kompletne." + Environment.NewLine;
-            }
-        }
-
-        private static string[] CheckEmpty(string[] toCheck)
-        {
-            var emptyArray = new[] {string.Empty};
-            if (toCheck == null || toCheck.Length == 0)
-                return emptyArray;
-            return toCheck;
+                dane.album = tagi.Tag.Album;
+                if (!String.IsNullOrEmpty(dane.album))
+                    dane.album = normalizuj(dane.album);
+                dane.bityNaMinute = tagi.Tag.BeatsPerMinute;
+                dane.dyrygent = tagi.Tag.Conductor;
+                dane.gatunek = tagi.Tag.Genres;
+                
+                int i = 0;
+                while (i < dane.gatunek.Length)
+                {
+                    dane.gatunek[i] = normalizuj(dane.gatunek[i]);
+                    i++;
+                }
+                dane.komentarz = tagi.Tag.Comment;
+                dane.liczbaCd = tagi.Tag.DiscCount;
+                dane.liczbaPiosenek = tagi.Tag.TrackCount;
+                dane.numer = tagi.Tag.Track;
+                dane.numerCd = tagi.Tag.Disc;
+                dane.prawaAutorskie = tagi.Tag.Copyright;
+                dane.puid = tagi.Tag.MusicIpId;
+                dane.rok = tagi.Tag.Year;
+                dane.tekstPiosenki = tagi.Tag.Lyrics;
+                dane.tytul = tagi.Tag.Title;
+                if (!String.IsNullOrEmpty(dane.tytul))
+                    dane.tytul = normalizuj(dane.tytul);
+                dane.wykonawca = tagi.Tag.Performers;
+                i = 0;
+                while (i < dane.wykonawca.Length)
+                {
+                    dane.wykonawca[i] = normalizuj(dane.wykonawca[i]);
+                    i++;
+                }
+                dane.wykonawcaAlbumu = tagi.Tag.AlbumArtists;
+                i = 0;
+                while (i < dane.wykonawcaAlbumu.Length)
+                {
+                    dane.wykonawcaAlbumu[i] = normalizuj(dane.wykonawcaAlbumu[i]);
+                    i++;
+                }
+                dane.zdjecia = tagi.Tag.Pictures;
+                logi += "Pobrano tagi z pliku." + Environment.NewLine;
+                if (dane.czyDaneWypelnione())
+                {
+                    logi += "Pobrane tagi są kompletne." + Environment.NewLine;
+                }
+          
         }
 
         /// <summary>Porównuje jakość plików.</summary>
@@ -344,6 +352,27 @@ namespace MuseSort
         protected override bool porownaj(Plik plik2)
         {
             return dane.bityNaMinute >= ((Utwor)plik2).dane.bityNaMinute;
+        }
+        protected String normalizuj(String x)
+        {
+            String wynik = "";
+            x = x.Replace("_", " ");
+            x = x.Replace(".", " ");
+            x = x.Replace("+", " ");
+            x = x.ToLower();
+            String y = x.ToUpper();
+            String[] tab = x.Split(' ');
+            String[] tab1 = y.Split(' ');
+            int i = 0;
+            while (i < tab.Length)
+            {
+                tab[i] = tab[i].Substring(1);
+                tab[i] = tab1[i].First() + tab[i];
+                wynik += tab[i] + " ";
+                i++;
+            }
+            wynik = wynik.Substring(0, wynik.Length - 1);
+            return wynik;
         }
 
         #endregion

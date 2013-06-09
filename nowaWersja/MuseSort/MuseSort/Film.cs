@@ -106,6 +106,7 @@ namespace MuseSort
             String nowaNazwa = "";
             
             logi += "Wygenerowano nową nazwę: " + nowaNazwa + Environment.NewLine;
+            nowaNazwa = normalizuj(nowaNazwa);
             return nowaNazwa;
         }
 
@@ -118,7 +119,27 @@ namespace MuseSort
         {
             resetujTagi();
         }
-
+        protected String normalizuj(String x)
+        {
+            String wynik = "";
+            x = x.Replace("_", " ");
+            x = x.Replace(".", " ");
+            x = x.Replace("+", " ");
+            x = x.ToLower();
+            String y = x.ToUpper();
+            String[] tab = x.Split(' ');
+            String[] tab1 = y.Split(' ');
+            int i = 0;
+            while (i < tab.Length)
+            {
+                tab[i] = tab[i].Substring(1);
+                tab[i] = tab1[i].First() + tab[i];
+                wynik += tab[i] + " ";
+                i++;
+            }
+            wynik = wynik.Substring(0, wynik.Length - 1);
+            return wynik;
+        }
         #endregion
 
         #region Niezaimplementowane 
@@ -127,11 +148,23 @@ namespace MuseSort
         protected override void resetujTagi()
         {
             dane.tytul = dataFile.Metadatas.Title;
+            if (!String.IsNullOrEmpty(dane.tytul))
+                dane.tytul = normalizuj(dane.tytul);
             dane.opis = dataFile.Metadatas.Description;
+            if (!String.IsNullOrEmpty(dane.opis))
+                dane.opis = normalizuj(dane.opis);
             dane.jezyk = dataFile.Metadatas.Language;
+            if (!String.IsNullOrEmpty(dane.jezyk))
+                dane.jezyk = normalizuj(dane.jezyk);
             dane.rezyser = dataFile.Metadatas.Copyright;
+            if (!String.IsNullOrEmpty(dane.rezyser))
+                dane.rezyser = normalizuj(dane.rezyser);
             dane.aktorzy = dataFile.Metadatas.Artist;
+            if (!String.IsNullOrEmpty(dane.aktorzy))
+                dane.aktorzy = normalizuj(dane.aktorzy);
             dane.gatunki = dataFile.Metadatas.Genre;
+            if (!String.IsNullOrEmpty(dane.gatunki))
+                dane.gatunki = normalizuj(dane.gatunki);
         }
 
 
