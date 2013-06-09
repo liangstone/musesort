@@ -33,24 +33,17 @@ namespace MuseSort
             String title = "";
             String gat = "";
             String dir = "";
-            String year = "";
-            try
-            {
-                title = x.dane.tytul;
-                gat = x.dane.gatunki.First();
-                dir = x.dane.dyrektorzy.First();
-                year = x.dane.rok.ToString();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Nie można pobrać tagów z pliku");
-            }
+            String op = "";
+            title = x.dane.tytul;
+            gat = x.dane.gatunki;
+            dir = x.dane.rezyser;
+            op = x.dane.opis;
             tytul.Text = title;
             gatunek.Text = gat;
             produkcja.Text = "";
-            rok.Text = year;
+            rok.Text = "";
             rezyseria.Text = dir;
-            opis.Text = "";
+            opis.Text = op;
             tytul_ory.Text = "";
             sciezkaFilmu = sciezkaPliku;
         }

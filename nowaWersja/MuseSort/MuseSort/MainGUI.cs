@@ -499,19 +499,14 @@ namespace MuseSort
                 //rozszerzenie pliku
                 String rozszerzeniePliku = Path.GetExtension(sciezka);
                 //sprawdzamy czy plik jest filmowy, czy tez muzyczny i wlaczamy odpowiednie okno
-                if (rozszerzeniePliku.Equals(".mkv") || rozszerzeniePliku.Equals(".mov") || rozszerzeniePliku.Equals(".avi"))
+                if (rozszerzeniePliku.Equals(".mkv") || rozszerzeniePliku.Equals(".mov") || rozszerzeniePliku.Equals(".avi") || rozszerzeniePliku.Equals(".mp4") || rozszerzeniePliku.Equals(".wmv"))
                 {
                     sciezka = Path.GetFileNameWithoutExtension(sciezka);
-
                     new SzczegolyFilmu(sciezka).ShowDialog();
-
                 }
                 else
                 {
-
-
                     new SzczegolyMuzyki(sciezka).ShowDialog();
-
                 }
             }
         }
@@ -558,7 +553,7 @@ namespace MuseSort
                 //rozszerzenie pliku
                 String rozszerzeniePliku = Path.GetExtension(sciezka);
                 //sprawdzamy czy plik jest filmowy, czy tez muzyczny i wlaczamy odpowiednie okno
-                if (rozszerzeniePliku.Equals(".mkv") || rozszerzeniePliku.Equals(".mov") || rozszerzeniePliku.Equals(".avi"))
+                if (rozszerzeniePliku.Equals(".mkv") || rozszerzeniePliku.Equals(".mov") || rozszerzeniePliku.Equals(".avi") || rozszerzeniePliku.Equals(".mp4") || rozszerzeniePliku.Equals(".wmv"))
                 {
                     new InterakcjaFilmSerial(sciezka).ShowDialog();
                 }
