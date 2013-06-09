@@ -241,6 +241,7 @@ namespace MuseSort
                 nowaNazwa = usunZnakiSpecjalne(nowaNazwa);
             }
             logi += "Wygenerowano nową nazwę: " + nowaNazwa + Environment.NewLine;
+            nowaNazwa = normalizuj(nowaNazwa);
             return nowaNazwa;
         }
 
@@ -295,28 +296,52 @@ namespace MuseSort
         //Pobieranie tagów z obiektu tagi i zapisywanie w obiekcie dane
         private void pobierzTagi()
         {
-            dane.album = tagi.Tag.Album;
-            dane.bityNaMinute = tagi.Tag.BeatsPerMinute;
-            dane.dyrygent = tagi.Tag.Conductor;
-            dane.gatunek = tagi.Tag.Genres;
-            dane.komentarz = tagi.Tag.Comment;
-            dane.liczbaCd = tagi.Tag.DiscCount;
-            dane.liczbaPiosenek = tagi.Tag.TrackCount;
-            dane.numer = tagi.Tag.Track;
-            dane.numerCd = tagi.Tag.Disc;
-            dane.prawaAutorskie = tagi.Tag.Copyright;
-            dane.puid = tagi.Tag.MusicIpId;
-            dane.rok = tagi.Tag.Year;
-            dane.tekstPiosenki = tagi.Tag.Lyrics;
-            dane.tytul = tagi.Tag.Title;
-            dane.wykonawca = tagi.Tag.Performers;
-            dane.wykonawcaAlbumu = tagi.Tag.AlbumArtists;
-            dane.zdjecia = tagi.Tag.Pictures;
-            logi += "Pobrano tagi z pliku." + Environment.NewLine;
-            if (dane.czyDaneWypelnione())
-            {
-                logi += "Pobrane tagi są kompletne." + Environment.NewLine;
-            }
+                dane.album = tagi.Tag.Album;
+                if (!String.IsNullOrEmpty(dane.album))
+                    dane.album = normalizuj(dane.album);
+                dane.bityNaMinute = tagi.Tag.BeatsPerMinute;
+                dane.dyrygent = tagi.Tag.Conductor;
+                dane.gatunek = tagi.Tag.Genres;
+                
+                int i = 0;
+                while (i < dane.gatunek.Length)
+                {
+                    dane.gatunek[i] = normalizuj(dane.gatunek[i]);
+                    i++;
+                }
+                dane.komentarz = tagi.Tag.Comment;
+                dane.liczbaCd = tagi.Tag.DiscCount;
+                dane.liczbaPiosenek = tagi.Tag.TrackCount;
+                dane.numer = tagi.Tag.Track;
+                dane.numerCd = tagi.Tag.Disc;
+                dane.prawaAutorskie = tagi.Tag.Copyright;
+                dane.puid = tagi.Tag.MusicIpId;
+                dane.rok = tagi.Tag.Year;
+                dane.tekstPiosenki = tagi.Tag.Lyrics;
+                dane.tytul = tagi.Tag.Title;
+                if (!String.IsNullOrEmpty(dane.tytul))
+                    dane.tytul = normalizuj(dane.tytul);
+                dane.wykonawca = tagi.Tag.Performers;
+                i = 0;
+                while (i < dane.wykonawca.Length)
+                {
+                    dane.wykonawca[i] = normalizuj(dane.wykonawca[i]);
+                    i++;
+                }
+                dane.wykonawcaAlbumu = tagi.Tag.AlbumArtists;
+                i = 0;
+                while (i < dane.wykonawcaAlbumu.Length)
+                {
+                    dane.wykonawcaAlbumu[i] = normalizuj(dane.wykonawcaAlbumu[i]);
+                    i++;
+                }
+                dane.zdjecia = tagi.Tag.Pictures;
+                logi += "Pobrano tagi z pliku." + Environment.NewLine;
+                if (dane.czyDaneWypelnione())
+                {
+                    logi += "Pobrane tagi są kompletne." + Environment.NewLine;
+                }
+          
         }
 
         /// <summary>Porównuje jakość plików.</summary>
@@ -327,6 +352,27 @@ namespace MuseSort
         protected override bool porownaj(Plik plik2)
         {
             return dane.bityNaMinute >= ((Utwor)plik2).dane.bityNaMinute;
+        }
+        protected String normalizuj(String x)
+        {
+            String wynik = "";
+            x = x.Replace("_", " ");
+            x = x.Replace(".", " ");
+            x = x.Replace("+", " ");
+            x = x.ToLower();
+            String y = x.ToUpper();
+            String[] tab = x.Split(' ');
+            String[] tab1 = y.Split(' ');
+            int i = 0;
+            while (i < tab.Length)
+            {
+                tab[i] = tab[i].Substring(1);
+                tab[i] = tab1[i].First() + tab[i];
+                wynik += tab[i] + " ";
+                i++;
+            }
+            wynik = wynik.Substring(0, wynik.Length - 1);
+            return wynik;
         }
 
         #endregion

@@ -28,7 +28,7 @@ namespace MuseSort
 
             wypelnijPola(dane);
             rozszerzenieBox.Enabled = false;
-            zapiszButton.Enabled = false;
+            zapiszButton.Enabled = true;
             przwrocButton.Enabled = false;
             zapisane = true;
         }
