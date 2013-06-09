@@ -254,11 +254,20 @@ namespace MuseSort
                     dane.sciezkaKataloguZPol(
                         kategorie.SkipWhile(kategoria => kategoria.Equals("alfabetycznie")).ToArray());
 
-                if (string.IsNullOrEmpty(sciezkaZDanych)) //przenieś do "Nieprzydzielone
+                if (string.IsNullOrEmpty(sciezkaZDanych)) 
                 {
-                    sciezkaKatalogu = duplikat
-                                          ? @"Musesort\Muzyka\Zduplikowane\Posegregowane\Nieprzydzielone"
-                                          : @"Musesort\Muzyka\Posegregowane\Nieprzydzielone";
+                    pobierzTagiZNazwy(); //pobierz tagi i spróbuj ponownie
+                    pobierzTagiZeSciezki();
+                    sciezkaZDanych = dane.sciezkaKataloguZPol(
+                        kategorie.SkipWhile(kategoria => kategoria.Equals("alfabetycznie")).ToArray());
+                    if (string.IsNullOrEmpty(sciezkaZDanych))  //przenieś do "Nieprzydzielone
+                    {
+                        sciezkaKatalogu = duplikat
+                                              ? @"Musesort\Muzyka\Zduplikowane\Posegregowane\Nieprzydzielone"
+                                              : @"Musesort\Muzyka\Posegregowane\Nieprzydzielone";
+                    }
+                    else
+                        sciezkaKatalogu += sciezkaZDanych;
                 }
                 else
                     sciezkaKatalogu += sciezkaZDanych;
@@ -295,28 +304,36 @@ namespace MuseSort
         //Pobieranie tagów z obiektu tagi i zapisywanie w obiekcie dane
         private void pobierzTagi()
         {
-            dane.album = tagi.Tag.Album;
+            dane.album = tagi.Tag.Album ?? string.Empty;
             dane.bityNaMinute = tagi.Tag.BeatsPerMinute;
-            dane.dyrygent = tagi.Tag.Conductor;
-            dane.gatunek = tagi.Tag.Genres;
-            dane.komentarz = tagi.Tag.Comment;
+            dane.dyrygent = tagi.Tag.Conductor ?? string.Empty;
+            dane.gatunek = CheckEmpty(tagi.Tag.Genres);
+            dane.komentarz = tagi.Tag.Comment ?? "";
             dane.liczbaCd = tagi.Tag.DiscCount;
             dane.liczbaPiosenek = tagi.Tag.TrackCount;
             dane.numer = tagi.Tag.Track;
             dane.numerCd = tagi.Tag.Disc;
-            dane.prawaAutorskie = tagi.Tag.Copyright;
+            dane.prawaAutorskie = tagi.Tag.Copyright ?? "";
             dane.puid = tagi.Tag.MusicIpId;
             dane.rok = tagi.Tag.Year;
-            dane.tekstPiosenki = tagi.Tag.Lyrics;
-            dane.tytul = tagi.Tag.Title;
-            dane.wykonawca = tagi.Tag.Performers;
-            dane.wykonawcaAlbumu = tagi.Tag.AlbumArtists;
+            dane.tekstPiosenki = tagi.Tag.Lyrics ?? "";
+            dane.tytul = tagi.Tag.Title ?? "";
+            dane.wykonawca = CheckEmpty(tagi.Tag.Performers);
+            dane.wykonawcaAlbumu = CheckEmpty(tagi.Tag.AlbumArtists);
             dane.zdjecia = tagi.Tag.Pictures;
             logi += "Pobrano tagi z pliku." + Environment.NewLine;
             if (dane.czyDaneWypelnione())
             {
                 logi += "Pobrane tagi są kompletne." + Environment.NewLine;
             }
+        }
+
+        private static string[] CheckEmpty(string[] toCheck)
+        {
+            var emptyArray = new[] {string.Empty};
+            if (toCheck == null || toCheck.Length == 0)
+                return emptyArray;
+            return toCheck;
         }
 
         /// <summary>Porównuje jakość plików.</summary>

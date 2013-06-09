@@ -219,12 +219,13 @@ namespace MuseSortTesting
             {
                 Utwor.dodajWzorzecNazwy(wzorzec);
             }
+            UstawieniaProgramu.getInstance().zapiszUstawienia();
             var dane = new[]
                 {
                     new DaneUtworu
                         {
                             tytul = "Belief",
-                            wykonawca = new[] {"Łukasz Brzostek (QDC)"},
+                            wykonawca = new[] {"QDC"},
                             numer = 1
                         },
                     new DaneUtworu
@@ -235,9 +236,9 @@ namespace MuseSortTesting
                         },
                     new DaneUtworu
                         {
-                            tytul = "Kristin Chenoweth-Popular",
-                            wykonawca = new[] {"Various"},
-                            numer = 4
+                            tytul = "Popular",
+                            wykonawca = new[] {"Kristin Chenoweth"},
+                            numer = 7
                         },
                 };
             var rozszerzenia = UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio;
@@ -299,6 +300,9 @@ namespace MuseSortTesting
                         break;
                     case "Numer":
                         wynik.Add(dane.numer.ToString());
+                        break;
+                    case "Tytul":
+                        wynik.Add(dane.tytul);
                         break;
                 }
             }

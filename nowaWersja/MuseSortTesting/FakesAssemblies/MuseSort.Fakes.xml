@@ -2500,6 +2500,9 @@
         <member name="P:MuseSort.Fakes.ShimUtwor.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimUtwor.CheckEmptyStringArray">
+            <summary>Sets the shim of Utwor.CheckEmpty(String[] toCheck)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimUtwor.ConstructorString">
             <summary>Sets the shim of Utwor.Utwor(String path)</summary>
         </member>
@@ -2523,6 +2526,9 @@
         </member>
         <member name="P:MuseSort.Fakes.ShimUtwor._sciezka_katalogu_z_polb__5String">
             <summary>Sets the shim of Utwor.&lt;sciezka_katalogu_z_pol&gt;b__5(String kategoria)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimUtwor._sciezka_katalogu_z_polb__6String">
+            <summary>Sets the shim of Utwor.&lt;sciezka_katalogu_z_pol&gt;b__6(String kategoria)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimUtwor.dodajWzorzecNazwyString">
             <summary>Sets the shim of Utwor.dodajWzorzecNazwy(String wzorzec)</summary>
