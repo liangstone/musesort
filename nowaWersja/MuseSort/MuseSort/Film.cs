@@ -179,5 +179,14 @@ namespace MuseSort
         }
 
         #endregion
+
+        public override string ToString()
+        {
+            var stringRepresentation =
+                string.Format(
+                    "{0}\nTytul: {1}\nJezyk: {2}\nReżyser: {3}\nGatunek: {4}\nAktorzy: {5}\nOpis: {6}",
+                    Sciezka, dane.tytul, dane.jezyk, dane.rezyser, dane.gatunki, dane.aktorzy, dane.opis);
+            return stringRepresentation;
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using MuseSort;
 
 namespace MuseSortTesting
 {
@@ -26,6 +28,24 @@ namespace MuseSortTesting
                     throw new FileNotFoundException(sciezka);
             }
             return Path.GetFullPath(path);
+        }
+
+        public static void PrintFilmsInFolder(string folder)
+        {
+            foreach (var file in Directory.GetFiles(folder))
+            {
+                try
+                {
+                    var film = new Film(file);
+                    Console.WriteLine(film.ToString());
+                    File.AppendAllText(@"C:\Users\KrzysztofD\Desktop\pliki.txt", film.ToString());
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    File.AppendAllText(@"C:\Users\KrzysztofD\Desktop\pliki.txt", file + "\n" + e.Message);
+                }
+            }
         }
     }
 }

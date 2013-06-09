@@ -61,5 +61,14 @@ namespace MuseSort
 
 
         }//end void wczytajWzorceZPliku(String path)
+        private static string ToString(Film film)
+        {
+            var stringRepresentation =
+                String.Format(
+                    "{0}\nTytul: {1}\nJezyk: {2}\nReżyser: {3}\nGatunek: {4}\nAktorzy: {5}\nOpis: {6}",
+                    film.Sciezka, film.dane.tytul, film.dane.jezyk, film.dane.rezyser, film.dane.gatunki,
+                    film.dane.aktorzy, film.dane.opis);
+            return stringRepresentation;
+        }
     }
 }
