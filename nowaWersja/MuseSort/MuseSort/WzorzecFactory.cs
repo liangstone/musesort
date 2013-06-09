@@ -28,21 +28,22 @@ namespace MuseSort
             SlownikRegexowDlaFilmow = new Dictionary<string, string>
                 {
                     {"source",      ".*?"}, //Zawartośc będzie ignorowana - folder nadrzędny 
-                    {"<tytul>",     @"[\w\s\(\)\&\'\!\`\~\$\.\+\-]+"},
-                    {"<dyrektor>",  @"[\w\s\(\)\&\'\!\`\~\$\.\+\-]+"},
-                    {"<gatunek>",   @"[\w\s\(\)\&\'\!\`\~\$\.\+\-]+"},
-                    {"<rok>",       @"[\d]{4}"}
+                    {"tytul",       @"[\w\s\(\)\&\'\!\`\~\$\.\+\-]+"},
+                    {"rezyser",     @"[\w\s\(\)\&\'\!\`\~\$\.\+\-]+"},
+                    {"gatunek",     @"[\w\s\(\)\&\'\!\`\~\$\.\+\-]+"},
+                    {"opis",        @"[\w\s\(\)\&\'\!\`\~\$\.\+\-]+"},
+                    {"jezyk",       @"[\w\s\(\)\&\'\!\`\~\$\.\+\-]+"},
+                    {"aktorzy",     @"[\w\s\(\)\&\'\!\`\~\$\.\+\-]+"},
                 };
             SlownikRegexowDlaUtowrow = new Dictionary<string, string>
                 {
                     {"source",      ".*?"}, //Zawartośc będzie ignorowana - folder nadrzędny 
                     {"rok",         @"[\d]{4}"},
-                    {"numer",       @"[\d]+"}
+                    {"numer",       @"[\d]+"},
+                    {"tytul",       @"[\w\s\(\)\&\'\!\`\~\$\.\+\-]+"},
+                    {"wykonawca",   @"[\w\s\(\)\&\'\!\`\~\$\.\+\-]+"},
+                    {"album",       @"[\w\s\(\)\&\'\!\`\~\$\.\+\-]+"},
                 };
-            foreach (var tagSlowny in new[] {"tytul", "wykonawca", "album"})
-            {
-                SlownikRegexowDlaUtowrow.Add(tagSlowny, @"[\w\s\(\)\&\'\!\`\~\$\.\+\-]+");
-            }
         }
 
         /// <summary>Metoda fabryczna. Przyjmuje wzorzec w którym nazwy tagów są otoczone nawiasami ostrymi i tworzy na jego podstawie Wzorzec 
