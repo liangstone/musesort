@@ -55,5 +55,25 @@ namespace MuseSortTesting
             
             Assert.AreEqual(expected, log.ToString());
         }
+
+        [TestMethod]
+        public void PrzeniesTest()
+        {
+            var log = new StringBuilder();
+            var docelowy = Util.SetAbsoluteDirectoryPath(@"muzyka\BlindGuardian");
+            var nazwa = Path.GetFileName(_muzyka);
+            var expected = string.Format("{0} => {1}\\{2}", _muzyka, docelowy, nazwa);
+            var plik = Plik.Create(_muzyka);
+
+
+            using (ShimsContext.Create())
+            {
+                ShimFile.MoveStringString = (s, s1) => log.Append(s + " => " + s1);
+                plik.przeniesPlik(docelowy);
+            }
+
+            Assert.AreEqual(expected, log.ToString());
+            Assert.AreEqual(docelowy+"\\"+nazwa, plik.Sciezka);
+        }
     }
 }

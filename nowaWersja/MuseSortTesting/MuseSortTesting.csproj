@@ -86,6 +86,7 @@
     <Compile Include="PlikTest.cs" />
     <Compile Include="Util.cs" />
     <Compile Include="UtworTest1.cs" />
+    <Compile Include="WzorzecFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Fakes Include="Fakes\System.Data.SqlServerCe.fakes" />
