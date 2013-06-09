@@ -2401,6 +2401,9 @@
         <member name="P:MuseSort.Fakes.ShimUtwor._pobierzTagiZeSciezkib__4Wzorzec">
             <summary>Sets the shim of Utwor.&lt;pobierzTagiZeSciezki&gt;b__4(Wzorzec w)</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimUtwor._sciezka_katalogu_z_polb__5String">
+            <summary>Sets the shim of Utwor.&lt;sciezka_katalogu_z_pol&gt;b__5(String kategoria)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimUtwor.dodajWzorzecNazwyString">
             <summary>Sets the shim of Utwor.dodajWzorzecNazwy(String wzorzec)</summary>
         </member>

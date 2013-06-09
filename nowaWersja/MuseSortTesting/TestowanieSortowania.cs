@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 using System.Windows.Forms.Fakes;
@@ -7,6 +8,7 @@ using Microsoft.QualityTools.Testing.Fakes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MuseSort;
 using MuseSort.Fakes;
+using System.Linq;
 
 namespace MuseSortTesting
 {
@@ -95,6 +97,7 @@ namespace MuseSortTesting
         {
             _sciezkaMuzyka = Util.SetAbsoluteDirectoryPath(_sciezkaMuzyka);
             _sciezkaFilmy = Util.SetAbsoluteDirectoryPath(_sciezkaFilmy);
+            UstawieniaProgramu.getInstance().wczytajUstawienia();
         }
 
         #region Sortowanie muzyki
@@ -102,22 +105,134 @@ namespace MuseSortTesting
         [TestMethod]
         public void SortujUtworyTest()
         {
+            //-------------------------------------- Setup -------------------------------------------
+            /*Wykonawca\Album\Piosenki
+            Wykonawca\Rok\Album\Piosenki
+            Gatunek\Wykonawca\Album\Piosenki
+            Gatunek\Wykonawca\Piosenki
+            Rok\Gatunek\Wykonawca\Album\Piosenki
+            Rok\Wykonawca\Album\Piosenki
+            Piosenki\Alfabetycznie
+            Piosenki\Wykonawca*/
+            var schematy = new []
+                {
+                    @"Wykonawca\Album\Piosenki",
+                    @"Wykonawca\Rok\Album\Piosenki",
+                    @"Gatunek\Wykonawca\Album\Piosenki",
+                    @"Gatunek\Wykonawca\Piosenki",
+                    @"Rok\Gatunek\Wykonawca\Album\Piosenki",
+                    @"Rok\Wykonawca\Album\Piosenki",
+                    @"Piosenki\Alfabetycznie",
+//                    @"Piosenki\Wykonawca" //Sczególny przypadek - sortowanie ze zmianą nazwy
+                };
+            var sciezkaTestowa = Path.Combine(_sciezkaMuzyka, "test prosty");
+
+            //-------------------------------------- Lists --------------------------------------------
+            var expectedInList = new List<string>
+                {
+                    "01.QDC - Belief",
+                    "02.QDC - Old Diary",
+                    "03.QDC - Forgotten Road",
+                    "1362338352.foxamoore_one_sleepless_night",
+                    "1362775647.foxamoore_children_of_orion"
+                };
+            var dane = new[]
+                {
+                    new DaneUtworu
+                        {
+                            tytul = "Belief", 
+                            wykonawca = new[] {"Łukasz Brzostek (QDC)"},
+                            album = "Alchemist",
+                            rok = 2003,
+                            gatunek = new[]{ "Ethnic"}
+                        },
+                    new DaneUtworu
+                        {
+                           tytul = "Old Diary",
+                            wykonawca = new[] {"Łukasz Brzostek (QDC)"},
+                            album = "Alchemist",
+                            rok = 2003,
+                            gatunek = new[]{ "Ambient"}
+
+                        },
+                    new DaneUtworu
+                        {
+                            tytul = "Forgotten Road", 
+                            wykonawca = new[] {"Łukasz Brzostek (QDC)"},
+                            album = "Alchemist",
+                            rok = 2003,
+                            gatunek = new[]{ "Ambient"}
+                        },
+                    new DaneUtworu
+                        {
+                            tytul = "One Sleepless Night", 
+                            wykonawca = new[] {"Fox Amoore"},
+                            album = "Singles 2013",
+                            rok = 2013,
+                            gatunek = new[]{ "Soundtrack"}
+                        },
+                    new DaneUtworu
+                        {
+                            tytul = "Children of Orion", 
+                            wykonawca = new[] {"Fox Amoore"},
+                            album = "Utunu and Kikivuli",
+                            rok = 2013,
+                            gatunek = new[]{ "Soundtrack"}
+                        }
+                };
+
+            expectedInList = expectedInList.Select(file => Path.Combine(sciezkaTestowa, file+".mp3")).ToList();
+            var rozszerzenia = UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio;
+            
+
             using (ShimsContext.Create())
             {
-                ShimFolderXML.ConstructorString = (@this, path) => { };
-                ShimFolderXML.AllInstances.analizuj = @this => false;
-                ShimMessageBox.ShowString = message => DialogResult.OK;
-
-
+                UniversalShims();
                 //const string sciezkaTestowa = @"C:\Users\KrzysztofD\Documents\Visual Studio 2012\Projects\MuseSort\testowanie\muzyka";
-                var folder = new Folder(_sciezkaMuzyka);
-                var progressBar = new ProgressBar();
-                folder.progressBar2 = progressBar;
-                folder.ustalSchemat(@"Wykonawca\Album\Piosenki");
-                UstawieniaProgramu.getInstance().wczytajUstawienia();
-                folder.sortuj(UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio);
+                foreach (var schemat in schematy)
+                {
+                    Console.WriteLine("\n\nTestujemy schematem: {0}\n\n", schemat);
+                    if (Directory.Exists(sciezkaTestowa + "\\Musesort"))
+                        Directory.Delete(sciezkaTestowa + "\\Musesort", true);
+                    CheckInList(Folder.znajdz_wspierane_pliki(sciezkaTestowa, rozszerzenia), expectedInList);
+                    var expectedOutList = expectedInList.Select(
+                        (path, i) => Path.Combine( sciezkaTestowa, 
+                                                @"Musesort\Muzyka\Posegregowane", 
+                                                SciezkaKataloguZPol(schemat, dane[i]), 
+                                                Path.GetFileName(path))).ToList();
+                    CreateTestFolder(sciezkaTestowa,schemat).sortuj(rozszerzenia);
+                    CheckOutput(sciezkaTestowa, expectedOutList, rozszerzenia);
+                }
             }
         }
+
+        private static string SciezkaKataloguZPol(string schemat, DaneUtworu dane)
+        {
+            var wynik = new List<string>();
+            foreach (var element in schemat.Split('\\'))
+            {
+                switch (element)
+                {
+                    case "Wykonawca":
+                        wynik.Add(dane.wykonawca[0]);
+                        break;
+                    case "Album":
+                        wynik.Add(dane.album);
+                        break;
+                    case "Rok":
+                        wynik.Add(dane.rok.ToString());
+                        break;
+                    case "Gatunek":
+                        wynik.Add(dane.gatunek[0]);
+                        break;
+                    case "Alfabetycznie":
+                        wynik.Add(dane.tytul[0].ToString());
+                        break;
+                }
+            }
+            return string.Join("\\", wynik);
+        }
+
 
         #endregion
 
@@ -126,11 +241,10 @@ namespace MuseSortTesting
         [TestMethod]
         public void SortujFilmyTest1()
         {
-            //-------------------------------------- Setup --------------------------------------------
+            //-------------------------------------- Setup -------------------------------------------
             var sciezkaTestowa = _sciezkaFilmy;
             const string schemat = "Rezyser\\Tytul";
 
-            UstawieniaProgramu.getInstance().wczytajUstawienia();
             if (!UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo.Contains("mov"))
                 UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo.Add("mov");
             if (Directory.Exists(sciezkaTestowa + "\\Musesort"))
@@ -150,12 +264,12 @@ namespace MuseSortTesting
 
             using (ShimsContext.Create())
             {
-                UniversalFilmShims();
+                UniversalShims();
                 CreateFilmShims1(testData);
                 CreateTestFolder(sciezkaTestowa, schemat).sortuj(UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo);
             }
 
-            CheckOutput(sciezkaTestowa, expectedOutList);
+            CheckOutput(sciezkaTestowa, expectedOutList, UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo);
         }
 
         [TestMethod]
@@ -199,19 +313,18 @@ namespace MuseSortTesting
 
             using (ShimsContext.Create())
             {
-                UniversalFilmShims();
+                UniversalShims();
                 var testFolder = CreateTestFolder(sciezkaTestowa, schemat);
                 var wspieraneRozszerzeniaVideo = UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo;
                 testFolder.sortuj(wspieraneRozszerzeniaVideo);
             }
 
-            CheckOutput(sciezkaTestowa, expectedOutList);
+            CheckOutput(sciezkaTestowa, expectedOutList, UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo);
         }
 
-        private static void CheckOutput(string sciezkaTestowa, List<string> expectedOutList)
+        private static void CheckOutput(string sciezkaTestowa, List<string> expectedOutList, List<string> wspieraneRozszerzenia)
         {
-            var outList = Folder.znajdz_wspierane_pliki(sciezkaTestowa + "\\Musesort",
-                                                        UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo);
+            var outList = Folder.znajdz_wspierane_pliki(sciezkaTestowa + "\\Musesort", wspieraneRozszerzenia);
 
             outList.Sort();
             expectedOutList.Sort();
@@ -282,7 +395,7 @@ namespace MuseSortTesting
             ShimPlik.CreateStringString = (path1, path2) => createPlik(path1);
         }
 
-        private static void UniversalFilmShims()
+        private static void UniversalShims()
         {
             ShimFolderXML.ConstructorString = (@this, path) => { };
             ShimFolderXML.AllInstances.analizuj = @this => false;

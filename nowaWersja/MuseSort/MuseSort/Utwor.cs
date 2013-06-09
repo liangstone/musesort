@@ -48,7 +48,7 @@ namespace MuseSort
                 throw new FileNotFoundException(source);
             SciezkaZrodlowa = source;
             Sciezka = path;
-            Nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
+            Nazwa = Path.GetFileNameWithoutExtension(path);
             dane = new DaneUtworu();
             tagi = TagLib.File.Create(path);
             stareTagi = TagLib.File.Create(path);
@@ -246,40 +246,40 @@ namespace MuseSort
 
         public override string sciezka_katalogu_z_pol(string[] kategorie, bool duplikat = false)
         {
-            string sciezka_katalogu;
-            if (duplikat)
-                sciezka_katalogu = @"Musesort\Muzyka\Zduplikowane\Posegregowane\";
-            else
-                sciezka_katalogu = @"Musesort\Muzyka\Posegregowane\";
+            var sciezkaKatalogu = duplikat ? @"Musesort\Muzyka\Zduplikowane\Posegregowane\" : @"Musesort\Muzyka\Posegregowane\";
 
-            string sciezkaZDanych = dane.sciezkaKataloguZPol(kategorie);
-
-            if (sciezkaZDanych.Equals("")) //przenieś do "Nieprzydzielone
+            if (!(kategorie.Length == 1 && kategorie[0] == "alfabetycznie")) //Jeśli jedyną kategorią jest "alfabetycznie, ścieżka z danych zwróci puste nawet przy poprawnie wypełnionych danych
             {
-                if (duplikat)
-                    sciezka_katalogu = @"Musesort\Muzyka\Zduplikowane\Posegregowane\Nieprzydzielone";
+                var sciezkaZDanych =
+                    dane.sciezkaKataloguZPol(
+                        kategorie.SkipWhile(kategoria => kategoria.Equals("alfabetycznie")).ToArray());
+
+                if (string.IsNullOrEmpty(sciezkaZDanych)) //przenieś do "Nieprzydzielone
+                {
+                    sciezkaKatalogu = duplikat
+                                          ? @"Musesort\Muzyka\Zduplikowane\Posegregowane\Nieprzydzielone"
+                                          : @"Musesort\Muzyka\Posegregowane\Nieprzydzielone";
+                }
                 else
-                    sciezka_katalogu = @"Musesort\Muzyka\Posegregowane\Nieprzydzielone";
+                    sciezkaKatalogu += sciezkaZDanych;
             }
-            else
-                sciezka_katalogu += sciezkaZDanych;
 
             if (kategorie.Last() == "alfabetycznie")
-                sciezka_katalogu += dane.tytul.Substring(0, 1);
+                sciezkaKatalogu += dane.tytul.Substring(0, 1);
 
-            if (duplikat && File.Exists(Path.Combine(sciezka_katalogu, Path.GetFileName(Sciezka))))
+            if (duplikat && File.Exists(Path.Combine(sciezkaKatalogu, Path.GetFileName(Sciezka))))
             {
-                string fullpath = Path.Combine(sciezka_katalogu, Nazwa);
+                var fullpath = Path.Combine(sciezkaKatalogu, Nazwa);
                 int i;
                 for (i = 1; File.Exists(fullpath); )
                 {
                     i++;
-                    fullpath = Path.Combine(sciezka_katalogu + Convert.ToString(i), Nazwa);
+                    fullpath = Path.Combine(sciezkaKatalogu + Convert.ToString(i), Nazwa);
                 }
-                sciezka_katalogu += Convert.ToString(i);
+                sciezkaKatalogu += Convert.ToString(i);
             }
 
-            return sciezka_katalogu;
+            return sciezkaKatalogu;
         }
 
         #endregion
