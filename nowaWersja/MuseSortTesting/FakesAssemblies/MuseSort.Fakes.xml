@@ -706,6 +706,9 @@
         <member name="P:MuseSort.Fakes.ShimDodawanieFilmow.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimDodawanieFilmow.Constructor">
+            <summary>Sets the shim of DodawanieFilmow.DodawanieFilmow()</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimDodawanieFilmow.ConstructorInt32StringStringStringInt32StringStringStringString">
             <summary>Sets the shim of DodawanieFilmow.DodawanieFilmow(Int32 id, String tyt, String gat, String pro, Int32 rokPremiery, String rez, String opisFilmu, String ory, String sciezka)</summary>
         </member>
@@ -1038,6 +1041,123 @@
         </member>
         <member name="P:MuseSort.Fakes.ShimEdycjaPliku.AllInstances.zapiszClickObjectEventArgs">
             <summary>Sets the shim of EdycjaPliku.zapiszClick(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="T:MuseSort.Fakes.ShimEdycjaPlikuFilmowego">
+            <summary>Shim type of MuseSort.EdycjaPlikuFilmowego</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.#ctor(MuseSort.EdycjaPlikuFilmowego)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.Bind(System.ComponentModel.IComponent)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.Bind(System.ComponentModel.ISynchronizeInvoke)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.Bind(System.Windows.Forms.IBindableComponent)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.Bind(System.Windows.Forms.IContainerControl)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.Bind(System.Windows.Forms.IDropTarget)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.Bind(System.Windows.Forms.IWin32Window)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.ConstructorString">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.EdycjaPlikuFilmowego(String path)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.DisposeBoolean">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.InitializeComponent">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.InitializeComponent()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.aktorzyBox_TextChangedObjectEventArgs">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.aktorzyBox_TextChanged(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.gatunkiBox_TextChangedObjectEventArgs">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.gatunkiBox_TextChanged(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.jezykBox_TextChangedObjectEventArgs">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.jezykBox_TextChanged(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.opisBox_TextChangedObjectEventArgs">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.opisBox_TextChanged(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.przwrocButton_ClickObjectEventArgs">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.przwrocButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.rezyserBox_TextChangedObjectEventArgs">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.rezyserBox_TextChanged(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.tytulBox_TextChangedObjectEventArgs">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.tytulBox_TextChanged(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.wypelnijPolaFilm">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.wypelnijPola(Film dane)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.zamknijButton_ClickObjectEventArgs">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.zamknijButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.zapiszButton_ClickObjectEventArgs">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.zapiszButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="T:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.AllInstances.DisposeBoolean">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.AllInstances.InitializeComponent">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.InitializeComponent()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.AllInstances.aktorzyBox_TextChangedObjectEventArgs">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.aktorzyBox_TextChanged(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.AllInstances.gatunkiBox_TextChangedObjectEventArgs">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.gatunkiBox_TextChanged(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.AllInstances.jezykBox_TextChangedObjectEventArgs">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.jezykBox_TextChanged(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.AllInstances.opisBox_TextChangedObjectEventArgs">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.opisBox_TextChanged(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.AllInstances.przwrocButton_ClickObjectEventArgs">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.przwrocButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.AllInstances.rezyserBox_TextChangedObjectEventArgs">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.rezyserBox_TextChanged(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.AllInstances.tytulBox_TextChangedObjectEventArgs">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.tytulBox_TextChanged(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.AllInstances.wypelnijPolaFilm">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.wypelnijPola(Film dane)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.AllInstances.zamknijButton_ClickObjectEventArgs">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.zamknijButton_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimEdycjaPlikuFilmowego.AllInstances.zapiszButton_ClickObjectEventArgs">
+            <summary>Sets the shim of EdycjaPlikuFilmowego.zapiszButton_Click(Object sender, EventArgs e)</summary>
         </member>
         <member name="T:MuseSort.Fakes.ShimFilm">
             <summary>Shim type of MuseSort.Film</summary>
@@ -1876,14 +1996,14 @@
         <member name="P:MuseSort.Fakes.ShimOknoUstawien.dodajRozszerzenieButton_ClickObjectEventArgs">
             <summary>Sets the shim of OknoUstawien.dodajRozszerzenieButton_Click(Object sender, EventArgs e)</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimOknoUstawien.dodajRozszerzenieVideoButton_ClickObjectEventArgs">
+            <summary>Sets the shim of OknoUstawien.dodajRozszerzenieVideoButton_Click(Object sender, EventArgs e)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimOknoUstawien.przywrocDomyslneButton_ClickObjectEventArgs">
             <summary>Sets the shim of OknoUstawien.przywrocDomyslneButton_Click(Object sender, EventArgs e)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimOknoUstawien.ustawNowyFolderGlownyButton_ClickObjectEventArgs">
             <summary>Sets the shim of OknoUstawien.ustawNowyFolderGlownyButton_Click(Object sender, EventArgs e)</summary>
-        </member>
-        <member name="P:MuseSort.Fakes.ShimOknoUstawien.wybierzBazeButton_ClickObjectEventArgs">
-            <summary>Sets the shim of OknoUstawien.wybierzBazeButton_Click(Object sender, EventArgs e)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimOknoUstawien.wybierzNowyFolderGlownyButton_ClickObjectEventArgs">
             <summary>Sets the shim of OknoUstawien.wybierzNowyFolderGlownyButton_Click(Object sender, EventArgs e)</summary>
@@ -1915,14 +2035,14 @@
         <member name="P:MuseSort.Fakes.ShimOknoUstawien.AllInstances.dodajRozszerzenieButton_ClickObjectEventArgs">
             <summary>Sets the shim of OknoUstawien.dodajRozszerzenieButton_Click(Object sender, EventArgs e)</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimOknoUstawien.AllInstances.dodajRozszerzenieVideoButton_ClickObjectEventArgs">
+            <summary>Sets the shim of OknoUstawien.dodajRozszerzenieVideoButton_Click(Object sender, EventArgs e)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimOknoUstawien.AllInstances.przywrocDomyslneButton_ClickObjectEventArgs">
             <summary>Sets the shim of OknoUstawien.przywrocDomyslneButton_Click(Object sender, EventArgs e)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimOknoUstawien.AllInstances.ustawNowyFolderGlownyButton_ClickObjectEventArgs">
             <summary>Sets the shim of OknoUstawien.ustawNowyFolderGlownyButton_Click(Object sender, EventArgs e)</summary>
-        </member>
-        <member name="P:MuseSort.Fakes.ShimOknoUstawien.AllInstances.wybierzBazeButton_ClickObjectEventArgs">
-            <summary>Sets the shim of OknoUstawien.wybierzBazeButton_Click(Object sender, EventArgs e)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimOknoUstawien.AllInstances.wybierzNowyFolderGlownyButton_ClickObjectEventArgs">
             <summary>Sets the shim of OknoUstawien.wybierzNowyFolderGlownyButton_Click(Object sender, EventArgs e)</summary>
@@ -9637,6 +9757,9 @@
         <member name="T:MuseSort.Fakes.StubDodawanieFilmow">
             <summary>Stub type of MuseSort.DodawanieFilmow</summary>
         </member>
+        <member name="M:MuseSort.Fakes.StubDodawanieFilmow.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
         <member name="M:MuseSort.Fakes.StubDodawanieFilmow.#ctor(System.String)">
             <summary>Initializes a new instance</summary>
         </member>
@@ -14828,6 +14951,1302 @@
             <summary>Sets the stub of Control.get_Site()</summary>
         </member>
         <member name="P:MuseSort.Fakes.StubEdycjaPliku.Text">
+            <summary>Sets the stub of Form.get_Text()</summary>
+        </member>
+        <member name="T:MuseSort.Fakes.StubEdycjaPlikuFilmowego">
+            <summary>Stub type of MuseSort.EdycjaPlikuFilmowego</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.#ctor(System.String)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AdjustFormScrollbars(System.Boolean)">
+            <summary>Sets the stub of Form.AdjustFormScrollbars(Boolean displayScrollbars)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AdjustFormScrollbarsBoolean">
+            <summary>Sets the stub of Form.AdjustFormScrollbars(Boolean displayScrollbars)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AllowDropGet">
+            <summary>Sets the stub of Control.get_AllowDrop()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AllowDropSetBoolean">
+            <summary>Sets the stub of Control.set_AllowDrop(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AnchorGet">
+            <summary>Sets the stub of Control.get_Anchor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AnchorSetAnchorStyles">
+            <summary>Sets the stub of Control.set_Anchor(AnchorStyles value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToAllowDrop">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.AllowDrop as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToAnchor">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.Anchor as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToAutoScaleBaseSize">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.AutoScaleBaseSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToAutoScroll">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.AutoScroll as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToAutoScrollOffset">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.AutoScrollOffset as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToAutoSize">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.AutoSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToAutoValidate">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.AutoValidate as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToBackColor">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.BackColor as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToBackgroundImage">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.BackgroundImage as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToBackgroundImageLayout">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.BackgroundImageLayout as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToBindingContext">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.BindingContext as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToContextMenu">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.ContextMenu as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToContextMenuStrip">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.ContextMenuStrip as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToCursor">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.Cursor as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToDock">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.Dock as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToDoubleBuffered">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.DoubleBuffered as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToFont">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.Font as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToForeColor">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.ForeColor as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToImeModeBase">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.ImeModeBase as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToMaximumSize">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.MaximumSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToMinimumSize">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.MinimumSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToRightToLeft">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.RightToLeft as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToRightToLeftLayout">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.RightToLeftLayout as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToSite">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.Site as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AttachBackingFieldToText">
+            <summary>Attaches delegates to emulate StubEdycjaPlikuFilmowego.Text as a property with a backing field.</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AutoScaleBaseSizeGet">
+            <summary>Sets the stub of Form.get_AutoScaleBaseSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AutoScaleBaseSizeSetSize">
+            <summary>Sets the stub of Form.set_AutoScaleBaseSize(Size value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AutoScrollGet">
+            <summary>Sets the stub of Form.get_AutoScroll()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AutoScrollOffsetGet">
+            <summary>Sets the stub of Control.get_AutoScrollOffset()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AutoScrollOffsetSetPoint">
+            <summary>Sets the stub of Control.set_AutoScrollOffset(Point value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AutoScrollSetBoolean">
+            <summary>Sets the stub of Form.set_AutoScroll(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AutoSizeGet">
+            <summary>Sets the stub of Form.get_AutoSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AutoSizeSetBoolean">
+            <summary>Sets the stub of Form.set_AutoSize(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AutoValidateGet">
+            <summary>Sets the stub of Form.get_AutoValidate()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AutoValidateSetAutoValidate">
+            <summary>Sets the stub of Form.set_AutoValidate(AutoValidate value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.BackColorGet">
+            <summary>Sets the stub of Form.get_BackColor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.BackColorSetColor">
+            <summary>Sets the stub of Form.set_BackColor(Color value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.BackgroundImageGet">
+            <summary>Sets the stub of Control.get_BackgroundImage()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.BackgroundImageLayoutGet">
+            <summary>Sets the stub of Control.get_BackgroundImageLayout()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.BackgroundImageLayoutSetImageLayout">
+            <summary>Sets the stub of Control.set_BackgroundImageLayout(ImageLayout value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.BackgroundImageSetImage">
+            <summary>Sets the stub of Control.set_BackgroundImage(Image value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.BindingContextGet">
+            <summary>Sets the stub of ContainerControl.get_BindingContext()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.BindingContextSetBindingContext">
+            <summary>Sets the stub of ContainerControl.set_BindingContext(BindingContext value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.CanEnableImeGet">
+            <summary>Sets the stub of ContainerControl.get_CanEnableIme()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.CanRaiseEventsGet">
+            <summary>Sets the stub of Control.get_CanRaiseEvents()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ContextMenuGet">
+            <summary>Sets the stub of Control.get_ContextMenu()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ContextMenuSetContextMenu">
+            <summary>Sets the stub of Control.set_ContextMenu(ContextMenu value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ContextMenuStripGet">
+            <summary>Sets the stub of Control.get_ContextMenuStrip()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ContextMenuStripSetContextMenuStrip">
+            <summary>Sets the stub of Control.set_ContextMenuStrip(ContextMenuStrip value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.CreateAccessibilityInstance">
+            <summary>Sets the stub of Control.CreateAccessibilityInstance()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.CreateAccessibilityInstance01">
+            <summary>Sets the stub of Control.CreateAccessibilityInstance()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.CreateControlsInstance">
+            <summary>Sets the stub of Form.CreateControlsInstance()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.CreateControlsInstance01">
+            <summary>Sets the stub of Form.CreateControlsInstance()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.CreateHandle">
+            <summary>Sets the stub of Form.CreateHandle()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.CreateHandle01">
+            <summary>Sets the stub of Form.CreateHandle()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.CreateParamsGet">
+            <summary>Sets the stub of Form.get_CreateParams()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.CursorGet">
+            <summary>Sets the stub of Control.get_Cursor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.CursorSetCursor">
+            <summary>Sets the stub of Control.set_Cursor(Cursor value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DefWndProc(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Form.DefWndProc(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DefWndProcMessageRef">
+            <summary>Sets the stub of Form.DefWndProc(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DefaultCursorGet">
+            <summary>Sets the stub of Control.get_DefaultCursor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DefaultImeModeGet">
+            <summary>Sets the stub of Form.get_DefaultImeMode()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DefaultMarginGet">
+            <summary>Sets the stub of Control.get_DefaultMargin()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DefaultMaximumSizeGet">
+            <summary>Sets the stub of Control.get_DefaultMaximumSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DefaultMinimumSizeGet">
+            <summary>Sets the stub of Control.get_DefaultMinimumSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DefaultPaddingGet">
+            <summary>Sets the stub of Control.get_DefaultPadding()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DefaultSizeGet">
+            <summary>Sets the stub of Form.get_DefaultSize()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DestroyHandle">
+            <summary>Sets the stub of Control.DestroyHandle()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DestroyHandle01">
+            <summary>Sets the stub of Control.DestroyHandle()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DisplayRectangleGet">
+            <summary>Sets the stub of ScrollableControl.get_DisplayRectangle()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.Dispose(System.Boolean)">
+            <summary>Sets the stub of EdycjaPlikuFilmowego.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DisposeBoolean">
+            <summary>Sets the stub of EdycjaPlikuFilmowego.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DockGet">
+            <summary>Sets the stub of Control.get_Dock()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DockSetDockStyle">
+            <summary>Sets the stub of Control.set_Dock(DockStyle value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DoubleBufferedGet">
+            <summary>Sets the stub of Control.get_DoubleBuffered()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DoubleBufferedSetBoolean">
+            <summary>Sets the stub of Control.set_DoubleBuffered(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.FocusedGet">
+            <summary>Sets the stub of Control.get_Focused()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.FontGet">
+            <summary>Sets the stub of Control.get_Font()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.FontSetFont">
+            <summary>Sets the stub of Control.set_Font(Font value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ForeColorGet">
+            <summary>Sets the stub of Control.get_ForeColor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ForeColorSetColor">
+            <summary>Sets the stub of Control.set_ForeColor(Color value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.GetAccessibilityObjectById(System.Int32)">
+            <summary>Sets the stub of Control.GetAccessibilityObjectById(Int32 objectId)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.GetAccessibilityObjectByIdInt32">
+            <summary>Sets the stub of Control.GetAccessibilityObjectById(Int32 objectId)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.GetPreferredSize(System.Drawing.Size)">
+            <summary>Sets the stub of Control.GetPreferredSize(Size proposedSize)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.GetPreferredSizeSize">
+            <summary>Sets the stub of Control.GetPreferredSize(Size proposedSize)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.GetScaledBounds(System.Drawing.Rectangle,System.Drawing.SizeF,System.Windows.Forms.BoundsSpecified)">
+            <summary>Sets the stub of Form.GetScaledBounds(Rectangle bounds, SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.GetScaledBoundsRectangleSizeFBoundsSpecified">
+            <summary>Sets the stub of Form.GetScaledBounds(Rectangle bounds, SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.GetService(System.Type)">
+            <summary>Sets the stub of Component.GetService(Type service)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.GetServiceType">
+            <summary>Sets the stub of Component.GetService(Type service)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ImeModeBaseGet">
+            <summary>Sets the stub of Control.get_ImeModeBase()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ImeModeBaseSetImeMode">
+            <summary>Sets the stub of Control.set_ImeModeBase(ImeMode value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.InitLayout">
+            <summary>Sets the stub of Control.InitLayout()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.InitLayout01">
+            <summary>Sets the stub of Control.InitLayout()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.InitializeStub">
+            <summary>Initializes a new instance of type StubEdycjaPlikuFilmowego</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.IsInputChar(System.Char)">
+            <summary>Sets the stub of Control.IsInputChar(Char charCode)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.IsInputCharChar">
+            <summary>Sets the stub of Control.IsInputChar(Char charCode)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.IsInputKey(System.Windows.Forms.Keys)">
+            <summary>Sets the stub of Control.IsInputKey(Keys keyData)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.IsInputKeyKeys">
+            <summary>Sets the stub of Control.IsInputKey(Keys keyData)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.LayoutEngineGet">
+            <summary>Sets the stub of Control.get_LayoutEngine()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.MaximumSizeGet">
+            <summary>Sets the stub of Form.get_MaximumSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.MaximumSizeSetSize">
+            <summary>Sets the stub of Form.set_MaximumSize(Size value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.MinimumSizeGet">
+            <summary>Sets the stub of Form.get_MinimumSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.MinimumSizeSetSize">
+            <summary>Sets the stub of Form.set_MinimumSize(Size value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.NotifyInvalidate(System.Drawing.Rectangle)">
+            <summary>Sets the stub of Control.NotifyInvalidate(Rectangle invalidatedArea)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.NotifyInvalidateRectangle">
+            <summary>Sets the stub of Control.NotifyInvalidate(Rectangle invalidatedArea)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnActivated(System.EventArgs)">
+            <summary>Sets the stub of Form.OnActivated(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnActivatedEventArgs">
+            <summary>Sets the stub of Form.OnActivated(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnAutoSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnAutoSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnAutoSizeChangedEventArgs">
+            <summary>Sets the stub of Control.OnAutoSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnAutoValidateChanged(System.EventArgs)">
+            <summary>Sets the stub of ContainerControl.OnAutoValidateChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnAutoValidateChangedEventArgs">
+            <summary>Sets the stub of ContainerControl.OnAutoValidateChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnBackColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnBackColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnBackgroundImageChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnBackgroundImageChangedEventArgs">
+            <summary>Sets the stub of Form.OnBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnBackgroundImageLayoutChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnBackgroundImageLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnBackgroundImageLayoutChangedEventArgs">
+            <summary>Sets the stub of Form.OnBackgroundImageLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnBindingContextChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnBindingContextChangedEventArgs">
+            <summary>Sets the stub of Control.OnBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnCausesValidationChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnCausesValidationChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnCausesValidationChangedEventArgs">
+            <summary>Sets the stub of Control.OnCausesValidationChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnChangeUICues(System.Windows.Forms.UICuesEventArgs)">
+            <summary>Sets the stub of Control.OnChangeUICues(UICuesEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnChangeUICuesUICuesEventArgs">
+            <summary>Sets the stub of Control.OnChangeUICues(UICuesEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnClick(System.EventArgs)">
+            <summary>Sets the stub of Control.OnClick(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnClickEventArgs">
+            <summary>Sets the stub of Control.OnClick(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnClientSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnClientSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnClientSizeChangedEventArgs">
+            <summary>Sets the stub of Control.OnClientSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnClosed(System.EventArgs)">
+            <summary>Sets the stub of Form.OnClosed(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnClosedEventArgs">
+            <summary>Sets the stub of Form.OnClosed(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnClosing(System.ComponentModel.CancelEventArgs)">
+            <summary>Sets the stub of Form.OnClosing(CancelEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnClosingCancelEventArgs">
+            <summary>Sets the stub of Form.OnClosing(CancelEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnContextMenuChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnContextMenuChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnContextMenuChangedEventArgs">
+            <summary>Sets the stub of Control.OnContextMenuChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnContextMenuStripChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnContextMenuStripChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnContextMenuStripChangedEventArgs">
+            <summary>Sets the stub of Control.OnContextMenuStripChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnControlAdded(System.Windows.Forms.ControlEventArgs)">
+            <summary>Sets the stub of Control.OnControlAdded(ControlEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnControlAddedControlEventArgs">
+            <summary>Sets the stub of Control.OnControlAdded(ControlEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnControlRemoved(System.Windows.Forms.ControlEventArgs)">
+            <summary>Sets the stub of Control.OnControlRemoved(ControlEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnControlRemovedControlEventArgs">
+            <summary>Sets the stub of Control.OnControlRemoved(ControlEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnCreateControl">
+            <summary>Sets the stub of Form.OnCreateControl()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnCreateControl01">
+            <summary>Sets the stub of Form.OnCreateControl()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnCursorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnCursorChangedEventArgs">
+            <summary>Sets the stub of Control.OnCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnDeactivate(System.EventArgs)">
+            <summary>Sets the stub of Form.OnDeactivate(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnDeactivateEventArgs">
+            <summary>Sets the stub of Form.OnDeactivate(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnDockChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnDockChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnDockChangedEventArgs">
+            <summary>Sets the stub of Control.OnDockChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnDoubleClick(System.EventArgs)">
+            <summary>Sets the stub of Control.OnDoubleClick(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnDoubleClickEventArgs">
+            <summary>Sets the stub of Control.OnDoubleClick(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnDragDrop(System.Windows.Forms.DragEventArgs)">
+            <summary>Sets the stub of Control.OnDragDrop(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnDragDropDragEventArgs">
+            <summary>Sets the stub of Control.OnDragDrop(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnDragEnter(System.Windows.Forms.DragEventArgs)">
+            <summary>Sets the stub of Control.OnDragEnter(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnDragEnterDragEventArgs">
+            <summary>Sets the stub of Control.OnDragEnter(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnDragLeave(System.EventArgs)">
+            <summary>Sets the stub of Control.OnDragLeave(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnDragLeaveEventArgs">
+            <summary>Sets the stub of Control.OnDragLeave(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnDragOver(System.Windows.Forms.DragEventArgs)">
+            <summary>Sets the stub of Control.OnDragOver(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnDragOverDragEventArgs">
+            <summary>Sets the stub of Control.OnDragOver(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnEnabledChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnEnabledChangedEventArgs">
+            <summary>Sets the stub of Form.OnEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnEnter(System.EventArgs)">
+            <summary>Sets the stub of Form.OnEnter(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnEnterEventArgs">
+            <summary>Sets the stub of Form.OnEnter(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnFontChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnFontChangedEventArgs">
+            <summary>Sets the stub of Form.OnFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnForeColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnForeColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnFormClosed(System.Windows.Forms.FormClosedEventArgs)">
+            <summary>Sets the stub of Form.OnFormClosed(FormClosedEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnFormClosedFormClosedEventArgs">
+            <summary>Sets the stub of Form.OnFormClosed(FormClosedEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnFormClosing(System.Windows.Forms.FormClosingEventArgs)">
+            <summary>Sets the stub of Form.OnFormClosing(FormClosingEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnFormClosingFormClosingEventArgs">
+            <summary>Sets the stub of Form.OnFormClosing(FormClosingEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnGiveFeedback(System.Windows.Forms.GiveFeedbackEventArgs)">
+            <summary>Sets the stub of Control.OnGiveFeedback(GiveFeedbackEventArgs gfbevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnGiveFeedbackGiveFeedbackEventArgs">
+            <summary>Sets the stub of Control.OnGiveFeedback(GiveFeedbackEventArgs gfbevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnGotFocus(System.EventArgs)">
+            <summary>Sets the stub of Control.OnGotFocus(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnGotFocusEventArgs">
+            <summary>Sets the stub of Control.OnGotFocus(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnHandleCreated(System.EventArgs)">
+            <summary>Sets the stub of Form.OnHandleCreated(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnHandleCreatedEventArgs">
+            <summary>Sets the stub of Form.OnHandleCreated(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnHandleDestroyed(System.EventArgs)">
+            <summary>Sets the stub of Form.OnHandleDestroyed(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnHandleDestroyedEventArgs">
+            <summary>Sets the stub of Form.OnHandleDestroyed(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnHelpButtonClicked(System.ComponentModel.CancelEventArgs)">
+            <summary>Sets the stub of Form.OnHelpButtonClicked(CancelEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnHelpButtonClickedCancelEventArgs">
+            <summary>Sets the stub of Form.OnHelpButtonClicked(CancelEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnHelpRequested(System.Windows.Forms.HelpEventArgs)">
+            <summary>Sets the stub of Control.OnHelpRequested(HelpEventArgs hevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnHelpRequestedHelpEventArgs">
+            <summary>Sets the stub of Control.OnHelpRequested(HelpEventArgs hevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnImeModeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnImeModeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnImeModeChangedEventArgs">
+            <summary>Sets the stub of Control.OnImeModeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnInputLanguageChanged(System.Windows.Forms.InputLanguageChangedEventArgs)">
+            <summary>Sets the stub of Form.OnInputLanguageChanged(InputLanguageChangedEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnInputLanguageChangedInputLanguageChangedEventArgs">
+            <summary>Sets the stub of Form.OnInputLanguageChanged(InputLanguageChangedEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnInputLanguageChanging(System.Windows.Forms.InputLanguageChangingEventArgs)">
+            <summary>Sets the stub of Form.OnInputLanguageChanging(InputLanguageChangingEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnInputLanguageChangingInputLanguageChangingEventArgs">
+            <summary>Sets the stub of Form.OnInputLanguageChanging(InputLanguageChangingEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnInvalidated(System.Windows.Forms.InvalidateEventArgs)">
+            <summary>Sets the stub of Control.OnInvalidated(InvalidateEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnInvalidatedInvalidateEventArgs">
+            <summary>Sets the stub of Control.OnInvalidated(InvalidateEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+            <summary>Sets the stub of Control.OnKeyDown(KeyEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnKeyDownKeyEventArgs">
+            <summary>Sets the stub of Control.OnKeyDown(KeyEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)">
+            <summary>Sets the stub of Control.OnKeyPress(KeyPressEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnKeyPressKeyPressEventArgs">
+            <summary>Sets the stub of Control.OnKeyPress(KeyPressEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnKeyUp(System.Windows.Forms.KeyEventArgs)">
+            <summary>Sets the stub of Control.OnKeyUp(KeyEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnKeyUpKeyEventArgs">
+            <summary>Sets the stub of Control.OnKeyUp(KeyEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnLayout(System.Windows.Forms.LayoutEventArgs)">
+            <summary>Sets the stub of Form.OnLayout(LayoutEventArgs levent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnLayoutLayoutEventArgs">
+            <summary>Sets the stub of Form.OnLayout(LayoutEventArgs levent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnLeave(System.EventArgs)">
+            <summary>Sets the stub of Control.OnLeave(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnLeaveEventArgs">
+            <summary>Sets the stub of Control.OnLeave(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnLoad(System.EventArgs)">
+            <summary>Sets the stub of Form.OnLoad(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnLoadEventArgs">
+            <summary>Sets the stub of Form.OnLoad(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnLocationChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnLocationChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnLocationChangedEventArgs">
+            <summary>Sets the stub of Control.OnLocationChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnLostFocus(System.EventArgs)">
+            <summary>Sets the stub of Control.OnLostFocus(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnLostFocusEventArgs">
+            <summary>Sets the stub of Control.OnLostFocus(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMarginChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMarginChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMarginChangedEventArgs">
+            <summary>Sets the stub of Control.OnMarginChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMaximizedBoundsChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMaximizedBoundsChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMaximizedBoundsChangedEventArgs">
+            <summary>Sets the stub of Form.OnMaximizedBoundsChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMaximumSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMaximumSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMaximumSizeChangedEventArgs">
+            <summary>Sets the stub of Form.OnMaximumSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMdiChildActivate(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMdiChildActivate(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMdiChildActivateEventArgs">
+            <summary>Sets the stub of Form.OnMdiChildActivate(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMenuComplete(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMenuComplete(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMenuCompleteEventArgs">
+            <summary>Sets the stub of Form.OnMenuComplete(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMenuStart(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMenuStart(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMenuStartEventArgs">
+            <summary>Sets the stub of Form.OnMenuStart(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMinimumSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMinimumSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMinimumSizeChangedEventArgs">
+            <summary>Sets the stub of Form.OnMinimumSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMouseCaptureChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseCaptureChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMouseCaptureChangedEventArgs">
+            <summary>Sets the stub of Control.OnMouseCaptureChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMouseClick(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMouseClickMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMouseDoubleClick(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseDoubleClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMouseDoubleClickMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseDoubleClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseDown(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMouseDownMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseDown(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMouseEnter(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseEnter(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMouseEnterEventArgs">
+            <summary>Sets the stub of Control.OnMouseEnter(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMouseHover(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseHover(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMouseHoverEventArgs">
+            <summary>Sets the stub of Control.OnMouseHover(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMouseLeave(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseLeave(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMouseLeaveEventArgs">
+            <summary>Sets the stub of Control.OnMouseLeave(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseMove(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMouseMoveMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseMove(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseUp(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMouseUpMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseUp(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMouseWheel(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnMouseWheel(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMouseWheelMouseEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnMouseWheel(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMove(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMove(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnMoveEventArgs">
+            <summary>Sets the stub of Control.OnMove(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnNotifyMessage(System.Windows.Forms.Message)">
+            <summary>Sets the stub of Control.OnNotifyMessage(Message m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnNotifyMessageMessage">
+            <summary>Sets the stub of Control.OnNotifyMessage(Message m)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnPaddingChanged(System.EventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnPaddingChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnPaddingChangedEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnPaddingChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>Sets the stub of Form.OnPaint(PaintEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnPaintBackground(PaintEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnPaintBackgroundPaintEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnPaintBackground(PaintEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnPaintPaintEventArgs">
+            <summary>Sets the stub of Form.OnPaint(PaintEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnParentBackColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnParentBackColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnParentBackgroundImageChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnParentBackgroundImageChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnParentBindingContextChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnParentBindingContextChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnParentChanged(System.EventArgs)">
+            <summary>Sets the stub of ContainerControl.OnParentChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnParentChangedEventArgs">
+            <summary>Sets the stub of ContainerControl.OnParentChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnParentCursorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnParentCursorChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnParentEnabledChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnParentEnabledChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnParentFontChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnParentFontChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnParentForeColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnParentForeColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnParentRightToLeftChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnParentRightToLeftChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnParentVisibleChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnParentVisibleChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnPreviewKeyDown(System.Windows.Forms.PreviewKeyDownEventArgs)">
+            <summary>Sets the stub of Control.OnPreviewKeyDown(PreviewKeyDownEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnPreviewKeyDownPreviewKeyDownEventArgs">
+            <summary>Sets the stub of Control.OnPreviewKeyDown(PreviewKeyDownEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnPrint(System.Windows.Forms.PaintEventArgs)">
+            <summary>Sets the stub of Control.OnPrint(PaintEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnPrintPaintEventArgs">
+            <summary>Sets the stub of Control.OnPrint(PaintEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnQueryContinueDrag(System.Windows.Forms.QueryContinueDragEventArgs)">
+            <summary>Sets the stub of Control.OnQueryContinueDrag(QueryContinueDragEventArgs qcdevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnQueryContinueDragQueryContinueDragEventArgs">
+            <summary>Sets the stub of Control.OnQueryContinueDrag(QueryContinueDragEventArgs qcdevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnRegionChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnRegionChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnRegionChangedEventArgs">
+            <summary>Sets the stub of Control.OnRegionChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnResize(System.EventArgs)">
+            <summary>Sets the stub of Form.OnResize(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnResizeBegin(System.EventArgs)">
+            <summary>Sets the stub of Form.OnResizeBegin(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnResizeBeginEventArgs">
+            <summary>Sets the stub of Form.OnResizeBegin(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnResizeEnd(System.EventArgs)">
+            <summary>Sets the stub of Form.OnResizeEnd(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnResizeEndEventArgs">
+            <summary>Sets the stub of Form.OnResizeEnd(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnResizeEventArgs">
+            <summary>Sets the stub of Form.OnResize(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnRightToLeftChanged(System.EventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnRightToLeftChangedEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnRightToLeftLayoutChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnRightToLeftLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnRightToLeftLayoutChangedEventArgs">
+            <summary>Sets the stub of Form.OnRightToLeftLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnScroll(System.Windows.Forms.ScrollEventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnScroll(ScrollEventArgs se)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnScrollScrollEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnScroll(ScrollEventArgs se)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnShown(System.EventArgs)">
+            <summary>Sets the stub of Form.OnShown(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnShownEventArgs">
+            <summary>Sets the stub of Form.OnShown(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnSizeChangedEventArgs">
+            <summary>Sets the stub of Control.OnSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnStyleChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnStyleChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnStyleChangedEventArgs">
+            <summary>Sets the stub of Form.OnStyleChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnSystemColorsChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnSystemColorsChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnSystemColorsChangedEventArgs">
+            <summary>Sets the stub of Control.OnSystemColorsChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnTabIndexChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnTabIndexChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnTabIndexChangedEventArgs">
+            <summary>Sets the stub of Control.OnTabIndexChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnTabStopChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnTabStopChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnTabStopChangedEventArgs">
+            <summary>Sets the stub of Control.OnTabStopChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnTextChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnTextChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnTextChangedEventArgs">
+            <summary>Sets the stub of Form.OnTextChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnValidated(System.EventArgs)">
+            <summary>Sets the stub of Control.OnValidated(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnValidatedEventArgs">
+            <summary>Sets the stub of Control.OnValidated(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnValidating(System.ComponentModel.CancelEventArgs)">
+            <summary>Sets the stub of Control.OnValidating(CancelEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnValidatingCancelEventArgs">
+            <summary>Sets the stub of Control.OnValidating(CancelEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnVisibleChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.OnVisibleChangedEventArgs">
+            <summary>Sets the stub of Form.OnVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.PreProcessMessage(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Control.PreProcessMessage(Message&amp; msg)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.PreProcessMessageMessageRef">
+            <summary>Sets the stub of Control.PreProcessMessage(Message&amp; msg)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
+            <summary>Sets the stub of Form.ProcessCmdKey(Message&amp; msg, Keys keyData)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ProcessCmdKeyMessageRefKeys">
+            <summary>Sets the stub of Form.ProcessCmdKey(Message&amp; msg, Keys keyData)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ProcessDialogChar(System.Char)">
+            <summary>Sets the stub of Form.ProcessDialogChar(Char charCode)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ProcessDialogCharChar">
+            <summary>Sets the stub of Form.ProcessDialogChar(Char charCode)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ProcessDialogKey(System.Windows.Forms.Keys)">
+            <summary>Sets the stub of Form.ProcessDialogKey(Keys keyData)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ProcessDialogKeyKeys">
+            <summary>Sets the stub of Form.ProcessDialogKey(Keys keyData)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ProcessKeyEventArgs(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Control.ProcessKeyEventArgs(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ProcessKeyEventArgsMessageRef">
+            <summary>Sets the stub of Control.ProcessKeyEventArgs(Message&amp; m)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ProcessKeyMessage(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Control.ProcessKeyMessage(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ProcessKeyMessageMessageRef">
+            <summary>Sets the stub of Control.ProcessKeyMessage(Message&amp; m)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ProcessKeyPreview(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Form.ProcessKeyPreview(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ProcessKeyPreviewMessageRef">
+            <summary>Sets the stub of Form.ProcessKeyPreview(Message&amp; m)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ProcessMnemonic(System.Char)">
+            <summary>Sets the stub of Form.ProcessMnemonic(Char charCode)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ProcessMnemonicChar">
+            <summary>Sets the stub of Form.ProcessMnemonic(Char charCode)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ProcessTabKey(System.Boolean)">
+            <summary>Sets the stub of Form.ProcessTabKey(Boolean forward)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ProcessTabKeyBoolean">
+            <summary>Sets the stub of Form.ProcessTabKey(Boolean forward)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.Refresh">
+            <summary>Sets the stub of Control.Refresh()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.Refresh01">
+            <summary>Sets the stub of Control.Refresh()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ResetBackColor">
+            <summary>Sets the stub of Control.ResetBackColor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ResetBackColor01">
+            <summary>Sets the stub of Control.ResetBackColor()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ResetCursor">
+            <summary>Sets the stub of Control.ResetCursor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ResetCursor01">
+            <summary>Sets the stub of Control.ResetCursor()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ResetFont">
+            <summary>Sets the stub of Control.ResetFont()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ResetFont01">
+            <summary>Sets the stub of Control.ResetFont()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ResetForeColor">
+            <summary>Sets the stub of Control.ResetForeColor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ResetForeColor01">
+            <summary>Sets the stub of Control.ResetForeColor()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ResetRightToLeft">
+            <summary>Sets the stub of Control.ResetRightToLeft()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ResetRightToLeft01">
+            <summary>Sets the stub of Control.ResetRightToLeft()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ResetText">
+            <summary>Sets the stub of Control.ResetText()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ResetText01">
+            <summary>Sets the stub of Control.ResetText()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.RightToLeftGet">
+            <summary>Sets the stub of Control.get_RightToLeft()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.RightToLeftLayoutGet">
+            <summary>Sets the stub of Form.get_RightToLeftLayout()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.RightToLeftLayoutSetBoolean">
+            <summary>Sets the stub of Form.set_RightToLeftLayout(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.RightToLeftSetRightToLeft">
+            <summary>Sets the stub of Control.set_RightToLeft(RightToLeft value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ScaleChildrenGet">
+            <summary>Sets the stub of Control.get_ScaleChildren()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ScaleControl(System.Drawing.SizeF,System.Windows.Forms.BoundsSpecified)">
+            <summary>Sets the stub of Form.ScaleControl(SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ScaleControlSizeFBoundsSpecified">
+            <summary>Sets the stub of Form.ScaleControl(SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ScaleCore(System.Single,System.Single)">
+            <summary>Sets the stub of Form.ScaleCore(Single x, Single y)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ScaleCoreSingleSingle">
+            <summary>Sets the stub of Form.ScaleCore(Single x, Single y)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ScrollToControl(System.Windows.Forms.Control)">
+            <summary>Sets the stub of ScrollableControl.ScrollToControl(Control activeControl)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ScrollToControlControl">
+            <summary>Sets the stub of ScrollableControl.ScrollToControl(Control activeControl)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.Select(System.Boolean,System.Boolean)">
+            <summary>Sets the stub of Form.Select(Boolean directed, Boolean forward)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.SelectBooleanBoolean">
+            <summary>Sets the stub of Form.Select(Boolean directed, Boolean forward)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.SetBoundsCore(System.Int32,System.Int32,System.Int32,System.Int32,System.Windows.Forms.BoundsSpecified)">
+            <summary>Sets the stub of Form.SetBoundsCore(Int32 x, Int32 y, Int32 width, Int32 height, BoundsSpecified specified)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.SetBoundsCoreInt32Int32Int32Int32BoundsSpecified">
+            <summary>Sets the stub of Form.SetBoundsCore(Int32 x, Int32 y, Int32 width, Int32 height, BoundsSpecified specified)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.SetClientSizeCore(System.Int32,System.Int32)">
+            <summary>Sets the stub of Form.SetClientSizeCore(Int32 x, Int32 y)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.SetClientSizeCoreInt32Int32">
+            <summary>Sets the stub of Form.SetClientSizeCore(Int32 x, Int32 y)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.SetVisibleCore(System.Boolean)">
+            <summary>Sets the stub of Form.SetVisibleCore(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.SetVisibleCoreBoolean">
+            <summary>Sets the stub of Form.SetVisibleCore(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ShowFocusCuesGet">
+            <summary>Sets the stub of Control.get_ShowFocusCues()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ShowKeyboardCuesGet">
+            <summary>Sets the stub of Control.get_ShowKeyboardCues()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ShowWithoutActivationGet">
+            <summary>Sets the stub of Form.get_ShowWithoutActivation()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.SiteGet">
+            <summary>Sets the stub of Control.get_Site()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.SiteSetISite">
+            <summary>Sets the stub of Control.set_Site(ISite value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.SizeFromClientSize(System.Drawing.Size)">
+            <summary>Sets the stub of Control.SizeFromClientSize(Size clientSize)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.SizeFromClientSizeSize">
+            <summary>Sets the stub of Control.SizeFromClientSize(Size clientSize)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.TextGet">
+            <summary>Sets the stub of Form.get_Text()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.TextSetString">
+            <summary>Sets the stub of Form.set_Text(String value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ToString">
+            <summary>Sets the stub of Form.ToString()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ToString01">
+            <summary>Sets the stub of Form.ToString()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.UpdateDefaultButton">
+            <summary>Sets the stub of Form.UpdateDefaultButton()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.UpdateDefaultButton01">
+            <summary>Sets the stub of Form.UpdateDefaultButton()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ValidateChildren">
+            <summary>Sets the stub of Form.ValidateChildren()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ValidateChildren(System.Windows.Forms.ValidationConstraints)">
+            <summary>Sets the stub of Form.ValidateChildren(ValidationConstraints validationConstraints)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ValidateChildren01">
+            <summary>Sets the stub of Form.ValidateChildren()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ValidateChildrenValidationConstraints">
+            <summary>Sets the stub of Form.ValidateChildren(ValidationConstraints validationConstraints)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubEdycjaPlikuFilmowego.WndProc(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Form.WndProc(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubEdycjaPlikuFilmowego.WndProcMessageRef">
+            <summary>Sets the stub of Form.WndProc(Message&amp; m)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AllowDrop">
+            <summary>Sets the stub of Control.get_AllowDrop()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.Anchor">
+            <summary>Sets the stub of Control.get_Anchor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AutoScaleBaseSize">
+            <summary>Sets the stub of Form.get_AutoScaleBaseSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AutoScroll">
+            <summary>Sets the stub of Form.get_AutoScroll()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AutoScrollOffset">
+            <summary>Sets the stub of Control.get_AutoScrollOffset()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AutoSize">
+            <summary>Sets the stub of Form.get_AutoSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.AutoValidate">
+            <summary>Sets the stub of Form.get_AutoValidate()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.BackColor">
+            <summary>Sets the stub of Form.get_BackColor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.BackgroundImage">
+            <summary>Sets the stub of Control.get_BackgroundImage()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.BackgroundImageLayout">
+            <summary>Sets the stub of Control.get_BackgroundImageLayout()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.BindingContext">
+            <summary>Sets the stub of ContainerControl.get_BindingContext()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.CanEnableIme">
+            <summary>Sets the stub of ContainerControl.get_CanEnableIme()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.CanRaiseEvents">
+            <summary>Sets the stub of Control.get_CanRaiseEvents()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ContextMenu">
+            <summary>Sets the stub of Control.get_ContextMenu()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ContextMenuStrip">
+            <summary>Sets the stub of Control.get_ContextMenuStrip()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.CreateParams">
+            <summary>Sets the stub of Form.get_CreateParams()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.Cursor">
+            <summary>Sets the stub of Control.get_Cursor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DefaultCursor">
+            <summary>Sets the stub of Control.get_DefaultCursor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DefaultImeMode">
+            <summary>Sets the stub of Form.get_DefaultImeMode()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DefaultMargin">
+            <summary>Sets the stub of Control.get_DefaultMargin()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DefaultMaximumSize">
+            <summary>Sets the stub of Control.get_DefaultMaximumSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DefaultMinimumSize">
+            <summary>Sets the stub of Control.get_DefaultMinimumSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DefaultPadding">
+            <summary>Sets the stub of Control.get_DefaultPadding()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DefaultSize">
+            <summary>Sets the stub of Form.get_DefaultSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DisplayRectangle">
+            <summary>Sets the stub of ScrollableControl.get_DisplayRectangle()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.Dock">
+            <summary>Sets the stub of Control.get_Dock()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.DoubleBuffered">
+            <summary>Sets the stub of Control.get_DoubleBuffered()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.Focused">
+            <summary>Sets the stub of Control.get_Focused()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.Font">
+            <summary>Sets the stub of Control.get_Font()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ForeColor">
+            <summary>Sets the stub of Control.get_ForeColor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ImeModeBase">
+            <summary>Sets the stub of Control.get_ImeModeBase()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.LayoutEngine">
+            <summary>Sets the stub of Control.get_LayoutEngine()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.MaximumSize">
+            <summary>Sets the stub of Form.get_MaximumSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.MinimumSize">
+            <summary>Sets the stub of Form.get_MinimumSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.RightToLeft">
+            <summary>Sets the stub of Control.get_RightToLeft()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.RightToLeftLayout">
+            <summary>Sets the stub of Form.get_RightToLeftLayout()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ScaleChildren">
+            <summary>Sets the stub of Control.get_ScaleChildren()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ShowFocusCues">
+            <summary>Sets the stub of Control.get_ShowFocusCues()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ShowKeyboardCues">
+            <summary>Sets the stub of Control.get_ShowKeyboardCues()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.ShowWithoutActivation">
+            <summary>Sets the stub of Form.get_ShowWithoutActivation()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.Site">
+            <summary>Sets the stub of Control.get_Site()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubEdycjaPlikuFilmowego.Text">
             <summary>Sets the stub of Form.get_Text()</summary>
         </member>
         <member name="T:MuseSort.Fakes.StubFilm">

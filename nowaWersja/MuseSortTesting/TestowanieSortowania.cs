@@ -103,7 +103,7 @@ namespace MuseSortTesting
         #region Sortowanie muzyki
 
         [TestMethod]
-        public void SortujUtworyTest()
+        public void SortujUtworyWszystkieSchematy()
         {
             //-------------------------------------- Setup -------------------------------------------
             /*Wykonawca\Album\Piosenki
@@ -116,13 +116,13 @@ namespace MuseSortTesting
             Piosenki\Wykonawca*/
             var schematy = new []
                 {
+                    @"Piosenki\Alfabetycznie",
                     @"Wykonawca\Album\Piosenki",
+                    @"Gatunek\Wykonawca\Piosenki",
+                    @"Rok\Wykonawca\Album\Piosenki",
                     @"Wykonawca\Rok\Album\Piosenki",
                     @"Gatunek\Wykonawca\Album\Piosenki",
-                    @"Gatunek\Wykonawca\Piosenki",
                     @"Rok\Gatunek\Wykonawca\Album\Piosenki",
-                    @"Rok\Wykonawca\Album\Piosenki",
-                    @"Piosenki\Alfabetycznie",
 //                    @"Piosenki\Wykonawca" //Sczególny przypadek - sortowanie ze zmianą nazwy
                 };
             var sciezkaTestowa = Path.Combine(_sciezkaMuzyka, "test prosty");
@@ -136,6 +136,7 @@ namespace MuseSortTesting
                     "1362338352.foxamoore_one_sleepless_night",
                     "1362775647.foxamoore_children_of_orion"
                 };
+
             var dane = new[]
                 {
                     new DaneUtworu
@@ -191,19 +192,87 @@ namespace MuseSortTesting
                 //const string sciezkaTestowa = @"C:\Users\KrzysztofD\Documents\Visual Studio 2012\Projects\MuseSort\testowanie\muzyka";
                 foreach (var schemat in schematy)
                 {
-                    Console.WriteLine("\n\nTestujemy schematem: {0}\n\n", schemat);
-                    if (Directory.Exists(sciezkaTestowa + "\\Musesort"))
-                        Directory.Delete(sciezkaTestowa + "\\Musesort", true);
-                    CheckInList(Folder.znajdz_wspierane_pliki(sciezkaTestowa, rozszerzenia), expectedInList);
-                    var expectedOutList = expectedInList.Select(
-                        (path, i) => Path.Combine( sciezkaTestowa, 
-                                                @"Musesort\Muzyka\Posegregowane", 
-                                                SciezkaKataloguZPol(schemat, dane[i]), 
-                                                Path.GetFileName(path))).ToList();
-                    CreateTestFolder(sciezkaTestowa,schemat).sortuj(rozszerzenia);
-                    CheckOutput(sciezkaTestowa, expectedOutList, rozszerzenia);
+                    TestSortowania(schemat, sciezkaTestowa, rozszerzenia, expectedInList, dane);
                 }
             }
+        }
+
+        [TestMethod]
+        public void SortujUtworyPobierzTagiZNazwy()
+        {
+            const string schemat = @"Wykonawca\Tytul\Numer\Piosenki";
+            var sciezkaTestowa = Path.Combine(_sciezkaMuzyka, "test tagow z nazwy");
+            var expectedInList = new List<string>
+                {
+                    "01.QDC - Belief",
+                    "04 - Muse - Map Of The Problematique",
+                    "07 Kristin Chenoweth-Popular"
+                };
+            expectedInList = expectedInList.Select(file => Path.Combine(sciezkaTestowa, file + ".mp3")).ToList();
+            var wzorce = new[]
+                {
+                    "<numer>.<wykonawca> - <tytul>",
+                    "<numer> - <wykonawca> - <tytul>",
+                    "<numer> <wykonawca>-<tytul>"
+                };
+            foreach (var wzorzec in wzorce.Where(wzorzec => Utwor.wzorceNazwy.Find(w => w.wzorzec == wzorzec) == null))
+            {
+                Utwor.dodajWzorzecNazwy(wzorzec);
+            }
+            var dane = new[]
+                {
+                    new DaneUtworu
+                        {
+                            tytul = "Belief",
+                            wykonawca = new[] {"Łukasz Brzostek (QDC)"},
+                            numer = 1
+                        },
+                    new DaneUtworu
+                        {
+                            tytul = "Map Of The Problematique",
+                            wykonawca = new[] {"Muse"},
+                            numer = 4
+                        },
+                    new DaneUtworu
+                        {
+                            tytul = "Kristin Chenoweth-Popular",
+                            wykonawca = new[] {"Various"},
+                            numer = 4
+                        },
+                };
+            var rozszerzenia = UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio;
+            foreach (var utwor in expectedInList.Select(
+                        sciezka => new Utwor(sciezka) {dane = {wykonawca = new[] {""}, tytul = "", numer = 0}}))
+            {
+                utwor.zapiszTagi();
+            }
+
+            using (ShimsContext.Create())
+            {
+                UniversalShims();
+                TestSortowania(schemat, sciezkaTestowa, rozszerzenia, expectedInList, dane);
+            }
+        }
+
+        private static void TestSortowania(string schemat, string sciezkaTestowa, List<string> rozszerzenia, List<string> expectedInList,
+                                           IList<DaneUtworu> dane)
+        {
+            Console.WriteLine("\n\nTestujemy schematem: {0}\n\n", schemat);
+
+            if (Directory.Exists(sciezkaTestowa + "\\Musesort"))
+                Directory.Delete(sciezkaTestowa + "\\Musesort", true);
+
+            CheckInList(Folder.znajdz_wspierane_pliki(sciezkaTestowa, rozszerzenia), expectedInList);
+
+            var expectedOutList = expectedInList.Select(
+                (path, i) => Path.Combine(sciezkaTestowa,
+                                          @"Musesort\Muzyka\Posegregowane",
+                                          SciezkaKataloguZPol(schemat, dane[i]),
+                                          Path.GetFileName(path))).ToList();
+
+            CreateTestFolder(sciezkaTestowa, schemat).sortuj(rozszerzenia);
+
+            CheckOutput(sciezkaTestowa, expectedOutList, rozszerzenia);
         }
 
         private static string SciezkaKataloguZPol(string schemat, DaneUtworu dane)
@@ -227,6 +296,9 @@ namespace MuseSortTesting
                         break;
                     case "Alfabetycznie":
                         wynik.Add(dane.tytul[0].ToString());
+                        break;
+                    case "Numer":
+                        wynik.Add(dane.numer.ToString());
                         break;
                 }
             }
@@ -322,6 +394,35 @@ namespace MuseSortTesting
             CheckOutput(sciezkaTestowa, expectedOutList, UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo);
         }
 
+        private IDictionary<string, DaneFilmu> FilmTestData(List<string> inList, List<string> expectedOutList)
+        {
+            IDictionary<string, DaneFilmu> testData = new Dictionary<string, DaneFilmu>();
+            var i = 0;
+            foreach (var path in inList)
+            {
+                var tmp = new DaneFilmu(DaneFilmow[i]);
+                testData.Add(Path.GetFileNameWithoutExtension(path), tmp);
+                expectedOutList.Add(string.Format("{0}\\Musesort\\Filmy\\Posegregowane\\{1}\\{2}\\{3}",
+                                                  _sciezkaFilmy, DaneFilmow[i]["rezyser"], DaneFilmow[i]["tytul"],
+                                                  Path.GetFileName(path)));
+                i++;
+            }
+            return testData;
+        }
+        private static void CreateFilmShims1(IDictionary<string, DaneFilmu> testData)
+        {
+            Func<string, Plik> createPlik = path =>
+                {
+                    var wynik = new Film(path);
+                    wynik.dane = testData[wynik.Nazwa];
+                    return wynik;
+                };
+            ShimPlik.CreateString = path => createPlik(path);
+            ShimPlik.CreateStringString = (path1, path2) => createPlik(path1);
+        }
+
+        #endregion
+
         private static void CheckOutput(string sciezkaTestowa, List<string> expectedOutList, List<string> wspieraneRozszerzenia)
         {
             var outList = Folder.znajdz_wspierane_pliki(sciezkaTestowa + "\\Musesort", wspieraneRozszerzenia);
@@ -367,33 +468,6 @@ namespace MuseSortTesting
                           "Błąd przygotowania testu: zawartość folderu testowego nie zgadza się z przewidywaną.");
         }
 
-        private IDictionary<string, DaneFilmu> FilmTestData(List<string> inList, List<string> expectedOutList)
-        {
-            IDictionary<string, DaneFilmu> testData = new Dictionary<string, DaneFilmu>();
-            var i = 0;
-            foreach (var path in inList)
-            {
-                var tmp = new DaneFilmu(DaneFilmow[i]);
-                testData.Add(Path.GetFileNameWithoutExtension(path), tmp);
-                expectedOutList.Add(string.Format("{0}\\Musesort\\Filmy\\Posegregowane\\{1}\\{2}\\{3}",
-                                                  _sciezkaFilmy, DaneFilmow[i]["rezyser"], DaneFilmow[i]["tytul"],
-                                                  Path.GetFileName(path)));
-                i++;
-            }
-            return testData;
-        }
-
-        private static void CreateFilmShims1(IDictionary<string, DaneFilmu> testData)
-        {
-            Func<string, Plik> createPlik = path =>
-                {
-                    var wynik = new Film(path);
-                    wynik.dane = testData[wynik.Nazwa];
-                    return wynik;
-                };
-            ShimPlik.CreateString = path => createPlik(path);
-            ShimPlik.CreateStringString = (path1, path2) => createPlik(path1);
-        }
 
         private static void UniversalShims()
         {
@@ -401,7 +475,5 @@ namespace MuseSortTesting
             ShimFolderXML.AllInstances.analizuj = @this => false;
             ShimMessageBox.ShowString = (message) => DialogResult.OK;
         }
-
-        #endregion
     }
 }
