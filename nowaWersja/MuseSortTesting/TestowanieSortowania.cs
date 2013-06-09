@@ -150,8 +150,59 @@ namespace MuseSortTesting
 
             using (ShimsContext.Create())
             {
+                UniversalFilmShims();
                 CreateFilmShims1(testData);
                 CreateTestFolder(sciezkaTestowa, schemat).sortuj(UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo);
+            }
+
+            CheckOutput(sciezkaTestowa, expectedOutList);
+        }
+
+        [TestMethod]
+        public void SortujFilmyTest2()
+        {
+            //-------------------------------------- Setup --------------------------------------------
+            var sciezkaTestowa = Util.SetAbsoluteDirectoryPath("filmy otagowane");
+            const string schemat = "Aktorzy\\Tytul";
+
+            UstawieniaProgramu.getInstance().wczytajUstawienia();
+            if (!UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo.Contains("mp4"))
+                UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo.Add("mp4");
+            if (Directory.Exists(sciezkaTestowa + "\\Musesort"))
+                Directory.Delete(sciezkaTestowa + "\\Musesort", true);
+
+            //-------------------------------------- Lists --------------------------------------------
+            var inList = Folder.znajdz_wspierane_pliki(sciezkaTestowa,
+                                                       UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo);
+            var expectedInList = new List<string>();
+            var expectedOutList = new List<string>();
+            expectedInList.Add(sciezkaTestowa + @"\My Little Pony season 3 Episode 7 Wonderbolt Academy.mp4");
+            expectedOutList.Add(string.Format("{0}\\Musesort\\Filmy\\Posegregowane\\{1}\\{2}\\{3}",
+                                              sciezkaTestowa, "Lauren Faust", "Wonderbolts Academy",
+                                              "My Little Pony season 3 Episode 7 Wonderbolt Academy.mp4"));
+
+            expectedInList.Add(sciezkaTestowa + @"\ROSA (HD) Epic AWARD Winning Matrix style Fantasy Action Ani.mp4");
+            expectedOutList.Add(string.Format("{0}\\Musesort\\Filmy\\Posegregowane\\{1}\\{2}\\{3}",
+                                              sciezkaTestowa, "MadArtistPublishing", "Rosa",
+                                              "ROSA (HD) Epic AWARD Winning Matrix style Fantasy Action Ani.mp4"));
+
+            expectedInList.Add(sciezkaTestowa + @"\RUIN.mp4");
+            expectedOutList.Add(string.Format("{0}\\Musesort\\Filmy\\Posegregowane\\{1}\\{2}\\{3}",
+                                              sciezkaTestowa, "Wes Ball", "RUIN",
+                                              "RUIN.mp4"));
+
+
+
+            CheckInList(inList, expectedInList);
+
+            //------------------------------------------------------------------------------------------
+
+            using (ShimsContext.Create())
+            {
+                UniversalFilmShims();
+                var testFolder = CreateTestFolder(sciezkaTestowa, schemat);
+                var wspieraneRozszerzeniaVideo = UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo;
+                testFolder.sortuj(wspieraneRozszerzeniaVideo);
             }
 
             CheckOutput(sciezkaTestowa, expectedOutList);
@@ -221,8 +272,6 @@ namespace MuseSortTesting
 
         private static void CreateFilmShims1(IDictionary<string, DaneFilmu> testData)
         {
-            ShimFolderXML.ConstructorString = (@this, path) => { };
-            ShimFolderXML.AllInstances.analizuj = @this => false;
             Func<string, Plik> createPlik = path =>
                 {
                     var wynik = new Film(path);
@@ -231,6 +280,12 @@ namespace MuseSortTesting
                 };
             ShimPlik.CreateString = path => createPlik(path);
             ShimPlik.CreateStringString = (path1, path2) => createPlik(path1);
+        }
+
+        private static void UniversalFilmShims()
+        {
+            ShimFolderXML.ConstructorString = (@this, path) => { };
+            ShimFolderXML.AllInstances.analizuj = @this => false;
             ShimMessageBox.ShowString = (message) => DialogResult.OK;
         }
 
