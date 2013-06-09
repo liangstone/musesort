@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using System.Windows.Forms;
 
 
 namespace MuseSort
@@ -25,6 +26,7 @@ namespace MuseSort
             domyslnaBazaDanych = "";
             domyslneSortowanie = "";
             folderGlowny = "";
+            loadLibVlc();
         }
 
         public static UstawieniaProgramu getInstance()
@@ -35,6 +37,20 @@ namespace MuseSort
             }
 
             return instancja;
+        }
+
+        private void loadLibVlc()
+        {
+            try
+            {
+                Vlc.DotNet.Core.VlcContext.LibVlcDllsPath = Environment.CurrentDirectory.Replace("\\bin\\Debug", "") + @"\libraries\libvlc\";
+                Vlc.DotNet.Core.VlcContext.LibVlcPluginsPath = Environment.CurrentDirectory.Replace("\\bin\\Debug", "") + @"\libraries\libvlc\plugins\";
+                Vlc.DotNet.Core.VlcContext.Initialize();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Nastąpił błąd ładowania bibliotek Vlc, nie będzie możliwa obsługa plików video! " + e.Message);
+            }
         }
 
         public void zapiszUstawienia()

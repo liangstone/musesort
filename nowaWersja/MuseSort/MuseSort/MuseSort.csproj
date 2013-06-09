@@ -71,6 +71,12 @@
     <Reference Include="taglib-sharp">
       <HintPath>..\..\taglib-sharp.dll</HintPath>
     </Reference>
+    <Reference Include="Vlc.DotNet.Core">
+      <HintPath>libraries\Vlc.DotNet.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Vlc.DotNet.Core.Interops">
+      <HintPath>libraries\Vlc.DotNet.Core.Interops.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BazaDanychMuzyka.cs" />

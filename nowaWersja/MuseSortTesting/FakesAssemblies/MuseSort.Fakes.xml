@@ -1069,6 +1069,12 @@
         <member name="P:MuseSort.Fakes.ShimFilm.StaticConstructor">
             <summary>Sets the shim of Film.Film()</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimFilm.ToString">
+            <summary>Sets the shim of Film.ToString()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimFilm.ToStringFilm">
+            <summary>Sets the shim of Film.ToString(Film film)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimFilm._pobierzTagiZNazwyb__0Wzorzec">
             <summary>Sets the shim of Film.&lt;pobierzTagiZNazwy&gt;b__0(Wzorzec w)</summary>
         </member>
@@ -1113,6 +1119,9 @@
         </member>
         <member name="T:MuseSort.Fakes.ShimFilm.AllInstances">
             <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimFilm.AllInstances.ToString01">
+            <summary>Sets the shim of Film.ToString()</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimFilm.AllInstances._pobierzTagiZNazwyb__0Wzorzec">
             <summary>Sets the shim of Film.&lt;pobierzTagiZNazwy&gt;b__0(Wzorzec w)</summary>
@@ -2326,6 +2335,9 @@
         <member name="P:MuseSort.Fakes.ShimUstawieniaProgramu.getInstance">
             <summary>Sets the shim of UstawieniaProgramu.getInstance()</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimUstawieniaProgramu.loadLibVlc">
+            <summary>Sets the shim of UstawieniaProgramu.loadLibVlc()</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimUstawieniaProgramu.wczytajUstawienia">
             <summary>Sets the shim of UstawieniaProgramu.wczytajUstawienia()</summary>
         </member>
@@ -2340,6 +2352,9 @@
         </member>
         <member name="P:MuseSort.Fakes.ShimUstawieniaProgramu.AllInstances.KonwertujZawartoscDoXml">
             <summary>Sets the shim of UstawieniaProgramu.KonwertujZawartoscDoXml()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimUstawieniaProgramu.AllInstances.loadLibVlc">
+            <summary>Sets the shim of UstawieniaProgramu.loadLibVlc()</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimUstawieniaProgramu.AllInstances.wczytajUstawienia">
             <summary>Sets the shim of UstawieniaProgramu.wczytajUstawienia()</summary>
