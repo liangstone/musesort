@@ -254,6 +254,69 @@ namespace MuseSortTesting
                 TestSortowania(schemat, sciezkaTestowa, rozszerzenia, expectedInList, dane);
             }
         }
+        [TestMethod]
+        public void SortujUtworyPobierzTagiZeSciezki()
+        {
+
+            const string schemat = @"Wykonawca\Rok\Album\Tytul\Piosenki";
+            var sciezkaTestowa = Path.Combine(_sciezkaMuzyka, "test tagow ze sciezki");
+            var expectedInList = new List<string>
+                {
+                    @"2003\Ethnic\Łukasz Brzostek (QDC)\Alchemist\_",
+                    @"2003\Ambient\Łukasz Brzostek (QDC)\Alchemist\_",
+                    @"2013\Soundtrack\Fox Amoore\Singles 2013\_"
+                };
+            expectedInList = expectedInList.Select(file => Path.Combine(sciezkaTestowa, file + ".mp3")).ToList();
+            var wzorce = new[]
+                {
+                    @"<source>\<rok>\<gatunek>\<wykonawca>\<album>\<ignore>"
+                };
+
+            foreach (var wzorzec in wzorce.Where(wzorzec => Utwor.wzorceSciezki.Find(w => w.wzorzec == wzorzec) == null))
+            {
+                Utwor.dodajWzorzecSciezki(wzorzec);
+            }
+            UstawieniaProgramu.getInstance().zapiszUstawienia();
+            var dane = new[]
+                {
+                    new DaneUtworu
+                        {
+                            tytul = "Belief", 
+                            wykonawca = new[] {"Łukasz Brzostek (QDC)"},
+                            album = "Alchemist",
+                            rok = 2003,
+                            gatunek = new[]{ "Ethnic"}
+                        },
+                    new DaneUtworu
+                        {
+                            tytul = "Old Diary", 
+                            wykonawca = new[] {"Łukasz Brzostek (QDC)"},
+                            album = "Alchemist",
+                            rok = 2003,
+                            gatunek = new[]{ "Ambient"}
+                        },
+                    new DaneUtworu
+                        {
+                            tytul = "One Sleepless Night", 
+                            wykonawca = new[] {"Fox Amoore"},
+                            album = "Singles 2013",
+                            rok = 2013,
+                            gatunek = new[]{ "Soundtrack"}
+                        },
+                };
+            var rozszerzenia = UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio;
+            foreach (var utwor in expectedInList.Select(
+                        sciezka => new Utwor(sciezka) { dane = { wykonawca = new[] { "" }, numer = 0, rok = 0, album = ""} }))
+            {
+                utwor.zapiszTagi();
+            }
+
+            using (ShimsContext.Create())
+            {
+                UniversalShims();
+                TestSortowania(schemat, sciezkaTestowa, rozszerzenia, expectedInList, dane);
+            }
+        }
 
         private static void TestSortowania(string schemat, string sciezkaTestowa, List<string> rozszerzenia, List<string> expectedInList,
                                            IList<DaneUtworu> dane)

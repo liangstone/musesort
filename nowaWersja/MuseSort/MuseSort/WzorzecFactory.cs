@@ -27,7 +27,8 @@ namespace MuseSort
         {
             SlownikRegexowDlaFilmow = new Dictionary<string, string>
                 {
-                    {"source",      ".*?"}, //Zawartośc będzie ignorowana - folder nadrzędny 
+                    {"source",      ".*"}, //Zawartośc będzie ignorowana - folder nadrzędny 
+                    {"ignore",      ".*?"}, //Zawartośc będzie ignorowana 
                     {"tytul",       @"[\w\s\(\)\&\'\!\`\~\$\.\+\-]+"},
                     {"rezyser",     @"[\w\s\(\)\&\'\!\`\~\$\.\+\-]+"},
                     {"gatunek",     @"[\w\s\(\)\&\'\!\`\~\$\.\+\-]+"},
@@ -37,12 +38,14 @@ namespace MuseSort
                 };
             SlownikRegexowDlaUtowrow = new Dictionary<string, string>
                 {
-                    {"source",      ".*?"}, //Zawartośc będzie ignorowana - folder nadrzędny 
+                    {"source",      ".*"}, //Zawartośc będzie ignorowana - folder nadrzędny 
+                    {"ignore",      ".*?"}, //Zawartośc będzie ignorowana 
                     {"rok",         @"[\d]{4}"},
                     {"numer",       @"[\d]+"},
                     {"tytul",       @"[\w\s\(\)\&\'\!\`\~\$\.\+\-]+"},
                     {"wykonawca",   @"[\w\s\(\)\&\'\!\`\~\$\.\+\-]+"},
                     {"album",       @"[\w\s\(\)\&\'\!\`\~\$\.\+\-]+"},
+                    {"gatunek",     @"[\w\s\(\)\&\'\!\`\~\$\.\+\-]+"},
                 };
         }
 

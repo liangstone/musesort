@@ -55,6 +55,10 @@ namespace MuseSort
                         if (wykonawca[0] == "")
                             wykonawca[0] = wartosc;
                         break;
+                    case "gatunek":
+                        if (gatunek[0] == "")
+                            gatunek[0] = wartosc;
+                        break;
                     case "tytul":
                         if (tytul == "")
                             tytul = wartosc;
