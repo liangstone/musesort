@@ -73,7 +73,7 @@ namespace MuseSort
                 case "sortowania":
                     if (sortowaniaListBox.SelectedItems.Count > 0)
                     {
-                        UstawieniaProgramu.getInstance().domyslneSortowanie = sortowaniaListBox.SelectedItem.ToString();
+                        UstawieniaProgramu.getInstance().domyslneSortowanieMuzyki = sortowaniaListBox.SelectedItem.ToString();
                         aktywujPanel("rozszerzenia");
                     }
                     else

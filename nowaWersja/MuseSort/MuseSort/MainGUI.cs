@@ -534,14 +534,14 @@ namespace MuseSort
                 return;
             }
             String sciezka = drzewoFolderow.SelectedNode.Name + "\\" + aktualnyFolder.SelectedItems[0].Text;
-            if (System.IO.Directory.Exists(sciezka))
-            {
-                Folder folder = new Folder(sciezka);
-                folder.ustalSchemat(@"Wykonawca\Album\Piosenki");
-                folder.progressBar2 = toolStripProgressBar1.ProgressBar;
-                folder.sortuj(UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio);
-                logiTextBox.Text += folder.logi;
-            }
+            if (!Directory.Exists(sciezka)) return;
+            Folder folder = new Folder(sciezka);
+            folder.progressBar2 = toolStripProgressBar1.ProgressBar;
+            folder.ustalSchemat(UstawieniaProgramu.getInstance().domyslneSortowanieMuzyki);
+            folder.sortuj(UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio);
+            folder.ustalSchemat(UstawieniaProgramu.getInstance().domyslneSortowanieFilmow);
+            folder.sortuj(UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo);
+            logiTextBox.Text += folder.logi;
         }
 
         private void sortowanieNiestanradoweButton_Click(object sender, EventArgs e)

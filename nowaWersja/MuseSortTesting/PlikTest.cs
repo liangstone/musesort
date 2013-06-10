@@ -75,5 +75,22 @@ namespace MuseSortTesting
             Assert.AreEqual(expected, log.ToString());
             Assert.AreEqual(docelowy+"\\"+nazwa, plik.Sciezka);
         }
+
+        [TestMethod]
+        public void NormalizujTest()
+        {
+            Assert.AreEqual(string.Empty, Plik.Normalizuj((string) null));
+            var stringi = new[]
+                {
+                    string.Empty,
+                    "Ala ma kota",
+                    "AlemdsDA",
+                    "AKRONIM"
+                };
+            foreach (var doNormalizacji in stringi)
+            {
+                Assert.AreEqual(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(doNormalizacji), Plik.Normalizuj(doNormalizacji));
+            }
+        }
     }
 }

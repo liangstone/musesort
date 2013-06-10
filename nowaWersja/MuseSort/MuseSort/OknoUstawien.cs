@@ -57,11 +57,11 @@ namespace MuseSort
                     break;
                 case "sortowaniaNode":
                     aktywujPanel("sortowania");
-                    sposobSortowaniaBox.Text = UstawieniaProgramu.getInstance().domyslneSortowanie;
+                    sposobSortowaniaBox.Text = UstawieniaProgramu.getInstance().domyslneSortowanieMuzyki;
                     break;
                 case "domyslneSortowanieNode":
                     aktywujPanel("domyslneSortowania");
-                    sposobSortowania2Box.Text = UstawieniaProgramu.getInstance().domyslneSortowanie;
+                    sposobSortowania2Box.Text = UstawieniaProgramu.getInstance().domyslneSortowanieMuzyki;
                     break;
                 case "rozszerzeniaNode":
                     {
@@ -186,9 +186,9 @@ namespace MuseSort
         {
             if (sortowaniaListBox.SelectedItems.Count > 0)
             {
-                UstawieniaProgramu.getInstance().domyslneSortowanie = sortowaniaListBox.SelectedItem.ToString();
-                sposobSortowaniaBox.Text = UstawieniaProgramu.getInstance().domyslneSortowanie;
-                sposobSortowania2Box.Text = UstawieniaProgramu.getInstance().domyslneSortowanie;
+                UstawieniaProgramu.getInstance().domyslneSortowanieMuzyki = sortowaniaListBox.SelectedItem.ToString();
+                sposobSortowaniaBox.Text = UstawieniaProgramu.getInstance().domyslneSortowanieMuzyki;
+                sposobSortowania2Box.Text = UstawieniaProgramu.getInstance().domyslneSortowanieMuzyki;
             }
             else
             {
