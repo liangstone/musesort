@@ -45,82 +45,80 @@ namespace MuseSort
         private void wyswietl(object sender, TreeNodeMouseClickEventArgs e)
         {
             //Foldery
-            if (e.Node.Name == "folderyNode")
+            switch (e.Node.Name)
             {
-                aktywujPanel("foldery");
-                sciezkaBox.Text = UstawieniaProgramu.getInstance().folderGlowny;
-            }
-            //Folder Główny
-            else if (e.Node.Name == "folderGlownyNode")
-            {
-                aktywujPanel("folderGlowny");
-                sciezka2Box.Text = UstawieniaProgramu.getInstance().folderGlowny;
-            }
-            //Sortowanie
-            else if (e.Node.Name == "sortowaniaNode")
-            {
-                aktywujPanel("sortowania");
-                sposobSortowaniaBox.Text = UstawieniaProgramu.getInstance().domyslneSortowanie;
-            }
-            //Domyślne ustawienia (Sortowanie)
-            else if (e.Node.Name == "domyslneSortowanieNode")
-            {
-                aktywujPanel("domyslneSortowania");
-                sposobSortowania2Box.Text = UstawieniaProgramu.getInstance().domyslneSortowanie;
-            }
-            //Rozszerzenia
-            else if (e.Node.Name == "rozszerzeniaNode")
-            {
-                aktywujPanel("rozszerzenia");
-                String extensions = "";
-                foreach (String x in UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio)
-                {
-                    extensions += x + "; ";
-                }
-                rozszerzeniaBox.Text = extensions;
-            }
-            //Wspierane rozszerzenia
-            else if (e.Node.Name == "wspieraneRozszerzeniaNode")
-            {
-                aktywujPanel("wspieraneRozszerzenia");
-                String extensions = "";
-                foreach (String x in UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio)
-                {
-                    extensions += x + "; ";
-                }
-                textBox1.Text = extensions;
-                foreach (CheckBox x in rozszerzenia)
-                {
-                    if (UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio.Contains(x.Name.Replace("CheckBox", "")))
+                case "folderyNode":
+                    aktywujPanel("foldery");
+                    sciezkaBox.Text = UstawieniaProgramu.getInstance().folderGlowny;
+                    break;
+                case "folderGlownyNode":
+                    aktywujPanel("folderGlowny");
+                    sciezka2Box.Text = UstawieniaProgramu.getInstance().folderGlowny;
+                    break;
+                case "sortowaniaNode":
+                    aktywujPanel("sortowania");
+                    sposobSortowaniaBox.Text = UstawieniaProgramu.getInstance().domyslneSortowanie;
+                    break;
+                case "domyslneSortowanieNode":
+                    aktywujPanel("domyslneSortowania");
+                    sposobSortowania2Box.Text = UstawieniaProgramu.getInstance().domyslneSortowanie;
+                    break;
+                case "rozszerzeniaNode":
                     {
-                        x.Checked = true;
+                        aktywujPanel("rozszerzenia");
+                        String extensions = "";
+                        foreach (String x in UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio)
+                        {
+                            extensions += x + "; ";
+                        }
+                        rozszerzeniaBox.Text = extensions;
                     }
-                }
-            }
-            else if (e.Node.Name == "wspieraneRozszerzeniaVideoNode")
-            {
-                aktywujPanel("wspieraneRozszerzeniaVideo");
-                String extensions = "";
-                foreach (String x in UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo)
-                {
-                    extensions += x + "; ";
-                }
-                textBox2.Text = extensions;
-                foreach (CheckBox x in rozszerzeniaVideo)
-                {
-                    if (UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo.Contains(x.Name.Replace("CheckBox", "")))
+                    break;
+                case "wspieraneRozszerzeniaNode":
                     {
-                        x.Checked = true;
+                        aktywujPanel("wspieraneRozszerzenia");
+                        String extensions = "";
+                        foreach (String x in UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio)
+                        {
+                            extensions += x + "; ";
+                        }
+                        textBox1.Text = extensions;
+                        foreach (CheckBox x in rozszerzenia)
+                        {
+                            if (UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio.Contains(x.Name.Replace("CheckBox", "")))
+                            {
+                                x.Checked = true;
+                            }
+                        }
                     }
-                }
+                    break;
+                case "wspieraneRozszerzeniaVideoNode":
+                    {
+                        aktywujPanel("wspieraneRozszerzeniaVideo");
+                        String extensions = "";
+                        foreach (String x in UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo)
+                        {
+                            extensions += x + "; ";
+                        }
+                        textBox2.Text = extensions;
+                        foreach (CheckBox x in rozszerzeniaVideo)
+                        {
+                            if (UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo.Contains(x.Name.Replace("CheckBox", "")))
+                            {
+                                x.Checked = true;
+                            }
+                        }
+                    }
+                    break;
             }
+        }
 
-        }//end void wyswietl(object sender, TreeNodeMouseClickEventArgs e)
+//end void wyswietl(object sender, TreeNodeMouseClickEventArgs e)
 
         private void anulujButton_MouseClick(object sender, MouseEventArgs e)
         {
             UstawieniaProgramu.getInstance().wczytajUstawienia();
-            this.Dispose();
+            Dispose();
         }
 
         private void aktywujPanel(String nazwa)
@@ -154,8 +152,6 @@ namespace MuseSort
                     break;
                 case "wspieraneRozszerzeniaVideo":
                     rozszerzeniaVideoPanel.Show();
-                    break;
-                default:
                     break;
             }
         }

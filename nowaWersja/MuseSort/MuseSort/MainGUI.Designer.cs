@@ -373,12 +373,11 @@
             "Gatunek\\Wykonawca\\Piosenki",
             "Rok\\Gatunek\\Wykonawca\\Album\\Piosenki",
             "Rok\\Wykonawca\\Album\\Piosenki",
-            "Piosenki\\Alfabetycznie",
-            "Piosenki\\Wykonawca"});
-            this.sortowanieNiestandardoweListBox.Location = new System.Drawing.Point(259, 4);
+            "Piosenki\\Alfabetycznie"});
+            this.sortowanieNiestandardoweListBox.Location = new System.Drawing.Point(259, 11);
             this.sortowanieNiestandardoweListBox.Margin = new System.Windows.Forms.Padding(2);
             this.sortowanieNiestandardoweListBox.Name = "sortowanieNiestandardoweListBox";
-            this.sortowanieNiestandardoweListBox.Size = new System.Drawing.Size(228, 108);
+            this.sortowanieNiestandardoweListBox.Size = new System.Drawing.Size(228, 95);
             this.sortowanieNiestandardoweListBox.TabIndex = 2;
             // 
             // label4

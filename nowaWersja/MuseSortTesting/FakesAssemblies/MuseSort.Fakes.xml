@@ -1813,6 +1813,9 @@
         <member name="P:MuseSort.Fakes.ShimMainGUI.sortujCustom_ClickObjectEventArgs">
             <summary>Sets the shim of MainGUI.sortujCustom_Click(Object sender, EventArgs e)</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimMainGUI.sortujNiestandardowoButton_ClickObjectEventArgs">
+            <summary>Sets the shim of MainGUI.sortujNiestandardowoButton_Click(Object sender, EventArgs e)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimMainGUI.sortujPlikiButton_ClickObjectEventArgs">
             <summary>Sets the shim of MainGUI.sortujPlikiButton_Click(Object sender, EventArgs e)</summary>
         </member>
@@ -1911,6 +1914,9 @@
         </member>
         <member name="P:MuseSort.Fakes.ShimMainGUI.AllInstances.sortujCustom_ClickObjectEventArgs">
             <summary>Sets the shim of MainGUI.sortujCustom_Click(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimMainGUI.AllInstances.sortujNiestandardowoButton_ClickObjectEventArgs">
+            <summary>Sets the shim of MainGUI.sortujNiestandardowoButton_Click(Object sender, EventArgs e)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimMainGUI.AllInstances.sortujPlikiButton_ClickObjectEventArgs">
             <summary>Sets the shim of MainGUI.sortujPlikiButton_Click(Object sender, EventArgs e)</summary>
@@ -2105,10 +2111,10 @@
             <summary>Sets the shim of Plik.normalizujNazwe(String nazwa)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimPlik.normalizujString">
-            <summary>Sets the shim of Plik.normalizuj(String x)</summary>
+            <summary>Sets the shim of Plik.normalizuj(String doNormalizacji)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimPlik.normalizujStringArray">
-            <summary>Sets the shim of Plik.normalizuj(String[] genres)</summary>
+            <summary>Sets the shim of Plik.normalizuj(String[] doNormalizacji)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimPlik.porownajJakoscPlikPlik">
             <summary>Sets the shim of Plik.porownajJakosc(Plik plik1, Plik plik2)</summary>
@@ -2150,10 +2156,10 @@
             <summary>Sets the shim of Plik.normalizujNazwe(String nazwa)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimPlik.AllInstances.normalizujString">
-            <summary>Sets the shim of Plik.normalizuj(String x)</summary>
+            <summary>Sets the shim of Plik.normalizuj(String doNormalizacji)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimPlik.AllInstances.normalizujStringArray">
-            <summary>Sets the shim of Plik.normalizuj(String[] genres)</summary>
+            <summary>Sets the shim of Plik.normalizuj(String[] doNormalizacji)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimPlik.AllInstances.przeniesPlikString">
             <summary>Sets the shim of Plik.przeniesPlik(String nowyFolder)</summary>
