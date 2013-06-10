@@ -331,12 +331,14 @@ namespace MuseSortTesting
 
         private static List<string> ExpectedOutList(string schemat, string sciezkaTestowa, List<string> expectedInList, IList<DaneUtworu> dane)
         {
+            if(expectedInList.Count!=dane.Count)
+                throw new ArgumentException(string.Format("Długośc listy plików {0} nie równa ilości danych {1}", expectedInList.Count, dane.Count));
             var expectedOutList = expectedInList.Select(
                 (path, i) => Path.Combine(sciezkaTestowa,
                                           @"Musesort\Muzyka\Posegregowane",
                                           SciezkaKataloguZPol(schemat, dane[i]),
-                                          Path.GetFileName(path))).ToList();
-            return expectedOutList;
+                                          Path.GetFileName(path)));
+            return expectedOutList.ToList();
         }
 
         private static void PrzeprowadzSortowanie(string schemat, string sciezkaTestowa, List<string> rozszerzenia, List<string> expectedInList)
@@ -428,16 +430,36 @@ namespace MuseSortTesting
                             gatunek = new[]{"24"}
                         },
                 };
-            var expectedInList2 = new List<string>(expectedInList1);
-            expectedInList2.AddRange(ExpectedOutList(schemat, folderDocelowy, expectedInList1, dane1));
-
-            
+            var expectedInList2 = new List<string>(ExpectedOutList(schemat, folderDocelowy, expectedInList1, dane1))
+                {
+                    folderZrodlowy + @"\Nirvana\In Utero\04. Rape Me.mp3",
+                    folderZrodlowy + @"\1362775647.foxamoore_children_of_orion.mp3"
+                };
+            var dane2 = dane1.Concat(new[]
+                {
+                    new DaneUtworu
+                        {
+                            tytul = "Rape Me",
+                            wykonawca = new[] {"Nirvana"},
+                            album = "In Utero",
+                            gatunek = new[]{"Grunge"}
+                        },
+                    new DaneUtworu
+                        {
+                            tytul = "Children Of Orion",
+                            wykonawca = new[] {"Fox Amoore"},
+                            album = "Utunu And Kikivuli",
+                            gatunek = new[]{"Soundtrack"}
+                        },
+                }).ToArray();
+            var expectedOutList = ExpectedOutList(schemat, folderDocelowy, expectedInList2, dane2);
 
             using (ShimsContext.Create())
             {
                 UniversalShims();
                 PrzeprowadzSortowanie(schemat, folderDocelowy, rozszerzenia, expectedInList1);
                 CreateTestFolder(folderDocelowy, schemat).dodajIPosortujFolder(folderZrodlowy, rozszerzenia);
+                CheckOutput(folderDocelowy, expectedOutList, rozszerzenia);
             }
         }
 
