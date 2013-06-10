@@ -73,6 +73,7 @@
             this.modyfikujTagiButton = new System.Windows.Forms.Button();
             this.drzewoLabel = new System.Windows.Forms.Label();
             this.folderLabel = new System.Windows.Forms.Label();
+            this.pobierzNapisyButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -448,7 +449,7 @@
             this.sortowanieNiestanradoweButton.BackColor = System.Drawing.Color.RoyalBlue;
             this.sortowanieNiestanradoweButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sortowanieNiestanradoweButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.sortowanieNiestanradoweButton.Location = new System.Drawing.Point(576, 34);
+            this.sortowanieNiestanradoweButton.Location = new System.Drawing.Point(540, 34);
             this.sortowanieNiestanradoweButton.Margin = new System.Windows.Forms.Padding(2);
             this.sortowanieNiestanradoweButton.Name = "sortowanieNiestanradoweButton";
             this.sortowanieNiestanradoweButton.Size = new System.Drawing.Size(108, 45);
@@ -461,7 +462,7 @@
             // 
             this.pokazSzczegolyPlikuButton.BackColor = System.Drawing.SystemColors.Highlight;
             this.pokazSzczegolyPlikuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pokazSzczegolyPlikuButton.Location = new System.Drawing.Point(325, 34);
+            this.pokazSzczegolyPlikuButton.Location = new System.Drawing.Point(308, 34);
             this.pokazSzczegolyPlikuButton.Margin = new System.Windows.Forms.Padding(2);
             this.pokazSzczegolyPlikuButton.Name = "pokazSzczegolyPlikuButton";
             this.pokazSzczegolyPlikuButton.Size = new System.Drawing.Size(111, 45);
@@ -475,7 +476,7 @@
             this.sortujPlikiButton.BackColor = System.Drawing.Color.RoyalBlue;
             this.sortujPlikiButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sortujPlikiButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.sortujPlikiButton.Location = new System.Drawing.Point(475, 34);
+            this.sortujPlikiButton.Location = new System.Drawing.Point(440, 34);
             this.sortujPlikiButton.Margin = new System.Windows.Forms.Padding(2);
             this.sortujPlikiButton.Name = "sortujPlikiButton";
             this.sortujPlikiButton.Size = new System.Drawing.Size(97, 45);
@@ -548,6 +549,20 @@
             this.folderLabel.Text = "Tu widoczna jest zawartość zaznaczonego folderu";
             this.folderLabel.Click += new System.EventHandler(this.folderLabel_Click);
             // 
+            // pobierzNapisyButton
+            // 
+            this.pobierzNapisyButton.BackColor = System.Drawing.Color.MediumBlue;
+            this.pobierzNapisyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pobierzNapisyButton.ForeColor = System.Drawing.Color.White;
+            this.pobierzNapisyButton.Location = new System.Drawing.Point(653, 34);
+            this.pobierzNapisyButton.Margin = new System.Windows.Forms.Padding(2);
+            this.pobierzNapisyButton.Name = "pobierzNapisyButton";
+            this.pobierzNapisyButton.Size = new System.Drawing.Size(55, 45);
+            this.pobierzNapisyButton.TabIndex = 27;
+            this.pobierzNapisyButton.Text = "Napisy";
+            this.pobierzNapisyButton.UseVisualStyleBackColor = false;
+            this.pobierzNapisyButton.Click += new System.EventHandler(this.pobierzNapisyButton_Click);
+            // 
             // MainGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -555,6 +570,7 @@
             this.BackgroundImage = global::MuseSort.Properties.Resources.tlo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(906, 568);
+            this.Controls.Add(this.pobierzNapisyButton);
             this.Controls.Add(this.folderLabel);
             this.Controls.Add(this.drzewoLabel);
             this.Controls.Add(this.otworzBibliotekeButton);
@@ -638,6 +654,7 @@
         private System.Windows.Forms.Label drzewoLabel;
         private System.Windows.Forms.Label folderLabel;
         private System.Windows.Forms.ToolStripMenuItem samouczekToolStripMenuItem;
+        private System.Windows.Forms.Button pobierzNapisyButton;
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -89,5 +90,18 @@ namespace MuseSort.Pomoce
             }
         }
 
+
+        internal void Szukaj(string filmNazwaPliku)
+        {
+
+            string encodedTitle = Uri.EscapeDataString(filmNazwaPliku).Replace("%20", "+");
+            string napisyURL = "http://napisy24.pl/search.php?str=";
+            string requestURL = string.Format("{0}{1}", napisyURL, encodedTitle);
+
+            ProcessStartInfo startInfo = new ProcessStartInfo("IExplore.exe");
+            startInfo.Arguments = requestURL;
+            Process.Start(startInfo);
+
+        }
     }
 }
