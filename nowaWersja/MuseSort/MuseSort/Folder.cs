@@ -109,7 +109,6 @@ namespace MuseSort
         /// <returns></returns>
         public Boolean dodajIPosortujFolder(String folderZrodlowy, IEnumerable<string> wspieraneRozszerzenia)
         {
-            System.Windows.Forms.MessageBox.Show("Rozpoczynam dodawanie.");
             bool sukces = false;
             //Wykomentowane ze względu na wadliwie działające analizuj.
             //Jeśli folder nieposortowany:
@@ -125,7 +124,7 @@ namespace MuseSort
             sukces = sortujListePlikow(listaPlikow);
 
             logi += "Dodano i posortowano folder: " + folderZrodlowy + " do folderu: " + this.sciezka + Environment.NewLine;
-            System.Windows.Forms.MessageBox.Show("Dodawanie plików do posortowanego folderu zakończone.");
+//            System.Windows.Forms.MessageBox.Show("Dodawanie plików do posortowanego folderu zakończone.");
             if (progressBar2 != null) progressBar2.Value = 0;
             return sukces;
         }

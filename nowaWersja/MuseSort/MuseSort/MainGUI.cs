@@ -276,6 +276,7 @@ namespace MuseSort
                 MessageBox.Show("Folder docelowy nie został posortowany!");
                 return;
             }
+            MessageBox.Show("Dodawanie rozpoczęte.");
             docelowy.dodajIPosortujFolder(source, UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio);
             logiTextBox.Text += docelowy.logi;
             MessageBox.Show("Pomyślnie dodano pliki.");

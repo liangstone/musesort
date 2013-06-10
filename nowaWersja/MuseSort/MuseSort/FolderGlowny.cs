@@ -47,10 +47,14 @@ namespace MuseSort
         /// <param name="path">Ścieżka folderu do dodania.</param>
         public void dodajFolder(String path)
         {
+            if (!Directory.Exists(sciezka + @"\Musesort\Temp"))
+                Directory.CreateDirectory(sciezka + @"\Musesort\Temp");
             var folder = new Folder(sciezka);
             folder.ustalSchemat(UstawieniaProgramu.getInstance().domyslneSortowanieMuzyki);
+            System.Windows.Forms.MessageBox.Show("Rozpoczynam dodawanie.");
             folder.dodajIPosortujFolder(path, UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio);
             folder.dodajIPosortujFolder(path, UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo);
+            System.Windows.Forms.MessageBox.Show("Dodawanie zakończone.");
             logi += folder.logi;
             /*Folder folder = new Folder(path + "\\Musesort");
             dodajFolder(folder);*/
