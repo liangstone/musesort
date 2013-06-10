@@ -70,8 +70,6 @@ namespace MuseSort
                 return false;
             }
 
-            if (Directory.Exists(sciezka + "\\Musesort"))
-                Directory.Delete(sciezka + "\\Musesort", true);
 
             #region Ustaw obecny katalog i twórz katalogi
 
