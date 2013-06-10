@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
+using System.Text.RegularExpressions;
+
 namespace MuseSort
 {
     public abstract class Plik
@@ -155,5 +158,26 @@ namespace MuseSort
         public abstract string sciezka_katalogu_z_pol(string[] kategorie, bool duplikat = false);
         protected abstract bool porownaj(Plik plik2);
         #endregion
+
+        protected String normalizuj(String doNormalizacji)
+        {
+            if (string.IsNullOrEmpty(doNormalizacji))
+                return string.Empty;
+            var wynik = Regex.Replace(doNormalizacji, @"[_\.\+]", " "); //Zamieniamy znaki specjalne _ . i + na spacje
+            wynik = new CultureInfo("pl-PL", false).TextInfo.ToTitleCase(wynik); //Wszystki pierwsze litery na duże, 
+            return wynik;
+        }
+
+        protected string[] normalizuj(string[] doNormalizacji)
+        {
+            if (doNormalizacji == null || doNormalizacji.Length == 0)
+                return new[] {""};
+            var wynik = new string[doNormalizacji.Length];
+            for (var i = 0; i < wynik.Length; i++)
+            {
+                wynik[i] = normalizuj(doNormalizacji[i]);
+            }
+            return wynik;
+        }
     }
 }

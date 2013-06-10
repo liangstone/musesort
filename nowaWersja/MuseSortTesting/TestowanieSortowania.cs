@@ -176,7 +176,7 @@ namespace MuseSortTesting
                         {
                             tytul = "Children of Orion", 
                             wykonawca = new[] {"Fox Amoore"},
-                            album = "Utunu and Kikivuli",
+                            album = "Utunu And Kikivuli",
                             rok = 2013,
                             gatunek = new[]{ "Soundtrack"}
                         }

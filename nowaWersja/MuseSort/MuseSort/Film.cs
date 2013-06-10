@@ -122,14 +122,6 @@ namespace MuseSort
             resetujTagi();
         }
 
-        protected String normalizuj(String x)
-        {
-            if (string.IsNullOrEmpty(x))
-                return x;
-            var wynik = Regex.Replace(x, @"[_\.\+]", " "); //Zamieniamy znaki specjalne _ . i + na spacje
-            wynik = new CultureInfo("pl-PL", false).TextInfo.ToTitleCase(wynik); //Wszystki pierwsze litery na duże, 
-            return wynik;
-        }
         #endregion
 
         #region Niezaimplementowane 
@@ -137,24 +129,12 @@ namespace MuseSort
         /// Jeszcze nie zaimplementowane.</summary>
         protected override void resetujTagi()
         {
-            dane.tytul = dataFile.Metadatas.Title;
-            if (!String.IsNullOrEmpty(dane.tytul))
-                dane.tytul = normalizuj(dane.tytul);
-            dane.opis = dataFile.Metadatas.Description;
-            if (!String.IsNullOrEmpty(dane.opis))
-                dane.opis = normalizuj(dane.opis);
-            dane.jezyk = dataFile.Metadatas.Language;
-            if (!String.IsNullOrEmpty(dane.jezyk))
-                dane.jezyk = normalizuj(dane.jezyk);
-            dane.rezyser = dataFile.Metadatas.Copyright;
-            if (!String.IsNullOrEmpty(dane.rezyser))
-                dane.rezyser = normalizuj(dane.rezyser);
-            dane.aktorzy = dataFile.Metadatas.Artist;
-            if (!String.IsNullOrEmpty(dane.aktorzy))
-                dane.aktorzy = normalizuj(dane.aktorzy);
-            dane.gatunki = dataFile.Metadatas.Genre;
-            if (!String.IsNullOrEmpty(dane.gatunki))
-                dane.gatunki = normalizuj(dane.gatunki);
+            dane.tytul = normalizuj(dataFile.Metadatas.Title);
+            dane.opis = normalizuj(dataFile.Metadatas.Description);
+            dane.jezyk = normalizuj(dataFile.Metadatas.Language);
+            dane.rezyser = normalizuj(dataFile.Metadatas.Copyright);
+            dane.aktorzy = normalizuj(dataFile.Metadatas.Artist);
+            dane.gatunki = normalizuj(dataFile.Metadatas.Genre);
         }
 
 

@@ -1207,9 +1207,6 @@
         <member name="P:MuseSort.Fakes.ShimFilm.generujNazwePlikuZTagow">
             <summary>Sets the shim of Film.generujNazwePlikuZTagow()</summary>
         </member>
-        <member name="P:MuseSort.Fakes.ShimFilm.normalizujString">
-            <summary>Sets the shim of Film.normalizuj(String x)</summary>
-        </member>
         <member name="P:MuseSort.Fakes.ShimFilm.pobierzTagi">
             <summary>Sets the shim of Film.pobierzTagi()</summary>
         </member>
@@ -1254,9 +1251,6 @@
         </member>
         <member name="P:MuseSort.Fakes.ShimFilm.AllInstances.generujNazwePlikuZTagow">
             <summary>Sets the shim of Film.generujNazwePlikuZTagow()</summary>
-        </member>
-        <member name="P:MuseSort.Fakes.ShimFilm.AllInstances.normalizujString">
-            <summary>Sets the shim of Film.normalizuj(String x)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimFilm.AllInstances.pobierzTagi">
             <summary>Sets the shim of Film.pobierzTagi()</summary>
@@ -2110,6 +2104,12 @@
         <member name="P:MuseSort.Fakes.ShimPlik.normalizujNazweString">
             <summary>Sets the shim of Plik.normalizujNazwe(String nazwa)</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimPlik.normalizujString">
+            <summary>Sets the shim of Plik.normalizuj(String x)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimPlik.normalizujStringArray">
+            <summary>Sets the shim of Plik.normalizuj(String[] genres)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimPlik.porownajJakoscPlikPlik">
             <summary>Sets the shim of Plik.porownajJakosc(Plik plik1, Plik plik2)</summary>
         </member>
@@ -2148,6 +2148,12 @@
         </member>
         <member name="P:MuseSort.Fakes.ShimPlik.AllInstances.normalizujNazweString">
             <summary>Sets the shim of Plik.normalizujNazwe(String nazwa)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimPlik.AllInstances.normalizujString">
+            <summary>Sets the shim of Plik.normalizuj(String x)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimPlik.AllInstances.normalizujStringArray">
+            <summary>Sets the shim of Plik.normalizuj(String[] genres)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimPlik.AllInstances.przeniesPlikString">
             <summary>Sets the shim of Plik.przeniesPlik(String nowyFolder)</summary>
@@ -2542,9 +2548,6 @@
         <member name="P:MuseSort.Fakes.ShimUtwor.generujNazwePlikuZTagow">
             <summary>Sets the shim of Utwor.generujNazwePlikuZTagow()</summary>
         </member>
-        <member name="P:MuseSort.Fakes.ShimUtwor.normalizujString">
-            <summary>Sets the shim of Utwor.normalizuj(String x)</summary>
-        </member>
         <member name="P:MuseSort.Fakes.ShimUtwor.pobierzTagi">
             <summary>Sets the shim of Utwor.pobierzTagi()</summary>
         </member>
@@ -2583,9 +2586,6 @@
         </member>
         <member name="P:MuseSort.Fakes.ShimUtwor.AllInstances.generujNazwePlikuZTagow">
             <summary>Sets the shim of Utwor.generujNazwePlikuZTagow()</summary>
-        </member>
-        <member name="P:MuseSort.Fakes.ShimUtwor.AllInstances.normalizujString">
-            <summary>Sets the shim of Utwor.normalizuj(String x)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimUtwor.AllInstances.pobierzTagi">
             <summary>Sets the shim of Utwor.pobierzTagi()</summary>
