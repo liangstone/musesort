@@ -243,7 +243,7 @@ namespace MuseSortTesting
                 };
             var rozszerzenia = UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio;
             foreach (var utwor in expectedInList.Select(
-                        sciezka => new Utwor(sciezka) {dane = {wykonawca = new[] {""}, tytul = "", numer = 0}}))
+                sciezka => new Utwor(sciezka) {dane = {wykonawca = new[] {""}, tytul = "", numer = 0}}))
             {
                 utwor.zapiszTagi();
             }
@@ -254,6 +254,7 @@ namespace MuseSortTesting
                 TestSortowania(schemat, sciezkaTestowa, rozszerzenia, expectedInList, dane);
             }
         }
+
         [TestMethod]
         public void SortujUtworyPobierzTagiZeSciezki()
         {
@@ -321,6 +322,25 @@ namespace MuseSortTesting
         private static void TestSortowania(string schemat, string sciezkaTestowa, List<string> rozszerzenia, List<string> expectedInList,
                                            IList<DaneUtworu> dane)
         {
+            PrzeprowadzSortowanie(schemat, sciezkaTestowa, rozszerzenia, expectedInList);
+
+            var expectedOutList = ExpectedOutList(schemat, sciezkaTestowa, expectedInList, dane);
+
+            CheckOutput(sciezkaTestowa, expectedOutList, rozszerzenia);
+        }
+
+        private static List<string> ExpectedOutList(string schemat, string sciezkaTestowa, List<string> expectedInList, IList<DaneUtworu> dane)
+        {
+            var expectedOutList = expectedInList.Select(
+                (path, i) => Path.Combine(sciezkaTestowa,
+                                          @"Musesort\Muzyka\Posegregowane",
+                                          SciezkaKataloguZPol(schemat, dane[i]),
+                                          Path.GetFileName(path))).ToList();
+            return expectedOutList;
+        }
+
+        private static void PrzeprowadzSortowanie(string schemat, string sciezkaTestowa, List<string> rozszerzenia, List<string> expectedInList)
+        {
             Console.WriteLine("\n\nTestujemy schematem: {0}\n\n", schemat);
 
             if (Directory.Exists(sciezkaTestowa + "\\Musesort"))
@@ -328,15 +348,7 @@ namespace MuseSortTesting
 
             CheckInList(Folder.znajdz_wspierane_pliki(sciezkaTestowa, rozszerzenia), expectedInList);
 
-            var expectedOutList = expectedInList.Select(
-                (path, i) => Path.Combine(sciezkaTestowa,
-                                          @"Musesort\Muzyka\Posegregowane",
-                                          SciezkaKataloguZPol(schemat, dane[i]),
-                                          Path.GetFileName(path))).ToList();
-
             CreateTestFolder(sciezkaTestowa, schemat).sortuj(rozszerzenia);
-
-            CheckOutput(sciezkaTestowa, expectedOutList, rozszerzenia);
         }
 
         private static string SciezkaKataloguZPol(string schemat, DaneUtworu dane)
@@ -372,6 +384,62 @@ namespace MuseSortTesting
             return string.Join("\\", wynik);
         }
 
+
+        #endregion
+
+        #region Przenoszenie muzyki
+
+        [TestMethod]
+        public void TestPrzenoszenia()
+        {
+            const string schemat = @"Wykonawca\Album\Piosenki";
+            var folderDocelowy = Path.Combine(_sciezkaMuzyka, @"test przenoszenia\folder docelowy");
+            var folderZrodlowy = Path.Combine(_sciezkaMuzyka, @"test przenoszenia\folder zrodlowy");
+            var rozszerzenia = UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio;
+            var expectedInList1 = new List<string>
+                {
+                    "01.QDC - Belief",
+                    "04 - Muse - Map Of The Problematique",
+                    "07 Kristin Chenoweth-Popular"
+                };
+            expectedInList1 = expectedInList1.Select(file => Path.Combine(folderDocelowy, file + ".mp3")).ToList();
+            var dane1 = new[]
+                {
+                    new DaneUtworu
+                        {
+                            tytul = "Belief", 
+                            wykonawca = new[] {"Łukasz Brzostek (QDC)"},
+                            album = "Alchemist",
+                            rok = 2003,
+                            gatunek = new[]{ "Ethnic"}
+                        },
+                    new DaneUtworu
+                        {
+                            tytul = "Map Of The Problematique",
+                            wykonawca = new[] {"Muse"},
+                            album = "Black Holes And Revelations",
+                            gatunek = new[]{"Rock"}
+                        },
+                    new DaneUtworu
+                        {
+                            tytul = "Popular",
+                            wykonawca = new[] {"Kristin Chenoweth"},
+                            album = "Wicked Soundtrack",
+                            gatunek = new[]{"24"}
+                        },
+                };
+            var expectedInList2 = new List<string>(expectedInList1);
+            expectedInList2.AddRange(ExpectedOutList(schemat, folderDocelowy, expectedInList1, dane1));
+
+            
+
+            using (ShimsContext.Create())
+            {
+                UniversalShims();
+                PrzeprowadzSortowanie(schemat, folderDocelowy, rozszerzenia, expectedInList1);
+                CreateTestFolder(folderDocelowy, schemat).dodajIPosortujFolder(folderZrodlowy, rozszerzenia);
+            }
+        }
 
         #endregion
 
@@ -436,7 +504,7 @@ namespace MuseSortTesting
 
             expectedInList.Add(sciezkaTestowa + @"\ROSA (HD) Epic AWARD Winning Matrix style Fantasy Action Ani.mp4");
             expectedOutList.Add(string.Format("{0}\\Musesort\\Filmy\\Posegregowane\\{1}\\{2}\\{3}",
-                                              sciezkaTestowa, "MadArtistPublishing", "Rosa",
+                                              sciezkaTestowa, "Madartistpublishing", "Rosa",
                                               "ROSA (HD) Epic AWARD Winning Matrix style Fantasy Action Ani.mp4"));
 
             expectedInList.Add(sciezkaTestowa + @"\RUIN.mp4");

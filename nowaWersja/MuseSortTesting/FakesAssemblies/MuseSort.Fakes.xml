@@ -1207,6 +1207,9 @@
         <member name="P:MuseSort.Fakes.ShimFilm.generujNazwePlikuZTagow">
             <summary>Sets the shim of Film.generujNazwePlikuZTagow()</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimFilm.normalizujString">
+            <summary>Sets the shim of Film.normalizuj(String x)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimFilm.pobierzTagi">
             <summary>Sets the shim of Film.pobierzTagi()</summary>
         </member>
@@ -1251,6 +1254,9 @@
         </member>
         <member name="P:MuseSort.Fakes.ShimFilm.AllInstances.generujNazwePlikuZTagow">
             <summary>Sets the shim of Film.generujNazwePlikuZTagow()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimFilm.AllInstances.normalizujString">
+            <summary>Sets the shim of Film.normalizuj(String x)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimFilm.AllInstances.pobierzTagi">
             <summary>Sets the shim of Film.pobierzTagi()</summary>
@@ -2500,9 +2506,6 @@
         <member name="P:MuseSort.Fakes.ShimUtwor.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="P:MuseSort.Fakes.ShimUtwor.CheckEmptyStringArray">
-            <summary>Sets the shim of Utwor.CheckEmpty(String[] toCheck)</summary>
-        </member>
         <member name="P:MuseSort.Fakes.ShimUtwor.ConstructorString">
             <summary>Sets the shim of Utwor.Utwor(String path)</summary>
         </member>
@@ -2538,6 +2541,9 @@
         </member>
         <member name="P:MuseSort.Fakes.ShimUtwor.generujNazwePlikuZTagow">
             <summary>Sets the shim of Utwor.generujNazwePlikuZTagow()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimUtwor.normalizujString">
+            <summary>Sets the shim of Utwor.normalizuj(String x)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimUtwor.pobierzTagi">
             <summary>Sets the shim of Utwor.pobierzTagi()</summary>
@@ -2577,6 +2583,9 @@
         </member>
         <member name="P:MuseSort.Fakes.ShimUtwor.AllInstances.generujNazwePlikuZTagow">
             <summary>Sets the shim of Utwor.generujNazwePlikuZTagow()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimUtwor.AllInstances.normalizujString">
+            <summary>Sets the shim of Utwor.normalizuj(String x)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimUtwor.AllInstances.pobierzTagi">
             <summary>Sets the shim of Utwor.pobierzTagi()</summary>

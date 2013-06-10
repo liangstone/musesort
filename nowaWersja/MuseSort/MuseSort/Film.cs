@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace MuseSort
@@ -119,25 +121,13 @@ namespace MuseSort
         {
             resetujTagi();
         }
+
         protected String normalizuj(String x)
         {
-            String wynik = "";
-            x = x.Replace("_", " ");
-            x = x.Replace(".", " ");
-            x = x.Replace("+", " ");
-            x = x.ToLower();
-            String y = x.ToUpper();
-            String[] tab = x.Split(' ');
-            String[] tab1 = y.Split(' ');
-            int i = 0;
-            while (i < tab.Length)
-            {
-                tab[i] = tab[i].Substring(1);
-                tab[i] = tab1[i].First() + tab[i];
-                wynik += tab[i] + " ";
-                i++;
-            }
-            wynik = wynik.Substring(0, wynik.Length - 1);
+            if (string.IsNullOrEmpty(x))
+                return x;
+            var wynik = Regex.Replace(x, @"[_\.\+]", " "); //Zamieniamy znaki specjalne _ . i + na spacje
+            wynik = new CultureInfo("pl-PL", false).TextInfo.ToTitleCase(wynik); //Wszystki pierwsze litery na duże, 
             return wynik;
         }
         #endregion
