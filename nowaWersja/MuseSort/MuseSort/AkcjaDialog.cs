@@ -15,6 +15,8 @@ namespace MuseSort
         {
             InitializeComponent();
             label1.Text = "Rozpoczęto akcję: " + akcja;
+            
         }
+
     }
 }

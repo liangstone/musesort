@@ -495,6 +495,7 @@
             this.dodajPiosenkiDoFoldeuButton.TabIndex = 19;
             this.dodajPiosenkiDoFoldeuButton.Text = "Dodaj plik do folderu";
             this.dodajPiosenkiDoFoldeuButton.UseVisualStyleBackColor = false;
+            this.dodajPiosenkiDoFoldeuButton.Visible = false;
             this.dodajPiosenkiDoFoldeuButton.Click += new System.EventHandler(this.dodajPiosenkiDoFoldeuButton_Click);
             // 
             // dodajPlikDoGlownegoFolderuButton

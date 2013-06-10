@@ -119,6 +119,7 @@ namespace MuseSort
 
             List<string> listaPlikow = znajdz_wspierane_pliki(Directory.Exists(Path.Combine(folderZrodlowy, "Musesort")) ? 
                                                           Path.Combine(folderZrodlowy, "Musesort") : folderZrodlowy, wspieraneRozszerzenia);
+            Directory.SetCurrentDirectory(sciezka); 
             sukces = sortujListePlikow(listaPlikow);
 
             logi += "Dodano i posortowano folder: " + folderZrodlowy + " do folderu: " + this.sciezka + Environment.NewLine;

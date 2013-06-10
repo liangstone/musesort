@@ -49,6 +49,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo11.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="HtmlAgilityPack">
       <HintPath>..\..\Net20\HtmlAgilityPack.dll</HintPath>
@@ -336,6 +339,7 @@
     <None Include="Resources\tlo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="logo11.ico" />
     <Content Include="Resources\logo1.jpg" />
     <None Include="Resources\logo11.jpg" />
   </ItemGroup>
