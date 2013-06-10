@@ -71,11 +71,15 @@ namespace MuseSort
 
         private void zapisz_Click(object sender, EventArgs e)
         {
-            
+
             String tytulFilmu = tytul.Text;
             String gatunekFilmu = gatunek.Text;
             String produkcjaFilmu = produkcja.Text;
-            int rokFilmu = Convert.ToInt32(rok.Text);
+            int rokFilmu = 0;
+            if (rok.Text != "")
+            {
+                rokFilmu = Convert.ToInt32(rok.Text);
+            }
             String rezyserFilmu = rezyseria.Text;
             String opisFilmu = opis.Text;
             String tytulOryginalny = tytul_ory.Text;

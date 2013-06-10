@@ -184,6 +184,7 @@ namespace MuseSort
         {
             filmyPanel.Visible = true;
             new DodawanieFilmow().ShowDialog();
+            refresh();
         }
 
         private void edytujButton_Click(object sender, EventArgs e)
