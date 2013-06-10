@@ -178,6 +178,7 @@ namespace MuseSort
                         Console.WriteLine(e);
                         continue;
                     }
+                    plik.zapiszTagi();
                     sortujPlik(plik);
                 }
             //}

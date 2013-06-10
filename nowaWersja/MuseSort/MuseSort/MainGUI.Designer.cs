@@ -322,7 +322,7 @@
             this.niestandardoweSortowaniePanel.Controls.Add(this.label4);
             this.niestandardoweSortowaniePanel.Controls.Add(this.label3);
             this.niestandardoweSortowaniePanel.Location = new System.Drawing.Point(9, 420);
-            this.niestandardoweSortowaniePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.niestandardoweSortowaniePanel.Margin = new System.Windows.Forms.Padding(2);
             this.niestandardoweSortowaniePanel.Name = "niestandardoweSortowaniePanel";
             this.niestandardoweSortowaniePanel.Size = new System.Drawing.Size(896, 119);
             this.niestandardoweSortowaniePanel.TabIndex = 7;
@@ -332,19 +332,20 @@
             // 
             this.sortujNiestandardowoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.sortujNiestandardowoButton.Location = new System.Drawing.Point(769, 70);
-            this.sortujNiestandardowoButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sortujNiestandardowoButton.Margin = new System.Windows.Forms.Padding(2);
             this.sortujNiestandardowoButton.Name = "sortujNiestandardowoButton";
             this.sortujNiestandardowoButton.Size = new System.Drawing.Size(120, 32);
             this.sortujNiestandardowoButton.TabIndex = 5;
             this.sortujNiestandardowoButton.Text = "Sortuj";
             this.sortujNiestandardowoButton.UseVisualStyleBackColor = true;
+            this.sortujNiestandardowoButton.Click += new System.EventHandler(this.sortujNiestandardowoButton_Click);
             // 
             // flacCheckBox
             // 
             this.flacCheckBox.AutoSize = true;
             this.flacCheckBox.ForeColor = System.Drawing.Color.White;
             this.flacCheckBox.Location = new System.Drawing.Point(848, 32);
-            this.flacCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flacCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.flacCheckBox.Name = "flacCheckBox";
             this.flacCheckBox.Size = new System.Drawing.Size(50, 17);
             this.flacCheckBox.TabIndex = 4;
@@ -355,7 +356,7 @@
             // 
             this.mp3checkBox.ForeColor = System.Drawing.Color.White;
             this.mp3checkBox.Location = new System.Drawing.Point(766, 29);
-            this.mp3checkBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mp3checkBox.Margin = new System.Windows.Forms.Padding(2);
             this.mp3checkBox.Name = "mp3checkBox";
             this.mp3checkBox.Size = new System.Drawing.Size(78, 20);
             this.mp3checkBox.TabIndex = 3;
@@ -375,7 +376,7 @@
             "Piosenki\\Alfabetycznie",
             "Piosenki\\Wykonawca"});
             this.sortowanieNiestandardoweListBox.Location = new System.Drawing.Point(259, 4);
-            this.sortowanieNiestandardoweListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sortowanieNiestandardoweListBox.Margin = new System.Windows.Forms.Padding(2);
             this.sortowanieNiestandardoweListBox.Name = "sortowanieNiestandardoweListBox";
             this.sortowanieNiestandardoweListBox.Size = new System.Drawing.Size(228, 108);
             this.sortowanieNiestandardoweListBox.TabIndex = 2;
@@ -421,7 +422,7 @@
             this.otworzBibliotekeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.otworzBibliotekeButton.ForeColor = System.Drawing.Color.White;
             this.otworzBibliotekeButton.Location = new System.Drawing.Point(811, 34);
-            this.otworzBibliotekeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.otworzBibliotekeButton.Margin = new System.Windows.Forms.Padding(2);
             this.otworzBibliotekeButton.Name = "otworzBibliotekeButton";
             this.otworzBibliotekeButton.Size = new System.Drawing.Size(74, 45);
             this.otworzBibliotekeButton.TabIndex = 24;
@@ -435,7 +436,7 @@
             this.dodajPlikDoBiblitekiButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dodajPlikDoBiblitekiButton.ForeColor = System.Drawing.Color.White;
             this.dodajPlikDoBiblitekiButton.Location = new System.Drawing.Point(712, 34);
-            this.dodajPlikDoBiblitekiButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dodajPlikDoBiblitekiButton.Margin = new System.Windows.Forms.Padding(2);
             this.dodajPlikDoBiblitekiButton.Name = "dodajPlikDoBiblitekiButton";
             this.dodajPlikDoBiblitekiButton.Size = new System.Drawing.Size(94, 45);
             this.dodajPlikDoBiblitekiButton.TabIndex = 23;
@@ -449,7 +450,7 @@
             this.sortowanieNiestanradoweButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sortowanieNiestanradoweButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.sortowanieNiestanradoweButton.Location = new System.Drawing.Point(576, 34);
-            this.sortowanieNiestanradoweButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sortowanieNiestanradoweButton.Margin = new System.Windows.Forms.Padding(2);
             this.sortowanieNiestanradoweButton.Name = "sortowanieNiestanradoweButton";
             this.sortowanieNiestanradoweButton.Size = new System.Drawing.Size(108, 45);
             this.sortowanieNiestanradoweButton.TabIndex = 22;
@@ -462,7 +463,7 @@
             this.pokazSzczegolyPlikuButton.BackColor = System.Drawing.SystemColors.Highlight;
             this.pokazSzczegolyPlikuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pokazSzczegolyPlikuButton.Location = new System.Drawing.Point(325, 34);
-            this.pokazSzczegolyPlikuButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pokazSzczegolyPlikuButton.Margin = new System.Windows.Forms.Padding(2);
             this.pokazSzczegolyPlikuButton.Name = "pokazSzczegolyPlikuButton";
             this.pokazSzczegolyPlikuButton.Size = new System.Drawing.Size(111, 45);
             this.pokazSzczegolyPlikuButton.TabIndex = 21;
@@ -476,7 +477,7 @@
             this.sortujPlikiButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sortujPlikiButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.sortujPlikiButton.Location = new System.Drawing.Point(475, 34);
-            this.sortujPlikiButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sortujPlikiButton.Margin = new System.Windows.Forms.Padding(2);
             this.sortujPlikiButton.Name = "sortujPlikiButton";
             this.sortujPlikiButton.Size = new System.Drawing.Size(97, 45);
             this.sortujPlikiButton.TabIndex = 20;
@@ -489,7 +490,7 @@
             this.dodajPiosenkiDoFoldeuButton.BackColor = System.Drawing.Color.LightSkyBlue;
             this.dodajPiosenkiDoFoldeuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dodajPiosenkiDoFoldeuButton.Location = new System.Drawing.Point(212, 34);
-            this.dodajPiosenkiDoFoldeuButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dodajPiosenkiDoFoldeuButton.Margin = new System.Windows.Forms.Padding(2);
             this.dodajPiosenkiDoFoldeuButton.Name = "dodajPiosenkiDoFoldeuButton";
             this.dodajPiosenkiDoFoldeuButton.Size = new System.Drawing.Size(84, 45);
             this.dodajPiosenkiDoFoldeuButton.TabIndex = 19;
@@ -502,7 +503,7 @@
             this.dodajPlikDoGlownegoFolderuButton.BackColor = System.Drawing.Color.LightSkyBlue;
             this.dodajPlikDoGlownegoFolderuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dodajPlikDoGlownegoFolderuButton.Location = new System.Drawing.Point(92, 34);
-            this.dodajPlikDoGlownegoFolderuButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dodajPlikDoGlownegoFolderuButton.Margin = new System.Windows.Forms.Padding(2);
             this.dodajPlikDoGlownegoFolderuButton.Name = "dodajPlikDoGlownegoFolderuButton";
             this.dodajPlikDoGlownegoFolderuButton.Size = new System.Drawing.Size(115, 45);
             this.dodajPlikDoGlownegoFolderuButton.TabIndex = 18;
@@ -515,7 +516,7 @@
             this.modyfikujTagiButton.BackColor = System.Drawing.Color.LightSkyBlue;
             this.modyfikujTagiButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.modyfikujTagiButton.Location = new System.Drawing.Point(5, 34);
-            this.modyfikujTagiButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.modyfikujTagiButton.Margin = new System.Windows.Forms.Padding(2);
             this.modyfikujTagiButton.Name = "modyfikujTagiButton";
             this.modyfikujTagiButton.Size = new System.Drawing.Size(79, 45);
             this.modyfikujTagiButton.TabIndex = 17;
