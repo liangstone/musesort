@@ -120,12 +120,13 @@ namespace MuseSort
             //        return false;
             //}
 
-            List<string> listaPlikow = znajdz_wspierane_pliki(folderZrodlowy, wspieraneRozszerzenia);
+            List<string> listaPlikow = znajdz_wspierane_pliki(Directory.Exists(Path.Combine(folderZrodlowy, "Musesort")) ? 
+                                                          Path.Combine(folderZrodlowy, "Musesort") : folderZrodlowy, wspieraneRozszerzenia);
             sukces = sortujListePlikow(listaPlikow);
 
             logi += "Dodano i posortowano folder: " + folderZrodlowy + " do folderu: " + this.sciezka + Environment.NewLine;
             System.Windows.Forms.MessageBox.Show("Dodawanie plików do posortowanego folderu zakończone.");
-            progressBar2.Value = 0;
+            if (progressBar2 != null) progressBar2.Value = 0;
             return sukces;
         }
 
@@ -145,6 +146,7 @@ namespace MuseSort
         /// <summary>Inicjalizacja paska postępu i logów na początku sortowania.</summary>
         private void logiInitSortProgress(int numberOfSteps)
         {
+            if(progressBar2==null) return;
             progressBar2.Maximum = numberOfSteps;
             progressBar2.Value = 0;
             progressBar2.Step = 1;
@@ -284,7 +286,7 @@ namespace MuseSort
                 duplikat(Plik.Create(Path.Combine(sciezka_katalogu, nazwaPliku)), plik);
             }
 
-            progressBar2.PerformStep();
+            if (progressBar2 != null) progressBar2.PerformStep();
         }
 
         /// <summary>Przyjmuje dwa plik mające kolizję nazw, decyduje który przenieść do którego katalogu.

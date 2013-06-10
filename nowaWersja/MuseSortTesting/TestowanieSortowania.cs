@@ -463,6 +463,84 @@ namespace MuseSortTesting
             }
         }
 
+        [TestMethod]
+        public void TestDodawaniaDoFolderuGlowanego()
+        {
+            const string schemat = @"Wykonawca\Album\Piosenki";
+            var folderDocelowy = Path.Combine(_sciezkaMuzyka, @"test przenoszenia\folder docelowy");
+            var folderZrodlowy = Path.Combine(_sciezkaMuzyka, @"test przenoszenia\folder zrodlowy");
+            var rozszerzenia = UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio;
+            var expectedInList1 = new List<string>
+                {
+                    "01.QDC - Belief",
+                    "04 - Muse - Map Of The Problematique",
+                    "07 Kristin Chenoweth-Popular"
+                };
+            expectedInList1 = expectedInList1.Select(file => Path.Combine(folderDocelowy, file + ".mp3")).ToList();
+            var dane1 = new[]
+                {
+                    new DaneUtworu
+                        {
+                            tytul = "Belief", 
+                            wykonawca = new[] {"Łukasz Brzostek (QDC)"},
+                            album = "Alchemist",
+                            rok = 2003,
+                            gatunek = new[]{ "Ethnic"}
+                        },
+                    new DaneUtworu
+                        {
+                            tytul = "Map Of The Problematique",
+                            wykonawca = new[] {"Muse"},
+                            album = "Black Holes And Revelations",
+                            gatunek = new[]{"Rock"}
+                        },
+                    new DaneUtworu
+                        {
+                            tytul = "Popular",
+                            wykonawca = new[] {"Kristin Chenoweth"},
+                            album = "Wicked Soundtrack",
+                            gatunek = new[]{"24"}
+                        },
+                };
+            var expectedInList2 = new List<string>
+                {
+                    folderZrodlowy + @"\Nirvana\In Utero\04. Rape Me.mp3",
+                    folderZrodlowy + @"\1362775647.foxamoore_children_of_orion.mp3"
+                };
+            var dane2 = new[]
+                {
+                    new DaneUtworu
+                        {
+                            tytul = "Rape Me",
+                            wykonawca = new[] {"Nirvana"},
+                            album = "In Utero",
+                            gatunek = new[]{"Grunge"}
+                        },
+                    new DaneUtworu
+                        {
+                            tytul = "Children Of Orion",
+                            wykonawca = new[] {"Fox Amoore"},
+                            album = "Utunu And Kikivuli",
+                            gatunek = new[]{"Soundtrack"}
+                        },
+                };
+            var expectedInList3 = new List<string>(expectedInList1);
+            expectedInList3.AddRange(expectedInList2);
+            var dane3 = dane1.Concat(dane2).ToArray();
+            var expectedOutList = ExpectedOutList(schemat, folderDocelowy, expectedInList3, dane3);
+
+            using (ShimsContext.Create())
+            {
+                UniversalShims();
+                PrzeprowadzSortowanie(schemat, folderDocelowy, rozszerzenia, expectedInList1);
+                PrzeprowadzSortowanie(schemat, folderZrodlowy, rozszerzenia, expectedInList2);
+                var folderGlowny = new FolderGlowny(folderDocelowy);
+                folderGlowny.dodajFolder(folderZrodlowy);
+                Console.WriteLine(folderGlowny.logi);
+                CheckOutput(folderDocelowy, expectedOutList, rozszerzenia);
+            }
+        }
+
         #endregion
 
         #region Sortowanie filmow

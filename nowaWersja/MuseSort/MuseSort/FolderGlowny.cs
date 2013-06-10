@@ -35,12 +35,9 @@ namespace MuseSort
         ///<summary>Analizowanie folderu pod względem obecności wymaganych obiektów oraz zgodności struktury logicznej zapisanej w pliku XML.
         ///W skrócie, sprawdzanie, czy wszystko się zgadza.
         /// </summary>
-        /// <remarks>Jeszcze nie zaiplementowane.</remarks>
         public Boolean analizuj()
         {
-            Boolean result = xml.analizuj();
-
-            return result;
+            return xml.analizuj();
         }
 
 
@@ -50,8 +47,13 @@ namespace MuseSort
         /// <param name="path">Ścieżka folderu do dodania.</param>
         public void dodajFolder(String path)
         {
-            Folder folder = new Folder(path + "\\Musesort");
-            dodajFolder(folder);
+            var folder = new Folder(sciezka);
+            folder.ustalSchemat(UstawieniaProgramu.getInstance().domyslneSortowanie);
+            folder.dodajIPosortujFolder(path, UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio);
+//            folder.dodajIPosortujFolder(path, UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo);
+            logi += folder.logi;
+            /*Folder folder = new Folder(path + "\\Musesort");
+            dodajFolder(folder);*/
         }
 
         /// <summary>Dodaje zawartość podanego posortowanego katalogu do katalogu głównego.
