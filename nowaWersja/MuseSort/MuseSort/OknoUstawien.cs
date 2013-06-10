@@ -22,6 +22,7 @@ namespace MuseSort
             folderyPanel.Hide();
             folderGlownyPanel.Hide();
             rozszerzeniaPanel.Hide();
+            Napisy24Panel.Hide();
             sortowaniaPanel.Hide();
             wspieranieRozszerzeniaPanel.Hide();
             zewnetrzneBazyDanychPanel.Hide();
@@ -96,6 +97,13 @@ namespace MuseSort
                 aktywujPanel("zewnetrzneBazyDanych");
                 dataBaseListBox.SelectedItem = UstawieniaProgramu.getInstance().domyslnaBazaDanych;
             }
+            else if (e.Node.Name == "Napisy24node")
+            {
+                aktywujPanel("Napisy24node");
+                napisy24HasloTB.Text = UstawieniaProgramu.getInstance().Napisy24Haslo;
+                napisy24LoginTB.Text = UstawieniaProgramu.getInstance().Napisy24Login;
+
+            }
 
         }//end void wyswietl(object sender, TreeNodeMouseClickEventArgs e)
 
@@ -114,6 +122,7 @@ namespace MuseSort
             sortowaniaPanel.Hide();
             wspieranieRozszerzeniaPanel.Hide();
             zewnetrzneBazyDanychPanel.Hide();
+            Napisy24Panel.Hide();
             switch(nazwa)
             {
                 case "foldery":
@@ -136,6 +145,9 @@ namespace MuseSort
                     break;
                 case "zewnetrzneBazyDanych":
                     zewnetrzneBazyDanychPanel.Show();
+                    break;
+                case "Napisy24node":
+                    Napisy24Panel.Show();
                     break;
                 default:
                     break;
@@ -220,5 +232,12 @@ namespace MuseSort
             }
         }
         #endregion
+
+        private void zapiszNapisy24UstawieniaButton_Click(object sender, EventArgs e)
+        {
+            UstawieniaProgramu ustawienia = UstawieniaProgramu.getInstance();
+            ustawienia.Napisy24Haslo = napisy24HasloTB.Text;
+            ustawienia.Napisy24Login = napisy24LoginTB.Text;
+        }
     }
 }

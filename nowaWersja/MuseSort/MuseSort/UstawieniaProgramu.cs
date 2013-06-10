@@ -145,10 +145,17 @@ namespace MuseSort
             node = plikXML.GetElementsByTagName("domyslnaBazaDanych").Item(0);
             domyslnaBazaDanych = node.InnerText;
 
-            node = plikXML.GetElementsByTagName("Napisy24Login").Item(0);
-            Napisy24Login = node.InnerText;
-            node = plikXML.GetElementsByTagName("Napisy24Haslo").Item(0);
-            Napisy24Haslo = node.InnerText;
+
+            try
+            {
+                node = plikXML.GetElementsByTagName("Napisy24Login").Item(0);
+                Napisy24Login = node.InnerText;
+                node = plikXML.GetElementsByTagName("Napisy24Haslo").Item(0);
+                Napisy24Haslo = node.InnerText;
+            }
+            catch (Exception)
+            {
+            }
 
             XmlNodeList lista = plikXML.GetElementsByTagName("rozszerzenieAudio");
             foreach (XmlNode x in lista)
