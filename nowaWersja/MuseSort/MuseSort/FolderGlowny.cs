@@ -47,8 +47,7 @@ namespace MuseSort
         /// <param name="path">Ścieżka folderu do dodania.</param>
         public void dodajFolder(String path)
         {
-            Folder folder = new Folder(path + "\\Musesort");
-            dodajFolder(folder);
+            dodajFolder(new Folder(path));
         }
 
         /// <summary>Dodaje zawartość podanego posortowanego katalogu do katalogu głównego.
@@ -64,9 +63,11 @@ namespace MuseSort
                     + " do folderu głównego nie powiodła się, gdyż nie jest on posortowany.");
             }*/
 
+            string nazwaFolderu = new DirectoryInfo(folder.Sciezka).Parent.Name;
             try
             {
-                Microsoft.VisualBasic.FileIO.FileSystem.CopyDirectory(folder.Sciezka, this.sciezka);
+                var destinationDirectoryName = Path.Combine(sciezka, nazwaFolderu);
+                Microsoft.VisualBasic.FileIO.FileSystem.CopyDirectory(folder.Sciezka, destinationDirectoryName);
                 logi += "Przeniesiono folder: " + folder.Sciezka + " do folderu: " + this.sciezka + Environment.NewLine;
             }
             /*
@@ -82,10 +83,10 @@ namespace MuseSort
                     string plikDodawanyFolderRelatywny = Directory.GetParent(plikDodawany).ToString().Substring(folder.Sciezka.Length);
                     string nazwaPliku = Path.GetFileName(plikDodawany);
                     int i = 1;
-                    string nowaSciezka = Path.Combine(this.sciezka + plikDodawanyFolderRelatywny + "(" + i + ")", nazwaPliku);
+                    string nowaSciezka = Path.Combine(this.sciezka, nazwaFolderu, plikDodawanyFolderRelatywny + "(" + i + ")", nazwaPliku);
                     for (; File.Exists(nowaSciezka); i++)
                     {
-                        nowaSciezka = Path.Combine(this.sciezka + plikDodawanyFolderRelatywny + "(" + i + ")", nazwaPliku);
+                        nowaSciezka = Path.Combine(this.sciezka, nazwaFolderu, plikDodawanyFolderRelatywny + "(" + i + ")", nazwaPliku);
                     }
 
                     Directory.CreateDirectory(Directory.GetParent(nowaSciezka).ToString()); //Tworzymy katalog jeśli potrzeba.
