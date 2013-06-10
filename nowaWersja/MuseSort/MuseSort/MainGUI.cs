@@ -536,8 +536,7 @@ namespace MuseSort
             }
             String sciezka = drzewoFolderow.SelectedNode.Name + "\\" + aktualnyFolder.SelectedItems[0].Text;
             if (!Directory.Exists(sciezka)) return;
-            Folder folder = new Folder(sciezka);
-            folder.progressBar2 = toolStripProgressBar1.ProgressBar;
+            Folder folder = new Folder(sciezka) {progressBar2 = toolStripProgressBar1.ProgressBar};
             folder.ustalSchemat(UstawieniaProgramu.getInstance().domyslneSortowanieMuzyki);
             folder.sortuj(UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio);
             folder.ustalSchemat(UstawieniaProgramu.getInstance().domyslneSortowanieFilmow);

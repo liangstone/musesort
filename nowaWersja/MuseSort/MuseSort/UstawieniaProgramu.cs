@@ -24,7 +24,7 @@ namespace MuseSort
             wspieraneRozszerzeniaVideo = new List<String>();
             wspieraneRozszerzeniaAudio = new List<String>();
             domyslneSortowanieMuzyki = "";
-            domyslneSortowanieFilmow = "";
+            domyslneSortowanieFilmow = @"Gatunki\Aktorzy";
             folderGlowny = "";
             loadLibVlc();
         }
@@ -123,9 +123,15 @@ namespace MuseSort
             _ustawieniaWczytane = true;
             XmlDocument plikXML = new XmlDocument();
             plikXML.Load(@"C:\museSort\config.xml");
-            folderGlowny        = plikXML.GetElementsByTagName("folderGlowny")      .Item(0).InnerText;
-            domyslneSortowanieMuzyki = plikXML.GetElementsByTagName("domyslneSortowanieMuzyki").Item(0).InnerText;
-            domyslneSortowanieFilmow = plikXML.GetElementsByTagName("domyslneSortowanieFilmow").Item(0).InnerText;
+            var xmlNode = plikXML.GetElementsByTagName("folderGlowny").Item(0);
+            if (xmlNode != null) folderGlowny = xmlNode.InnerText;
+
+            xmlNode = plikXML.GetElementsByTagName("domyslneSortowanieMuzyki").Item(0);
+            if (xmlNode != null) domyslneSortowanieMuzyki = xmlNode.InnerText;
+
+            xmlNode = plikXML.GetElementsByTagName("domyslneSortowanieFilmow").Item(0);
+            if (xmlNode != null && xmlNode.InnerText!="") domyslneSortowanieFilmow = xmlNode.InnerText;
+
             foreach (XmlNode x in plikXML.GetElementsByTagName("rozszerzenieAudio"))
             {
                 wspieraneRozszerzeniaAudio.Add(x.InnerText);
