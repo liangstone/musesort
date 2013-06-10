@@ -164,7 +164,7 @@ namespace MuseSort
             if (string.IsNullOrEmpty(doNormalizacji))
                 return string.Empty;
             var wynik = Regex.Replace(doNormalizacji, @"[_\.\+]", " "); //Zamieniamy znaki specjalne _ . i + na spacje
-            wynik = new CultureInfo("pl-PL", false).TextInfo.ToTitleCase(wynik); //Wszystki pierwsze litery na duże, 
+            wynik = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(wynik); //Wszystki pierwsze litery na duże, 
             return wynik;
         }
 
