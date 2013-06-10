@@ -55,9 +55,15 @@ namespace MuseSort
             String rezyseria = rezyserTextBox.Text;
             String produkcja = produkcjaTextBox.Text;
             String dataPremiery = dataPremieryTextBox.Text;
-            int numerSezonu = Convert.ToInt32(numerSezonuTextBox.Text);
-            int numerOdcinka = Convert.ToInt32(numerOdcinkaTextBox.Text);
-            int ogladalnosc = Convert.ToInt32(ogladalnoscTextBox.Text);
+            int numerSezonu = 0;
+            if (numerSezonuTextBox.Text != "")
+                Convert.ToInt32(numerSezonuTextBox.Text);
+            int numerOdcinka = 0;
+            if (numerOdcinkaTextBox.Text != "")
+                Convert.ToInt32(numerOdcinkaTextBox.Text);
+            int ogladalnosc = 0;
+            if (ogladalnoscTextBox.Text != "")
+                Convert.ToInt32(ogladalnoscTextBox.Text);
             Boolean czyOgl = watchCheckBox.Checked;
 
             string connectionString = @"Data Source=|DataDirectory|\MyDatabase#1.sdf; Password = Projekt&4";
@@ -81,15 +87,15 @@ namespace MuseSort
                 Query.Parameters.AddWithValue("@czyOgladniete", czyOgl);
                 Query.ExecuteNonQuery();
                 MessageBox.Show("Pomyslnie dodano odcinek do bazy danych");
+                this.Dispose();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Wysypalo sie");
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Musisz wpisać datę odcinka!!!");
             }
             conn.Close();
             
-            this.Dispose();
+            
         }
 
         private void anuluj_Click(object sender, EventArgs e)
