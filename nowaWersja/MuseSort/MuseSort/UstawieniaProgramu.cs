@@ -13,16 +13,18 @@ namespace MuseSort
         //do ponownego merga
         private static volatile UstawieniaProgramu instancja;
         public String folderGlowny;
-        public String domyslneSortowanie;
+        public String domyslneSortowanieMuzyki;
         public List<String> wspieraneRozszerzeniaAudio;
         public List<String> wspieraneRozszerzeniaVideo;
         private bool _ustawieniaWczytane = false;
+        public string domyslneSortowanieFilmow;
 
         private UstawieniaProgramu()
         {
             wspieraneRozszerzeniaVideo = new List<String>();
             wspieraneRozszerzeniaAudio = new List<String>();
-            domyslneSortowanie = "";
+            domyslneSortowanieMuzyki = "";
+            domyslneSortowanieFilmow = "";
             folderGlowny = "";
             loadLibVlc();
         }
@@ -75,7 +77,8 @@ namespace MuseSort
             var main = document.CreateElement("body");
 
             main.AppendChild(GetXmlElementWithTextNode(document, "folderGlowny", folderGlowny));
-            main.AppendChild(GetXmlElementWithTextNode(document, "domyslneSortowanie", domyslneSortowanie));
+            main.AppendChild(GetXmlElementWithTextNode(document, "domyslneSortowanieMuzyki", domyslneSortowanieMuzyki));
+            main.AppendChild(GetXmlElementWithTextNode(document, "domyslneSortowanieFilmow", domyslneSortowanieFilmow));
 
             AddListToXmlNode(document, main, "rozszerzenieAudio", wspieraneRozszerzeniaAudio);
             AddListToXmlNode(document, main, "rozszerzenieVideo", wspieraneRozszerzeniaVideo);
@@ -121,7 +124,8 @@ namespace MuseSort
             XmlDocument plikXML = new XmlDocument();
             plikXML.Load(@"C:\museSort\config.xml");
             folderGlowny        = plikXML.GetElementsByTagName("folderGlowny")      .Item(0).InnerText;
-            domyslneSortowanie  = plikXML.GetElementsByTagName("domyslneSortowanie").Item(0).InnerText;
+            domyslneSortowanieMuzyki = plikXML.GetElementsByTagName("domyslneSortowanieMuzyki").Item(0).InnerText;
+            domyslneSortowanieFilmow = plikXML.GetElementsByTagName("domyslneSortowanieFilmow").Item(0).InnerText;
             foreach (XmlNode x in plikXML.GetElementsByTagName("rozszerzenieAudio"))
             {
                 wspieraneRozszerzeniaAudio.Add(x.InnerText);

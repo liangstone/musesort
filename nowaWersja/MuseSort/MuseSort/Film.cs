@@ -108,7 +108,7 @@ namespace MuseSort
             String nowaNazwa = "";
             
             logi += "Wygenerowano nową nazwę: " + nowaNazwa + Environment.NewLine;
-            nowaNazwa = normalizuj(nowaNazwa);
+            nowaNazwa = Normalizuj(nowaNazwa);
             return nowaNazwa;
         }
 
@@ -129,12 +129,12 @@ namespace MuseSort
         /// Jeszcze nie zaimplementowane.</summary>
         protected override void resetujTagi()
         {
-            dane.tytul = normalizuj(dataFile.Metadatas.Title);
-            dane.opis = normalizuj(dataFile.Metadatas.Description);
-            dane.jezyk = normalizuj(dataFile.Metadatas.Language);
-            dane.rezyser = normalizuj(dataFile.Metadatas.Copyright);
-            dane.aktorzy = normalizuj(dataFile.Metadatas.Artist);
-            dane.gatunki = normalizuj(dataFile.Metadatas.Genre);
+            dane.tytul = Normalizuj(dataFile.Metadatas.Title);
+            dane.opis = Normalizuj(dataFile.Metadatas.Description);
+            dane.jezyk = Normalizuj(dataFile.Metadatas.Language);
+            dane.rezyser = Normalizuj(dataFile.Metadatas.Copyright);
+            dane.aktorzy = Normalizuj(dataFile.Metadatas.Artist);
+            dane.gatunki = Normalizuj(dataFile.Metadatas.Genre);
         }
 
 

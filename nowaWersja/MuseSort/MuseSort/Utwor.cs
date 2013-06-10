@@ -241,7 +241,7 @@ namespace MuseSort
                 nowaNazwa = usunZnakiSpecjalne(nowaNazwa);
             }
             logi += "Wygenerowano nową nazwę: " + nowaNazwa + Environment.NewLine;
-            nowaNazwa = normalizuj(nowaNazwa);
+            nowaNazwa = Normalizuj(nowaNazwa);
             return nowaNazwa;
         }
 
@@ -305,22 +305,22 @@ namespace MuseSort
         //Pobieranie tagów z obiektu tagi i zapisywanie w obiekcie dane
         private void pobierzTagi()
         {
-                dane.album = normalizuj(tagi.Tag.Album);
+                dane.album = Normalizuj(tagi.Tag.Album);
                 dane.bityNaMinute = tagi.Tag.BeatsPerMinute;
-                dane.dyrygent = normalizuj(tagi.Tag.Conductor);
-                dane.gatunek = normalizuj(tagi.Tag.Genres);
-                dane.komentarz = normalizuj(tagi.Tag.Comment);
+                dane.dyrygent = Normalizuj(tagi.Tag.Conductor);
+                dane.gatunek = Normalizuj(tagi.Tag.Genres);
+                dane.komentarz = Normalizuj(tagi.Tag.Comment);
                 dane.liczbaCd = tagi.Tag.DiscCount;
                 dane.liczbaPiosenek = tagi.Tag.TrackCount;
                 dane.numer = tagi.Tag.Track;
                 dane.numerCd = tagi.Tag.Disc;
-                dane.prawaAutorskie = normalizuj(tagi.Tag.Copyright);
+                dane.prawaAutorskie = Normalizuj(tagi.Tag.Copyright);
                 dane.puid = tagi.Tag.MusicIpId;
                 dane.rok = tagi.Tag.Year;
-                dane.tekstPiosenki = normalizuj(tagi.Tag.Lyrics);
-                dane.tytul = normalizuj(tagi.Tag.Title);
-                dane.wykonawca = normalizuj(tagi.Tag.Performers);
-                dane.wykonawcaAlbumu = normalizuj(tagi.Tag.AlbumArtists);
+                dane.tekstPiosenki = Normalizuj(tagi.Tag.Lyrics);
+                dane.tytul = Normalizuj(tagi.Tag.Title);
+                dane.wykonawca = Normalizuj(tagi.Tag.Performers);
+                dane.wykonawcaAlbumu = Normalizuj(tagi.Tag.AlbumArtists);
                 dane.zdjecia = tagi.Tag.Pictures;
                 logi += "Pobrano tagi z pliku." + Environment.NewLine;
                 if (dane.czyDaneWypelnione())

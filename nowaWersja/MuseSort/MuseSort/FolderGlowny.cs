@@ -48,9 +48,9 @@ namespace MuseSort
         public void dodajFolder(String path)
         {
             var folder = new Folder(sciezka);
-            folder.ustalSchemat(UstawieniaProgramu.getInstance().domyslneSortowanie);
+            folder.ustalSchemat(UstawieniaProgramu.getInstance().domyslneSortowanieMuzyki);
             folder.dodajIPosortujFolder(path, UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio);
-//            folder.dodajIPosortujFolder(path, UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo);
+            folder.dodajIPosortujFolder(path, UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo);
             logi += folder.logi;
             /*Folder folder = new Folder(path + "\\Musesort");
             dodajFolder(folder);*/
