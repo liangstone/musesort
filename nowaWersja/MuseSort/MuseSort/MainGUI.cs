@@ -219,8 +219,12 @@ namespace MuseSort
                 Folder temp = new Folder(sciezka);
                 if (temp.analizuj())
                 {
+                    AkcjaDialog dlg = new AkcjaDialog("Dodawanie do głównego folderu");
+                    dlg.Show();
                     folderGlowny.dodajFolder(sciezka);
+                    dlg.Dispose();
                     logiTextBox.Text += folderGlowny.logi;
+                    
                 }
                 else
                 {
@@ -276,9 +280,12 @@ namespace MuseSort
                 MessageBox.Show("Folder docelowy nie został posortowany!");
                 return;
             }
-            MessageBox.Show("Dodawanie rozpoczęte.");
+            //MessageBox.Show("Dodawanie rozpoczęte.");
+            AkcjaDialog dlg = new AkcjaDialog("Dodawanie plików do folderu");
+            dlg.Show();
             docelowy.dodajIPosortujFolder(source, UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio);
             logiTextBox.Text += docelowy.logi;
+            dlg.Dispose();
             MessageBox.Show("Pomyślnie dodano pliki.");
             dodajPanel.Visible = false;
         }
@@ -317,9 +324,13 @@ namespace MuseSort
             if (System.IO.Directory.Exists(sciezka))
             {
                 Folder folder = new Folder(sciezka);
+                AkcjaDialog dlg = new AkcjaDialog("Sortowanie plików");
+                dlg.Show();
                 folder.ustalSchemat(@"Wykonawca\Album\Piosenki");
                 folder.progressBar2 = toolStripProgressBar1.ProgressBar;
+                
                 folder.sortuj(UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio);
+                dlg.Dispose();
                 logiTextBox.Text += folder.logi;
             }
         }
@@ -479,7 +490,10 @@ namespace MuseSort
                 Folder temp = new Folder(sciezka);
                 if (temp.analizuj())
                 {
+                    AkcjaDialog dlg = new AkcjaDialog("Dodawanie do głównego folderu");
+                    dlg.Show();
                     folderGlowny.dodajFolder(sciezka);
+                    dlg.Dispose();
                     logiTextBox.Text += folderGlowny.logi;
                 }
                 else
@@ -536,11 +550,14 @@ namespace MuseSort
             }
             String sciezka = drzewoFolderow.SelectedNode.Name + "\\" + aktualnyFolder.SelectedItems[0].Text;
             if (!Directory.Exists(sciezka)) return;
+            AkcjaDialog dlg = new AkcjaDialog("Sortowanie plików");
+            dlg.Show();
             Folder folder = new Folder(sciezka) {progressBar2 = toolStripProgressBar1.ProgressBar};
             folder.ustalSchemat(UstawieniaProgramu.getInstance().domyslneSortowanieMuzyki);
             folder.sortuj(UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio);
             folder.ustalSchemat(UstawieniaProgramu.getInstance().domyslneSortowanieFilmow);
             folder.sortuj(UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo);
+            dlg.Dispose();
             logiTextBox.Text += folder.logi;
         }
 
@@ -610,9 +627,13 @@ namespace MuseSort
             if (System.IO.Directory.Exists(sciezka))
             {
                 Folder folder = new Folder(sciezka);
+                AkcjaDialog dlg = new AkcjaDialog("Sortowanie plików");
+                dlg.Show();
                 folder.ustalSchemat((String)sortowanieNiestandardoweListBox.SelectedItem);
                 folder.progressBar2 = toolStripProgressBar1.ProgressBar;
+                
                 folder.sortuj(UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio);
+                dlg.Dispose();
                 logiTextBox.Text += folder.logi;
             }
         }

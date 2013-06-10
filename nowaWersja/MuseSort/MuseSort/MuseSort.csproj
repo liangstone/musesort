@@ -79,6 +79,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AkcjaDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AkcjaDialog.Designer.cs">
+      <DependentUpon>AkcjaDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="BazaDanychMuzyka.cs" />
     <Compile Include="BazaDanych\BazaDanychSqlServerCE.cs" />
     <Compile Include="BazaDanych\IBazaDanych.cs" />
@@ -235,6 +241,9 @@
     </Compile>
     <Compile Include="Wzorzec.cs" />
     <Compile Include="WzorzecFactory.cs" />
+    <EmbeddedResource Include="AkcjaDialog.resx">
+      <DependentUpon>AkcjaDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DatabaseFilm.resx">
       <DependentUpon>DatabaseFilm.cs</DependentUpon>
     </EmbeddedResource>
