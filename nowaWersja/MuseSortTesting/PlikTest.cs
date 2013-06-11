@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.IO.Fakes;
+using System.Linq;
 using System.Text;
 using Microsoft.QualityTools.Testing.Fakes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -83,14 +85,32 @@ namespace MuseSortTesting
             var stringi = new[]
                 {
                     string.Empty,
-                    "Ala ma kota",
-                    "AlemdsDA",
-                    "AKRONIM"
+                    "lowercase",
+                    "kilka slow",
+                    "rAndOm CapS",
+                    "ALL CAPS"
                 };
             foreach (var doNormalizacji in stringi)
             {
                 Assert.AreEqual(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(doNormalizacji), Plik.Normalizuj(doNormalizacji));
             }
+            var emptyArray = new[] {""};
+//            Assert.AreEqual(emptyArray, Plik.Normalizuj((string[])null));
+            Assert.IsTrue(ArrayEqual(emptyArray, Plik.Normalizuj((string[])null)), "Po podaniu nulla.");
+//            Assert.AreEqual(emptyArray, Plik.Normalizuj(new string[0]));
+            Assert.IsTrue(ArrayEqual(emptyArray, Plik.Normalizuj(new string[0])), "Po podaniu pustego.");
+
+            var stringiNormalizowane = Plik.Normalizuj(stringi);
+            for (int i = 0; i < stringi.Length; i++)
+            {
+                Assert.AreEqual(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(stringi[i]), stringiNormalizowane[i]);
+            }
+        }
+
+        private static bool ArrayEqual<T>(ICollection<T> arr1, IList<T> arr2)
+        {
+            return (arr1 != null || arr2 == null) && (arr1 == null || arr2 != null) &&
+                   (arr1 == null || arr1.Count == arr2.Count && !arr1.Where((t, i) => !t.Equals(arr2[i])).Any());
         }
     }
 }

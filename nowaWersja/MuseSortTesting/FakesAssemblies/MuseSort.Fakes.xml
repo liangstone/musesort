@@ -7,6 +7,63 @@
         <member name="T:Microsoft.QualityTools.Testing.Fakes.Delegates.MuseSortDelegates">
             <summary>Contains custom delegates used for the stubs and shims of MuseSort</summary>
         </member>
+        <member name="T:MuseSort.Fakes.ShimAkcjaDialog">
+            <summary>Shim type of MuseSort.AkcjaDialog</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimAkcjaDialog.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimAkcjaDialog.#ctor(MuseSort.AkcjaDialog)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimAkcjaDialog.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimAkcjaDialog.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimAkcjaDialog.Bind(System.ComponentModel.IComponent)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimAkcjaDialog.Bind(System.ComponentModel.ISynchronizeInvoke)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimAkcjaDialog.Bind(System.Windows.Forms.IBindableComponent)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimAkcjaDialog.Bind(System.Windows.Forms.IContainerControl)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimAkcjaDialog.Bind(System.Windows.Forms.IDropTarget)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimAkcjaDialog.Bind(System.Windows.Forms.IWin32Window)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.ShimAkcjaDialog.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimAkcjaDialog.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimAkcjaDialog.ConstructorString">
+            <summary>Sets the shim of AkcjaDialog.AkcjaDialog(String akcja)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimAkcjaDialog.DisposeBoolean">
+            <summary>Sets the shim of AkcjaDialog.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimAkcjaDialog.InitializeComponent">
+            <summary>Sets the shim of AkcjaDialog.InitializeComponent()</summary>
+        </member>
+        <member name="T:MuseSort.Fakes.ShimAkcjaDialog.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimAkcjaDialog.AllInstances.DisposeBoolean">
+            <summary>Sets the shim of AkcjaDialog.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimAkcjaDialog.AllInstances.InitializeComponent">
+            <summary>Sets the shim of AkcjaDialog.InitializeComponent()</summary>
+        </member>
         <member name="T:MuseSort.Fakes.ShimBazaDanychSqlServerCE">
             <summary>Shim type of MuseSort.BazaDanychSqlServerCE</summary>
         </member>
@@ -2092,6 +2149,12 @@
         <member name="P:MuseSort.Fakes.ShimPlik.NazwaSetString">
             <summary>Sets the shim of Plik.set_Nazwa(String value)</summary>
         </member>
+        <member name="P:MuseSort.Fakes.ShimPlik.NormalizujString">
+            <summary>Sets the shim of Plik.Normalizuj(String doNormalizacji)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.ShimPlik.NormalizujStringArray">
+            <summary>Sets the shim of Plik.Normalizuj(String[] doNormalizacji)</summary>
+        </member>
         <member name="P:MuseSort.Fakes.ShimPlik.SciezkaGet">
             <summary>Sets the shim of Plik.get_Sciezka()</summary>
         </member>
@@ -2109,12 +2172,6 @@
         </member>
         <member name="P:MuseSort.Fakes.ShimPlik.normalizujNazweString">
             <summary>Sets the shim of Plik.normalizujNazwe(String nazwa)</summary>
-        </member>
-        <member name="P:MuseSort.Fakes.ShimPlik.normalizujString">
-            <summary>Sets the shim of Plik.normalizuj(String doNormalizacji)</summary>
-        </member>
-        <member name="P:MuseSort.Fakes.ShimPlik.normalizujStringArray">
-            <summary>Sets the shim of Plik.normalizuj(String[] doNormalizacji)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimPlik.porownajJakoscPlikPlik">
             <summary>Sets the shim of Plik.porownajJakosc(Plik plik1, Plik plik2)</summary>
@@ -2154,12 +2211,6 @@
         </member>
         <member name="P:MuseSort.Fakes.ShimPlik.AllInstances.normalizujNazweString">
             <summary>Sets the shim of Plik.normalizujNazwe(String nazwa)</summary>
-        </member>
-        <member name="P:MuseSort.Fakes.ShimPlik.AllInstances.normalizujString">
-            <summary>Sets the shim of Plik.normalizuj(String doNormalizacji)</summary>
-        </member>
-        <member name="P:MuseSort.Fakes.ShimPlik.AllInstances.normalizujStringArray">
-            <summary>Sets the shim of Plik.normalizuj(String[] doNormalizacji)</summary>
         </member>
         <member name="P:MuseSort.Fakes.ShimPlik.AllInstances.przeniesPlikString">
             <summary>Sets the shim of Plik.przeniesPlik(String nowyFolder)</summary>
@@ -3198,6 +3249,1302 @@
         </member>
         <member name="P:MuseSort.Fakes.ShimWzorzec.AllInstances.czyPasujeString">
             <summary>Sets the shim of Wzorzec.czyPasuje(String lancuch)</summary>
+        </member>
+        <member name="T:MuseSort.Fakes.StubAkcjaDialog">
+            <summary>Stub type of MuseSort.AkcjaDialog</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.#ctor(System.String)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AdjustFormScrollbars(System.Boolean)">
+            <summary>Sets the stub of Form.AdjustFormScrollbars(Boolean displayScrollbars)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.AdjustFormScrollbarsBoolean">
+            <summary>Sets the stub of Form.AdjustFormScrollbars(Boolean displayScrollbars)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.AllowDropGet">
+            <summary>Sets the stub of Control.get_AllowDrop()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.AllowDropSetBoolean">
+            <summary>Sets the stub of Control.set_AllowDrop(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.AnchorGet">
+            <summary>Sets the stub of Control.get_Anchor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.AnchorSetAnchorStyles">
+            <summary>Sets the stub of Control.set_Anchor(AnchorStyles value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToAllowDrop">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.AllowDrop as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToAnchor">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.Anchor as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToAutoScaleBaseSize">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.AutoScaleBaseSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToAutoScroll">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.AutoScroll as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToAutoScrollOffset">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.AutoScrollOffset as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToAutoSize">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.AutoSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToAutoValidate">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.AutoValidate as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToBackColor">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.BackColor as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToBackgroundImage">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.BackgroundImage as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToBackgroundImageLayout">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.BackgroundImageLayout as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToBindingContext">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.BindingContext as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToContextMenu">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.ContextMenu as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToContextMenuStrip">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.ContextMenuStrip as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToCursor">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.Cursor as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToDock">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.Dock as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToDoubleBuffered">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.DoubleBuffered as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToFont">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.Font as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToForeColor">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.ForeColor as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToImeModeBase">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.ImeModeBase as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToMaximumSize">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.MaximumSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToMinimumSize">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.MinimumSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToRightToLeft">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.RightToLeft as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToRightToLeftLayout">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.RightToLeftLayout as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToSite">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.Site as a property with a backing field.</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.AttachBackingFieldToText">
+            <summary>Attaches delegates to emulate StubAkcjaDialog.Text as a property with a backing field.</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.AutoScaleBaseSizeGet">
+            <summary>Sets the stub of Form.get_AutoScaleBaseSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.AutoScaleBaseSizeSetSize">
+            <summary>Sets the stub of Form.set_AutoScaleBaseSize(Size value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.AutoScrollGet">
+            <summary>Sets the stub of Form.get_AutoScroll()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.AutoScrollOffsetGet">
+            <summary>Sets the stub of Control.get_AutoScrollOffset()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.AutoScrollOffsetSetPoint">
+            <summary>Sets the stub of Control.set_AutoScrollOffset(Point value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.AutoScrollSetBoolean">
+            <summary>Sets the stub of Form.set_AutoScroll(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.AutoSizeGet">
+            <summary>Sets the stub of Form.get_AutoSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.AutoSizeSetBoolean">
+            <summary>Sets the stub of Form.set_AutoSize(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.AutoValidateGet">
+            <summary>Sets the stub of Form.get_AutoValidate()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.AutoValidateSetAutoValidate">
+            <summary>Sets the stub of Form.set_AutoValidate(AutoValidate value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.BackColorGet">
+            <summary>Sets the stub of Form.get_BackColor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.BackColorSetColor">
+            <summary>Sets the stub of Form.set_BackColor(Color value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.BackgroundImageGet">
+            <summary>Sets the stub of Control.get_BackgroundImage()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.BackgroundImageLayoutGet">
+            <summary>Sets the stub of Control.get_BackgroundImageLayout()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.BackgroundImageLayoutSetImageLayout">
+            <summary>Sets the stub of Control.set_BackgroundImageLayout(ImageLayout value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.BackgroundImageSetImage">
+            <summary>Sets the stub of Control.set_BackgroundImage(Image value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.BindingContextGet">
+            <summary>Sets the stub of ContainerControl.get_BindingContext()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.BindingContextSetBindingContext">
+            <summary>Sets the stub of ContainerControl.set_BindingContext(BindingContext value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.CanEnableImeGet">
+            <summary>Sets the stub of ContainerControl.get_CanEnableIme()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.CanRaiseEventsGet">
+            <summary>Sets the stub of Control.get_CanRaiseEvents()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ContextMenuGet">
+            <summary>Sets the stub of Control.get_ContextMenu()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ContextMenuSetContextMenu">
+            <summary>Sets the stub of Control.set_ContextMenu(ContextMenu value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ContextMenuStripGet">
+            <summary>Sets the stub of Control.get_ContextMenuStrip()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ContextMenuStripSetContextMenuStrip">
+            <summary>Sets the stub of Control.set_ContextMenuStrip(ContextMenuStrip value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.CreateAccessibilityInstance">
+            <summary>Sets the stub of Control.CreateAccessibilityInstance()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.CreateAccessibilityInstance01">
+            <summary>Sets the stub of Control.CreateAccessibilityInstance()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.CreateControlsInstance">
+            <summary>Sets the stub of Form.CreateControlsInstance()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.CreateControlsInstance01">
+            <summary>Sets the stub of Form.CreateControlsInstance()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.CreateHandle">
+            <summary>Sets the stub of Form.CreateHandle()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.CreateHandle01">
+            <summary>Sets the stub of Form.CreateHandle()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.CreateParamsGet">
+            <summary>Sets the stub of Form.get_CreateParams()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.CursorGet">
+            <summary>Sets the stub of Control.get_Cursor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.CursorSetCursor">
+            <summary>Sets the stub of Control.set_Cursor(Cursor value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.DefWndProc(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Form.DefWndProc(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.DefWndProcMessageRef">
+            <summary>Sets the stub of Form.DefWndProc(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.DefaultCursorGet">
+            <summary>Sets the stub of Control.get_DefaultCursor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.DefaultImeModeGet">
+            <summary>Sets the stub of Form.get_DefaultImeMode()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.DefaultMarginGet">
+            <summary>Sets the stub of Control.get_DefaultMargin()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.DefaultMaximumSizeGet">
+            <summary>Sets the stub of Control.get_DefaultMaximumSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.DefaultMinimumSizeGet">
+            <summary>Sets the stub of Control.get_DefaultMinimumSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.DefaultPaddingGet">
+            <summary>Sets the stub of Control.get_DefaultPadding()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.DefaultSizeGet">
+            <summary>Sets the stub of Form.get_DefaultSize()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.DestroyHandle">
+            <summary>Sets the stub of Control.DestroyHandle()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.DestroyHandle01">
+            <summary>Sets the stub of Control.DestroyHandle()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.DisplayRectangleGet">
+            <summary>Sets the stub of ScrollableControl.get_DisplayRectangle()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.Dispose(System.Boolean)">
+            <summary>Sets the stub of AkcjaDialog.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.DisposeBoolean">
+            <summary>Sets the stub of AkcjaDialog.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.DockGet">
+            <summary>Sets the stub of Control.get_Dock()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.DockSetDockStyle">
+            <summary>Sets the stub of Control.set_Dock(DockStyle value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.DoubleBufferedGet">
+            <summary>Sets the stub of Control.get_DoubleBuffered()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.DoubleBufferedSetBoolean">
+            <summary>Sets the stub of Control.set_DoubleBuffered(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.FocusedGet">
+            <summary>Sets the stub of Control.get_Focused()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.FontGet">
+            <summary>Sets the stub of Control.get_Font()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.FontSetFont">
+            <summary>Sets the stub of Control.set_Font(Font value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ForeColorGet">
+            <summary>Sets the stub of Control.get_ForeColor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ForeColorSetColor">
+            <summary>Sets the stub of Control.set_ForeColor(Color value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.GetAccessibilityObjectById(System.Int32)">
+            <summary>Sets the stub of Control.GetAccessibilityObjectById(Int32 objectId)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.GetAccessibilityObjectByIdInt32">
+            <summary>Sets the stub of Control.GetAccessibilityObjectById(Int32 objectId)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.GetPreferredSize(System.Drawing.Size)">
+            <summary>Sets the stub of Control.GetPreferredSize(Size proposedSize)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.GetPreferredSizeSize">
+            <summary>Sets the stub of Control.GetPreferredSize(Size proposedSize)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.GetScaledBounds(System.Drawing.Rectangle,System.Drawing.SizeF,System.Windows.Forms.BoundsSpecified)">
+            <summary>Sets the stub of Form.GetScaledBounds(Rectangle bounds, SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.GetScaledBoundsRectangleSizeFBoundsSpecified">
+            <summary>Sets the stub of Form.GetScaledBounds(Rectangle bounds, SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.GetService(System.Type)">
+            <summary>Sets the stub of Component.GetService(Type service)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.GetServiceType">
+            <summary>Sets the stub of Component.GetService(Type service)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ImeModeBaseGet">
+            <summary>Sets the stub of Control.get_ImeModeBase()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ImeModeBaseSetImeMode">
+            <summary>Sets the stub of Control.set_ImeModeBase(ImeMode value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.InitLayout">
+            <summary>Sets the stub of Control.InitLayout()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.InitLayout01">
+            <summary>Sets the stub of Control.InitLayout()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.InitializeStub">
+            <summary>Initializes a new instance of type StubAkcjaDialog</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.IsInputChar(System.Char)">
+            <summary>Sets the stub of Control.IsInputChar(Char charCode)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.IsInputCharChar">
+            <summary>Sets the stub of Control.IsInputChar(Char charCode)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.IsInputKey(System.Windows.Forms.Keys)">
+            <summary>Sets the stub of Control.IsInputKey(Keys keyData)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.IsInputKeyKeys">
+            <summary>Sets the stub of Control.IsInputKey(Keys keyData)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.LayoutEngineGet">
+            <summary>Sets the stub of Control.get_LayoutEngine()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.MaximumSizeGet">
+            <summary>Sets the stub of Form.get_MaximumSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.MaximumSizeSetSize">
+            <summary>Sets the stub of Form.set_MaximumSize(Size value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.MinimumSizeGet">
+            <summary>Sets the stub of Form.get_MinimumSize()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.MinimumSizeSetSize">
+            <summary>Sets the stub of Form.set_MinimumSize(Size value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.NotifyInvalidate(System.Drawing.Rectangle)">
+            <summary>Sets the stub of Control.NotifyInvalidate(Rectangle invalidatedArea)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.NotifyInvalidateRectangle">
+            <summary>Sets the stub of Control.NotifyInvalidate(Rectangle invalidatedArea)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnActivated(System.EventArgs)">
+            <summary>Sets the stub of Form.OnActivated(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnActivatedEventArgs">
+            <summary>Sets the stub of Form.OnActivated(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnAutoSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnAutoSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnAutoSizeChangedEventArgs">
+            <summary>Sets the stub of Control.OnAutoSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnAutoValidateChanged(System.EventArgs)">
+            <summary>Sets the stub of ContainerControl.OnAutoValidateChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnAutoValidateChangedEventArgs">
+            <summary>Sets the stub of ContainerControl.OnAutoValidateChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnBackColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnBackColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnBackgroundImageChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnBackgroundImageChangedEventArgs">
+            <summary>Sets the stub of Form.OnBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnBackgroundImageLayoutChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnBackgroundImageLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnBackgroundImageLayoutChangedEventArgs">
+            <summary>Sets the stub of Form.OnBackgroundImageLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnBindingContextChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnBindingContextChangedEventArgs">
+            <summary>Sets the stub of Control.OnBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnCausesValidationChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnCausesValidationChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnCausesValidationChangedEventArgs">
+            <summary>Sets the stub of Control.OnCausesValidationChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnChangeUICues(System.Windows.Forms.UICuesEventArgs)">
+            <summary>Sets the stub of Control.OnChangeUICues(UICuesEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnChangeUICuesUICuesEventArgs">
+            <summary>Sets the stub of Control.OnChangeUICues(UICuesEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnClick(System.EventArgs)">
+            <summary>Sets the stub of Control.OnClick(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnClickEventArgs">
+            <summary>Sets the stub of Control.OnClick(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnClientSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnClientSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnClientSizeChangedEventArgs">
+            <summary>Sets the stub of Control.OnClientSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnClosed(System.EventArgs)">
+            <summary>Sets the stub of Form.OnClosed(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnClosedEventArgs">
+            <summary>Sets the stub of Form.OnClosed(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnClosing(System.ComponentModel.CancelEventArgs)">
+            <summary>Sets the stub of Form.OnClosing(CancelEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnClosingCancelEventArgs">
+            <summary>Sets the stub of Form.OnClosing(CancelEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnContextMenuChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnContextMenuChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnContextMenuChangedEventArgs">
+            <summary>Sets the stub of Control.OnContextMenuChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnContextMenuStripChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnContextMenuStripChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnContextMenuStripChangedEventArgs">
+            <summary>Sets the stub of Control.OnContextMenuStripChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnControlAdded(System.Windows.Forms.ControlEventArgs)">
+            <summary>Sets the stub of Control.OnControlAdded(ControlEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnControlAddedControlEventArgs">
+            <summary>Sets the stub of Control.OnControlAdded(ControlEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnControlRemoved(System.Windows.Forms.ControlEventArgs)">
+            <summary>Sets the stub of Control.OnControlRemoved(ControlEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnControlRemovedControlEventArgs">
+            <summary>Sets the stub of Control.OnControlRemoved(ControlEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnCreateControl">
+            <summary>Sets the stub of Form.OnCreateControl()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnCreateControl01">
+            <summary>Sets the stub of Form.OnCreateControl()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnCursorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnCursorChangedEventArgs">
+            <summary>Sets the stub of Control.OnCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnDeactivate(System.EventArgs)">
+            <summary>Sets the stub of Form.OnDeactivate(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnDeactivateEventArgs">
+            <summary>Sets the stub of Form.OnDeactivate(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnDockChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnDockChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnDockChangedEventArgs">
+            <summary>Sets the stub of Control.OnDockChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnDoubleClick(System.EventArgs)">
+            <summary>Sets the stub of Control.OnDoubleClick(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnDoubleClickEventArgs">
+            <summary>Sets the stub of Control.OnDoubleClick(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnDragDrop(System.Windows.Forms.DragEventArgs)">
+            <summary>Sets the stub of Control.OnDragDrop(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnDragDropDragEventArgs">
+            <summary>Sets the stub of Control.OnDragDrop(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnDragEnter(System.Windows.Forms.DragEventArgs)">
+            <summary>Sets the stub of Control.OnDragEnter(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnDragEnterDragEventArgs">
+            <summary>Sets the stub of Control.OnDragEnter(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnDragLeave(System.EventArgs)">
+            <summary>Sets the stub of Control.OnDragLeave(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnDragLeaveEventArgs">
+            <summary>Sets the stub of Control.OnDragLeave(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnDragOver(System.Windows.Forms.DragEventArgs)">
+            <summary>Sets the stub of Control.OnDragOver(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnDragOverDragEventArgs">
+            <summary>Sets the stub of Control.OnDragOver(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnEnabledChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnEnabledChangedEventArgs">
+            <summary>Sets the stub of Form.OnEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnEnter(System.EventArgs)">
+            <summary>Sets the stub of Form.OnEnter(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnEnterEventArgs">
+            <summary>Sets the stub of Form.OnEnter(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnFontChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnFontChangedEventArgs">
+            <summary>Sets the stub of Form.OnFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnForeColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnForeColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnFormClosed(System.Windows.Forms.FormClosedEventArgs)">
+            <summary>Sets the stub of Form.OnFormClosed(FormClosedEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnFormClosedFormClosedEventArgs">
+            <summary>Sets the stub of Form.OnFormClosed(FormClosedEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnFormClosing(System.Windows.Forms.FormClosingEventArgs)">
+            <summary>Sets the stub of Form.OnFormClosing(FormClosingEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnFormClosingFormClosingEventArgs">
+            <summary>Sets the stub of Form.OnFormClosing(FormClosingEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnGiveFeedback(System.Windows.Forms.GiveFeedbackEventArgs)">
+            <summary>Sets the stub of Control.OnGiveFeedback(GiveFeedbackEventArgs gfbevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnGiveFeedbackGiveFeedbackEventArgs">
+            <summary>Sets the stub of Control.OnGiveFeedback(GiveFeedbackEventArgs gfbevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnGotFocus(System.EventArgs)">
+            <summary>Sets the stub of Control.OnGotFocus(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnGotFocusEventArgs">
+            <summary>Sets the stub of Control.OnGotFocus(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnHandleCreated(System.EventArgs)">
+            <summary>Sets the stub of Form.OnHandleCreated(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnHandleCreatedEventArgs">
+            <summary>Sets the stub of Form.OnHandleCreated(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnHandleDestroyed(System.EventArgs)">
+            <summary>Sets the stub of Form.OnHandleDestroyed(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnHandleDestroyedEventArgs">
+            <summary>Sets the stub of Form.OnHandleDestroyed(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnHelpButtonClicked(System.ComponentModel.CancelEventArgs)">
+            <summary>Sets the stub of Form.OnHelpButtonClicked(CancelEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnHelpButtonClickedCancelEventArgs">
+            <summary>Sets the stub of Form.OnHelpButtonClicked(CancelEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnHelpRequested(System.Windows.Forms.HelpEventArgs)">
+            <summary>Sets the stub of Control.OnHelpRequested(HelpEventArgs hevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnHelpRequestedHelpEventArgs">
+            <summary>Sets the stub of Control.OnHelpRequested(HelpEventArgs hevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnImeModeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnImeModeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnImeModeChangedEventArgs">
+            <summary>Sets the stub of Control.OnImeModeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnInputLanguageChanged(System.Windows.Forms.InputLanguageChangedEventArgs)">
+            <summary>Sets the stub of Form.OnInputLanguageChanged(InputLanguageChangedEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnInputLanguageChangedInputLanguageChangedEventArgs">
+            <summary>Sets the stub of Form.OnInputLanguageChanged(InputLanguageChangedEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnInputLanguageChanging(System.Windows.Forms.InputLanguageChangingEventArgs)">
+            <summary>Sets the stub of Form.OnInputLanguageChanging(InputLanguageChangingEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnInputLanguageChangingInputLanguageChangingEventArgs">
+            <summary>Sets the stub of Form.OnInputLanguageChanging(InputLanguageChangingEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnInvalidated(System.Windows.Forms.InvalidateEventArgs)">
+            <summary>Sets the stub of Control.OnInvalidated(InvalidateEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnInvalidatedInvalidateEventArgs">
+            <summary>Sets the stub of Control.OnInvalidated(InvalidateEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+            <summary>Sets the stub of Control.OnKeyDown(KeyEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnKeyDownKeyEventArgs">
+            <summary>Sets the stub of Control.OnKeyDown(KeyEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)">
+            <summary>Sets the stub of Control.OnKeyPress(KeyPressEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnKeyPressKeyPressEventArgs">
+            <summary>Sets the stub of Control.OnKeyPress(KeyPressEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnKeyUp(System.Windows.Forms.KeyEventArgs)">
+            <summary>Sets the stub of Control.OnKeyUp(KeyEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnKeyUpKeyEventArgs">
+            <summary>Sets the stub of Control.OnKeyUp(KeyEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnLayout(System.Windows.Forms.LayoutEventArgs)">
+            <summary>Sets the stub of Form.OnLayout(LayoutEventArgs levent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnLayoutLayoutEventArgs">
+            <summary>Sets the stub of Form.OnLayout(LayoutEventArgs levent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnLeave(System.EventArgs)">
+            <summary>Sets the stub of Control.OnLeave(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnLeaveEventArgs">
+            <summary>Sets the stub of Control.OnLeave(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnLoad(System.EventArgs)">
+            <summary>Sets the stub of Form.OnLoad(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnLoadEventArgs">
+            <summary>Sets the stub of Form.OnLoad(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnLocationChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnLocationChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnLocationChangedEventArgs">
+            <summary>Sets the stub of Control.OnLocationChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnLostFocus(System.EventArgs)">
+            <summary>Sets the stub of Control.OnLostFocus(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnLostFocusEventArgs">
+            <summary>Sets the stub of Control.OnLostFocus(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnMarginChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMarginChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnMarginChangedEventArgs">
+            <summary>Sets the stub of Control.OnMarginChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnMaximizedBoundsChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMaximizedBoundsChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnMaximizedBoundsChangedEventArgs">
+            <summary>Sets the stub of Form.OnMaximizedBoundsChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnMaximumSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMaximumSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnMaximumSizeChangedEventArgs">
+            <summary>Sets the stub of Form.OnMaximumSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnMdiChildActivate(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMdiChildActivate(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnMdiChildActivateEventArgs">
+            <summary>Sets the stub of Form.OnMdiChildActivate(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnMenuComplete(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMenuComplete(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnMenuCompleteEventArgs">
+            <summary>Sets the stub of Form.OnMenuComplete(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnMenuStart(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMenuStart(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnMenuStartEventArgs">
+            <summary>Sets the stub of Form.OnMenuStart(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnMinimumSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnMinimumSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnMinimumSizeChangedEventArgs">
+            <summary>Sets the stub of Form.OnMinimumSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnMouseCaptureChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseCaptureChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnMouseCaptureChangedEventArgs">
+            <summary>Sets the stub of Control.OnMouseCaptureChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnMouseClick(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnMouseClickMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnMouseDoubleClick(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseDoubleClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnMouseDoubleClickMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseDoubleClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseDown(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnMouseDownMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseDown(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnMouseEnter(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseEnter(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnMouseEnterEventArgs">
+            <summary>Sets the stub of Control.OnMouseEnter(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnMouseHover(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseHover(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnMouseHoverEventArgs">
+            <summary>Sets the stub of Control.OnMouseHover(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnMouseLeave(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseLeave(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnMouseLeaveEventArgs">
+            <summary>Sets the stub of Control.OnMouseLeave(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseMove(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnMouseMoveMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseMove(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseUp(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnMouseUpMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseUp(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnMouseWheel(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnMouseWheel(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnMouseWheelMouseEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnMouseWheel(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnMove(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMove(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnMoveEventArgs">
+            <summary>Sets the stub of Control.OnMove(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnNotifyMessage(System.Windows.Forms.Message)">
+            <summary>Sets the stub of Control.OnNotifyMessage(Message m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnNotifyMessageMessage">
+            <summary>Sets the stub of Control.OnNotifyMessage(Message m)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnPaddingChanged(System.EventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnPaddingChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnPaddingChangedEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnPaddingChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>Sets the stub of Form.OnPaint(PaintEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnPaintBackground(PaintEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnPaintBackgroundPaintEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnPaintBackground(PaintEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnPaintPaintEventArgs">
+            <summary>Sets the stub of Form.OnPaint(PaintEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnParentBackColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnParentBackColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnParentBackgroundImageChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnParentBackgroundImageChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnParentBindingContextChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnParentBindingContextChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnParentChanged(System.EventArgs)">
+            <summary>Sets the stub of ContainerControl.OnParentChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnParentChangedEventArgs">
+            <summary>Sets the stub of ContainerControl.OnParentChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnParentCursorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnParentCursorChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnParentEnabledChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnParentEnabledChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnParentFontChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnParentFontChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnParentForeColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnParentForeColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnParentRightToLeftChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnParentRightToLeftChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnParentVisibleChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnParentVisibleChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnPreviewKeyDown(System.Windows.Forms.PreviewKeyDownEventArgs)">
+            <summary>Sets the stub of Control.OnPreviewKeyDown(PreviewKeyDownEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnPreviewKeyDownPreviewKeyDownEventArgs">
+            <summary>Sets the stub of Control.OnPreviewKeyDown(PreviewKeyDownEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnPrint(System.Windows.Forms.PaintEventArgs)">
+            <summary>Sets the stub of Control.OnPrint(PaintEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnPrintPaintEventArgs">
+            <summary>Sets the stub of Control.OnPrint(PaintEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnQueryContinueDrag(System.Windows.Forms.QueryContinueDragEventArgs)">
+            <summary>Sets the stub of Control.OnQueryContinueDrag(QueryContinueDragEventArgs qcdevent)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnQueryContinueDragQueryContinueDragEventArgs">
+            <summary>Sets the stub of Control.OnQueryContinueDrag(QueryContinueDragEventArgs qcdevent)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnRegionChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnRegionChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnRegionChangedEventArgs">
+            <summary>Sets the stub of Control.OnRegionChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnResize(System.EventArgs)">
+            <summary>Sets the stub of Form.OnResize(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnResizeBegin(System.EventArgs)">
+            <summary>Sets the stub of Form.OnResizeBegin(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnResizeBeginEventArgs">
+            <summary>Sets the stub of Form.OnResizeBegin(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnResizeEnd(System.EventArgs)">
+            <summary>Sets the stub of Form.OnResizeEnd(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnResizeEndEventArgs">
+            <summary>Sets the stub of Form.OnResizeEnd(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnResizeEventArgs">
+            <summary>Sets the stub of Form.OnResize(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnRightToLeftChanged(System.EventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnRightToLeftChangedEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnRightToLeftLayoutChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnRightToLeftLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnRightToLeftLayoutChangedEventArgs">
+            <summary>Sets the stub of Form.OnRightToLeftLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnScroll(System.Windows.Forms.ScrollEventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnScroll(ScrollEventArgs se)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnScrollScrollEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnScroll(ScrollEventArgs se)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnShown(System.EventArgs)">
+            <summary>Sets the stub of Form.OnShown(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnShownEventArgs">
+            <summary>Sets the stub of Form.OnShown(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnSizeChangedEventArgs">
+            <summary>Sets the stub of Control.OnSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnStyleChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnStyleChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnStyleChangedEventArgs">
+            <summary>Sets the stub of Form.OnStyleChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnSystemColorsChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnSystemColorsChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnSystemColorsChangedEventArgs">
+            <summary>Sets the stub of Control.OnSystemColorsChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnTabIndexChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnTabIndexChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnTabIndexChangedEventArgs">
+            <summary>Sets the stub of Control.OnTabIndexChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnTabStopChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnTabStopChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnTabStopChangedEventArgs">
+            <summary>Sets the stub of Control.OnTabStopChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnTextChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnTextChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnTextChangedEventArgs">
+            <summary>Sets the stub of Form.OnTextChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnValidated(System.EventArgs)">
+            <summary>Sets the stub of Control.OnValidated(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnValidatedEventArgs">
+            <summary>Sets the stub of Control.OnValidated(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnValidating(System.ComponentModel.CancelEventArgs)">
+            <summary>Sets the stub of Control.OnValidating(CancelEventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnValidatingCancelEventArgs">
+            <summary>Sets the stub of Control.OnValidating(CancelEventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.OnVisibleChanged(System.EventArgs)">
+            <summary>Sets the stub of Form.OnVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.OnVisibleChangedEventArgs">
+            <summary>Sets the stub of Form.OnVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.PreProcessMessage(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Control.PreProcessMessage(Message&amp; msg)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.PreProcessMessageMessageRef">
+            <summary>Sets the stub of Control.PreProcessMessage(Message&amp; msg)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
+            <summary>Sets the stub of Form.ProcessCmdKey(Message&amp; msg, Keys keyData)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ProcessCmdKeyMessageRefKeys">
+            <summary>Sets the stub of Form.ProcessCmdKey(Message&amp; msg, Keys keyData)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.ProcessDialogChar(System.Char)">
+            <summary>Sets the stub of Form.ProcessDialogChar(Char charCode)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ProcessDialogCharChar">
+            <summary>Sets the stub of Form.ProcessDialogChar(Char charCode)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.ProcessDialogKey(System.Windows.Forms.Keys)">
+            <summary>Sets the stub of Form.ProcessDialogKey(Keys keyData)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ProcessDialogKeyKeys">
+            <summary>Sets the stub of Form.ProcessDialogKey(Keys keyData)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.ProcessKeyEventArgs(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Control.ProcessKeyEventArgs(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ProcessKeyEventArgsMessageRef">
+            <summary>Sets the stub of Control.ProcessKeyEventArgs(Message&amp; m)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.ProcessKeyMessage(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Control.ProcessKeyMessage(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ProcessKeyMessageMessageRef">
+            <summary>Sets the stub of Control.ProcessKeyMessage(Message&amp; m)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.ProcessKeyPreview(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Form.ProcessKeyPreview(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ProcessKeyPreviewMessageRef">
+            <summary>Sets the stub of Form.ProcessKeyPreview(Message&amp; m)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.ProcessMnemonic(System.Char)">
+            <summary>Sets the stub of Form.ProcessMnemonic(Char charCode)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ProcessMnemonicChar">
+            <summary>Sets the stub of Form.ProcessMnemonic(Char charCode)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.ProcessTabKey(System.Boolean)">
+            <summary>Sets the stub of Form.ProcessTabKey(Boolean forward)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ProcessTabKeyBoolean">
+            <summary>Sets the stub of Form.ProcessTabKey(Boolean forward)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.Refresh">
+            <summary>Sets the stub of Control.Refresh()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.Refresh01">
+            <summary>Sets the stub of Control.Refresh()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.ResetBackColor">
+            <summary>Sets the stub of Control.ResetBackColor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ResetBackColor01">
+            <summary>Sets the stub of Control.ResetBackColor()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.ResetCursor">
+            <summary>Sets the stub of Control.ResetCursor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ResetCursor01">
+            <summary>Sets the stub of Control.ResetCursor()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.ResetFont">
+            <summary>Sets the stub of Control.ResetFont()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ResetFont01">
+            <summary>Sets the stub of Control.ResetFont()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.ResetForeColor">
+            <summary>Sets the stub of Control.ResetForeColor()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ResetForeColor01">
+            <summary>Sets the stub of Control.ResetForeColor()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.ResetRightToLeft">
+            <summary>Sets the stub of Control.ResetRightToLeft()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ResetRightToLeft01">
+            <summary>Sets the stub of Control.ResetRightToLeft()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.ResetText">
+            <summary>Sets the stub of Control.ResetText()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ResetText01">
+            <summary>Sets the stub of Control.ResetText()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.RightToLeftGet">
+            <summary>Sets the stub of Control.get_RightToLeft()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.RightToLeftLayoutGet">
+            <summary>Sets the stub of Form.get_RightToLeftLayout()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.RightToLeftLayoutSetBoolean">
+            <summary>Sets the stub of Form.set_RightToLeftLayout(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.RightToLeftSetRightToLeft">
+            <summary>Sets the stub of Control.set_RightToLeft(RightToLeft value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ScaleChildrenGet">
+            <summary>Sets the stub of Control.get_ScaleChildren()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.ScaleControl(System.Drawing.SizeF,System.Windows.Forms.BoundsSpecified)">
+            <summary>Sets the stub of Form.ScaleControl(SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ScaleControlSizeFBoundsSpecified">
+            <summary>Sets the stub of Form.ScaleControl(SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.ScaleCore(System.Single,System.Single)">
+            <summary>Sets the stub of Form.ScaleCore(Single x, Single y)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ScaleCoreSingleSingle">
+            <summary>Sets the stub of Form.ScaleCore(Single x, Single y)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.ScrollToControl(System.Windows.Forms.Control)">
+            <summary>Sets the stub of ScrollableControl.ScrollToControl(Control activeControl)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ScrollToControlControl">
+            <summary>Sets the stub of ScrollableControl.ScrollToControl(Control activeControl)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.Select(System.Boolean,System.Boolean)">
+            <summary>Sets the stub of Form.Select(Boolean directed, Boolean forward)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.SelectBooleanBoolean">
+            <summary>Sets the stub of Form.Select(Boolean directed, Boolean forward)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.SetBoundsCore(System.Int32,System.Int32,System.Int32,System.Int32,System.Windows.Forms.BoundsSpecified)">
+            <summary>Sets the stub of Form.SetBoundsCore(Int32 x, Int32 y, Int32 width, Int32 height, BoundsSpecified specified)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.SetBoundsCoreInt32Int32Int32Int32BoundsSpecified">
+            <summary>Sets the stub of Form.SetBoundsCore(Int32 x, Int32 y, Int32 width, Int32 height, BoundsSpecified specified)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.SetClientSizeCore(System.Int32,System.Int32)">
+            <summary>Sets the stub of Form.SetClientSizeCore(Int32 x, Int32 y)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.SetClientSizeCoreInt32Int32">
+            <summary>Sets the stub of Form.SetClientSizeCore(Int32 x, Int32 y)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.SetVisibleCore(System.Boolean)">
+            <summary>Sets the stub of Form.SetVisibleCore(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.SetVisibleCoreBoolean">
+            <summary>Sets the stub of Form.SetVisibleCore(Boolean value)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ShowFocusCuesGet">
+            <summary>Sets the stub of Control.get_ShowFocusCues()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ShowKeyboardCuesGet">
+            <summary>Sets the stub of Control.get_ShowKeyboardCues()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ShowWithoutActivationGet">
+            <summary>Sets the stub of Form.get_ShowWithoutActivation()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.SiteGet">
+            <summary>Sets the stub of Control.get_Site()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.SiteSetISite">
+            <summary>Sets the stub of Control.set_Site(ISite value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.SizeFromClientSize(System.Drawing.Size)">
+            <summary>Sets the stub of Control.SizeFromClientSize(Size clientSize)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.SizeFromClientSizeSize">
+            <summary>Sets the stub of Control.SizeFromClientSize(Size clientSize)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.TextGet">
+            <summary>Sets the stub of Form.get_Text()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.TextSetString">
+            <summary>Sets the stub of Form.set_Text(String value)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.ToString">
+            <summary>Sets the stub of Form.ToString()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ToString01">
+            <summary>Sets the stub of Form.ToString()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.UpdateDefaultButton">
+            <summary>Sets the stub of Form.UpdateDefaultButton()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.UpdateDefaultButton01">
+            <summary>Sets the stub of Form.UpdateDefaultButton()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.ValidateChildren">
+            <summary>Sets the stub of Form.ValidateChildren()</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.ValidateChildren(System.Windows.Forms.ValidationConstraints)">
+            <summary>Sets the stub of Form.ValidateChildren(ValidationConstraints validationConstraints)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ValidateChildren01">
+            <summary>Sets the stub of Form.ValidateChildren()</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.ValidateChildrenValidationConstraints">
+            <summary>Sets the stub of Form.ValidateChildren(ValidationConstraints validationConstraints)</summary>
+        </member>
+        <member name="M:MuseSort.Fakes.StubAkcjaDialog.WndProc(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Form.WndProc(Message&amp; m)</summary>
+        </member>
+        <member name="F:MuseSort.Fakes.StubAkcjaDialog.WndProcMessageRef">
+            <summary>Sets the stub of Form.WndProc(Message&amp; m)</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.AllowDrop">
+            <summary>Sets the stub of Control.get_AllowDrop()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.Anchor">
+            <summary>Sets the stub of Control.get_Anchor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.AutoScaleBaseSize">
+            <summary>Sets the stub of Form.get_AutoScaleBaseSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.AutoScroll">
+            <summary>Sets the stub of Form.get_AutoScroll()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.AutoScrollOffset">
+            <summary>Sets the stub of Control.get_AutoScrollOffset()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.AutoSize">
+            <summary>Sets the stub of Form.get_AutoSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.AutoValidate">
+            <summary>Sets the stub of Form.get_AutoValidate()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.BackColor">
+            <summary>Sets the stub of Form.get_BackColor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.BackgroundImage">
+            <summary>Sets the stub of Control.get_BackgroundImage()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.BackgroundImageLayout">
+            <summary>Sets the stub of Control.get_BackgroundImageLayout()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.BindingContext">
+            <summary>Sets the stub of ContainerControl.get_BindingContext()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.CanEnableIme">
+            <summary>Sets the stub of ContainerControl.get_CanEnableIme()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.CanRaiseEvents">
+            <summary>Sets the stub of Control.get_CanRaiseEvents()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.ContextMenu">
+            <summary>Sets the stub of Control.get_ContextMenu()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.ContextMenuStrip">
+            <summary>Sets the stub of Control.get_ContextMenuStrip()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.CreateParams">
+            <summary>Sets the stub of Form.get_CreateParams()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.Cursor">
+            <summary>Sets the stub of Control.get_Cursor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.DefaultCursor">
+            <summary>Sets the stub of Control.get_DefaultCursor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.DefaultImeMode">
+            <summary>Sets the stub of Form.get_DefaultImeMode()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.DefaultMargin">
+            <summary>Sets the stub of Control.get_DefaultMargin()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.DefaultMaximumSize">
+            <summary>Sets the stub of Control.get_DefaultMaximumSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.DefaultMinimumSize">
+            <summary>Sets the stub of Control.get_DefaultMinimumSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.DefaultPadding">
+            <summary>Sets the stub of Control.get_DefaultPadding()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.DefaultSize">
+            <summary>Sets the stub of Form.get_DefaultSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.DisplayRectangle">
+            <summary>Sets the stub of ScrollableControl.get_DisplayRectangle()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.Dock">
+            <summary>Sets the stub of Control.get_Dock()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.DoubleBuffered">
+            <summary>Sets the stub of Control.get_DoubleBuffered()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.Focused">
+            <summary>Sets the stub of Control.get_Focused()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.Font">
+            <summary>Sets the stub of Control.get_Font()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.ForeColor">
+            <summary>Sets the stub of Control.get_ForeColor()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.ImeModeBase">
+            <summary>Sets the stub of Control.get_ImeModeBase()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.LayoutEngine">
+            <summary>Sets the stub of Control.get_LayoutEngine()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.MaximumSize">
+            <summary>Sets the stub of Form.get_MaximumSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.MinimumSize">
+            <summary>Sets the stub of Form.get_MinimumSize()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.RightToLeft">
+            <summary>Sets the stub of Control.get_RightToLeft()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.RightToLeftLayout">
+            <summary>Sets the stub of Form.get_RightToLeftLayout()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.ScaleChildren">
+            <summary>Sets the stub of Control.get_ScaleChildren()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.ShowFocusCues">
+            <summary>Sets the stub of Control.get_ShowFocusCues()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.ShowKeyboardCues">
+            <summary>Sets the stub of Control.get_ShowKeyboardCues()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.ShowWithoutActivation">
+            <summary>Sets the stub of Form.get_ShowWithoutActivation()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.Site">
+            <summary>Sets the stub of Control.get_Site()</summary>
+        </member>
+        <member name="P:MuseSort.Fakes.StubAkcjaDialog.Text">
+            <summary>Sets the stub of Form.get_Text()</summary>
         </member>
         <member name="T:MuseSort.Fakes.StubBazaDanychSqlServerCE">
             <summary>Stub type of MuseSort.BazaDanychSqlServerCE</summary>

@@ -215,7 +215,8 @@ namespace MuseSortTesting
                     "<numer> - <wykonawca> - <tytul>",
                     "<numer> <wykonawca>-<tytul>"
                 };
-            foreach (var wzorzec in wzorce.Where(wzorzec => Utwor.wzorceNazwy.Find(w => w.wzorzec == wzorzec) == null))
+            Utwor.wzorceNazwy.Clear();
+            foreach (var wzorzec in wzorce)
             {
                 Utwor.dodajWzorzecNazwy(wzorzec);
             }
@@ -272,8 +273,8 @@ namespace MuseSortTesting
                 {
                     @"<source>\<rok>\<gatunek>\<wykonawca>\<album>\<ignore>"
                 };
-
-            foreach (var wzorzec in wzorce.Where(wzorzec => Utwor.wzorceSciezki.Find(w => w.wzorzec == wzorzec) == null))
+            Utwor.wzorceSciezki.Clear();
+            foreach (var wzorzec in wzorce)
             {
                 Utwor.dodajWzorzecSciezki(wzorzec);
             }
