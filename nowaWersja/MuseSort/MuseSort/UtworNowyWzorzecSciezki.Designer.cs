@@ -2,6 +2,7 @@
 {
     partial class UtworNowyWzorzecSciezki
     {
+        //do ponownego merga
         /// <summary>
         /// Required designer variable.
         /// </summary>

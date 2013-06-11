@@ -6,9 +6,9 @@ using System.IO;
 
 namespace MuseSort
 {
-    class Folder
+    public class Folder
     {
-
+        //do ponownego merga
         #region POLA KLASY
 
         /// <summary>Ścieżka folderu.</summary>
@@ -29,27 +29,23 @@ namespace MuseSort
 
         #region PUBLICZNE METODY KLASY
 
-        //Tworzenie powiązania folderu z obiektem
+        /// <summary>Tworzy nowy obiekt Folder odpowiadający danemu katalogowi.</summary>
+        /// <exception cref="DirectoryNotFoundException">Rzucane jeśli podany folder nie istnieje.</exception>
+        /// <param name="path">Ścieżka katalogu</param>
         public Folder(String path)
         {
+            if (!Directory.Exists(path))
+                throw new DirectoryNotFoundException(path);
             xml = new FolderXML(path);
             sciezka = path;
             logi = "";
-            if (xml.analizuj())
-            {
-                schemat = xml.schemat;
-            }
-            else
-            {
-                schemat = "";
-            }
+            schemat = xml.analizuj() ? xml.schemat : "";
         }
 
         //Analizowanie folderu pod względem wcześniejszego sortowania, obecności wymaganych obiektów oraz zgodności struktury logicznej zapisanej w pliku XML
         public Boolean analizuj()
         {
-            Boolean result = xml.analizuj();
-            return result;
+            return xml.analizuj();
         }
 
         //Ustalanie schematu sortowania folderu
@@ -66,7 +62,6 @@ namespace MuseSort
         /// <returns>Sukces operacji.</returns>
         public bool sortuj(IEnumerable<string> wspieraneRozszerzenia)
         {
-            bool sukces = false;
             //System.Windows.Forms.MessageBox.Show("Rozpoczynam sortowanie.");
             //Powinno być sprawdzenie czy folder jest posortowany.
             if (schemat == null || schemat.Equals(""))
@@ -75,8 +70,6 @@ namespace MuseSort
                 return false;
             }
 
-            if (Directory.Exists(sciezka + "\\Musesort"))
-                Directory.Delete(sciezka + "\\Musesort", true);
 
             #region Ustaw obecny katalog i twórz katalogi
 
@@ -102,7 +95,7 @@ namespace MuseSort
 
             List<string> listaPlikow = znajdz_wspierane_pliki(Sciezka, wspieraneRozszerzenia);
 
-            sukces = sortujListePlikow(listaPlikow);
+            bool sukces = sortujListePlikow(listaPlikow);
             logi += "Posortowano folder: " + this.sciezka + Environment.NewLine;
             System.Windows.Forms.MessageBox.Show("Sortowanie zakończone.");
             return sukces;
@@ -114,7 +107,6 @@ namespace MuseSort
         /// <returns></returns>
         public Boolean dodajIPosortujFolder(String folderZrodlowy, IEnumerable<string> wspieraneRozszerzenia)
         {
-            System.Windows.Forms.MessageBox.Show("Rozpoczynam dodawanie.");
             bool sukces = false;
             //Wykomentowane ze względu na wadliwie działające analizuj.
             //Jeśli folder nieposortowany:
@@ -125,12 +117,14 @@ namespace MuseSort
             //        return false;
             //}
 
-            List<string> listaPlikow = znajdz_wspierane_pliki(folderZrodlowy, wspieraneRozszerzenia);
+            List<string> listaPlikow = znajdz_wspierane_pliki(Directory.Exists(Path.Combine(folderZrodlowy, "Musesort")) ? 
+                                                          Path.Combine(folderZrodlowy, "Musesort") : folderZrodlowy, wspieraneRozszerzenia);
+            Directory.SetCurrentDirectory(sciezka); 
             sukces = sortujListePlikow(listaPlikow);
 
             logi += "Dodano i posortowano folder: " + folderZrodlowy + " do folderu: " + this.sciezka + Environment.NewLine;
-            System.Windows.Forms.MessageBox.Show("Dodawanie plików do posortowanego folderu zakończone.");
-            progressBar2.Value = 0;
+//            System.Windows.Forms.MessageBox.Show("Dodawanie plików do posortowanego folderu zakończone.");
+            if (progressBar2 != null) progressBar2.Value = 0;
             return sukces;
         }
 
@@ -150,6 +144,7 @@ namespace MuseSort
         /// <summary>Inicjalizacja paska postępu i logów na początku sortowania.</summary>
         private void logiInitSortProgress(int numberOfSteps)
         {
+            if(progressBar2==null) return;
             progressBar2.Maximum = numberOfSteps;
             progressBar2.Value = 0;
             progressBar2.Step = 1;
@@ -183,6 +178,7 @@ namespace MuseSort
                         Console.WriteLine(e);
                         continue;
                     }
+                    plik.zapiszTagi();
                     sortujPlik(plik);
                 }
             //}
@@ -288,7 +284,7 @@ namespace MuseSort
                 duplikat(Plik.Create(Path.Combine(sciezka_katalogu, nazwaPliku)), plik);
             }
 
-            progressBar2.PerformStep();
+            if (progressBar2 != null) progressBar2.PerformStep();
         }
 
         /// <summary>Przyjmuje dwa plik mające kolizję nazw, decyduje który przenieść do którego katalogu.
@@ -379,7 +375,7 @@ namespace MuseSort
         /// </summary>
         /// <param name="katalog">Katalog do przeszukania.</param>
         /// <returns></returns>
-        List<string> znajdz_wspierane_pliki(string katalog, IEnumerable<string> wspieraneRozszerzenia)
+        public static List<string> znajdz_wspierane_pliki(string katalog, IEnumerable<string> wspieraneRozszerzenia)
         {
             if (katalog == null)
                 throw new ArgumentNullException("Katalog jest null!");

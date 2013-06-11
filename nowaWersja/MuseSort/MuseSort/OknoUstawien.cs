@@ -11,7 +11,9 @@ namespace MuseSort
 {
     public partial class OknoUstawien : Form
     {
+        //do ponownego merga
         List<IComponent> rozszerzenia;
+        List<IComponent> rozszerzeniaVideo;
         #region publiczne metody klas
         //#############################PUBLICZNE METODY KLASY############################################
         //konstruktor
@@ -22,13 +24,18 @@ namespace MuseSort
             folderyPanel.Hide();
             folderGlownyPanel.Hide();
             rozszerzeniaPanel.Hide();
+            rozszerzeniaVideoPanel.Hide();
             sortowaniaPanel.Hide();
             wspieranieRozszerzeniaPanel.Hide();
-            zewnetrzneBazyDanychPanel.Hide();
             drzewoUstawien.NodeMouseClick += wyswietl;
             rozszerzenia = new List<IComponent>();
+            rozszerzeniaVideo = new List<IComponent>();
             rozszerzenia.Add(mp3CheckBox);
             rozszerzenia.Add(flacCheckBox);
+            rozszerzeniaVideo.Add(mkvCheckBox);
+            rozszerzeniaVideo.Add(mp4CheckBox);
+            rozszerzeniaVideo.Add(aviCheckBox);
+            rozszerzeniaVideo.Add(wmvCheckBox);
         }
         #endregion
         #region metody pomocnicze klas
@@ -38,71 +45,80 @@ namespace MuseSort
         private void wyswietl(object sender, TreeNodeMouseClickEventArgs e)
         {
             //Foldery
-            if (e.Node.Name == "folderyNode")
+            switch (e.Node.Name)
             {
-                aktywujPanel("foldery");
-                sciezkaBox.Text = UstawieniaProgramu.getInstance().folderGlowny;
-            }
-            //Folder Główny
-            else if (e.Node.Name == "folderGlownyNode")
-            {
-                aktywujPanel("folderGlowny");
-                sciezka2Box.Text = UstawieniaProgramu.getInstance().folderGlowny;
-            }
-            //Sortowanie
-            else if (e.Node.Name == "sortowaniaNode")
-            {
-                aktywujPanel("sortowania");
-                sposobSortowaniaBox.Text = UstawieniaProgramu.getInstance().domyslneSortowanie;
-            }
-            //Domyślne ustawienia (Sortowanie)
-            else if (e.Node.Name == "domyslneSortowanieNode")
-            {
-                aktywujPanel("domyslneSortowania");
-                sposobSortowania2Box.Text = UstawieniaProgramu.getInstance().domyslneSortowanie;
-            }
-            //Rozszerzenia
-            else if (e.Node.Name == "rozszerzeniaNode")
-            {
-                aktywujPanel("rozszerzenia");
-                String extensions = "";
-                foreach (String x in UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio)
-                {
-                    extensions += x + "; ";
-                }
-                rozszerzeniaBox.Text = extensions;
-            }
-            //Wspierane rozszerzenia
-            else if (e.Node.Name == "wspieraneRozszerzeniaNode")
-            {
-                aktywujPanel("wspieraneRozszerzenia");
-                String extensions = "";
-                foreach (String x in UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio)
-                {
-                    extensions += x + "; ";
-                }
-                textBox1.Text = extensions;
-                foreach (CheckBox x in rozszerzenia)
-                {
-                    if (UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio.Contains(x.Name.Replace("CheckBox", "")))
+                case "folderyNode":
+                    aktywujPanel("foldery");
+                    sciezkaBox.Text = UstawieniaProgramu.getInstance().folderGlowny;
+                    break;
+                case "folderGlownyNode":
+                    aktywujPanel("folderGlowny");
+                    sciezka2Box.Text = UstawieniaProgramu.getInstance().folderGlowny;
+                    break;
+                case "sortowaniaNode":
+                    aktywujPanel("sortowania");
+                    sposobSortowaniaBox.Text = UstawieniaProgramu.getInstance().domyslneSortowanieMuzyki;
+                    break;
+                case "domyslneSortowanieNode":
+                    aktywujPanel("domyslneSortowania");
+                    sposobSortowania2Box.Text = UstawieniaProgramu.getInstance().domyslneSortowanieMuzyki;
+                    break;
+                case "rozszerzeniaNode":
                     {
-                        x.Checked = true;
+                        aktywujPanel("rozszerzenia");
+                        String extensions = "";
+                        foreach (String x in UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio)
+                        {
+                            extensions += x + "; ";
+                        }
+                        rozszerzeniaBox.Text = extensions;
                     }
-                }
+                    break;
+                case "wspieraneRozszerzeniaNode":
+                    {
+                        aktywujPanel("wspieraneRozszerzenia");
+                        String extensions = "";
+                        foreach (String x in UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio)
+                        {
+                            extensions += x + "; ";
+                        }
+                        textBox1.Text = extensions;
+                        foreach (CheckBox x in rozszerzenia)
+                        {
+                            if (UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio.Contains(x.Name.Replace("CheckBox", "")))
+                            {
+                                x.Checked = true;
+                            }
+                        }
+                    }
+                    break;
+                case "wspieraneRozszerzeniaVideoNode":
+                    {
+                        aktywujPanel("wspieraneRozszerzeniaVideo");
+                        String extensions = "";
+                        foreach (String x in UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo)
+                        {
+                            extensions += x + "; ";
+                        }
+                        textBox2.Text = extensions;
+                        foreach (CheckBox x in rozszerzeniaVideo)
+                        {
+                            if (UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo.Contains(x.Name.Replace("CheckBox", "")))
+                            {
+                                x.Checked = true;
+                            }
+                        }
+                    }
+                    break;
             }
-            //Zewnętrzne Bazy Danych
-            else if (e.Node.Name == "bazyDanychNode")
-            {
-                aktywujPanel("zewnetrzneBazyDanych");
-                dataBaseListBox.SelectedItem = UstawieniaProgramu.getInstance().domyslnaBazaDanych;
-            }
+        }
 
-        }//end void wyswietl(object sender, TreeNodeMouseClickEventArgs e)
+//end void wyswietl(object sender, TreeNodeMouseClickEventArgs e)
 
         private void anulujButton_MouseClick(object sender, MouseEventArgs e)
         {
             UstawieniaProgramu.getInstance().wczytajUstawienia();
-            this.Dispose();
+            Dispose();
         }
 
         private void aktywujPanel(String nazwa)
@@ -113,7 +129,7 @@ namespace MuseSort
             rozszerzeniaPanel.Hide();
             sortowaniaPanel.Hide();
             wspieranieRozszerzeniaPanel.Hide();
-            zewnetrzneBazyDanychPanel.Hide();
+            rozszerzeniaVideoPanel.Hide();
             switch(nazwa)
             {
                 case "foldery":
@@ -134,10 +150,8 @@ namespace MuseSort
                 case "wspieraneRozszerzenia":
                     wspieranieRozszerzeniaPanel.Show();
                     break;
-                case "zewnetrzneBazyDanych":
-                    zewnetrzneBazyDanychPanel.Show();
-                    break;
-                default:
+                case "wspieraneRozszerzeniaVideo":
+                    rozszerzeniaVideoPanel.Show();
                     break;
             }
         }
@@ -172,9 +186,9 @@ namespace MuseSort
         {
             if (sortowaniaListBox.SelectedItems.Count > 0)
             {
-                UstawieniaProgramu.getInstance().domyslneSortowanie = sortowaniaListBox.SelectedItem.ToString();
-                sposobSortowaniaBox.Text = UstawieniaProgramu.getInstance().domyslneSortowanie;
-                sposobSortowania2Box.Text = UstawieniaProgramu.getInstance().domyslneSortowanie;
+                UstawieniaProgramu.getInstance().domyslneSortowanieMuzyki = sortowaniaListBox.SelectedItem.ToString();
+                sposobSortowaniaBox.Text = UstawieniaProgramu.getInstance().domyslneSortowanieMuzyki;
+                sposobSortowania2Box.Text = UstawieniaProgramu.getInstance().domyslneSortowanieMuzyki;
             }
             else
             {
@@ -193,11 +207,6 @@ namespace MuseSort
                     UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio.Add(temp);
                 }
             }
-        }
-
-        private void wybierzBazeButton_Click(object sender, EventArgs e)
-        {
-            UstawieniaProgramu.getInstance().domyslnaBazaDanych = dataBaseListBox.SelectedItem.ToString();
         }
 
         private void przywrocDomyslneButton_Click(object sender, EventArgs e)
@@ -220,5 +229,18 @@ namespace MuseSort
             }
         }
         #endregion
+
+        private void dodajRozszerzenieVideoButton_Click(object sender, EventArgs e)
+        {
+            UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo.Clear();
+            foreach (CheckBox x in rozszerzeniaVideo)
+            {
+                if (x.Checked)
+                {
+                    String temp = x.Name.Replace("CheckBox", "");
+                    UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo.Add(temp);
+                }
+            }
+        }
     }
 }

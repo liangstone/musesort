@@ -1,10 +1,12 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace MuseSort
 {
     static class Program
     {
+        //do ponownego merga
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -19,5 +21,7 @@ namespace MuseSort
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainGUI());
         }
+
+
     }
 }

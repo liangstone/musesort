@@ -12,6 +12,7 @@ namespace MuseSort
 {
     public partial class UtworNowyWzorzecNazwyForm : Form
     {
+        //do ponownego merga
         String nazwa;
         public UtworNowyWzorzecNazwyForm(String name)
         {
@@ -49,7 +50,7 @@ namespace MuseSort
 
         private void saveAndCloseButton_Click(object sender, EventArgs e)
         {
-            String regex = wzorzecTextBox.Text;
+            /*String regex = wzorzecTextBox.Text;
             regex = regex.Replace("[", @"\[");
             regex = regex.Replace("]", @"\]");
             regex = regex.Replace("{", @"\{");
@@ -63,9 +64,10 @@ namespace MuseSort
             regex = regex.Replace("<rok>", @"[\d]{4}");
             regex = regex = "^" + regex + "$";
             Regex rx = new Regex(regex);
-            Utwor.dodajWzorzec(wzorzecTextBox.Text, regex, "wzorceNazwy");
-            UstawieniaProgramu.getInstance().zapiszUstawienia();
-            this.Dispose();
+            Utwor.dodajWzorzec(wzorzecTextBox.Text, regex, "wzorceNazwy");*/
+            Utwor.dodajWzorzecNazwy(wzorzecTextBox.Text);
+            UstawieniaProgramu.getInstance().zapiszUstawienia(); 
+            Dispose();
         }
 
         private void anulujButton_Click(object sender, EventArgs e)

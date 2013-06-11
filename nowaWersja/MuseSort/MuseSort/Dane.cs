@@ -3,9 +3,9 @@ using System.IO;
 using System.Reflection;
 namespace MuseSort
 {
-    abstract class Dane
+    public abstract class Dane
     {
-
+        //do ponownego merga
         /// <summary>Generuje ścieżkę dla katalogu na podstawie pól w sortowaniu.</summary>
         /// <param name="plik">Plik, dla którego ma być wygenerowana ścieżka.</param>
         /// <returns>Szukana ścieżka katalogu.</returns>
@@ -21,11 +21,12 @@ namespace MuseSort
                 //Console.WriteLine(kategoria);
                 FieldInfo pole = typ_utwor.GetField(kategoria);         //pobiera pole
 
-                if (pole.FieldType.Equals(typeof(String)))				//jeśli pole to String
+
+                if (pole.FieldType == typeof(String))				//jeśli pole to String
                     kat = (string)pole.GetValue(this);
-                else if (pole.FieldType.Equals(typeof(int)) || pole.FieldType.Equals(typeof(uint)))//jeśli pole to int lub uint
+                else if (pole.FieldType == typeof(int) || pole.FieldType == typeof(uint))//jeśli pole to int lub uint
                     kat = Convert.ToString(pole.GetValue(this));
-                else if (pole.FieldType.Equals(typeof(string[])))		//jeśli pole to tablica
+                else if (pole.FieldType == typeof(string[]))		//jeśli pole to tablica
                 {
                     try
                     {
@@ -37,13 +38,13 @@ namespace MuseSort
                     }
                 }
                 
-                if (kat==null || kat == "")                                          //jeśli nie udało się pobrać
+                if (string.IsNullOrEmpty(kat))                                          //jeśli nie udało się pobrać
                 {
                     sciezka_katalogu = "";
                     break;
                 }
                 //kat = ZamienNaWlasciwe(kat);
-                System.Console.WriteLine(kat);
+                Console.WriteLine(kat);
                 sciezka_katalogu = Path.Combine(sciezka_katalogu, kat);
                 //System.Console.WriteLine(sciezka_katalogu);
             }

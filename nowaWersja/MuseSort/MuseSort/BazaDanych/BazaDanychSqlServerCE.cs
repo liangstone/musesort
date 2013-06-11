@@ -5,7 +5,7 @@ using System.Data.SqlServerCe;
 
 namespace MuseSort
 {
-    class BazaDanychSqlServerCE : MuseSort.IBazaDanych
+    public class BazaDanychSqlServerCE : MuseSort.IBazaDanych
     {
         static string connectionString = @"Data Source=|DataDirectory|\MyDatabase#1.sdf; Password = Projekt&4";
 

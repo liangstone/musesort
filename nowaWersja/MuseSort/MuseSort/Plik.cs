@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
+using System.Text.RegularExpressions;
+
 namespace MuseSort
 {
-    abstract class Plik
+    public abstract class Plik
     {
+        //do ponownego merga
         #region Pola i properties
 
         String sciezka = "";
@@ -77,10 +81,12 @@ namespace MuseSort
         }
 
         /// <summary>Tworzy nową instancję Pliku.</summary>
-        /// <param name="sciezka"></param>
-        /// <returns></returns>
+        /// <param name="sciezka">Ścieżka do pliku</param>
+        /// <exception cref="ArgumentNullException">Jeśli podano null jako argument</exception>
         public static Plik Create(string sciezka)
         {
+            if(sciezka==null)
+                throw new ArgumentNullException();
             Plik wynik = null;
             string rozszerzenie = Path.GetExtension(sciezka).Substring(1);
 
@@ -145,11 +151,33 @@ namespace MuseSort
         #region Deklaracje metod abstrakcyjnych
         public abstract string generujNazwePlikuZTagow();
         public abstract void pobierzTagiZNazwy();
+        public abstract void pobierzTagiZeSciezki();
         public abstract void przywrocDomyslneTagi();
         public abstract void zapiszTagi();
         protected abstract void resetujTagi();
         public abstract string sciezka_katalogu_z_pol(string[] kategorie, bool duplikat = false);
         protected abstract bool porownaj(Plik plik2);
         #endregion
+
+        public static String Normalizuj(String doNormalizacji)
+        {
+            if (string.IsNullOrEmpty(doNormalizacji))
+                return string.Empty;
+            var wynik = Regex.Replace(doNormalizacji, @"[_\.\+]", " "); //Zamieniamy znaki specjalne _ . i + na spacje
+            wynik = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(wynik); //Wszystki pierwsze litery na duże, 
+            return wynik;
+        }
+
+        public static string[] Normalizuj(string[] doNormalizacji)
+        {
+            if (doNormalizacji == null || doNormalizacji.Length == 0)
+                return new[] {""};
+            var wynik = new string[doNormalizacji.Length];
+            for (var i = 0; i < wynik.Length; i++)
+            {
+                wynik[i] = Normalizuj(doNormalizacji[i]);
+            }
+            return wynik;
+        }
     }
 }

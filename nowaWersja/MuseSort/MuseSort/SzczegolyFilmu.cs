@@ -16,6 +16,7 @@ namespace MuseSort
 {
     public partial class SzczegolyFilmu : Form
     {
+        //do ponownego merga
         public SzczegolyFilmu(String x)
         {
             InitializeComponent();
@@ -46,49 +47,50 @@ namespace MuseSort
             try
             {
                 content = klient.DownloadString("http://www.filmweb.pl/" + x);
+                label1.Text = content;
+                HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+                doc.LoadHtml(content);
+                IEnumerable<HtmlNode> links = from link in doc.DocumentNode.Descendants()
+                                              where link.Name == "div" && link.Attributes["class"] != null && link.Attributes["class"].Value == "filmPlot"
+                                              select link;
+                string tresc = links.ElementAt<HtmlNode>(0).InnerText;
+                tresc = tresc.Replace("oacute;", "ó");
+                label1.Text = tresc;
+                links = from link in doc.DocumentNode.Descendants()
+                        where link.Name == "div" && link.Attributes["class"] != null && link.Attributes["class"].Value == "filmTime"
+                        select link;
+                tresc = links.ElementAt<HtmlNode>(0).InnerText;
+                label2.Text = tresc;
+                links = from link in doc.DocumentNode.Descendants()
+                        where link.Name == "div" && link.Attributes["class"] != null && link.Attributes["class"].Value == "communityRate"
+                        select link;
+                tresc = links.ElementAt<HtmlNode>(0).InnerText;
+                label3.Text = tresc;
+                links = from link in doc.DocumentNode.Descendants()
+                        where link.Name == "span" && link.Attributes["id"] != null && link.Attributes["id"].Value == "filmPremiereWorld"
+                        select link;
+                tresc = links.ElementAt<HtmlNode>(0).InnerText;
+                label4.Text = tresc;
+                links = from link in doc.DocumentNode.Descendants()
+                        where link.Name == "div" && link.Attributes["id"] != null && link.Attributes["id"].Value == "filmTitle"
+                        select link;
+                tresc = links.ElementAt<HtmlNode>(0).InnerText;
+                label5.Text = tresc;
+
+                links = from link in doc.DocumentNode.Descendants()
+                        where link.Name == "div" && link.Attributes["class"] != null && link.Attributes["class"].Value == "filmPosterBox"
+                        select link;
+                tresc = links.ElementAt<HtmlNode>(0).InnerText;
+                //MessageBox.Show(tresc);
+                String[] temp = tresc.Split('"');
+                //MessageBox.Show(temp[1]);
+                Poster.Load(temp[1]);
             }
             catch (Exception e)
             {
-                MessageBox.Show("HTTP Connection Error: " + e.Message);
+                MessageBox.Show("Próba znalezienia szczegółów pliku nie powiodła się.");
             }
-            label1.Text = content;
-            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
-            doc.LoadHtml(content);
-            IEnumerable<HtmlNode> links = from link in doc.DocumentNode.Descendants()
-                                          where link.Name == "div" && link.Attributes["class"] != null && link.Attributes["class"].Value == "filmPlot"
-                                          select link;
-            string tresc = links.ElementAt<HtmlNode>(0).InnerText;
-            tresc = tresc.Replace("oacute;", "ó");
-            label1.Text = tresc;
-            links = from link in doc.DocumentNode.Descendants()
-                    where link.Name == "div" && link.Attributes["class"] != null && link.Attributes["class"].Value == "filmTime"
-                    select link;
-            tresc = links.ElementAt<HtmlNode>(0).InnerText;
-            label2.Text = tresc;
-            links = from link in doc.DocumentNode.Descendants()
-                    where link.Name == "div" && link.Attributes["class"] != null && link.Attributes["class"].Value == "communityRate"
-                    select link;
-            tresc = links.ElementAt<HtmlNode>(0).InnerText;
-            label3.Text = tresc;
-            links = from link in doc.DocumentNode.Descendants()
-                          where link.Name == "span" && link.Attributes["id"] != null && link.Attributes["id"].Value == "filmPremiereWorld"
-                          select link;
-            tresc = links.ElementAt<HtmlNode>(0).InnerText;
-            label4.Text = tresc;
-            links = from link in doc.DocumentNode.Descendants()
-                    where link.Name == "div" && link.Attributes["id"] != null && link.Attributes["id"].Value == "filmTitle"
-                    select link;
-            tresc = links.ElementAt<HtmlNode>(0).InnerText;
-            label5.Text = tresc;
             
-            links = from link in doc.DocumentNode.Descendants()
-                    where link.Name == "div" && link.Attributes["class"] != null && link.Attributes["class"].Value == "filmPosterBox"
-                    select link;
-            tresc = links.ElementAt<HtmlNode>(0).InnerText;
-            //MessageBox.Show(tresc);
-            String [] temp = tresc.Split('"');
-            //MessageBox.Show(temp[1]);
-            Poster.Load(temp[1]);
         }
 
         private void label6_Click(object sender, EventArgs e)

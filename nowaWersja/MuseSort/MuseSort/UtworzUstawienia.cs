@@ -11,21 +11,27 @@ namespace MuseSort
 {
     public partial class UtworzUstawienia : Form
     {
+        //do ponownego merga
         String visiblePanel;
         List<IComponent> rozszerzenia;
+        List<IComponent> rozszerzeniaFilmowe;
         public UtworzUstawienia()
         {
             InitializeComponent();
             folderyPanel.Show();
             visiblePanel = "foldery";
             sortowaniaPanel.Hide();
-            bazyDanychPanel.Hide();
+            rozszerzeniaFilmowePanel.Hide();
             rozszerzeniaPanel.Hide();
             sortowaniaListBox.SelectionMode = SelectionMode.One;
             rozszerzenia = new List<IComponent>();
+            rozszerzeniaFilmowe = new List<IComponent>();
             rozszerzenia.Add(mp3CheckBox);
             rozszerzenia.Add(flacCheckBox);
-
+            rozszerzeniaFilmowe.Add(mkvCheckBox);
+            rozszerzeniaFilmowe.Add(mp4CheckBox);
+            rozszerzeniaFilmowe.Add(aviCheckBox);
+            rozszerzeniaFilmowe.Add(wmvCheckBox);
 
         }
 
@@ -67,23 +73,12 @@ namespace MuseSort
                 case "sortowania":
                     if (sortowaniaListBox.SelectedItems.Count > 0)
                     {
-                        UstawieniaProgramu.getInstance().domyslneSortowanie = sortowaniaListBox.SelectedItem.ToString();
-                        aktywujPanel("bazyDanych");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Nie wybrano sposobu sortowania!");
-                    }
-                    break;
-                case "bazyDanych":
-                    if (bazyDanychListBox.SelectedItems.Count > 0)
-                    {
-                        UstawieniaProgramu.getInstance().domyslnaBazaDanych = bazyDanychListBox.SelectedItem.ToString();
+                        UstawieniaProgramu.getInstance().domyslneSortowanieMuzyki = sortowaniaListBox.SelectedItem.ToString();
                         aktywujPanel("rozszerzenia");
                     }
                     else
                     {
-                        MessageBox.Show("Nie wybrano domyślnej bazy danych!");
+                        MessageBox.Show("Nie wybrano sposobu sortowania!");
                     }
                     break;
                 case "rozszerzenia":
@@ -95,14 +90,23 @@ namespace MuseSort
                             UstawieniaProgramu.getInstance().wspieraneRozszerzeniaAudio.Add(temp);
                         }
                     }
+                    aktywujPanel("rozszerzeniaFilmowe");
+                    break;
+                case "rozszerzeniaFilmowe":
+                    foreach (CheckBox x in rozszerzeniaFilmowe)
+                    {
+                        if (x.Checked)
+                        {
+                            String temp = x.Name.Replace("CheckBox", "");
+                            UstawieniaProgramu.getInstance().wspieraneRozszerzeniaVideo.Add(temp);
+                        }
+                    }
                     aktywujPanel("none");
                     break;
                 default:
                     UstawieniaProgramu.getInstance().zapiszUstawienia();
-                    //MessageBox.Show("Zapisano ustawienia programu!");
-                    this.DialogResult = System.Windows.Forms.DialogResult.OK;
-                    this.Close();
-                    //this.Dispose();
+                    MessageBox.Show("Zapisano ustawienia programu!");
+                    this.Dispose();
                     break;
             }
         }
@@ -112,7 +116,7 @@ namespace MuseSort
             visiblePanel = nazwa;
             folderyPanel.Hide();
             sortowaniaPanel.Hide();
-            bazyDanychPanel.Hide();
+            rozszerzeniaFilmowePanel.Hide();
             rozszerzeniaPanel.Hide();
             switch(nazwa)
             {
@@ -126,10 +130,10 @@ namespace MuseSort
                     infoLabel.Text = "Wybierz domyślny sposób sortowania plików wykorzystywany przez program.";
                     sortowaniaPanel.Show();
                     break;
-                case "bazyDanych":
-                    label1.Text = "Zewnętrzne bazy danych";
-                    infoLabel.Text = "Wybierz z listy bazę danych, z którą chesz, aby program się łączył w celu pobrania danych o utworach.";
-                    bazyDanychPanel.Show();
+                case "rozszerzeniaFilmowe":
+                    label1.Text = "Rozszerzenia plików filmowych do sortowania";
+                    infoLabel.Text = "Wybierz rozszerzenia filmów, które program będzie brał pod uwagę w trakcie sortowania plików.";
+                    rozszerzeniaFilmowePanel.Show();
                     break;
                 case "rozszerzenia":
                     label1.Text = "Rozszerzenia plików do sortowania";

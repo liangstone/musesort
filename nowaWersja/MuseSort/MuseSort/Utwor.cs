@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.IO;
 
 namespace MuseSort
 {
-    partial class Utwor : Plik
+    public partial class Utwor : Plik
     {
+        //do ponownego merga
         #region atrybuty klasy
         public DaneUtworu dane;
 
@@ -20,28 +20,32 @@ namespace MuseSort
         #region publiczne metody klas
         //#############################PUBLICZNE METODY KLASY############################################
 
-        //Konstruktor standardowy
-        public Utwor()
-        {
-            dane = new DaneUtworu();
-            tagi = null;
-            stareTagi = null;
-        }
 
-        //Konstruktor dowolnego pliku
+        /// <summary>Tworzy obiekt Utwór odpowiedający danemu plikowi muzycznemu.</summary>
+        /// <param name="path">Ścieżka pliku.</param>
+        /// <exception cref="FileNotFoundException">Rzucane jeśli podany plik nie istnieje</exception>
         public Utwor(String path)
         {
+            if(!File.Exists(path))
+                throw new FileNotFoundException(path);
             Sciezka = SciezkaZrodlowa = path;
-            Nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
+            Nazwa = Path.GetFileNameWithoutExtension(path);
             dane = new DaneUtworu();
             tagi = TagLib.File.Create(path);
             stareTagi = TagLib.File.Create(path);
             pobierzTagi();
         }
 
-        //Konstruktor dla pliku, który został skopiowany w ramach działania programu
+        /// <summary>Konstruktor dla pliku, który został skopiowany w ramach działania programu</summary>
+        /// <param name="path">Ścieżka pliku skopiowanego</param>
+        /// <param name="source">Ścieżka pliku oryginalnego</param>
+        /// <exception cref="FileNotFoundException">Rzucane jeśli któryś z podanych plików nie istnieje</exception>
         public Utwor(String path, String source)
         {
+            if (!File.Exists(path))
+                throw new FileNotFoundException(path);
+            if(!File.Exists(source))
+                throw new FileNotFoundException(source);
             SciezkaZrodlowa = source;
             Sciezka = path;
             Nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
@@ -85,10 +89,19 @@ namespace MuseSort
             logi += "Anulowano modyfikowanie tagów." + Environment.NewLine;
         }
 
+        
+
         //Generuje tagi z nazwy pliku i zapisuje w obiekcie dane
         public override void pobierzTagiZNazwy()
         {
-            //Generuje tagi z nazwy pliku i zapisuje w obiekcie dane
+            var wzorzec = wzorceNazwy.Find(w => w.czyPasuje(Nazwa));
+            if(wzorzec==null) return;
+            var dopasowanie = wzorzec.Dopasuj(Nazwa);
+            dane.ZapiszDopasowaneDane(dopasowanie);
+
+            #region Stary kod
+
+/*//Generuje tagi z nazwy pliku i zapisuje w obiekcie dane
             //Zmienia wartość zmiennej pobranoZNazwy na true
             //Do wykonania tej metody wykorzystujemy listę wzorców z obiektu wzorceNazwy
             foreach (Wzorzec wzor in wzorceNazwy)
@@ -151,38 +164,50 @@ namespace MuseSort
                         }
                     }
                 }
-            }
+            }*/
+
+            #endregion
+
         }
 
         //Generuje tagi ze ścieżki do pliku i zapisuje w obiekcie dane
         //Zakładamy, że ta metoda jest wywoływana po metodzie pobierzTagiZNazwy
-        public void pobierzTagiZeSciezki()
+        public override void pobierzTagiZeSciezki()
         {
-            //narazie wyszukuje po  autor, album
-            if (!dane.czyDaneWypelnione())    //tu należy umieścić wyszukiwane informacje jeśli zostaną jakieś dodane
-            {                                 //oraz należy dodać ifa na koncu funkcji
+            var wzorzec = wzorceSciezki.Find(w => w.czyPasuje(SciezkaZrodlowa));
+            if (wzorzec == null) return;
+            var dopasowanie = wzorzec.Dopasuj(SciezkaZrodlowa);
+            dane.ZapiszDopasowaneDane(dopasowanie);
+
+            #region Stary kod
+
+//narazie wyszukuje po  autor, album
+           /* if (!dane.czyDaneWypelnione()) //tu należy umieścić wyszukiwane informacje jeśli zostaną jakieś dodane
+            {
+                //oraz należy dodać ifa na koncu funkcji
                 Wzorzec wzr = null;
                 foreach (Wzorzec w in wzorceSciezki)
                 {
-                    if (w.czyPasuje(Nazwa))     //wybranie pasującego wzorcu
+                    if (w.czyPasuje(Nazwa)) //wybranie pasującego wzorcu
                     {
                         pobranoZeSciezki = true;
                         wzr = w;
                         break;
                     }
                 }
-                if (pobranoZeSciezki == true)      //jeśli mamy pasujący wzorzec
+                if (pobranoZeSciezki == true) //jeśli mamy pasujący wzorzec
                 {
-                    char[] wzrSep = { '<', '>' };
-                    String[] wzrSp = wzr.wzorzec.Split(wzrSep);    //podział wzorcu na elementy
-                    String[] nazwaSp = Nazwa.Split('\\');                   //podział nazwy na oczekiwane informacje
-                                                                            //zakładam że wzorzec do scieżki wygląda <Autor><Album>
-                    int nazwaLen = nazwaSp.Length;                          //a to odpowiada scieżce ...\\Autor\\Album\\plik.ext
+                    char[] wzrSep = {'<', '>'};
+                    String[] wzrSp = wzr.wzorzec.Split(wzrSep); //podział wzorcu na elementy
+                    String[] nazwaSp = Nazwa.Split('\\'); //podział nazwy na oczekiwane informacje
+                    //zakładam że wzorzec do scieżki wygląda <Autor><Album>
+                    int nazwaLen = nazwaSp.Length; //a to odpowiada scieżce ...\\Autor\\Album\\plik.ext
                     int wzrLen = wzrSp.Length;
-                    int nazwaIndex = nazwaLen - wzrLen - 1;                 //-1 ponieważ ścieżka zawiera nazwę pliku
+                    int nazwaIndex = nazwaLen - wzrLen - 1; //-1 ponieważ ścieżka zawiera nazwę pliku
                     String s = "";
-                    for (int i = 0; i < wzrSp.Length; i--)              //sprawdzenie pokolei zawartości wzorca
-                    {                                                   //wypełnienie pustych pól
+                    for (int i = 0; i < wzrSp.Length; i--) //sprawdzenie pokolei zawartości wzorca
+                    {
+                        //wypełnienie pustych pól
                         if (!(dane.wykonawca.Length > 0 && dane.wykonawca[0] != "") && s.Equals("wykonawca"))
                         {
                             dane.wykonawca = new String[1];
@@ -196,7 +221,10 @@ namespace MuseSort
                         }
                     }
                 }
-            }
+            }*/
+
+            #endregion
+
         }
 
         ///<summary>Na podstawie danych w obiekcie dane tworzy nową nazwę pliku.</summary>
@@ -213,45 +241,55 @@ namespace MuseSort
                 nowaNazwa = usunZnakiSpecjalne(nowaNazwa);
             }
             logi += "Wygenerowano nową nazwę: " + nowaNazwa + Environment.NewLine;
+            nowaNazwa = Normalizuj(nowaNazwa);
             return nowaNazwa;
         }
 
         public override string sciezka_katalogu_z_pol(string[] kategorie, bool duplikat = false)
         {
-            string sciezka_katalogu;
-            if (duplikat)
-                sciezka_katalogu = @"Musesort\Muzyka\Zduplikowane\Posegregowane\";
-            else
-                sciezka_katalogu = @"Musesort\Muzyka\Posegregowane\";
+            var sciezkaKatalogu = duplikat ? @"Musesort\Muzyka\Zduplikowane\Posegregowane\" : @"Musesort\Muzyka\Posegregowane\";
 
-            string sciezkaZDanych = dane.sciezkaKataloguZPol(kategorie);
-
-            if (sciezkaZDanych.Equals("")) //przenieś do "Nieprzydzielone
+            if (!(kategorie.Length == 1 && kategorie[0] == "alfabetycznie")) //Jeśli jedyną kategorią jest "alfabetycznie, ścieżka z danych zwróci puste nawet przy poprawnie wypełnionych danych
             {
-                if (duplikat)
-                    sciezka_katalogu = @"Musesort\Muzyka\Zduplikowane\Posegregowane\Nieprzydzielone";
+                var sciezkaZDanych =
+                    dane.sciezkaKataloguZPol(
+                        kategorie.SkipWhile(kategoria => kategoria.Equals("alfabetycznie")).ToArray());
+
+                if (string.IsNullOrEmpty(sciezkaZDanych))
+                {
+                    pobierzTagiZNazwy(); //pobierz tagi i spróbuj ponownie
+                    pobierzTagiZeSciezki();
+                    sciezkaZDanych = dane.sciezkaKataloguZPol(
+                        kategorie.SkipWhile(kategoria => kategoria.Equals("alfabetycznie")).ToArray());
+                    if (string.IsNullOrEmpty(sciezkaZDanych))  //przenieś do "Nieprzydzielone
+                    {
+                        sciezkaKatalogu = duplikat
+                                              ? @"Musesort\Muzyka\Zduplikowane\Posegregowane\Nieprzydzielone"
+                                              : @"Musesort\Muzyka\Posegregowane\Nieprzydzielone";
+                    }
+                    else
+                        sciezkaKatalogu += sciezkaZDanych;
+                }
                 else
-                    sciezka_katalogu = @"Musesort\Muzyka\Posegregowane\Nieprzydzielone";
+                    sciezkaKatalogu += sciezkaZDanych;
             }
-            else
-                sciezka_katalogu += sciezkaZDanych;
 
             if (kategorie.Last() == "alfabetycznie")
-                sciezka_katalogu += dane.tytul.Substring(0, 1);
+                sciezkaKatalogu += dane.tytul.Substring(0, 1);
 
-            if (duplikat && File.Exists(Path.Combine(sciezka_katalogu, Path.GetFileName(Sciezka))))
+            if (duplikat && File.Exists(Path.Combine(sciezkaKatalogu, Path.GetFileName(Sciezka))))
             {
-                string fullpath = Path.Combine(sciezka_katalogu, Nazwa);
+                var fullpath = Path.Combine(sciezkaKatalogu, Nazwa);
                 int i;
                 for (i = 1; File.Exists(fullpath); )
                 {
                     i++;
-                    fullpath = Path.Combine(sciezka_katalogu + Convert.ToString(i), Nazwa);
+                    fullpath = Path.Combine(sciezkaKatalogu + Convert.ToString(i), Nazwa);
                 }
-                sciezka_katalogu += Convert.ToString(i);
+                sciezkaKatalogu += Convert.ToString(i);
             }
 
-            return sciezka_katalogu;
+            return sciezkaKatalogu;
         }
 
         #endregion
@@ -267,28 +305,29 @@ namespace MuseSort
         //Pobieranie tagów z obiektu tagi i zapisywanie w obiekcie dane
         private void pobierzTagi()
         {
-            dane.album = tagi.Tag.Album;
-            dane.bityNaMinute = tagi.Tag.BeatsPerMinute;
-            dane.dyrygent = tagi.Tag.Conductor;
-            dane.gatunek = tagi.Tag.Genres;
-            dane.komentarz = tagi.Tag.Comment;
-            dane.liczbaCd = tagi.Tag.DiscCount;
-            dane.liczbaPiosenek = tagi.Tag.TrackCount;
-            dane.numer = tagi.Tag.Track;
-            dane.numerCd = tagi.Tag.Disc;
-            dane.prawaAutorskie = tagi.Tag.Copyright;
-            dane.puid = tagi.Tag.MusicIpId;
-            dane.rok = tagi.Tag.Year;
-            dane.tekstPiosenki = tagi.Tag.Lyrics;
-            dane.tytul = tagi.Tag.Title;
-            dane.wykonawca = tagi.Tag.Performers;
-            dane.wykonawcaAlbumu = tagi.Tag.AlbumArtists;
-            dane.zdjecia = tagi.Tag.Pictures;
-            logi += "Pobrano tagi z pliku." + Environment.NewLine;
-            if (dane.czyDaneWypelnione())
-            {
-                logi += "Pobrane tagi są kompletne." + Environment.NewLine;
-            }
+                dane.album = Normalizuj(tagi.Tag.Album);
+                dane.bityNaMinute = tagi.Tag.BeatsPerMinute;
+                dane.dyrygent = Normalizuj(tagi.Tag.Conductor);
+                dane.gatunek = Normalizuj(tagi.Tag.Genres);
+                dane.komentarz = Normalizuj(tagi.Tag.Comment);
+                dane.liczbaCd = tagi.Tag.DiscCount;
+                dane.liczbaPiosenek = tagi.Tag.TrackCount;
+                dane.numer = tagi.Tag.Track;
+                dane.numerCd = tagi.Tag.Disc;
+                dane.prawaAutorskie = Normalizuj(tagi.Tag.Copyright);
+                dane.puid = tagi.Tag.MusicIpId;
+                dane.rok = tagi.Tag.Year;
+                dane.tekstPiosenki = Normalizuj(tagi.Tag.Lyrics);
+                dane.tytul = Normalizuj(tagi.Tag.Title);
+                dane.wykonawca = Normalizuj(tagi.Tag.Performers);
+                dane.wykonawcaAlbumu = Normalizuj(tagi.Tag.AlbumArtists);
+                dane.zdjecia = tagi.Tag.Pictures;
+                logi += "Pobrano tagi z pliku." + Environment.NewLine;
+                if (dane.czyDaneWypelnione())
+                {
+                    logi += "Pobrane tagi są kompletne." + Environment.NewLine;
+                }
+          
         }
 
         /// <summary>Porównuje jakość plików.</summary>
@@ -300,6 +339,7 @@ namespace MuseSort
         {
             return dane.bityNaMinute >= ((Utwor)plik2).dane.bityNaMinute;
         }
+
 
         #endregion
 

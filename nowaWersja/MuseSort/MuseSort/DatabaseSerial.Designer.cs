@@ -2,6 +2,7 @@
 {
     partial class DatabaseSerial
     {
+        //do ponownego merga
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -38,9 +39,7 @@
             this.usunButton = new System.Windows.Forms.Button();
             this.serialePanel = new System.Windows.Forms.Panel();
             this.tabela = new System.Windows.Forms.DataGridView();
-            this.Tytuł = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rok = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Produkcja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edytujButton = new System.Windows.Forms.Button();
             this.serialePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabela)).BeginInit();
             this.SuspendLayout();
@@ -152,38 +151,35 @@
             // 
             this.serialePanel.BackColor = System.Drawing.Color.Transparent;
             this.serialePanel.Controls.Add(this.tabela);
-            this.serialePanel.Location = new System.Drawing.Point(52, 208);
+            this.serialePanel.Location = new System.Drawing.Point(0, 163);
             this.serialePanel.Name = "serialePanel";
-            this.serialePanel.Size = new System.Drawing.Size(640, 268);
+            this.serialePanel.Size = new System.Drawing.Size(785, 354);
             this.serialePanel.TabIndex = 13;
             // 
             // tabela
             // 
+            this.tabela.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tabela.BackgroundColor = System.Drawing.SystemColors.Highlight;
             this.tabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tabela.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Tytuł,
-            this.rok,
-            this.Produkcja});
-            this.tabela.Location = new System.Drawing.Point(131, 58);
+            this.tabela.GridColor = System.Drawing.SystemColors.Highlight;
+            this.tabela.Location = new System.Drawing.Point(3, 3);
             this.tabela.Name = "tabela";
             this.tabela.RowTemplate.Height = 24;
-            this.tabela.Size = new System.Drawing.Size(379, 152);
+            this.tabela.Size = new System.Drawing.Size(747, 331);
             this.tabela.TabIndex = 1;
             // 
-            // Tytuł
+            // edytujButton
             // 
-            this.Tytuł.HeaderText = "Column1";
-            this.Tytuł.Name = "Tytuł";
-            // 
-            // rok
-            // 
-            this.rok.HeaderText = "Column1";
-            this.rok.Name = "rok";
-            // 
-            // Produkcja
-            // 
-            this.Produkcja.HeaderText = "Column1";
-            this.Produkcja.Name = "Produkcja";
+            this.edytujButton.BackColor = System.Drawing.Color.MediumBlue;
+            this.edytujButton.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.edytujButton.ForeColor = System.Drawing.Color.White;
+            this.edytujButton.Location = new System.Drawing.Point(802, 393);
+            this.edytujButton.Name = "edytujButton";
+            this.edytujButton.Size = new System.Drawing.Size(121, 48);
+            this.edytujButton.TabIndex = 14;
+            this.edytujButton.Text = "Edytuj";
+            this.edytujButton.UseVisualStyleBackColor = false;
+            this.edytujButton.Click += new System.EventHandler(this.edytujButton_Click);
             // 
             // DatabaseSerial
             // 
@@ -192,6 +188,7 @@
             this.BackgroundImage = global::MuseSort.Properties.Resources.tlo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(991, 520);
+            this.Controls.Add(this.edytujButton);
             this.Controls.Add(this.serialePanel);
             this.Controls.Add(this.dodajButton);
             this.Controls.Add(this.usunButton);
@@ -222,8 +219,6 @@
         private System.Windows.Forms.Button usunButton;
         private System.Windows.Forms.Panel serialePanel;
         private System.Windows.Forms.DataGridView tabela;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tytuł;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rok;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Produkcja;
+        private System.Windows.Forms.Button edytujButton;
     }
 }

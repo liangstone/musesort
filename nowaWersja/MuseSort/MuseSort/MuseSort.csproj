@@ -49,6 +49,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo11.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="HtmlAgilityPack">
       <HintPath>..\..\Net20\HtmlAgilityPack.dll</HintPath>
@@ -71,12 +74,25 @@
     <Reference Include="taglib-sharp">
       <HintPath>..\..\taglib-sharp.dll</HintPath>
     </Reference>
+    <Reference Include="Vlc.DotNet.Core">
+      <HintPath>libraries\Vlc.DotNet.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Vlc.DotNet.Core.Interops">
+      <HintPath>libraries\Vlc.DotNet.Core.Interops.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AkcjaDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AkcjaDialog.Designer.cs">
+      <DependentUpon>AkcjaDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="BazaDanychMuzyka.cs" />
     <Compile Include="BazaDanych\BazaDanychSqlServerCE.cs" />
     <Compile Include="BazaDanych\IBazaDanych.cs" />
     <Compile Include="BazaDanych\WierszTabeli.cs" />
+    <Compile Include="Crawler.cs" />
     <Compile Include="Dane.cs" />
     <Compile Include="DaneUtworu.cs" />
     <Compile Include="DaneFilmu.cs" />
@@ -104,11 +120,41 @@
     <Compile Include="DatabaseStart.Designer.cs">
       <DependentUpon>DatabaseStart.cs</DependentUpon>
     </Compile>
+    <Compile Include="DatySeriali.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatySeriali.Designer.cs">
+      <DependentUpon>DatySeriali.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodawanieFilmow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodawanieFilmow.Designer.cs">
+      <DependentUpon>DodawanieFilmow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodawanieMuzyki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodawanieMuzyki.Designer.cs">
+      <DependentUpon>DodawanieMuzyki.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodawanieSeriali.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodawanieSeriali.Designer.cs">
+      <DependentUpon>DodawanieSeriali.cs</DependentUpon>
+    </Compile>
     <Compile Include="EdycjaPliku.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EdycjaPliku.Designer.cs">
       <DependentUpon>EdycjaPliku.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EdycjaPlikuFilmowego.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EdycjaPlikuFilmowego.Designer.cs">
+      <DependentUpon>EdycjaPlikuFilmowego.cs</DependentUpon>
     </Compile>
     <Compile Include="Film.cs" />
     <Compile Include="FilmNowyWzorzecNazwy.cs">
@@ -121,6 +167,12 @@
     <Compile Include="FolderGlowny.cs" />
     <Compile Include="FolderGlownyXML.cs" />
     <Compile Include="FolderXML.cs" />
+    <Compile Include="InterakcjaFilmSerial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterakcjaFilmSerial.Designer.cs">
+      <DependentUpon>InterakcjaFilmSerial.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +189,12 @@
     <Compile Include="Plik.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Samouczek.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Samouczek.Designer.cs">
+      <DependentUpon>Samouczek.cs</DependentUpon>
+    </Compile>
     <Compile Include="StaticFilm.cs" />
     <Compile Include="StaticUtwor.cs" />
     <Compile Include="SzczegolyFilmu.cs">
@@ -185,6 +243,10 @@
       <DependentUpon>WzorcePlikowVideo.cs</DependentUpon>
     </Compile>
     <Compile Include="Wzorzec.cs" />
+    <Compile Include="WzorzecFactory.cs" />
+    <EmbeddedResource Include="AkcjaDialog.resx">
+      <DependentUpon>AkcjaDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DatabaseFilm.resx">
       <DependentUpon>DatabaseFilm.cs</DependentUpon>
     </EmbeddedResource>
@@ -197,11 +259,29 @@
     <EmbeddedResource Include="DatabaseStart.resx">
       <DependentUpon>DatabaseStart.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DatySeriali.resx">
+      <DependentUpon>DatySeriali.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodawanieFilmow.resx">
+      <DependentUpon>DodawanieFilmow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodawanieMuzyki.resx">
+      <DependentUpon>DodawanieMuzyki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodawanieSeriali.resx">
+      <DependentUpon>DodawanieSeriali.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EdycjaPliku.resx">
       <DependentUpon>EdycjaPliku.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EdycjaPlikuFilmowego.resx">
+      <DependentUpon>EdycjaPlikuFilmowego.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FilmNowyWzorzecNazwy.resx">
       <DependentUpon>FilmNowyWzorzecNazwy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterakcjaFilmSerial.resx">
+      <DependentUpon>InterakcjaFilmSerial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainGUI.resx">
       <DependentUpon>MainGUI.cs</DependentUpon>
@@ -220,6 +300,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Samouczek.resx">
+      <DependentUpon>Samouczek.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WzorcePlikowAudio.resx">
       <DependentUpon>WzorcePlikowAudio.cs</DependentUpon>
     </EmbeddedResource>
@@ -256,6 +339,7 @@
     <None Include="Resources\tlo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="logo11.ico" />
     <Content Include="Resources\logo1.jpg" />
     <None Include="Resources\logo11.jpg" />
   </ItemGroup>

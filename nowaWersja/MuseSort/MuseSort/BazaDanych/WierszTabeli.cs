@@ -6,7 +6,7 @@ using System.Linq;
 namespace MuseSort
 {
 
-    class WierszTabeli
+    public class WierszTabeli
     {
         #region Pola publiczne i akcesory
 

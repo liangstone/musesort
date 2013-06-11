@@ -2,6 +2,7 @@
 {
     partial class OknoUstawien
     {
+        //do ponownego merga
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -28,16 +29,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Folder główny");
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Foldery", new System.Windows.Forms.TreeNode[] {
-            treeNode29});
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Domyślne ustawienia");
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Sortowanie", new System.Windows.Forms.TreeNode[] {
-            treeNode31});
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Wspierane rozszerzenia");
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Rozszerzenia", new System.Windows.Forms.TreeNode[] {
-            treeNode33});
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Zewnętrzne bazy danych");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Folder główny");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Foldery", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Domyślne ustawienia");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Sortowanie", new System.Windows.Forms.TreeNode[] {
+            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Wspierane rozszerzenia audio");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Wspierane rozszerzenia video");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Rozszerzenia", new System.Windows.Forms.TreeNode[] {
+            treeNode5,
+            treeNode6});
             this.drzewoUstawien = new System.Windows.Forms.TreeView();
             this.przywrocDomyslneButton = new System.Windows.Forms.Button();
             this.zapiszButton = new System.Windows.Forms.Button();
@@ -66,23 +68,27 @@
             this.rozszerzeniaBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.wspieranieRozszerzeniaPanel = new System.Windows.Forms.Panel();
+            this.flacCheckBox = new System.Windows.Forms.CheckBox();
+            this.mp3CheckBox = new System.Windows.Forms.CheckBox();
             this.dodajRozszerzenieButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.zewnetrzneBazyDanychPanel = new System.Windows.Forms.Panel();
-            this.wybierzBazeButton = new System.Windows.Forms.Button();
-            this.dataBaseListBox = new System.Windows.Forms.ListBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.explorer = new System.Windows.Forms.FolderBrowserDialog();
-            this.mp3CheckBox = new System.Windows.Forms.CheckBox();
-            this.flacCheckBox = new System.Windows.Forms.CheckBox();
+            this.rozszerzeniaVideoPanel = new System.Windows.Forms.Panel();
+            this.wmvCheckBox = new System.Windows.Forms.CheckBox();
+            this.aviCheckBox = new System.Windows.Forms.CheckBox();
+            this.mp4CheckBox = new System.Windows.Forms.CheckBox();
+            this.mkvCheckBox = new System.Windows.Forms.CheckBox();
+            this.dodajRozszerzenieVideoButton = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.folderyPanel.SuspendLayout();
             this.folderGlownyPanel.SuspendLayout();
             this.sortowaniaPanel.SuspendLayout();
             this.domyslneSortowaniaPanel.SuspendLayout();
             this.rozszerzeniaPanel.SuspendLayout();
             this.wspieranieRozszerzeniaPanel.SuspendLayout();
-            this.zewnetrzneBazyDanychPanel.SuspendLayout();
+            this.rozszerzeniaVideoPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // drzewoUstawien
@@ -92,25 +98,24 @@
             this.drzewoUstawien.Location = new System.Drawing.Point(10, 11);
             this.drzewoUstawien.Margin = new System.Windows.Forms.Padding(2);
             this.drzewoUstawien.Name = "drzewoUstawien";
-            treeNode29.Name = "folderGlownyNode";
-            treeNode29.Text = "Folder główny";
-            treeNode30.Name = "folderyNode";
-            treeNode30.Text = "Foldery";
-            treeNode31.Name = "domyslneSortowanieNode";
-            treeNode31.Text = "Domyślne ustawienia";
-            treeNode32.Name = "sortowaniaNode";
-            treeNode32.Text = "Sortowanie";
-            treeNode33.Name = "wspieraneRozszerzeniaNode";
-            treeNode33.Text = "Wspierane rozszerzenia";
-            treeNode34.Name = "rozszerzeniaNode";
-            treeNode34.Text = "Rozszerzenia";
-            treeNode35.Name = "bazyDanychNode";
-            treeNode35.Text = "Zewnętrzne bazy danych";
+            treeNode1.Name = "folderGlownyNode";
+            treeNode1.Text = "Folder główny";
+            treeNode2.Name = "folderyNode";
+            treeNode2.Text = "Foldery";
+            treeNode3.Name = "domyslneSortowanieNode";
+            treeNode3.Text = "Domyślne ustawienia";
+            treeNode4.Name = "sortowaniaNode";
+            treeNode4.Text = "Sortowanie";
+            treeNode5.Name = "wspieraneRozszerzeniaNode";
+            treeNode5.Text = "Wspierane rozszerzenia audio";
+            treeNode6.Name = "wspieraneRozszerzeniaVideoNode";
+            treeNode6.Text = "Wspierane rozszerzenia video";
+            treeNode7.Name = "rozszerzeniaNode";
+            treeNode7.Text = "Rozszerzenia";
             this.drzewoUstawien.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode30,
-            treeNode32,
-            treeNode34,
-            treeNode35});
+            treeNode2,
+            treeNode4,
+            treeNode7});
             this.drzewoUstawien.Size = new System.Drawing.Size(188, 311);
             this.drzewoUstawien.TabIndex = 0;
             // 
@@ -356,8 +361,7 @@
             "Gatunek\\Wykonawca\\Piosenki",
             "Rok\\Gatunek\\Wykonawca\\Album\\Piosenki",
             "Rok\\Wykonawca\\Album\\Piosenki",
-            "Piosenki\\Alfabetycznie",
-            "Piosenki\\Wykonawca"});
+            "Piosenki\\Alfabetycznie"});
             this.sortowaniaListBox.Location = new System.Drawing.Point(14, 97);
             this.sortowaniaListBox.Margin = new System.Windows.Forms.Padding(2);
             this.sortowaniaListBox.Name = "sortowaniaListBox";
@@ -463,6 +467,28 @@
             this.wspieranieRozszerzeniaPanel.Size = new System.Drawing.Size(271, 276);
             this.wspieranieRozszerzeniaPanel.TabIndex = 8;
             // 
+            // flacCheckBox
+            // 
+            this.flacCheckBox.AutoSize = true;
+            this.flacCheckBox.ForeColor = System.Drawing.Color.White;
+            this.flacCheckBox.Location = new System.Drawing.Point(152, 84);
+            this.flacCheckBox.Name = "flacCheckBox";
+            this.flacCheckBox.Size = new System.Drawing.Size(50, 17);
+            this.flacCheckBox.TabIndex = 12;
+            this.flacCheckBox.Text = "*.flac";
+            this.flacCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // mp3CheckBox
+            // 
+            this.mp3CheckBox.AutoSize = true;
+            this.mp3CheckBox.ForeColor = System.Drawing.Color.White;
+            this.mp3CheckBox.Location = new System.Drawing.Point(39, 85);
+            this.mp3CheckBox.Name = "mp3CheckBox";
+            this.mp3CheckBox.Size = new System.Drawing.Size(53, 17);
+            this.mp3CheckBox.TabIndex = 11;
+            this.mp3CheckBox.Text = "*.mp3";
+            this.mp3CheckBox.UseVisualStyleBackColor = true;
+            // 
             // dodajRozszerzenieButton
             // 
             this.dodajRozszerzenieButton.BackColor = System.Drawing.Color.LightSkyBlue;
@@ -501,76 +527,102 @@
             this.label8.TabIndex = 1;
             this.label8.Text = "Obsługiwane rozszerzenia";
             // 
-            // zewnetrzneBazyDanychPanel
+            // rozszerzeniaVideoPanel
             // 
-            this.zewnetrzneBazyDanychPanel.BackColor = System.Drawing.Color.Transparent;
-            this.zewnetrzneBazyDanychPanel.Controls.Add(this.wybierzBazeButton);
-            this.zewnetrzneBazyDanychPanel.Controls.Add(this.dataBaseListBox);
-            this.zewnetrzneBazyDanychPanel.Controls.Add(this.label10);
-            this.zewnetrzneBazyDanychPanel.Location = new System.Drawing.Point(202, 4);
-            this.zewnetrzneBazyDanychPanel.Margin = new System.Windows.Forms.Padding(2);
-            this.zewnetrzneBazyDanychPanel.Name = "zewnetrzneBazyDanychPanel";
-            this.zewnetrzneBazyDanychPanel.Size = new System.Drawing.Size(273, 279);
-            this.zewnetrzneBazyDanychPanel.TabIndex = 9;
+            this.rozszerzeniaVideoPanel.BackColor = System.Drawing.Color.Transparent;
+            this.rozszerzeniaVideoPanel.Controls.Add(this.wmvCheckBox);
+            this.rozszerzeniaVideoPanel.Controls.Add(this.aviCheckBox);
+            this.rozszerzeniaVideoPanel.Controls.Add(this.mp4CheckBox);
+            this.rozszerzeniaVideoPanel.Controls.Add(this.mkvCheckBox);
+            this.rozszerzeniaVideoPanel.Controls.Add(this.dodajRozszerzenieVideoButton);
+            this.rozszerzeniaVideoPanel.Controls.Add(this.textBox2);
+            this.rozszerzeniaVideoPanel.Controls.Add(this.label9);
+            this.rozszerzeniaVideoPanel.Location = new System.Drawing.Point(200, 4);
+            this.rozszerzeniaVideoPanel.Name = "rozszerzeniaVideoPanel";
+            this.rozszerzeniaVideoPanel.Size = new System.Drawing.Size(291, 297);
+            this.rozszerzeniaVideoPanel.TabIndex = 9;
             // 
-            // wybierzBazeButton
+            // wmvCheckBox
             // 
-            this.wybierzBazeButton.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.wybierzBazeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic);
-            this.wybierzBazeButton.ForeColor = System.Drawing.Color.DarkBlue;
-            this.wybierzBazeButton.Location = new System.Drawing.Point(78, 205);
-            this.wybierzBazeButton.Margin = new System.Windows.Forms.Padding(2);
-            this.wybierzBazeButton.Name = "wybierzBazeButton";
-            this.wybierzBazeButton.Size = new System.Drawing.Size(82, 38);
-            this.wybierzBazeButton.TabIndex = 2;
-            this.wybierzBazeButton.Text = "Wybierz bazę";
-            this.wybierzBazeButton.UseVisualStyleBackColor = false;
-            this.wybierzBazeButton.Click += new System.EventHandler(this.wybierzBazeButton_Click);
+            this.wmvCheckBox.AutoSize = true;
+            this.wmvCheckBox.ForeColor = System.Drawing.Color.White;
+            this.wmvCheckBox.Location = new System.Drawing.Point(173, 134);
+            this.wmvCheckBox.Name = "wmvCheckBox";
+            this.wmvCheckBox.Size = new System.Drawing.Size(55, 17);
+            this.wmvCheckBox.TabIndex = 19;
+            this.wmvCheckBox.Text = "*.wmv";
+            this.wmvCheckBox.UseVisualStyleBackColor = true;
             // 
-            // dataBaseListBox
+            // aviCheckBox
             // 
-            this.dataBaseListBox.FormattingEnabled = true;
-            this.dataBaseListBox.Items.AddRange(new object[] {
-            "MusicBrainz"});
-            this.dataBaseListBox.Location = new System.Drawing.Point(49, 90);
-            this.dataBaseListBox.Margin = new System.Windows.Forms.Padding(2);
-            this.dataBaseListBox.Name = "dataBaseListBox";
-            this.dataBaseListBox.Size = new System.Drawing.Size(205, 108);
-            this.dataBaseListBox.TabIndex = 1;
+            this.aviCheckBox.AutoSize = true;
+            this.aviCheckBox.ForeColor = System.Drawing.Color.White;
+            this.aviCheckBox.Location = new System.Drawing.Point(60, 134);
+            this.aviCheckBox.Name = "aviCheckBox";
+            this.aviCheckBox.Size = new System.Drawing.Size(47, 17);
+            this.aviCheckBox.TabIndex = 18;
+            this.aviCheckBox.Text = "*.avi";
+            this.aviCheckBox.UseVisualStyleBackColor = true;
             // 
-            // label10
+            // mp4CheckBox
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(89, 57);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(125, 15);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Wybierz bazę danych:";
+            this.mp4CheckBox.AutoSize = true;
+            this.mp4CheckBox.ForeColor = System.Drawing.Color.White;
+            this.mp4CheckBox.Location = new System.Drawing.Point(173, 93);
+            this.mp4CheckBox.Name = "mp4CheckBox";
+            this.mp4CheckBox.Size = new System.Drawing.Size(53, 17);
+            this.mp4CheckBox.TabIndex = 17;
+            this.mp4CheckBox.Text = "*.mp4";
+            this.mp4CheckBox.UseVisualStyleBackColor = true;
             // 
-            // mp3CheckBox
+            // mkvCheckBox
             // 
-            this.mp3CheckBox.AutoSize = true;
-            this.mp3CheckBox.ForeColor = System.Drawing.Color.White;
-            this.mp3CheckBox.Location = new System.Drawing.Point(39, 85);
-            this.mp3CheckBox.Name = "mp3CheckBox";
-            this.mp3CheckBox.Size = new System.Drawing.Size(53, 17);
-            this.mp3CheckBox.TabIndex = 11;
-            this.mp3CheckBox.Text = "*.mp3";
-            this.mp3CheckBox.UseVisualStyleBackColor = true;
+            this.mkvCheckBox.AutoSize = true;
+            this.mkvCheckBox.ForeColor = System.Drawing.Color.White;
+            this.mkvCheckBox.Location = new System.Drawing.Point(60, 94);
+            this.mkvCheckBox.Name = "mkvCheckBox";
+            this.mkvCheckBox.Size = new System.Drawing.Size(53, 17);
+            this.mkvCheckBox.TabIndex = 16;
+            this.mkvCheckBox.Text = "*.mkv";
+            this.mkvCheckBox.UseVisualStyleBackColor = true;
             // 
-            // flacCheckBox
+            // dodajRozszerzenieVideoButton
             // 
-            this.flacCheckBox.AutoSize = true;
-            this.flacCheckBox.ForeColor = System.Drawing.Color.White;
-            this.flacCheckBox.Location = new System.Drawing.Point(152, 84);
-            this.flacCheckBox.Name = "flacCheckBox";
-            this.flacCheckBox.Size = new System.Drawing.Size(50, 17);
-            this.flacCheckBox.TabIndex = 12;
-            this.flacCheckBox.Text = "*.flac";
-            this.flacCheckBox.UseVisualStyleBackColor = true;
+            this.dodajRozszerzenieVideoButton.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.dodajRozszerzenieVideoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic);
+            this.dodajRozszerzenieVideoButton.ForeColor = System.Drawing.Color.DarkBlue;
+            this.dodajRozszerzenieVideoButton.Location = new System.Drawing.Point(64, 169);
+            this.dodajRozszerzenieVideoButton.Margin = new System.Windows.Forms.Padding(2);
+            this.dodajRozszerzenieVideoButton.Name = "dodajRozszerzenieVideoButton";
+            this.dodajRozszerzenieVideoButton.Size = new System.Drawing.Size(171, 32);
+            this.dodajRozszerzenieVideoButton.TabIndex = 15;
+            this.dodajRozszerzenieVideoButton.Text = "Zapisz rozszerzenia";
+            this.dodajRozszerzenieVideoButton.UseVisualStyleBackColor = false;
+            this.dodajRozszerzenieVideoButton.Click += new System.EventHandler(this.dodajRozszerzenieVideoButton_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.Gray;
+            this.textBox2.Enabled = false;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox2.ForeColor = System.Drawing.Color.Black;
+            this.textBox2.Location = new System.Drawing.Point(47, 46);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(207, 21);
+            this.textBox2.TabIndex = 14;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(35, 25);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(152, 15);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Obsługiwane rozszerzenia";
             // 
             // OknoUstawien
             // 
@@ -578,6 +630,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::MuseSort.Properties.Resources.tlo;
             this.ClientSize = new System.Drawing.Size(494, 344);
+            this.Controls.Add(this.rozszerzeniaVideoPanel);
             this.Controls.Add(this.anulujButton);
             this.Controls.Add(this.zapiszButton);
             this.Controls.Add(this.przywrocDomyslneButton);
@@ -588,7 +641,6 @@
             this.Controls.Add(this.domyslneSortowaniaPanel);
             this.Controls.Add(this.folderyPanel);
             this.Controls.Add(this.sortowaniaPanel);
-            this.Controls.Add(this.zewnetrzneBazyDanychPanel);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "OknoUstawien";
             this.Text = "OknoUstawien";
@@ -604,8 +656,8 @@
             this.rozszerzeniaPanel.PerformLayout();
             this.wspieranieRozszerzeniaPanel.ResumeLayout(false);
             this.wspieranieRozszerzeniaPanel.PerformLayout();
-            this.zewnetrzneBazyDanychPanel.ResumeLayout(false);
-            this.zewnetrzneBazyDanychPanel.PerformLayout();
+            this.rozszerzeniaVideoPanel.ResumeLayout(false);
+            this.rozszerzeniaVideoPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -639,10 +691,6 @@
         private System.Windows.Forms.TextBox rozszerzeniaBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel wspieranieRozszerzeniaPanel;
-        private System.Windows.Forms.Panel zewnetrzneBazyDanychPanel;
-        private System.Windows.Forms.Button wybierzBazeButton;
-        private System.Windows.Forms.ListBox dataBaseListBox;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button dodajRozszerzenieButton;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label8;
@@ -650,5 +698,13 @@
         private System.Windows.Forms.ListBox sortowaniaListBox;
         private System.Windows.Forms.CheckBox flacCheckBox;
         private System.Windows.Forms.CheckBox mp3CheckBox;
+        private System.Windows.Forms.Panel rozszerzeniaVideoPanel;
+        private System.Windows.Forms.CheckBox wmvCheckBox;
+        private System.Windows.Forms.CheckBox aviCheckBox;
+        private System.Windows.Forms.CheckBox mp4CheckBox;
+        private System.Windows.Forms.CheckBox mkvCheckBox;
+        private System.Windows.Forms.Button dodajRozszerzenieVideoButton;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label9;
     }
 }

@@ -12,6 +12,7 @@ namespace MuseSort
 {
     public partial class FilmNowyWzorzecNazwy : Form
     {
+        //do ponownego merga
         String nazwa;
         public FilmNowyWzorzecNazwy(String name)
         {
@@ -45,7 +46,7 @@ namespace MuseSort
 
         private void saveAndCloseButton_Click(object sender, EventArgs e)
         {
-            String regex = wzorzecTextBox.Text;
+            /*String regex = wzorzecTextBox.Text;
             regex = regex.Replace("[", @"\[");
             regex = regex.Replace("]", @"\]");
             regex = regex.Replace("{", @"\{");
@@ -55,10 +56,10 @@ namespace MuseSort
             regex = regex.Replace("<tytul>", @"[\w\s\(\)\&\'\!\`\~\$\.\+\-]+");
             regex = regex.Replace("<rok>", @"[\d]{4}");
             regex = regex = "^" + regex + "$";
-            Regex rx = new Regex(regex);
-            Film.dodajWzorzec(wzorzecTextBox.Text, regex);
+            Regex rx = new Regex(regex);*/
+            Film.dodajWzorzecNazwy(wzorzecTextBox.Text);
             UstawieniaProgramu.getInstance().zapiszUstawienia();
-            this.Dispose();
+            Dispose();
         }
 
         

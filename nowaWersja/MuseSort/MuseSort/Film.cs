@@ -1,43 +1,54 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace MuseSort
 {
-    partial class Film : Plik
+    public partial class Film : Plik
     {
         public DaneFilmu dane;
         //<należy wybrać klasę źródłową> tagi;
         //<należy wybrać klasę źródłową> stareTagi;
+        //do ponownego merga
+        Vlc.DotNet.Core.Medias.PathMedia dataFile;
         Boolean pobranoZNazwy = false;
 
         #region publiczne metody klas
         //#############################PUBLICZNE METODY KLASY############################################
 
-        //Konstruktor standardowy
-        public Film()
-        {
-            dane = new DaneFilmu();
-            //tagi = null;
-            //stareTagi = null;
-        }
-
-        //Konstruktor dowolnego pliku
+        /// <summary>Tworzy obiekt Utwór odpowiedający danemu plikowi filmowemu.</summary>
+        /// <param name="path">Ścieżka pliku.</param>
+        /// <exception cref="FileNotFoundException">Rzucane jeśli podany plik nie istnieje</exception>
         public Film(String path)
         {
+            if (!File.Exists(path))
+                throw new FileNotFoundException(path);
             Sciezka = SciezkaZrodlowa = path;
-            Nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
+            dataFile = new Vlc.DotNet.Core.Medias.PathMedia(path);
+            Nazwa = Path.GetFileNameWithoutExtension(path);
             dane = new DaneFilmu();
             resetujTagi();
             pobierzTagi();
         }
 
-        //Konstruktor dla pliku, który został skopiowany w ramach działania programu
+        /// <summary>Konstruktor dla pliku, który został skopiowany w ramach działania programu</summary>
+        /// <param name="path">Ścieżka pliku skopiowanego</param>
+        /// <param name="source">Ścieżka pliku oryginalnego</param>
+        /// <exception cref="FileNotFoundException">Rzucane jeśli któryś z podanych plików nie istnieje</exception>
         public Film(String path, String source)
         {
+            if (!File.Exists(path))
+                throw new FileNotFoundException(path);
+            if (!File.Exists(source))
+                throw new FileNotFoundException(source);
             SciezkaZrodlowa = source;
             Sciezka = path;
             Nazwa = System.IO.Path.GetFileNameWithoutExtension(path);
+            dataFile = new Vlc.DotNet.Core.Medias.PathMedia(path);
             dane = new DaneFilmu();
             //tagi = 
             //stareTagi = 
@@ -49,29 +60,46 @@ namespace MuseSort
         {
             //Zapisuje dane z obiektu dane do obiektu tagi
             //Uaktualnia dane w obiekcie stareTagi
-            logi += "Zapisano nowe tagi." + Environment.NewLine;
+            try
+            {
+                dataFile.Metadatas.Title = dane.tytul;
+                dataFile.Metadatas.Description = dane.opis;
+                dataFile.Metadatas.Language = dane.jezyk;
+                dataFile.Metadatas.Copyright = dane.rezyser;
+                dataFile.Metadatas.Artist = dane.aktorzy;
+                dataFile.Metadatas.Genre = dane.gatunki;
+                dataFile.Metadatas.Save();
+                logi += "Zapisano nowe tagi." + Environment.NewLine;
+            }
+            catch (Exception e)
+            {
+                logi += "Nastąpił błąd zapisywania tagów: " + e.Message + Environment.NewLine;
+                MessageBox.Show("Nastąpił błąd zapisywania tagów: " + e.Message);
+            }
+            
         }
 
         //Przywraca do obiektu dane informacje z obiektu stareTagi
         public override void przywrocDomyslneTagi()
         {
-            
+            resetujTagi();
             logi += "Anulowano modyfikowanie tagów." + Environment.NewLine;
         }
 
         public override void pobierzTagiZNazwy()
         {
-            //Generuje tagi z nazwy pliku i zapisuje w obiekcie dane
-            //Zmienia wartość zmiennej pobranoZNazwy na true
-            //Do wykonania tej metody wykorzystujemy listę wzorców z obiektu wzorceNazwy
-            foreach (Wzorzec wzor in wzorceNazwy)
-            {
-                if (wzor.czyPasuje(Nazwa))
-                {
-                    pobranoZNazwy = true;
-                }
-            }
-            pobranoZNazwy = false;
+            var wzorzec = wzorceNazwy.Find(w => w.czyPasuje(Nazwa));
+            if (wzorzec == null) return;
+            var dopasowanie = wzorzec.Dopasuj(Nazwa);
+            dane.ZapiszDopasowaneDane(dopasowanie);
+        }
+
+        public override void pobierzTagiZeSciezki()
+        {
+            var wzorzec = wzorceSciezki.Find(w => w.czyPasuje(SciezkaZrodlowa));
+            if (wzorzec == null) return;
+            var dopasowanie = wzorzec.Dopasuj(SciezkaZrodlowa);
+            dane.ZapiszDopasowaneDane(dopasowanie);
         }
 
         //Na podstawie danych w obiekcie dane tworzy nową nazwę pliku
@@ -80,6 +108,7 @@ namespace MuseSort
             String nowaNazwa = "";
             
             logi += "Wygenerowano nową nazwę: " + nowaNazwa + Environment.NewLine;
+            nowaNazwa = Normalizuj(nowaNazwa);
             return nowaNazwa;
         }
 
@@ -90,7 +119,7 @@ namespace MuseSort
         /// <summary>Pobieranie tagów z obiektu tagi i zapisywanie w obiekcie dane</summary>
         private void pobierzTagi()
         {
-            
+            resetujTagi();
         }
 
         #endregion
@@ -100,7 +129,12 @@ namespace MuseSort
         /// Jeszcze nie zaimplementowane.</summary>
         protected override void resetujTagi()
         {
-            
+            dane.tytul = Normalizuj(dataFile.Metadatas.Title);
+            dane.opis = Normalizuj(dataFile.Metadatas.Description);
+            dane.jezyk = Normalizuj(dataFile.Metadatas.Language);
+            dane.rezyser = Normalizuj(dataFile.Metadatas.Copyright);
+            dane.aktorzy = Normalizuj(dataFile.Metadatas.Artist);
+            dane.gatunki = Normalizuj(dataFile.Metadatas.Genre);
         }
 
 
@@ -148,5 +182,14 @@ namespace MuseSort
         }
 
         #endregion
+
+        public override string ToString()
+        {
+            var stringRepresentation =
+                string.Format(
+                    "{0}\nTytul: {1}\nJezyk: {2}\nReżyser: {3}\nGatunek: {4}\nAktorzy: {5}\nOpis: {6}",
+                    Sciezka, dane.tytul, dane.jezyk, dane.rezyser, dane.gatunki, dane.aktorzy, dane.opis);
+            return stringRepresentation;
+        }
     }
 }
