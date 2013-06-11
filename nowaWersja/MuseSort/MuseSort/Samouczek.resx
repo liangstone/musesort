@@ -120,9 +120,6 @@
   <data name="label5.Text" xml:space="preserve">
     <value>Sortuj pliki - po zaznaczeniu odpowiedniego folderu do sortowania w widoku folderu, program sortuje pliki w tym folderze według schematu wybranego przez Ciebie w konfiguracji, którą możesz zmienić w ustawieniach</value>
   </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Dodaj plik do folderu glównego - odpowiada za dodanie pliku do głównego folderu, który ustalamy na początku w konfiguracji i który możemy potem zmienić w ustawieniach. Dodajemy go tak, aby folder był nadal posortowany</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
