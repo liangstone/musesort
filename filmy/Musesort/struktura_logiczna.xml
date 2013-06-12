@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<body>
+  <schemat>Rezyser\Tytul</schemat>
+  <folder>
+    <nazwa>Musesort</nazwa>
+    <folder>
+      <nazwa>Filmy</nazwa>
+      <folder>
+        <nazwa>Posegregowane</nazwa>
+        <folder>
+          <nazwa>Baz Luhrmann</nazwa>
+          <folder>
+            <nazwa>The Great Gatsby</nazwa>
+            <plik>
+              <nazwa>Film4.mov</nazwa>
+            </plik>
+          </folder>
+        </folder>
+        <folder>
+          <nazwa>John Moore</nazwa>
+          <folder>
+            <nazwa>A Good Day to Die Hard</nazwa>
+            <plik>
+              <nazwa>Film9.mov</nazwa>
+            </plik>
+          </folder>
+        </folder>
+        <folder>
+          <nazwa>Jonathan Levine</nazwa>
+          <folder>
+            <nazwa>Warm Bodies</nazwa>
+            <plik>
+              <nazwa>Film8.mov</nazwa>
+            </plik>
+          </folder>
+        </folder>
+        <folder>
+          <nazwa>Katsuhiro Otomo</nazwa>
+          <folder>
+            <nazwa>Akira</nazwa>
+            <plik>
+              <nazwa>Film1.mov</nazwa>
+            </plik>
+          </folder>
+        </folder>
+        <folder>
+          <nazwa>Sam Raimi</nazwa>
+          <folder>
+            <nazwa>Evil Dead</nazwa>
+            <plik>
+              <nazwa>Film6.mov</nazwa>
+            </plik>
+          </folder>
+          <folder>
+            <nazwa>Oz the Great and Powerful</nazwa>
+            <plik>
+              <nazwa>Film7.mov</nazwa>
+            </plik>
+          </folder>
+        </folder>
+        <folder>
+          <nazwa>Shane Black</nazwa>
+          <folder>
+            <nazwa>Iron Man 3</nazwa>
+            <plik>
+              <nazwa>Film5.mov</nazwa>
+            </plik>
+          </folder>
+        </folder>
+        <folder>
+          <nazwa>Wachowski Brothers</nazwa>
+          <folder>
+            <nazwa>Matrix</nazwa>
+            <plik>
+              <nazwa>Film10.mov</nazwa>
+            </plik>
+          </folder>
+          <folder>
+            <nazwa>Matrix Reloaded</nazwa>
+            <plik>
+              <nazwa>Film2.mov</nazwa>
+            </plik>
+          </folder>
+          <folder>
+            <nazwa>Matrix Revolutions</nazwa>
+            <plik>
+              <nazwa>Film3.mov</nazwa>
+            </plik>
+          </folder>
+        </folder>
+      </folder>
+    </folder>
+    <folder>
+      <nazwa>Temp</nazwa>
+    </folder>
+  </folder>
+</body>
